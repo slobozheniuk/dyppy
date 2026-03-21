@@ -1,0 +1,44 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  }
+
+  body {
+    @apply font-body text-on-surface bg-surface antialiased;
+  }
+
+  h1, h2, h3, .font-headline {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass-nav {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .elo-gradient {
+    background: linear-gradient(135deg, #af101a 0%, #d32f2f 100%);
+  }
+  .asymmetric-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 2rem;
+  }
+  @media (max-width: 1024px) {
+    .asymmetric-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
