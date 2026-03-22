@@ -5,9 +5,10 @@ import profilesData from './data/profileData.json';
 
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
+import PlayerSearch from './components/PlayerSearch.jsx';
 
 const Hero = () => (
-  <section className="relative px-6 pt-6 pb-12">
+  <section className="relative z-20 px-6 pt-6 pb-12">
     <div className="absolute inset-0 z-0 opacity-10">
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary blur-[120px] rounded-full"></div>
       <div className="absolute -bottom-32 right-1/4 w-[500px] h-[500px] bg-secondary blur-[120px] rounded-full"></div>
@@ -17,21 +18,7 @@ const Hero = () => (
         The Pulse of <span className="text-primary italic">NRW Foosball</span>
       </h1>
 
-      <div className="relative max-w-2xl mx-auto group">
-        <div className="absolute inset-y-0 left-5 flex items-center pointer-events-none">
-          <span className="material-symbols-outlined text-outline">search</span>
-        </div>
-        <input
-          className="w-full pl-14 pr-6 py-5 bg-surface-container-low border-none rounded-2xl focus:ring-2 focus:ring-primary text-lg shadow-xl shadow-primary/5 placeholder:text-zinc-400 transition-all"
-          placeholder="Find your rank. Search players."
-          type="text"
-        />
-        <div className="absolute inset-y-2 right-2">
-          <button className="h-full px-6 bg-primary text-on-primary rounded-xl font-bold flex items-center gap-2 transition-transform active:scale-95">
-            Search
-          </button>
-        </div>
-      </div>
+      <PlayerSearch />
     </div>
   </section>
 );
