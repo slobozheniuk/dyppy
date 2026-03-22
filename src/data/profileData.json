@@ -1,0 +1,234 @@
+[
+  {
+    "id": "1",
+    "name": "Lukas \"The Wall\" Weber",
+    "avatar": "https://lh3.googleusercontent.com/aida-public/AB6AXuCvKAbfM71PPwdp5ozzqR8Yfo0MTJcr6CIDUt1kaRyybjE8201mODnxQ4tFnk4ZB-IAp1rGwh3No9Ujro_CC_kI9OoKgo71MQL0_np9g7nawLh1iN6vx41wjIciUEC0A3GPgtzVU--8RM9NVIvSOg5eRpmQwRvfBYZ8GOBQMB2CvoGAwnZA1fL0wqW_aCGI_srlLV1lAZFo3o7pjubiNUadAjQjWXtNIZVihgYD-rowUp8CNJdjD4lU4REDPPdOkqjlSSbLnrRgUA",
+    "tier": "Pro Tier",
+    "rankingTitle": "Top 10 NRW",
+    "arena": "Rhein-Westphalia Arena",
+    "elo": {
+      "main": "1,892",
+      "winRate": 74,
+      "dyp": {
+        "score": "1,482",
+        "diff": "+12"
+      },
+      "single": {
+        "score": "1,540",
+        "diff": "-5"
+      },
+      "pair": {
+        "score": "1,721",
+        "diff": "+42"
+      }
+    },
+    "trend": {
+      "peak": "1,910 Elo",
+      "growth": "+2.4% / mo"
+    },
+    "events": [
+      {
+        "title": "West Masters",
+        "time": "Starts in 3 days"
+      }
+    ],
+    "matches": [
+      {
+        "id": 1,
+        "date": "Oct 24, 2024",
+        "type": "Single",
+        "diff": "+14",
+        "diffType": "positive",
+        "score": "10 - 7",
+        "team1": [
+          {
+            "name": "Lukas Weber",
+            "img": "https://lh3.googleusercontent.com/aida-public/AB6AXuCvKAbfM71PPwdp5ozzqR8Yfo0MTJcr6CIDUt1kaRyybjE8201mODnxQ4tFnk4ZB-IAp1rGwh3No9Ujro_CC_kI9OoKgo71MQL0_np9g7nawLh1iN6vx41wjIciUEC0A3GPgtzVU--8RM9NVIvSOg5eRpmQwRvfBYZ8GOBQMB2CvoGAwnZA1fL0wqW_aCGI_srlLV1lAZFo3o7pjubiNUadAjQjWXtNIZVihgYD-rowUp8CNJdjD4lU4REDPPdOkqjlSSbLnrRgUA"
+          }
+        ],
+        "team2": [
+          {
+            "name": "Marcus Klein",
+            "img": "https://lh3.googleusercontent.com/aida-public/AB6AXuDfEwsxcnlab3a2g2aX4__L2jpmfrQkQ_5jN_QDtez0KEZEQSNw1JtLP2ssIHgMDi-CQplSYpZ_GEF1krAuXD4mkHAqiuUDnNGZcRMwfNqEZA4OLgqpOtM_jG9z1plEuCyOfdXzJ6MeS1hbpQtRF7ypm9SfLfsbE6BV3VBzN_2DG-Q78M8DX5vovGNAzDIdiGir8BbPOUZhlqRkGrke0cfx0-DuBffA-GpuYoW6stvku05i3CFPf7rMpa3TQq5PiZwDyzNi6aELvQ"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "date": "Oct 22, 2024",
+        "type": "DYP",
+        "diff": "+8",
+        "diffType": "positive",
+        "score": "10 - 4",
+        "team1": [
+          {
+            "name": "Lukas Weber",
+            "img": "https://lh3.googleusercontent.com/aida-public/AB6AXuCvKAbfM71PPwdp5ozzqR8Yfo0MTJcr6CIDUt1kaRyybjE8201mODnxQ4tFnk4ZB-IAp1rGwh3No9Ujro_CC_kI9OoKgo71MQL0_np9g7nawLh1iN6vx41wjIciUEC0A3GPgtzVU--8RM9NVIvSOg5eRpmQwRvfBYZ8GOBQMB2CvoGAwnZA1fL0wqW_aCGI_srlLV1lAZFo3o7pjubiNUadAjQjWXtNIZVihgYD-rowUp8CNJdjD4lU4REDPPdOkqjlSSbLnrRgUA"
+          },
+          {
+            "name": "Elena Fischer",
+            "img": "https://lh3.googleusercontent.com/aida-public/AB6AXuDfP2q0FTAMpcSrFC6OYV4Hd0EfSumAVovbCcrme7dE0IqUv9llKTBiDDw5EJlsXvmQoXw4AFZd_f6WsjrYxWZnnLZqOIp8Z0PFgTUukng-A7ZNuRa4Pp-vKqwOq-1qHd-oT9vttqu5GRsbtsh313x80Y-lXmAmyPR5ruHV03r1tr-If0snhRjbVCvrUQe6kJnGwLRr3vZrhD2WH6o3BgpuORb8rsSeSMTW_tAQ7Ay_5gm09yM51IbgWY5M2l7ygRwQ54iv2rZZYw"
+          }
+        ],
+        "team2": [
+          {
+            "name": "S. Baum",
+            "img": "https://lh3.googleusercontent.com/aida-public/AB6AXuCOOzz_L93sQZI33xZiy9KKZCiJ-ddJMkZEqIm3ZAa538zKEyZ7DZfO8mz-M0WFLPeneNgqrHIBExo-gaTDfCqmGieZMo71Wx69XbqkUycXin60xnkJ7vkIcs9LcrZS3zbPFFYvz6GATz0jYQzOnv22xGB4BzbzfNgWSEorrD8eD5P6ZsMvS6ghw7L-SaekTal-MwPW2vAys4j_FpktK933f1DLKTCt0T0tdhaJ4dlZlfFEEebK0HT63kQwXyo1Gm22j_DiJUO_Pw"
+          },
+          {
+            "name": "M. Klein",
+            "img": "https://lh3.googleusercontent.com/aida-public/AB6AXuDfEwsxcnlab3a2g2aX4__L2jpmfrQkQ_5jN_QDtez0KEZEQSNw1JtLP2ssIHgMDi-CQplSYpZ_GEF1krAuXD4mkHAqiuUDnNGZcRMwfNqEZA4OLgqpOtM_jG9z1plEuCyOfdXzJ6MeS1hbpQtRF7ypm9SfLfsbE6BV3VBzN_2DG-Q78M8DX5vovGNAzDIdiGir8BbPOUZhlqRkGrke0cfx0-DuBffA-GpuYoW6stvku05i3CFPf7rMpa3TQq5PiZwDyzNi6aELvQ"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "date": "Oct 20, 2024",
+        "type": "Double",
+        "diff": "-12",
+        "diffType": "negative",
+        "score": "8 - 10",
+        "team1": [
+          {
+            "name": "Lukas Weber",
+            "img": "https://lh3.googleusercontent.com/aida-public/AB6AXuCvKAbfM71PPwdp5ozzqR8Yfo0MTJcr6CIDUt1kaRyybjE8201mODnxQ4tFnk4ZB-IAp1rGwh3No9Ujro_CC_kI9OoKgo71MQL0_np9g7nawLh1iN6vx41wjIciUEC0A3GPgtzVU--8RM9NVIvSOg5eRpmQwRvfBYZ8GOBQMB2CvoGAwnZA1fL0wqW_aCGI_srlLV1lAZFo3o7pjubiNUadAjQjWXtNIZVihgYD-rowUp8CNJdjD4lU4REDPPdOkqjlSSbLnrRgUA"
+          },
+          {
+            "name": "Partner X",
+            "img": ""
+          }
+        ],
+        "team2": [
+          {
+            "name": "Stefan Baum",
+            "img": "https://lh3.googleusercontent.com/aida-public/AB6AXuC7DO_B9lsqV9rcrn4uBAw5U8wH_3u22XifYUb0XNl6EBvDiu0e34f4E6qK_adYirKOKOImiMojKFIMLwUYPu9JzTcEOK12IXdU19yt-uTW452ZIozgYQcH0lYT-i9SJ_TyHB1kOEpmys__uz3glEwzK_uNmrlTpo9q2BejHDohfZLpKqwuwjszVC8i76N-Qywj5tyH9s-qElypGBv8TXOy-k-3liiP_Pi-GBp-UcfDYyWGKoTCRvOz74NAWg0e8R_zU1znDmdzYQ"
+          },
+          {
+            "name": "Opponent 2",
+            "img": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Sarah Müller",
+    "avatar": "https://lh3.googleusercontent.com/aida-public/AB6AXuBrFNAm2D0R3PwxEzFG7VG0WhIBEulcbIEdtCpQdQpwBrPvOtUteIrQUT1mi8p2AdlX9_XdlN_kMMlevL1j6gwtdiRJdETMWEieKzbvtD5RXH3PYbdf-9apMaZ2Dkh60li-c-vfQs7BWPMcljhLmwrCtU1r-YrCmYMdfFd1D8DKTJfnlEzvRK6yeuZ7ZwvVkNJiA_K1wiJgFI-ZyParvgyxe0Eyh4Q_JaT51QYE_f0C9WM7bTZ3UIPqUEpuO1pMrqz9wNGucEq2rg",
+    "tier": "Pro Elite",
+    "rankingTitle": "Top 2 NRW",
+    "arena": "Köln Kicker Zunft",
+    "elo": {
+      "main": "2,795",
+      "winRate": 81,
+      "dyp": {
+        "score": "2,150",
+        "diff": "+18"
+      },
+      "single": {
+        "score": "2,500",
+        "diff": "+10"
+      },
+      "pair": {
+        "score": "2,840",
+        "diff": "+20"
+      }
+    },
+    "trend": {
+      "peak": "2,810 Elo",
+      "growth": "+5.2% / mo"
+    },
+    "events": [],
+    "matches": []
+  },
+  {
+    "id": "3",
+    "name": "Marc Weber",
+    "avatar": "https://lh3.googleusercontent.com/aida-public/AB6AXuDshEuNCNx7Uju0Rn_o_h4hKYKpVrcCTxpKFhtQNaTGahM-XNwD62dSAk84WtU9d1pH_IiGyFFocZBuSyPCwcxw7CgtdzGXHwiZumHbWgh5jZunHIMLbug9QfaUhpqw4Onu5RhoqcmGPv_adKpaqUvYdnjqGK0x-KurUO2gTQlfJVNLQZ73WuuPQx66rVUftgSDcGtmA2pRG6y5h5tuo9r-8ukkjzbnbVYl6MWqdAxexpuMHNBLi0zivDpPtcoryPiuqfYxmh8tGg",
+    "tier": "Elite",
+    "rankingTitle": "Top 3 NRW",
+    "arena": "Tischfussball Münster",
+    "elo": {
+      "main": "2,751",
+      "winRate": 78,
+      "dyp": {
+        "score": "2,050",
+        "diff": "-5"
+      },
+      "single": {
+        "score": "2,420",
+        "diff": "+14"
+      },
+      "pair": {
+        "score": "2,690",
+        "diff": "+11"
+      }
+    },
+    "trend": {
+      "peak": "2,760 Elo",
+      "growth": "+1.8% / mo"
+    },
+    "events": [],
+    "matches": []
+  },
+  {
+    "id": "4",
+    "name": "Elena Fischer",
+    "avatar": "https://lh3.googleusercontent.com/aida-public/AB6AXuAcv-2iFkMYucURUO6Y9aoyspvkj--BMmhOv9QtOb1RlcPlxUcVsoKpfK7sUqpQ3qQz_7Fwr7_lfabN9DWtbXpb_lNDNbIfJNYlHysWfrlO8gC46U-ILUnzbYXuVSp4tXO1UiM1CtWs-j2nHVUqzZ19zXfQyG7mMLdwqkgeIsmejw3NlGpE5m9_4QnoEOeocNFLSFhQZEfknPWJcm4dLvwH5Xkkyy735EvUGRspQp-mkYlJNoKyDHwwAzsxTIUnanftbLHebrjfgA",
+    "tier": "Elite",
+    "rankingTitle": "Top 4 NRW",
+    "arena": "Düsseldorf Table Soccer",
+    "elo": {
+      "main": "2,688",
+      "winRate": 72,
+      "dyp": {
+        "score": "1,980",
+        "diff": "+24"
+      },
+      "single": {
+        "score": "2,350",
+        "diff": "+8"
+      },
+      "pair": {
+        "score": "2,600",
+        "diff": "-12"
+      }
+    },
+    "trend": {
+      "peak": "2,705 Elo",
+      "growth": "+3.1% / mo"
+    },
+    "events": [],
+    "matches": []
+  },
+  {
+    "id": "5",
+    "name": "Jan Hoffmann",
+    "avatar": "https://lh3.googleusercontent.com/aida-public/AB6AXuBJ-Gnt_K-owmvnkc937kBdtjKOQ7_kCxwqzbyrLzjhCtw9bZfuIgQ6I8Zk7M8GNSYkDRrn3V4LMF2menmZ84kX1YKyDzAm_3pjA_B6vKGJgZd57HiQ8hKf2d9mPzpOe5mfeNnm9LQN9smanRSbfKyopC4TN-KmyjHNRMJQDU7uvjOuNP2bjqhvww49hQSoz5tYNLQFXATpCeZCenCgsJR2tg4hjVq84Gt-b3fKMm3D5EFXDzsH8AVrwr_KMApvOR9tNJ-T69IYhQ",
+    "tier": "Elite",
+    "rankingTitle": "Top 5 NRW",
+    "arena": "Essen Kickers 04",
+    "elo": {
+      "main": "2,642",
+      "winRate": 68,
+      "dyp": {
+        "score": "1,920",
+        "diff": "-10"
+      },
+      "single": {
+        "score": "2,280",
+        "diff": "+15"
+      },
+      "pair": {
+        "score": "2,550",
+        "diff": "+8"
+      }
+    },
+    "trend": {
+      "peak": "2,650 Elo",
+      "growth": "+1.1% / mo"
+    },
+    "events": [],
+    "matches": []
+  }
+]
