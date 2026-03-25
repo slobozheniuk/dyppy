@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
-    "test:parser": "vitest run src/data-parser/tests/integration.test.ts"
+    "test:parser": "vitest run src/data-parser/tests/integration.test.ts",
+    "export-data": "npx -y tsx src/data-parser/export-data.ts"
   },
   "dependencies": {
     "cheerio": "^1.2.0",
