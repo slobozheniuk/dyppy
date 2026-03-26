@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import tournamentsData from './data/tournaments.json';
 import playersData from './data/players.json';
 import Header from './components/Header.jsx';
@@ -6,6 +7,7 @@ import Footer from './components/Footer.jsx';
 
 
 const TournamentRow = ({ tournament }) => {
+  const navigate = useNavigate();
   const getWinner = () => {
     const firstPlace = tournament.mainRound?.finalPlacements?.find(p => p.rank === 1);
     if (!firstPlace) return null;
@@ -32,7 +34,10 @@ const TournamentRow = ({ tournament }) => {
   const isLive = tournament.date === new Date().toLocaleDateString('de-DE');
 
   return (
-    <tr className={`group hover:bg-white transition-all cursor-pointer ${isLive ? 'border-l-4 border-primary' : ''}`}>
+    <tr
+      onClick={() => navigate(`/tournament/${tournament.id}`)}
+      className={`group hover:bg-white transition-all cursor-pointer ${isLive ? 'border-l-4 border-primary' : ''}`}
+    >
       <td className="px-8 py-6">
         <div className="flex items-center gap-6">
           <div className="flex flex-col items-start">
