@@ -1,0 +1,7356 @@
+[
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Brenn, Karl",
+        "nwtfvId": 9653
+      },
+      "player2": {
+        "name": "Wirtz, Christian",
+        "nwtfvId": 10158
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Schmidt, Heinrich"
+      },
+      "player2": {
+        "name": "Mann, Michael-Moritz",
+        "nwtfvId": 9652
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6276,
+    "skillLevel": "Pro",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Sting, Tobias",
+        "nwtfvId": 504
+      },
+      "player2": {
+        "name": "Sebold, Klaus",
+        "nwtfvId": 9172
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Brenn, Karl",
+        "nwtfvId": 9653
+      },
+      "player2": {
+        "name": "Wirtz, Christian",
+        "nwtfvId": 10158
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6276,
+    "skillLevel": "Pro",
+    "stageName": "Halbfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Reif, Volker",
+        "nwtfvId": 330
+      },
+      "player2": {
+        "name": "Kürten, Alladin",
+        "nwtfvId": 230
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Rode, Kersten",
+        "nwtfvId": 341
+      },
+      "player2": {
+        "name": "Karadag, Safabey",
+        "nwtfvId": 207
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6276,
+    "skillLevel": "Pro",
+    "stageName": "Halbfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Brenn, Karl",
+        "nwtfvId": 9653
+      },
+      "player2": {
+        "name": "Wirtz, Christian",
+        "nwtfvId": 10158
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Rode, Kersten",
+        "nwtfvId": 341
+      },
+      "player2": {
+        "name": "Karadag, Safabey",
+        "nwtfvId": 207
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6276,
+    "skillLevel": "Pro",
+    "stageName": "Platz 3"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Sting, Tobias",
+        "nwtfvId": 504
+      },
+      "player2": {
+        "name": "Sebold, Klaus",
+        "nwtfvId": 9172
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Reif, Volker",
+        "nwtfvId": 330
+      },
+      "player2": {
+        "name": "Kürten, Alladin",
+        "nwtfvId": 230
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6276,
+    "skillLevel": "Pro",
+    "stageName": "Finale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Rissmann, Mario",
+        "nwtfvId": 7815
+      },
+      "player2": {
+        "name": "Friedrichs, Lars",
+        "nwtfvId": 8645
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Anger, Tim",
+        "nwtfvId": 9655
+      },
+      "player2": {
+        "name": "Frank, Christian"
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6276,
+    "skillLevel": "Amateur",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Lipfert, Jan",
+        "nwtfvId": 8911
+      },
+      "player2": {
+        "name": "Hoss, Michael",
+        "nwtfvId": 10043
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Rissmann, Mario",
+        "nwtfvId": 7815
+      },
+      "player2": {
+        "name": "Friedrichs, Lars",
+        "nwtfvId": 8645
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6276,
+    "skillLevel": "Amateur",
+    "stageName": "Halbfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Borgolte, Chris",
+        "nwtfvId": 41
+      },
+      "player2": {
+        "name": "Wirths, Jan Arne",
+        "nwtfvId": 9948
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Krämer, Stephanie",
+        "nwtfvId": 7324
+      },
+      "player2": {
+        "name": "Daniel, Tanja"
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6276,
+    "skillLevel": "Amateur",
+    "stageName": "Halbfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Rissmann, Mario",
+        "nwtfvId": 7815
+      },
+      "player2": {
+        "name": "Friedrichs, Lars",
+        "nwtfvId": 8645
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Krämer, Stephanie",
+        "nwtfvId": 7324
+      },
+      "player2": {
+        "name": "Daniel, Tanja"
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6276,
+    "skillLevel": "Amateur",
+    "stageName": "Platz 3"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Lipfert, Jan",
+        "nwtfvId": 8911
+      },
+      "player2": {
+        "name": "Hoss, Michael",
+        "nwtfvId": 10043
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Borgolte, Chris",
+        "nwtfvId": 41
+      },
+      "player2": {
+        "name": "Wirths, Jan Arne",
+        "nwtfvId": 9948
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6276,
+    "skillLevel": "Amateur",
+    "stageName": "Finale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Borgolte, Chris",
+        "nwtfvId": 41
+      },
+      "player2": {
+        "name": "Wirths, Jan Arne",
+        "nwtfvId": 9948
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Rissmann, Mario",
+        "nwtfvId": 7815
+      },
+      "player2": {
+        "name": "Friedrichs, Lars",
+        "nwtfvId": 8645
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6276,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Tegtmeier, Timo",
+        "nwtfvId": 9586
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Telaar, Franz-Josef",
+        "nwtfvId": 9109
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Pro",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Seele, Niklas",
+        "nwtfvId": 9640
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Regener, Michael"
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Pro",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Meyer, Dominik",
+        "nwtfvId": 8722
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Roth, Alexander",
+        "nwtfvId": 8755
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Pro",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Luttmann, Robert",
+        "nwtfvId": 8000
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Pützschler, Werner",
+        "nwtfvId": 8830
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Pro",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Tegtmeier, Timo",
+        "nwtfvId": 9586
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Seele, Niklas",
+        "nwtfvId": 9640
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Pro",
+    "stageName": "Halbfinale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Meyer, Dominik",
+        "nwtfvId": 8722
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Luttmann, Robert",
+        "nwtfvId": 8000
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Pro",
+    "stageName": "Halbfinale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Seele, Niklas",
+        "nwtfvId": 9640
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Luttmann, Robert",
+        "nwtfvId": 8000
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Pro",
+    "stageName": "Platz 3"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Tegtmeier, Timo",
+        "nwtfvId": 9586
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Meyer, Dominik",
+        "nwtfvId": 8722
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Pro",
+    "stageName": "Finale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Lück, Helmut",
+        "nwtfvId": 8832
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Niemeyer, Martin",
+        "nwtfvId": 9638
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Amateur",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Köstring Macena da Silva, Tobias",
+        "nwtfvId": 10140
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Scheidel, Peter"
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Amateur",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Weber, Dean",
+        "nwtfvId": 9755
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Wolf, Klaus"
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Amateur",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Scheidel, Norbert",
+        "nwtfvId": 8955
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Carstensen, Uwe",
+        "nwtfvId": 8995
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Amateur",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Köstring Macena da Silva, Tobias",
+        "nwtfvId": 10140
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Lück, Helmut",
+        "nwtfvId": 8832
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Amateur",
+    "stageName": "Halbfinale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Scheidel, Norbert",
+        "nwtfvId": 8955
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Weber, Dean",
+        "nwtfvId": 9755
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Amateur",
+    "stageName": "Halbfinale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Lück, Helmut",
+        "nwtfvId": 8832
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Weber, Dean",
+        "nwtfvId": 9755
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Amateur",
+    "stageName": "Platz 3"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Scheidel, Norbert",
+        "nwtfvId": 8955
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Köstring Macena da Silva, Tobias",
+        "nwtfvId": 10140
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Amateur",
+    "stageName": "Finale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Meyer, Dominik",
+        "nwtfvId": 8722
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Köstring Macena da Silva, Tobias",
+        "nwtfvId": 10140
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Luttmann, Robert",
+        "nwtfvId": 8000
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Seele, Niklas",
+        "nwtfvId": 9640
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Regener, Michael"
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Carstensen, Uwe",
+        "nwtfvId": 8995
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Scheidel, Norbert",
+        "nwtfvId": 8955
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Scheidel, Peter"
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Pützschler, Werner",
+        "nwtfvId": 8830
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Weber, Dean",
+        "nwtfvId": 9755
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Lück, Helmut",
+        "nwtfvId": 8832
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Niemeyer, Martin",
+        "nwtfvId": 9638
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Roth, Alexander",
+        "nwtfvId": 8755
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Telaar, Franz-Josef",
+        "nwtfvId": 9109
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Tegtmeier, Timo",
+        "nwtfvId": 9586
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Wolf, Klaus"
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Meyer, Dominik",
+        "nwtfvId": 8722
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Scheidel, Norbert",
+        "nwtfvId": 8955
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Pützschler, Werner",
+        "nwtfvId": 8830
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Lück, Helmut",
+        "nwtfvId": 8832
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Tegtmeier, Timo",
+        "nwtfvId": 9586
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Regener, Michael"
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Seele, Niklas",
+        "nwtfvId": 9640
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Carstensen, Uwe",
+        "nwtfvId": 8995
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Luttmann, Robert",
+        "nwtfvId": 8000
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Köstring Macena da Silva, Tobias",
+        "nwtfvId": 10140
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Weber, Dean",
+        "nwtfvId": 9755
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Scheidel, Peter"
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Niemeyer, Martin",
+        "nwtfvId": 9638
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Telaar, Franz-Josef",
+        "nwtfvId": 9109
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Roth, Alexander",
+        "nwtfvId": 8755
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Wolf, Klaus"
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Pützschler, Werner",
+        "nwtfvId": 8830
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Meyer, Dominik",
+        "nwtfvId": 8722
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Tegtmeier, Timo",
+        "nwtfvId": 9586
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Luttmann, Robert",
+        "nwtfvId": 8000
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Roth, Alexander",
+        "nwtfvId": 8755
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Seele, Niklas",
+        "nwtfvId": 9640
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Weber, Dean",
+        "nwtfvId": 9755
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Lück, Helmut",
+        "nwtfvId": 8832
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Regener, Michael"
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Niemeyer, Martin",
+        "nwtfvId": 9638
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Telaar, Franz-Josef",
+        "nwtfvId": 9109
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Scheidel, Norbert",
+        "nwtfvId": 8955
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Köstring Macena da Silva, Tobias",
+        "nwtfvId": 10140
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Wolf, Klaus"
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Carstensen, Uwe",
+        "nwtfvId": 8995
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Scheidel, Peter"
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Tegtmeier, Timo",
+        "nwtfvId": 9586
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Pützschler, Werner",
+        "nwtfvId": 8830
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Meyer, Dominik",
+        "nwtfvId": 8722
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Roth, Alexander",
+        "nwtfvId": 8755
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Luttmann, Robert",
+        "nwtfvId": 8000
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Weber, Dean",
+        "nwtfvId": 9755
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Regener, Michael"
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Telaar, Franz-Josef",
+        "nwtfvId": 9109
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Seele, Niklas",
+        "nwtfvId": 9640
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Niemeyer, Martin",
+        "nwtfvId": 9638
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Köstring Macena da Silva, Tobias",
+        "nwtfvId": 10140
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Lück, Helmut",
+        "nwtfvId": 8832
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Scheidel, Norbert",
+        "nwtfvId": 8955
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Carstensen, Uwe",
+        "nwtfvId": 8995
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Scheidel, Peter"
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Wolf, Klaus"
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Tegtmeier, Timo",
+        "nwtfvId": 9586
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Meyer, Dominik",
+        "nwtfvId": 8722
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Luttmann, Robert",
+        "nwtfvId": 8000
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Roth, Alexander",
+        "nwtfvId": 8755
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Seele, Niklas",
+        "nwtfvId": 9640
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Pützschler, Werner",
+        "nwtfvId": 8830
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Regener, Michael"
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Weber, Dean",
+        "nwtfvId": 9755
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Telaar, Franz-Josef",
+        "nwtfvId": 9109
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Köstring Macena da Silva, Tobias",
+        "nwtfvId": 10140
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Niemeyer, Martin",
+        "nwtfvId": 9638
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Scheidel, Peter"
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Scheidel, Norbert",
+        "nwtfvId": 8955
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Lück, Helmut",
+        "nwtfvId": 8832
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Wolf, Klaus"
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Carstensen, Uwe",
+        "nwtfvId": 8995
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6574,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "König, Kyrill",
+        "nwtfvId": 8125
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Buitelaar, Tim",
+        "nwtfvId": 7510
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Pro",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Dombrowe, Jens",
+        "nwtfvId": 8210
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Oudaah, Ahmed",
+        "nwtfvId": 9832
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Pro",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Klemm, Markus",
+        "nwtfvId": 9741
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "König, Kyrill",
+        "nwtfvId": 8125
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Pro",
+    "stageName": "Halbfinale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Fotteler, Andreas"
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Dombrowe, Jens",
+        "nwtfvId": 8210
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Pro",
+    "stageName": "Halbfinale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "König, Kyrill",
+        "nwtfvId": 8125
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Dombrowe, Jens",
+        "nwtfvId": 8210
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Pro",
+    "stageName": "Platz 3"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Fotteler, Andreas"
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Klemm, Markus",
+        "nwtfvId": 9741
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Pro",
+    "stageName": "Finale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Beringhoff, Arno",
+        "nwtfvId": 27
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Roßmann, Walter",
+        "nwtfvId": 7918
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Amateur",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Müller, Christian",
+        "nwtfvId": 10077
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Hildebrandt, Andre",
+        "nwtfvId": 9842
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Amateur",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Beringhoff, Arno",
+        "nwtfvId": 27
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Roekens, Sebastian",
+        "nwtfvId": 8757
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Amateur",
+    "stageName": "Halbfinale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Müller, Christian",
+        "nwtfvId": 10077
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Bubolz, Andreas",
+        "nwtfvId": 9728
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Amateur",
+    "stageName": "Halbfinale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Beringhoff, Arno",
+        "nwtfvId": 27
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Müller, Christian",
+        "nwtfvId": 10077
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Amateur",
+    "stageName": "Finale"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Beringhoff, Arno",
+        "nwtfvId": 27
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Czerny, Florian",
+        "nwtfvId": 9855
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Roßmann, Walter",
+        "nwtfvId": 7918
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Czerny, Luis",
+        "nwtfvId": 9980
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Dombrowe, Jens",
+        "nwtfvId": 8210
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Bubolz, Andreas",
+        "nwtfvId": 9728
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Fotteler, Andreas"
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Schulz, Thomas",
+        "nwtfvId": 9955
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Buitelaar, Tim",
+        "nwtfvId": 7510
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Roekens, Sebastian",
+        "nwtfvId": 8757
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "König, Kyrill",
+        "nwtfvId": 8125
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Müller, Christian",
+        "nwtfvId": 10077
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Hildebrandt, Andre",
+        "nwtfvId": 9842
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Duèmmer, Marco",
+        "nwtfvId": 9055
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Oudaah, Ahmed",
+        "nwtfvId": 9832
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Maruszczyk, Karin",
+        "nwtfvId": 10145
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Dombrowe, Jens",
+        "nwtfvId": 8210
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Klemm, Markus",
+        "nwtfvId": 9741
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Roßmann, Walter",
+        "nwtfvId": 7918
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Fotteler, Andreas"
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "König, Kyrill",
+        "nwtfvId": 8125
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Beringhoff, Arno",
+        "nwtfvId": 27
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Oudaah, Ahmed",
+        "nwtfvId": 9832
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Hildebrandt, Andre",
+        "nwtfvId": 9842
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Müller, Christian",
+        "nwtfvId": 10077
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Buitelaar, Tim",
+        "nwtfvId": 7510
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Roekens, Sebastian",
+        "nwtfvId": 8757
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Czerny, Luis",
+        "nwtfvId": 9980
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Duèmmer, Marco",
+        "nwtfvId": 9055
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Bubolz, Andreas",
+        "nwtfvId": 9728
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Czerny, Florian",
+        "nwtfvId": 9855
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Schulz, Thomas",
+        "nwtfvId": 9955
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Dombrowe, Jens",
+        "nwtfvId": 8210
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Oudaah, Ahmed",
+        "nwtfvId": 9832
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Hildebrandt, Andre",
+        "nwtfvId": 9842
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Roßmann, Walter",
+        "nwtfvId": 7918
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Fotteler, Andreas"
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "König, Kyrill",
+        "nwtfvId": 8125
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Beringhoff, Arno",
+        "nwtfvId": 27
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Müller, Christian",
+        "nwtfvId": 10077
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Buitelaar, Tim",
+        "nwtfvId": 7510
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Maruszczyk, Karin",
+        "nwtfvId": 10145
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Klemm, Markus",
+        "nwtfvId": 9741
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Duèmmer, Marco",
+        "nwtfvId": 9055
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Roekens, Sebastian",
+        "nwtfvId": 8757
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Czerny, Florian",
+        "nwtfvId": 9855
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Czerny, Luis",
+        "nwtfvId": 9980
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Bubolz, Andreas",
+        "nwtfvId": 9728
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Fotteler, Andreas"
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Oudaah, Ahmed",
+        "nwtfvId": 9832
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "König, Kyrill",
+        "nwtfvId": 8125
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Dombrowe, Jens",
+        "nwtfvId": 8210
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Buitelaar, Tim",
+        "nwtfvId": 7510
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Roßmann, Walter",
+        "nwtfvId": 7918
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Klemm, Markus",
+        "nwtfvId": 9741
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Müller, Christian",
+        "nwtfvId": 10077
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Hildebrandt, Andre",
+        "nwtfvId": 9842
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Beringhoff, Arno",
+        "nwtfvId": 27
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Czerny, Florian",
+        "nwtfvId": 9855
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Maruszczyk, Karin",
+        "nwtfvId": 10145
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Roekens, Sebastian",
+        "nwtfvId": 8757
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Schulz, Thomas",
+        "nwtfvId": 9955
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Duèmmer, Marco",
+        "nwtfvId": 9055
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Czerny, Luis",
+        "nwtfvId": 9980
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Dombrowe, Jens",
+        "nwtfvId": 8210
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Fotteler, Andreas"
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "König, Kyrill",
+        "nwtfvId": 8125
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Oudaah, Ahmed",
+        "nwtfvId": 9832
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Klemm, Markus",
+        "nwtfvId": 9741
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Roßmann, Walter",
+        "nwtfvId": 7918
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Buitelaar, Tim",
+        "nwtfvId": 7510
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Czerny, Florian",
+        "nwtfvId": 9855
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Roekens, Sebastian",
+        "nwtfvId": 8757
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Beringhoff, Arno",
+        "nwtfvId": 27
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Müller, Christian",
+        "nwtfvId": 10077
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Hildebrandt, Andre",
+        "nwtfvId": 9842
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Schulz, Thomas",
+        "nwtfvId": 9955
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Duèmmer, Marco",
+        "nwtfvId": 9055
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Bubolz, Andreas",
+        "nwtfvId": 9728
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Maruszczyk, Karin",
+        "nwtfvId": 10145
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Klemm, Markus",
+        "nwtfvId": 9741
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "König, Kyrill",
+        "nwtfvId": 8125
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "6. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Buitelaar, Tim",
+        "nwtfvId": 7510
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Fotteler, Andreas"
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "6. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Dombrowe, Jens",
+        "nwtfvId": 8210
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Roekens, Sebastian",
+        "nwtfvId": 8757
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "6. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Roßmann, Walter",
+        "nwtfvId": 7918
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Müller, Christian",
+        "nwtfvId": 10077
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "6. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Oudaah, Ahmed",
+        "nwtfvId": 9832
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Czerny, Florian",
+        "nwtfvId": 9855
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "6. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Beringhoff, Arno",
+        "nwtfvId": 27
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Duèmmer, Marco",
+        "nwtfvId": 9055
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "6. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Bubolz, Andreas",
+        "nwtfvId": 9728
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Schulz, Thomas",
+        "nwtfvId": 9955
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "6. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "player",
+      "player": {
+        "name": "Czerny, Luis",
+        "nwtfvId": 9980
+      }
+    },
+    "competitor2": {
+      "type": "player",
+      "player": {
+        "name": "Maruszczyk, Karin",
+        "nwtfvId": 10145
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6498,
+    "skillLevel": "Open",
+    "stageName": "6. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Niehuis, Felix",
+        "nwtfvId": 8033
+      },
+      "player2": {
+        "name": "Afentoulidis, Fabian",
+        "nwtfvId": 7427
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Diercks, Roberto",
+        "nwtfvId": 79
+      },
+      "player2": {
+        "name": "Celik, Turgay",
+        "nwtfvId": 59
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Pro",
+    "stageName": "Achtelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Kastrati, Nenad",
+        "nwtfvId": 8681
+      },
+      "player2": {
+        "name": "Ickelsheimer, Colin",
+        "nwtfvId": 7866
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Flunkert, Frank",
+        "nwtfvId": 517
+      },
+      "player2": {
+        "name": "Karl, Volker",
+        "nwtfvId": 9954
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Pro",
+    "stageName": "Achtelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Brodbeck, Jürgen",
+        "nwtfvId": 52
+      },
+      "player2": {
+        "name": "Elmas, Fikret",
+        "nwtfvId": 9117
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Rademacher, Thomas",
+        "nwtfvId": 9039
+      },
+      "player2": {
+        "name": "Remberg, Florian",
+        "nwtfvId": 8274
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Pro",
+    "stageName": "Achtelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Plaspohl, Uwe",
+        "nwtfvId": 7590
+      },
+      "player2": {
+        "name": "Yücel, Refik",
+        "nwtfvId": 7683
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Marzejek, Werner",
+        "nwtfvId": 9046
+      },
+      "player2": {
+        "name": "Schürmann, Dieter",
+        "nwtfvId": 385
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Pro",
+    "stageName": "Achtelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Röttger, Nico",
+        "nwtfvId": 7896
+      },
+      "player2": {
+        "name": "Schmidt, Andreas",
+        "nwtfvId": 9051
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Niehuis, Felix",
+        "nwtfvId": 8033
+      },
+      "player2": {
+        "name": "Afentoulidis, Fabian",
+        "nwtfvId": 7427
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Pro",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Koopmann, Viktor",
+        "nwtfvId": 10093
+      },
+      "player2": {
+        "name": "Boomgaarden, Frieso",
+        "nwtfvId": 9865
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Kastrati, Nenad",
+        "nwtfvId": 8681
+      },
+      "player2": {
+        "name": "Ickelsheimer, Colin",
+        "nwtfvId": 7866
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Pro",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Kretschmer, Andreas",
+        "nwtfvId": 7941
+      },
+      "player2": {
+        "name": "Hazwani, Rami",
+        "nwtfvId": 158
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Brodbeck, Jürgen",
+        "nwtfvId": 52
+      },
+      "player2": {
+        "name": "Elmas, Fikret",
+        "nwtfvId": 9117
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Pro",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Plaspohl, Uwe",
+        "nwtfvId": 7590
+      },
+      "player2": {
+        "name": "Yücel, Refik",
+        "nwtfvId": 7683
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Hoffmann, Jesco",
+        "nwtfvId": 9686
+      },
+      "player2": {
+        "name": "Röttger, Marcel",
+        "nwtfvId": 7955
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Pro",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Röttger, Nico",
+        "nwtfvId": 7896
+      },
+      "player2": {
+        "name": "Schmidt, Andreas",
+        "nwtfvId": 9051
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Koopmann, Viktor",
+        "nwtfvId": 10093
+      },
+      "player2": {
+        "name": "Boomgaarden, Frieso",
+        "nwtfvId": 9865
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Pro",
+    "stageName": "Halbfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Kretschmer, Andreas",
+        "nwtfvId": 7941
+      },
+      "player2": {
+        "name": "Hazwani, Rami",
+        "nwtfvId": 158
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Plaspohl, Uwe",
+        "nwtfvId": 7590
+      },
+      "player2": {
+        "name": "Yücel, Refik",
+        "nwtfvId": 7683
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Pro",
+    "stageName": "Halbfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Koopmann, Viktor",
+        "nwtfvId": 10093
+      },
+      "player2": {
+        "name": "Boomgaarden, Frieso",
+        "nwtfvId": 9865
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Plaspohl, Uwe",
+        "nwtfvId": 7590
+      },
+      "player2": {
+        "name": "Yücel, Refik",
+        "nwtfvId": 7683
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Pro",
+    "stageName": "Platz 3"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Röttger, Nico",
+        "nwtfvId": 7896
+      },
+      "player2": {
+        "name": "Schmidt, Andreas",
+        "nwtfvId": 9051
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Kretschmer, Andreas",
+        "nwtfvId": 7941
+      },
+      "player2": {
+        "name": "Hazwani, Rami",
+        "nwtfvId": 158
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Pro",
+    "stageName": "Finale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Müller, Dirk",
+        "nwtfvId": 273
+      },
+      "player2": {
+        "name": "Bohl, Alex",
+        "nwtfvId": 485
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Klemm, Markus",
+        "nwtfvId": 9741
+      },
+      "player2": {
+        "name": "Schmidt, Robert",
+        "nwtfvId": 7846
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Amateur",
+    "stageName": "Achtelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Busch, André",
+        "nwtfvId": 8063
+      },
+      "player2": {
+        "name": "König, Kyrill",
+        "nwtfvId": 8125
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Buß, Marc",
+        "nwtfvId": 9166
+      },
+      "player2": {
+        "name": "Tiemeshen, Tim",
+        "nwtfvId": 9771
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Amateur",
+    "stageName": "Achtelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Berberich, Mika",
+        "nwtfvId": 9027
+      },
+      "player2": {
+        "name": "Wahl, Johann",
+        "nwtfvId": 452
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Kappelhoff, Flavio",
+        "nwtfvId": 8785
+      },
+      "player2": {
+        "name": "Gerling, Mark",
+        "nwtfvId": 9647
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Amateur",
+    "stageName": "Achtelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Li Pira, Claudio",
+        "nwtfvId": 242
+      },
+      "player2": {
+        "name": "Bremer, Martin",
+        "nwtfvId": 48
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Nurkowski, Rene",
+        "nwtfvId": 8273
+      },
+      "player2": {
+        "name": "Vervenne, Klaus",
+        "nwtfvId": 786
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Amateur",
+    "stageName": "Achtelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Hober, Guido",
+        "nwtfvId": 9120
+      },
+      "player2": {
+        "name": "Minga, Michael",
+        "nwtfvId": 8104
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Konieczny, Branco",
+        "nwtfvId": 221
+      },
+      "player2": {
+        "name": "Schaub, Mario",
+        "nwtfvId": 358
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Amateur",
+    "stageName": "Achtelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Müller, Dirk",
+        "nwtfvId": 273
+      },
+      "player2": {
+        "name": "Bohl, Alex",
+        "nwtfvId": 485
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Grittner, Martin",
+        "nwtfvId": 132
+      },
+      "player2": {
+        "name": "Gruber, Romano",
+        "nwtfvId": 7343
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Amateur",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Berberich, Mika",
+        "nwtfvId": 9027
+      },
+      "player2": {
+        "name": "Wahl, Johann",
+        "nwtfvId": 452
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Busch, André",
+        "nwtfvId": 8063
+      },
+      "player2": {
+        "name": "König, Kyrill",
+        "nwtfvId": 8125
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Amateur",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Pniewski, Ralf",
+        "nwtfvId": 8942
+      },
+      "player2": {
+        "name": "Konrad, Siegfried",
+        "nwtfvId": 7357
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Li Pira, Claudio",
+        "nwtfvId": 242
+      },
+      "player2": {
+        "name": "Bremer, Martin",
+        "nwtfvId": 48
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Amateur",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Agelopoulos, Anestis",
+        "nwtfvId": 670
+      },
+      "player2": {
+        "name": "Dally, Heinz",
+        "nwtfvId": 7462
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Hober, Guido",
+        "nwtfvId": 9120
+      },
+      "player2": {
+        "name": "Minga, Michael",
+        "nwtfvId": 8104
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Amateur",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Müller, Dirk",
+        "nwtfvId": 273
+      },
+      "player2": {
+        "name": "Bohl, Alex",
+        "nwtfvId": 485
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Berberich, Mika",
+        "nwtfvId": 9027
+      },
+      "player2": {
+        "name": "Wahl, Johann",
+        "nwtfvId": 452
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Amateur",
+    "stageName": "Halbfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Agelopoulos, Anestis",
+        "nwtfvId": 670
+      },
+      "player2": {
+        "name": "Dally, Heinz",
+        "nwtfvId": 7462
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Pniewski, Ralf",
+        "nwtfvId": 8942
+      },
+      "player2": {
+        "name": "Konrad, Siegfried",
+        "nwtfvId": 7357
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Amateur",
+    "stageName": "Halbfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Pniewski, Ralf",
+        "nwtfvId": 8942
+      },
+      "player2": {
+        "name": "Konrad, Siegfried",
+        "nwtfvId": 7357
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Berberich, Mika",
+        "nwtfvId": 9027
+      },
+      "player2": {
+        "name": "Wahl, Johann",
+        "nwtfvId": 452
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Amateur",
+    "stageName": "Platz 3"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Agelopoulos, Anestis",
+        "nwtfvId": 670
+      },
+      "player2": {
+        "name": "Dally, Heinz",
+        "nwtfvId": 7462
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Müller, Dirk",
+        "nwtfvId": 273
+      },
+      "player2": {
+        "name": "Bohl, Alex",
+        "nwtfvId": 485
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Amateur",
+    "stageName": "Finale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Berberich, Mika",
+        "nwtfvId": 9027
+      },
+      "player2": {
+        "name": "Wahl, Johann",
+        "nwtfvId": 452
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Rademacher, Thomas",
+        "nwtfvId": 9039
+      },
+      "player2": {
+        "name": "Remberg, Florian",
+        "nwtfvId": 8274
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Pniewski, Ralf",
+        "nwtfvId": 8942
+      },
+      "player2": {
+        "name": "Konrad, Siegfried",
+        "nwtfvId": 7357
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Grittner, Martin",
+        "nwtfvId": 132
+      },
+      "player2": {
+        "name": "Gruber, Romano",
+        "nwtfvId": 7343
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Kretschmer, Andreas",
+        "nwtfvId": 7941
+      },
+      "player2": {
+        "name": "Hazwani, Rami",
+        "nwtfvId": 158
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Nurkowski, Rene",
+        "nwtfvId": 8273
+      },
+      "player2": {
+        "name": "Vervenne, Klaus",
+        "nwtfvId": 786
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Hober, Guido",
+        "nwtfvId": 9120
+      },
+      "player2": {
+        "name": "Minga, Michael",
+        "nwtfvId": 8104
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Klemm, Markus",
+        "nwtfvId": 9741
+      },
+      "player2": {
+        "name": "Schmidt, Robert",
+        "nwtfvId": 7846
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Brodbeck, Jürgen",
+        "nwtfvId": 52
+      },
+      "player2": {
+        "name": "Elmas, Fikret",
+        "nwtfvId": 9117
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Plaspohl, Uwe",
+        "nwtfvId": 7590
+      },
+      "player2": {
+        "name": "Yücel, Refik",
+        "nwtfvId": 7683
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Marzejek, Werner",
+        "nwtfvId": 9046
+      },
+      "player2": {
+        "name": "Schürmann, Dieter",
+        "nwtfvId": 385
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Busch, André",
+        "nwtfvId": 8063
+      },
+      "player2": {
+        "name": "König, Kyrill",
+        "nwtfvId": 8125
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Niehuis, Felix",
+        "nwtfvId": 8033
+      },
+      "player2": {
+        "name": "Afentoulidis, Fabian",
+        "nwtfvId": 7427
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Flunkert, Frank",
+        "nwtfvId": 517
+      },
+      "player2": {
+        "name": "Karl, Volker",
+        "nwtfvId": 9954
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Kastrati, Nenad",
+        "nwtfvId": 8681
+      },
+      "player2": {
+        "name": "Ickelsheimer, Colin",
+        "nwtfvId": 7866
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Li Pira, Claudio",
+        "nwtfvId": 242
+      },
+      "player2": {
+        "name": "Bremer, Martin",
+        "nwtfvId": 48
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Buß, Marc",
+        "nwtfvId": 9166
+      },
+      "player2": {
+        "name": "Tiemeshen, Tim",
+        "nwtfvId": 9771
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Kappelhoff, Flavio",
+        "nwtfvId": 8785
+      },
+      "player2": {
+        "name": "Gerling, Mark",
+        "nwtfvId": 9647
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Hoffmann, Jesco",
+        "nwtfvId": 9686
+      },
+      "player2": {
+        "name": "Röttger, Marcel",
+        "nwtfvId": 7955
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Diercks, Roberto",
+        "nwtfvId": 79
+      },
+      "player2": {
+        "name": "Celik, Turgay",
+        "nwtfvId": 59
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Röttger, Nico",
+        "nwtfvId": 7896
+      },
+      "player2": {
+        "name": "Schmidt, Andreas",
+        "nwtfvId": 9051
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Agelopoulos, Anestis",
+        "nwtfvId": 670
+      },
+      "player2": {
+        "name": "Dally, Heinz",
+        "nwtfvId": 7462
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Koopmann, Viktor",
+        "nwtfvId": 10093
+      },
+      "player2": {
+        "name": "Boomgaarden, Frieso",
+        "nwtfvId": 9865
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Konieczny, Branco",
+        "nwtfvId": 221
+      },
+      "player2": {
+        "name": "Schaub, Mario",
+        "nwtfvId": 358
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Niehuis, Felix",
+        "nwtfvId": 8033
+      },
+      "player2": {
+        "name": "Afentoulidis, Fabian",
+        "nwtfvId": 7427
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Müller, Dirk",
+        "nwtfvId": 273
+      },
+      "player2": {
+        "name": "Bohl, Alex",
+        "nwtfvId": 485
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Marzejek, Werner",
+        "nwtfvId": 9046
+      },
+      "player2": {
+        "name": "Schürmann, Dieter",
+        "nwtfvId": 385
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Berberich, Mika",
+        "nwtfvId": 9027
+      },
+      "player2": {
+        "name": "Wahl, Johann",
+        "nwtfvId": 452
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Kretschmer, Andreas",
+        "nwtfvId": 7941
+      },
+      "player2": {
+        "name": "Hazwani, Rami",
+        "nwtfvId": 158
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Pniewski, Ralf",
+        "nwtfvId": 8942
+      },
+      "player2": {
+        "name": "Konrad, Siegfried",
+        "nwtfvId": 7357
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Röttger, Nico",
+        "nwtfvId": 7896
+      },
+      "player2": {
+        "name": "Schmidt, Andreas",
+        "nwtfvId": 9051
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Hoffmann, Jesco",
+        "nwtfvId": 9686
+      },
+      "player2": {
+        "name": "Röttger, Marcel",
+        "nwtfvId": 7955
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Brodbeck, Jürgen",
+        "nwtfvId": 52
+      },
+      "player2": {
+        "name": "Elmas, Fikret",
+        "nwtfvId": 9117
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Buß, Marc",
+        "nwtfvId": 9166
+      },
+      "player2": {
+        "name": "Tiemeshen, Tim",
+        "nwtfvId": 9771
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Kastrati, Nenad",
+        "nwtfvId": 8681
+      },
+      "player2": {
+        "name": "Ickelsheimer, Colin",
+        "nwtfvId": 7866
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Hober, Guido",
+        "nwtfvId": 9120
+      },
+      "player2": {
+        "name": "Minga, Michael",
+        "nwtfvId": 8104
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Rademacher, Thomas",
+        "nwtfvId": 9039
+      },
+      "player2": {
+        "name": "Remberg, Florian",
+        "nwtfvId": 8274
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Flunkert, Frank",
+        "nwtfvId": 517
+      },
+      "player2": {
+        "name": "Karl, Volker",
+        "nwtfvId": 9954
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Koopmann, Viktor",
+        "nwtfvId": 10093
+      },
+      "player2": {
+        "name": "Boomgaarden, Frieso",
+        "nwtfvId": 9865
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Plaspohl, Uwe",
+        "nwtfvId": 7590
+      },
+      "player2": {
+        "name": "Yücel, Refik",
+        "nwtfvId": 7683
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Agelopoulos, Anestis",
+        "nwtfvId": 670
+      },
+      "player2": {
+        "name": "Dally, Heinz",
+        "nwtfvId": 7462
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Li Pira, Claudio",
+        "nwtfvId": 242
+      },
+      "player2": {
+        "name": "Bremer, Martin",
+        "nwtfvId": 48
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Diercks, Roberto",
+        "nwtfvId": 79
+      },
+      "player2": {
+        "name": "Celik, Turgay",
+        "nwtfvId": 59
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Busch, André",
+        "nwtfvId": 8063
+      },
+      "player2": {
+        "name": "König, Kyrill",
+        "nwtfvId": 8125
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Grittner, Martin",
+        "nwtfvId": 132
+      },
+      "player2": {
+        "name": "Gruber, Romano",
+        "nwtfvId": 7343
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Konieczny, Branco",
+        "nwtfvId": 221
+      },
+      "player2": {
+        "name": "Schaub, Mario",
+        "nwtfvId": 358
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Nurkowski, Rene",
+        "nwtfvId": 8273
+      },
+      "player2": {
+        "name": "Vervenne, Klaus",
+        "nwtfvId": 786
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Kappelhoff, Flavio",
+        "nwtfvId": 8785
+      },
+      "player2": {
+        "name": "Gerling, Mark",
+        "nwtfvId": 9647
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Marzejek, Werner",
+        "nwtfvId": 9046
+      },
+      "player2": {
+        "name": "Schürmann, Dieter",
+        "nwtfvId": 385
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Niehuis, Felix",
+        "nwtfvId": 8033
+      },
+      "player2": {
+        "name": "Afentoulidis, Fabian",
+        "nwtfvId": 7427
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Kretschmer, Andreas",
+        "nwtfvId": 7941
+      },
+      "player2": {
+        "name": "Hazwani, Rami",
+        "nwtfvId": 158
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Kastrati, Nenad",
+        "nwtfvId": 8681
+      },
+      "player2": {
+        "name": "Ickelsheimer, Colin",
+        "nwtfvId": 7866
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Röttger, Nico",
+        "nwtfvId": 7896
+      },
+      "player2": {
+        "name": "Schmidt, Andreas",
+        "nwtfvId": 9051
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Brodbeck, Jürgen",
+        "nwtfvId": 52
+      },
+      "player2": {
+        "name": "Elmas, Fikret",
+        "nwtfvId": 9117
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Agelopoulos, Anestis",
+        "nwtfvId": 670
+      },
+      "player2": {
+        "name": "Dally, Heinz",
+        "nwtfvId": 7462
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Berberich, Mika",
+        "nwtfvId": 9027
+      },
+      "player2": {
+        "name": "Wahl, Johann",
+        "nwtfvId": 452
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Hoffmann, Jesco",
+        "nwtfvId": 9686
+      },
+      "player2": {
+        "name": "Röttger, Marcel",
+        "nwtfvId": 7955
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Pniewski, Ralf",
+        "nwtfvId": 8942
+      },
+      "player2": {
+        "name": "Konrad, Siegfried",
+        "nwtfvId": 7357
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Buß, Marc",
+        "nwtfvId": 9166
+      },
+      "player2": {
+        "name": "Tiemeshen, Tim",
+        "nwtfvId": 9771
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Nurkowski, Rene",
+        "nwtfvId": 8273
+      },
+      "player2": {
+        "name": "Vervenne, Klaus",
+        "nwtfvId": 786
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Koopmann, Viktor",
+        "nwtfvId": 10093
+      },
+      "player2": {
+        "name": "Boomgaarden, Frieso",
+        "nwtfvId": 9865
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Hober, Guido",
+        "nwtfvId": 9120
+      },
+      "player2": {
+        "name": "Minga, Michael",
+        "nwtfvId": 8104
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Rademacher, Thomas",
+        "nwtfvId": 9039
+      },
+      "player2": {
+        "name": "Remberg, Florian",
+        "nwtfvId": 8274
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Müller, Dirk",
+        "nwtfvId": 273
+      },
+      "player2": {
+        "name": "Bohl, Alex",
+        "nwtfvId": 485
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Diercks, Roberto",
+        "nwtfvId": 79
+      },
+      "player2": {
+        "name": "Celik, Turgay",
+        "nwtfvId": 59
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Grittner, Martin",
+        "nwtfvId": 132
+      },
+      "player2": {
+        "name": "Gruber, Romano",
+        "nwtfvId": 7343
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Plaspohl, Uwe",
+        "nwtfvId": 7590
+      },
+      "player2": {
+        "name": "Yücel, Refik",
+        "nwtfvId": 7683
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Klemm, Markus",
+        "nwtfvId": 9741
+      },
+      "player2": {
+        "name": "Schmidt, Robert",
+        "nwtfvId": 7846
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Flunkert, Frank",
+        "nwtfvId": 517
+      },
+      "player2": {
+        "name": "Karl, Volker",
+        "nwtfvId": 9954
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Li Pira, Claudio",
+        "nwtfvId": 242
+      },
+      "player2": {
+        "name": "Bremer, Martin",
+        "nwtfvId": 48
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Konieczny, Branco",
+        "nwtfvId": 221
+      },
+      "player2": {
+        "name": "Schaub, Mario",
+        "nwtfvId": 358
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Busch, André",
+        "nwtfvId": 8063
+      },
+      "player2": {
+        "name": "König, Kyrill",
+        "nwtfvId": 8125
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Röttger, Nico",
+        "nwtfvId": 7896
+      },
+      "player2": {
+        "name": "Schmidt, Andreas",
+        "nwtfvId": 9051
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Kretschmer, Andreas",
+        "nwtfvId": 7941
+      },
+      "player2": {
+        "name": "Hazwani, Rami",
+        "nwtfvId": 158
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Kastrati, Nenad",
+        "nwtfvId": 8681
+      },
+      "player2": {
+        "name": "Ickelsheimer, Colin",
+        "nwtfvId": 7866
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Buß, Marc",
+        "nwtfvId": 9166
+      },
+      "player2": {
+        "name": "Tiemeshen, Tim",
+        "nwtfvId": 9771
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Koopmann, Viktor",
+        "nwtfvId": 10093
+      },
+      "player2": {
+        "name": "Boomgaarden, Frieso",
+        "nwtfvId": 9865
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Agelopoulos, Anestis",
+        "nwtfvId": 670
+      },
+      "player2": {
+        "name": "Dally, Heinz",
+        "nwtfvId": 7462
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Hoffmann, Jesco",
+        "nwtfvId": 9686
+      },
+      "player2": {
+        "name": "Röttger, Marcel",
+        "nwtfvId": 7955
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Marzejek, Werner",
+        "nwtfvId": 9046
+      },
+      "player2": {
+        "name": "Schürmann, Dieter",
+        "nwtfvId": 385
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Brodbeck, Jürgen",
+        "nwtfvId": 52
+      },
+      "player2": {
+        "name": "Elmas, Fikret",
+        "nwtfvId": 9117
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Niehuis, Felix",
+        "nwtfvId": 8033
+      },
+      "player2": {
+        "name": "Afentoulidis, Fabian",
+        "nwtfvId": 7427
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Diercks, Roberto",
+        "nwtfvId": 79
+      },
+      "player2": {
+        "name": "Celik, Turgay",
+        "nwtfvId": 59
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Rademacher, Thomas",
+        "nwtfvId": 9039
+      },
+      "player2": {
+        "name": "Remberg, Florian",
+        "nwtfvId": 8274
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Berberich, Mika",
+        "nwtfvId": 9027
+      },
+      "player2": {
+        "name": "Wahl, Johann",
+        "nwtfvId": 452
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Pniewski, Ralf",
+        "nwtfvId": 8942
+      },
+      "player2": {
+        "name": "Konrad, Siegfried",
+        "nwtfvId": 7357
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Plaspohl, Uwe",
+        "nwtfvId": 7590
+      },
+      "player2": {
+        "name": "Yücel, Refik",
+        "nwtfvId": 7683
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Nurkowski, Rene",
+        "nwtfvId": 8273
+      },
+      "player2": {
+        "name": "Vervenne, Klaus",
+        "nwtfvId": 786
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Flunkert, Frank",
+        "nwtfvId": 517
+      },
+      "player2": {
+        "name": "Karl, Volker",
+        "nwtfvId": 9954
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Hober, Guido",
+        "nwtfvId": 9120
+      },
+      "player2": {
+        "name": "Minga, Michael",
+        "nwtfvId": 8104
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Müller, Dirk",
+        "nwtfvId": 273
+      },
+      "player2": {
+        "name": "Bohl, Alex",
+        "nwtfvId": 485
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Konieczny, Branco",
+        "nwtfvId": 221
+      },
+      "player2": {
+        "name": "Schaub, Mario",
+        "nwtfvId": 358
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Grittner, Martin",
+        "nwtfvId": 132
+      },
+      "player2": {
+        "name": "Gruber, Romano",
+        "nwtfvId": 7343
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Kappelhoff, Flavio",
+        "nwtfvId": 8785
+      },
+      "player2": {
+        "name": "Gerling, Mark",
+        "nwtfvId": 9647
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Klemm, Markus",
+        "nwtfvId": 9741
+      },
+      "player2": {
+        "name": "Schmidt, Robert",
+        "nwtfvId": 7846
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Busch, André",
+        "nwtfvId": 8063
+      },
+      "player2": {
+        "name": "König, Kyrill",
+        "nwtfvId": 8125
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Röttger, Nico",
+        "nwtfvId": 7896
+      },
+      "player2": {
+        "name": "Schmidt, Andreas",
+        "nwtfvId": 9051
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Marzejek, Werner",
+        "nwtfvId": 9046
+      },
+      "player2": {
+        "name": "Schürmann, Dieter",
+        "nwtfvId": 385
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Hoffmann, Jesco",
+        "nwtfvId": 9686
+      },
+      "player2": {
+        "name": "Röttger, Marcel",
+        "nwtfvId": 7955
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Koopmann, Viktor",
+        "nwtfvId": 10093
+      },
+      "player2": {
+        "name": "Boomgaarden, Frieso",
+        "nwtfvId": 9865
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Kretschmer, Andreas",
+        "nwtfvId": 7941
+      },
+      "player2": {
+        "name": "Hazwani, Rami",
+        "nwtfvId": 158
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Brodbeck, Jürgen",
+        "nwtfvId": 52
+      },
+      "player2": {
+        "name": "Elmas, Fikret",
+        "nwtfvId": 9117
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Kastrati, Nenad",
+        "nwtfvId": 8681
+      },
+      "player2": {
+        "name": "Ickelsheimer, Colin",
+        "nwtfvId": 7866
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Diercks, Roberto",
+        "nwtfvId": 79
+      },
+      "player2": {
+        "name": "Celik, Turgay",
+        "nwtfvId": 59
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Niehuis, Felix",
+        "nwtfvId": 8033
+      },
+      "player2": {
+        "name": "Afentoulidis, Fabian",
+        "nwtfvId": 7427
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Agelopoulos, Anestis",
+        "nwtfvId": 670
+      },
+      "player2": {
+        "name": "Dally, Heinz",
+        "nwtfvId": 7462
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Plaspohl, Uwe",
+        "nwtfvId": 7590
+      },
+      "player2": {
+        "name": "Yücel, Refik",
+        "nwtfvId": 7683
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Berberich, Mika",
+        "nwtfvId": 9027
+      },
+      "player2": {
+        "name": "Wahl, Johann",
+        "nwtfvId": 452
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Rademacher, Thomas",
+        "nwtfvId": 9039
+      },
+      "player2": {
+        "name": "Remberg, Florian",
+        "nwtfvId": 8274
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Buß, Marc",
+        "nwtfvId": 9166
+      },
+      "player2": {
+        "name": "Tiemeshen, Tim",
+        "nwtfvId": 9771
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Flunkert, Frank",
+        "nwtfvId": 517
+      },
+      "player2": {
+        "name": "Karl, Volker",
+        "nwtfvId": 9954
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Müller, Dirk",
+        "nwtfvId": 273
+      },
+      "player2": {
+        "name": "Bohl, Alex",
+        "nwtfvId": 485
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Grittner, Martin",
+        "nwtfvId": 132
+      },
+      "player2": {
+        "name": "Gruber, Romano",
+        "nwtfvId": 7343
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Klemm, Markus",
+        "nwtfvId": 9741
+      },
+      "player2": {
+        "name": "Schmidt, Robert",
+        "nwtfvId": 7846
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Pniewski, Ralf",
+        "nwtfvId": 8942
+      },
+      "player2": {
+        "name": "Konrad, Siegfried",
+        "nwtfvId": 7357
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Hober, Guido",
+        "nwtfvId": 9120
+      },
+      "player2": {
+        "name": "Minga, Michael",
+        "nwtfvId": 8104
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Nurkowski, Rene",
+        "nwtfvId": 8273
+      },
+      "player2": {
+        "name": "Vervenne, Klaus",
+        "nwtfvId": 786
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Li Pira, Claudio",
+        "nwtfvId": 242
+      },
+      "player2": {
+        "name": "Bremer, Martin",
+        "nwtfvId": 48
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Konieczny, Branco",
+        "nwtfvId": 221
+      },
+      "player2": {
+        "name": "Schaub, Mario",
+        "nwtfvId": 358
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Kappelhoff, Flavio",
+        "nwtfvId": 8785
+      },
+      "player2": {
+        "name": "Gerling, Mark",
+        "nwtfvId": 9647
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6382,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Grote, Niclas",
+        "nwtfvId": 137
+      },
+      "player2": {
+        "name": "Evers, Gilles",
+        "nwtfvId": 94
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Barth, Laurin",
+        "nwtfvId": 9747
+      },
+      "player2": {
+        "name": "Manolio, Mira Vanessa",
+        "nwtfvId": 9803
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Pro",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Scheder, Steve Raphael",
+        "nwtfvId": 8988
+      },
+      "player2": {
+        "name": "Teschauer, Denise",
+        "nwtfvId": 8850
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Mertens, Marius",
+        "nwtfvId": 9010
+      },
+      "player2": {
+        "name": "Sting, Tobias",
+        "nwtfvId": 504
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Pro",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Stoffel, Marc"
+      },
+      "player2": {
+        "name": "Ackerschott, Lina",
+        "nwtfvId": 8249
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Rey, Maximilian",
+        "nwtfvId": 8680
+      },
+      "player2": {
+        "name": "Nierstenhöfer, Emanuel",
+        "nwtfvId": 9775
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Pro",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Greve, Jona",
+        "nwtfvId": 7853
+      },
+      "player2": {
+        "name": "Hahne, Nils",
+        "nwtfvId": 7381
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Pant, Romanus",
+        "nwtfvId": 8214
+      },
+      "player2": {
+        "name": "Friedrich, Michael",
+        "nwtfvId": 107
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Pro",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Grote, Niclas",
+        "nwtfvId": 137
+      },
+      "player2": {
+        "name": "Evers, Gilles",
+        "nwtfvId": 94
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Scheder, Steve Raphael",
+        "nwtfvId": 8988
+      },
+      "player2": {
+        "name": "Teschauer, Denise",
+        "nwtfvId": 8850
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Pro",
+    "stageName": "Halbfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Greve, Jona",
+        "nwtfvId": 7853
+      },
+      "player2": {
+        "name": "Hahne, Nils",
+        "nwtfvId": 7381
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Stoffel, Marc"
+      },
+      "player2": {
+        "name": "Ackerschott, Lina",
+        "nwtfvId": 8249
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Pro",
+    "stageName": "Halbfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Scheder, Steve Raphael",
+        "nwtfvId": 8988
+      },
+      "player2": {
+        "name": "Teschauer, Denise",
+        "nwtfvId": 8850
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Stoffel, Marc"
+      },
+      "player2": {
+        "name": "Ackerschott, Lina",
+        "nwtfvId": 8249
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Pro",
+    "stageName": "Platz 3"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Greve, Jona",
+        "nwtfvId": 7853
+      },
+      "player2": {
+        "name": "Hahne, Nils",
+        "nwtfvId": 7381
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Grote, Niclas",
+        "nwtfvId": 137
+      },
+      "player2": {
+        "name": "Evers, Gilles",
+        "nwtfvId": 94
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Pro",
+    "stageName": "Finale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Kuritz, Jochen",
+        "nwtfvId": 737
+      },
+      "player2": {
+        "name": "Kalkstein, Oliver",
+        "nwtfvId": 9911
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Kilian, Jakob"
+      },
+      "player2": {
+        "name": "Evertz, Johanna",
+        "nwtfvId": 9599
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Amateur",
+    "stageName": "Halbfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Kuritz, Jochen",
+        "nwtfvId": 737
+      },
+      "player2": {
+        "name": "Kalkstein, Oliver",
+        "nwtfvId": 9911
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Scharfenberg, Jeremias",
+        "nwtfvId": 8209
+      },
+      "player2": {
+        "name": "Klintworth, Sandra",
+        "nwtfvId": 8050
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Amateur",
+    "stageName": "Finale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Pant, Romanus",
+        "nwtfvId": 8214
+      },
+      "player2": {
+        "name": "Friedrich, Michael",
+        "nwtfvId": 107
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Kilian, Jakob"
+      },
+      "player2": {
+        "name": "Evertz, Johanna",
+        "nwtfvId": 9599
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Scheder, Steve Raphael",
+        "nwtfvId": 8988
+      },
+      "player2": {
+        "name": "Teschauer, Denise",
+        "nwtfvId": 8850
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Scharfenberg, Jeremias",
+        "nwtfvId": 8209
+      },
+      "player2": {
+        "name": "Klintworth, Sandra",
+        "nwtfvId": 8050
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Greve, Jona",
+        "nwtfvId": 7853
+      },
+      "player2": {
+        "name": "Hahne, Nils",
+        "nwtfvId": 7381
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Kuritz, Jochen",
+        "nwtfvId": 737
+      },
+      "player2": {
+        "name": "Kalkstein, Oliver",
+        "nwtfvId": 9911
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Mertens, Marius",
+        "nwtfvId": 9010
+      },
+      "player2": {
+        "name": "Sting, Tobias",
+        "nwtfvId": 504
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Stoffel, Marc"
+      },
+      "player2": {
+        "name": "Ackerschott, Lina",
+        "nwtfvId": 8249
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Grote, Niclas",
+        "nwtfvId": 137
+      },
+      "player2": {
+        "name": "Evers, Gilles",
+        "nwtfvId": 94
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Rey, Maximilian",
+        "nwtfvId": 8680
+      },
+      "player2": {
+        "name": "Nierstenhöfer, Emanuel",
+        "nwtfvId": 9775
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "1. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Mertens, Marius",
+        "nwtfvId": 9010
+      },
+      "player2": {
+        "name": "Sting, Tobias",
+        "nwtfvId": 504
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Scheder, Steve Raphael",
+        "nwtfvId": 8988
+      },
+      "player2": {
+        "name": "Teschauer, Denise",
+        "nwtfvId": 8850
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Greve, Jona",
+        "nwtfvId": 7853
+      },
+      "player2": {
+        "name": "Hahne, Nils",
+        "nwtfvId": 7381
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Pant, Romanus",
+        "nwtfvId": 8214
+      },
+      "player2": {
+        "name": "Friedrich, Michael",
+        "nwtfvId": 107
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Grote, Niclas",
+        "nwtfvId": 137
+      },
+      "player2": {
+        "name": "Evers, Gilles",
+        "nwtfvId": 94
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Barth, Laurin",
+        "nwtfvId": 9747
+      },
+      "player2": {
+        "name": "Manolio, Mira Vanessa",
+        "nwtfvId": 9803
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Kuritz, Jochen",
+        "nwtfvId": 737
+      },
+      "player2": {
+        "name": "Kalkstein, Oliver",
+        "nwtfvId": 9911
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Kilian, Jakob"
+      },
+      "player2": {
+        "name": "Evertz, Johanna",
+        "nwtfvId": 9599
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Rey, Maximilian",
+        "nwtfvId": 8680
+      },
+      "player2": {
+        "name": "Nierstenhöfer, Emanuel",
+        "nwtfvId": 9775
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Scharfenberg, Jeremias",
+        "nwtfvId": 8209
+      },
+      "player2": {
+        "name": "Klintworth, Sandra",
+        "nwtfvId": 8050
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "2. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Greve, Jona",
+        "nwtfvId": 7853
+      },
+      "player2": {
+        "name": "Hahne, Nils",
+        "nwtfvId": 7381
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Mertens, Marius",
+        "nwtfvId": 9010
+      },
+      "player2": {
+        "name": "Sting, Tobias",
+        "nwtfvId": 504
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Grote, Niclas",
+        "nwtfvId": 137
+      },
+      "player2": {
+        "name": "Evers, Gilles",
+        "nwtfvId": 94
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Kuritz, Jochen",
+        "nwtfvId": 737
+      },
+      "player2": {
+        "name": "Kalkstein, Oliver",
+        "nwtfvId": 9911
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Scheder, Steve Raphael",
+        "nwtfvId": 8988
+      },
+      "player2": {
+        "name": "Teschauer, Denise",
+        "nwtfvId": 8850
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Pant, Romanus",
+        "nwtfvId": 8214
+      },
+      "player2": {
+        "name": "Friedrich, Michael",
+        "nwtfvId": 107
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Rey, Maximilian",
+        "nwtfvId": 8680
+      },
+      "player2": {
+        "name": "Nierstenhöfer, Emanuel",
+        "nwtfvId": 9775
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Barth, Laurin",
+        "nwtfvId": 9747
+      },
+      "player2": {
+        "name": "Manolio, Mira Vanessa",
+        "nwtfvId": 9803
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Stoffel, Marc"
+      },
+      "player2": {
+        "name": "Ackerschott, Lina",
+        "nwtfvId": 8249
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Kilian, Jakob"
+      },
+      "player2": {
+        "name": "Evertz, Johanna",
+        "nwtfvId": 9599
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "3. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Grote, Niclas",
+        "nwtfvId": 137
+      },
+      "player2": {
+        "name": "Evers, Gilles",
+        "nwtfvId": 94
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Greve, Jona",
+        "nwtfvId": 7853
+      },
+      "player2": {
+        "name": "Hahne, Nils",
+        "nwtfvId": 7381
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Rey, Maximilian",
+        "nwtfvId": 8680
+      },
+      "player2": {
+        "name": "Nierstenhöfer, Emanuel",
+        "nwtfvId": 9775
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Mertens, Marius",
+        "nwtfvId": 9010
+      },
+      "player2": {
+        "name": "Sting, Tobias",
+        "nwtfvId": 504
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Stoffel, Marc"
+      },
+      "player2": {
+        "name": "Ackerschott, Lina",
+        "nwtfvId": 8249
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Scheder, Steve Raphael",
+        "nwtfvId": 8988
+      },
+      "player2": {
+        "name": "Teschauer, Denise",
+        "nwtfvId": 8850
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Pant, Romanus",
+        "nwtfvId": 8214
+      },
+      "player2": {
+        "name": "Friedrich, Michael",
+        "nwtfvId": 107
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Kuritz, Jochen",
+        "nwtfvId": 737
+      },
+      "player2": {
+        "name": "Kalkstein, Oliver",
+        "nwtfvId": 9911
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Barth, Laurin",
+        "nwtfvId": 9747
+      },
+      "player2": {
+        "name": "Manolio, Mira Vanessa",
+        "nwtfvId": 9803
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Scharfenberg, Jeremias",
+        "nwtfvId": 8209
+      },
+      "player2": {
+        "name": "Klintworth, Sandra",
+        "nwtfvId": 8050
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "4. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Grote, Niclas",
+        "nwtfvId": 137
+      },
+      "player2": {
+        "name": "Evers, Gilles",
+        "nwtfvId": 94
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Stoffel, Marc"
+      },
+      "player2": {
+        "name": "Ackerschott, Lina",
+        "nwtfvId": 8249
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Greve, Jona",
+        "nwtfvId": 7853
+      },
+      "player2": {
+        "name": "Hahne, Nils",
+        "nwtfvId": 7381
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Rey, Maximilian",
+        "nwtfvId": 8680
+      },
+      "player2": {
+        "name": "Nierstenhöfer, Emanuel",
+        "nwtfvId": 9775
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Mertens, Marius",
+        "nwtfvId": 9010
+      },
+      "player2": {
+        "name": "Sting, Tobias",
+        "nwtfvId": 504
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Barth, Laurin",
+        "nwtfvId": 9747
+      },
+      "player2": {
+        "name": "Manolio, Mira Vanessa",
+        "nwtfvId": 9803
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Scheder, Steve Raphael",
+        "nwtfvId": 8988
+      },
+      "player2": {
+        "name": "Teschauer, Denise",
+        "nwtfvId": 8850
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Kuritz, Jochen",
+        "nwtfvId": 737
+      },
+      "player2": {
+        "name": "Kalkstein, Oliver",
+        "nwtfvId": 9911
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Scharfenberg, Jeremias",
+        "nwtfvId": 8209
+      },
+      "player2": {
+        "name": "Klintworth, Sandra",
+        "nwtfvId": 8050
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Kilian, Jakob"
+      },
+      "player2": {
+        "name": "Evertz, Johanna",
+        "nwtfvId": 9599
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6580,
+    "skillLevel": "Open",
+    "stageName": "5. Runde"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Junker, Yves",
+        "nwtfvId": 7732
+      },
+      "player2": {
+        "name": "Wirtz, Christian",
+        "nwtfvId": 10158
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Hoss, Michael",
+        "nwtfvId": 10043
+      },
+      "player2": {
+        "name": "Mann, Michael-Moritz",
+        "nwtfvId": 9652
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6275,
+    "skillLevel": "Pro",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Reif, Volker",
+        "nwtfvId": 330
+      },
+      "player2": {
+        "name": "Lipfert, Jan",
+        "nwtfvId": 8911
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Rissmann, Mario",
+        "nwtfvId": 7815
+      },
+      "player2": {
+        "name": "Anger, Tim",
+        "nwtfvId": 9655
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6275,
+    "skillLevel": "Pro",
+    "stageName": "Viertelfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Sting, Tobias",
+        "nwtfvId": 504
+      },
+      "player2": {
+        "name": "Scheel, Markus",
+        "nwtfvId": 8212
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Junker, Yves",
+        "nwtfvId": 7732
+      },
+      "player2": {
+        "name": "Wirtz, Christian",
+        "nwtfvId": 10158
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6275,
+    "skillLevel": "Pro",
+    "stageName": "Halbfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Rode, Kersten",
+        "nwtfvId": 341
+      },
+      "player2": {
+        "name": "Brath, Martin",
+        "nwtfvId": 7775
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Reif, Volker",
+        "nwtfvId": 330
+      },
+      "player2": {
+        "name": "Lipfert, Jan",
+        "nwtfvId": 8911
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6275,
+    "skillLevel": "Pro",
+    "stageName": "Halbfinale"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Junker, Yves",
+        "nwtfvId": 7732
+      },
+      "player2": {
+        "name": "Wirtz, Christian",
+        "nwtfvId": 10158
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Reif, Volker",
+        "nwtfvId": 330
+      },
+      "player2": {
+        "name": "Lipfert, Jan",
+        "nwtfvId": 8911
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6275,
+    "skillLevel": "Pro",
+    "stageName": "Platz 3"
+  },
+  {
+    "competitor1": {
+      "type": "team",
+      "player1": {
+        "name": "Rode, Kersten",
+        "nwtfvId": 341
+      },
+      "player2": {
+        "name": "Brath, Martin",
+        "nwtfvId": 7775
+      }
+    },
+    "competitor2": {
+      "type": "team",
+      "player1": {
+        "name": "Sting, Tobias",
+        "nwtfvId": 504
+      },
+      "player2": {
+        "name": "Scheel, Markus",
+        "nwtfvId": 8212
+      }
+    },
+    "scores": [
+      {
+        "score1": 1,
+        "score2": 0
+      }
+    ],
+    "tournamentId": 6275,
+    "skillLevel": "Pro",
+    "stageName": "Finale"
+  }
+]

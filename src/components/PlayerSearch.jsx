@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import profilesData from '../data/profileData.json';
+import profilesData from '../data/players.json';
 
 const PlayerSearch = () => {
   const [query, setQuery] = useState('');
@@ -24,9 +24,20 @@ const PlayerSearch = () => {
     }
 
     const lowerQuery = debouncedQuery.toLowerCase();
-    const matches = profilesData.filter(p => 
-      p.name.toLowerCase().includes(lowerQuery)
-    ).slice(0, 5);
+    const matches = profilesData
+      .filter(p => p.id !== 0) // Skip players with id = 0
+      .filter(p => 
+        p.name.toLowerCase().includes(lowerQuery) || 
+        p.surname.toLowerCase().includes(lowerQuery)
+      )
+      .slice(0, 5)
+      .map(p => ({
+        id: p.id,
+        name: `${p.name} ${p.surname}`,
+        avatar: p.avatarUrl || '',
+        arena: p.clubs && p.clubs.length > 0 ? p.clubs[0] : 'Independent'
+      }));
+
 
     setResults(matches);
     setIsOpen(true);

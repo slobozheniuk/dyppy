@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import profilesData from './data/profileData.json';
+import profilesData from './data/players.json';
+import { getPseudoElo, getCategoryName } from './data-parser/players.js';
 
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
@@ -37,6 +38,11 @@ const PlayerRow = ({ player, rank }) => {
     rankStyle = 'bg-surface-variant text-zinc-500';
   }
 
+  const displayName = `${player.name} ${player.surname}`;
+  const arena = player.clubs && player.clubs.length > 0 ? player.clubs[0] : 'Independent';
+  const tier = getCategoryName(player.category);
+  const elo = getPseudoElo(displayName, 'Main');
+
   return (
     <Link to={`/player/${player.id}`} className="grid grid-cols-1 md:grid-cols-12 items-center gap-4 px-6 py-4 bg-surface-container-lowest rounded-2xl mb-2 transition-transform hover:scale-[1.01] cursor-pointer">
       <div className="col-span-1 flex items-center">
@@ -47,20 +53,20 @@ const PlayerRow = ({ player, rank }) => {
 
       <div className="col-span-5 flex items-center gap-4">
         <div className="w-12 h-12 rounded-full overflow-hidden bg-surface-variant">
-          <img className="w-full h-full object-cover" alt={player.name} src={player.avatar} />
+          <img className="w-full h-full object-cover" alt={displayName} src={player.avatarUrl || ''} />
         </div>
         <div>
-          <div className="font-bold text-lg">{player.name}</div>
-          <div className={`text-xs ${isTop ? 'text-secondary' : 'text-zinc-500'} font-semibold uppercase tracking-tighter`}>{player.tier}</div>
+          <div className="font-bold text-lg">{displayName}</div>
+          <div className={`text-xs ${isTop ? 'text-secondary' : 'text-zinc-500'} font-semibold uppercase tracking-tighter`}>{tier}</div>
         </div>
       </div>
 
       <div className="col-span-4 flex items-center">
-        <span className="text-on-surface-variant font-medium">{player.arena}</span>
+        <span className="text-on-surface-variant font-medium">{arena}</span>
       </div>
 
       <div className="col-span-2 text-right">
-        <span className="text-2xl font-black text-primary tracking-tighter">{player.elo.main}</span>
+        <span className="text-2xl font-black text-primary tracking-tighter">{elo}</span>
       </div>
     </Link>
   );
@@ -88,16 +94,20 @@ const TopPlayers = () => (
         </div>
 
         {[...profilesData]
+          .filter(p => p.id !== 0)
           .sort((a, b) => {
-            const eloA = parseInt(a.elo.main.replace(/,/g, ''), 10);
-            const eloB = parseInt(b.elo.main.replace(/,/g, ''), 10);
+            const eloA = getPseudoElo(`${a.name} ${a.surname}`, 'Main');
+            const eloB = getPseudoElo(`${b.name} ${b.surname}`, 'Main');
             return eloB - eloA;
           })
+          .slice(0, 20)
           .map((player, index) => <PlayerRow key={player.id} player={player} rank={index + 1} />)}
       </div>
     </div>
   </section>
 );
+
+
 
 const FeatureCard = ({ feature }) => (
   <div className={`bg-surface-container-lowest p-8 rounded-3xl group transition-all ${feature.hoverBg} hover:text-on-primary`}>

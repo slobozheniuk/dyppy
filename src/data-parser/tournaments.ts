@@ -33,6 +33,7 @@ export type Division = {
 
 export type Tournament = {
   id: number;
+  tournamentGroupID: number;
   date: string;
   name: string;
   type: string;
@@ -47,44 +48,50 @@ export type Round = {
   divisions: Division[];
 }
 
-export async function getTournaments({ limit }: { limit?: number } = {}): Promise<Tournament[]> {
+export async function getTournaments({ limit, tournamentIds }: { limit?: number, tournamentIds?: number[] } = {}): Promise<Tournament[]> {
   const tournaments: Tournament[] = [];
-  const url = `https://nwtfv.com/turniere?format=json`;
-  const res = await fetch(url);
-  const tournamentsHTML = await res.text();
-  const tournamentList = parseIntermediaryTournamentsIds(tournamentsHTML);
+  let tournamentList: number[];
+
+  if (tournamentIds && tournamentIds.length > 0) {
+    tournamentList = tournamentIds;
+  } else {
+    const url = `https://nwtfv.com/turniere?format=json`;
+    const res = await fetch(url);
+    const tournamentsHTML = await res.text();
+    tournamentList = parseIntermediaryTournamentsIds(tournamentsHTML);
+  }
+
   console.log(`Found ${tournamentList.length} tournament IDs to process.`);
 
   for (let i = 0; i < tournamentList.length; i++) {
     const tournamentId = tournamentList[i];
     console.log(`[${i + 1}/${tournamentList.length}] Processing tournament ID: ${tournamentId}...`);
     try {
-      const intermediaryUrl = `https://nwtfv.com/turniere?task=turnierdisziplinen&turnierid=${tournamentId}&format=json`;
-      const intermediaryRes = await fetch(intermediaryUrl);
-      const intermediaryHtml = await intermediaryRes.text();
-      const actualTournamentId = parseActualTournamentId(intermediaryHtml);
+      const actualTournamentIds = await parseActualTournamentId(tournamentId);
 
-      const tournament: Tournament = await getTournamentDetails(actualTournamentId);
-      tournaments.push(tournament);
-      if (limit && tournaments.length >= limit) {
-        break;
+      for (const actualTournamentId of actualTournamentIds) {
+        const tournament: Tournament = await getTournamentDetails(actualTournamentId, tournamentId);
+        tournaments.push(tournament);
+        if (limit && tournaments.length >= limit) {
+          return tournaments;
+        }
       }
     } catch (error) {
       console.error(`  Error processing tournament ID ${tournamentId}:`, error instanceof Error ? error.message : error);
-      // Continue to next tournament
+      throw new Error(`  Error processing tournament ID ${tournamentId}: ${error instanceof Error ? error.message : error}`);
     }
   }
   return tournaments;
 }
 
-export async function getTournamentDetails(actualTournamentId: number): Promise<Tournament> {
+export async function getTournamentDetails(actualTournamentId: number, tournamentGroupID?: number): Promise<Tournament> {
   console.log(`  Fetching details for tournament ID: ${actualTournamentId}...`);
   const detailsUrl = `https://nwtfv.com/turniere?task=turnierdisziplin&id=${actualTournamentId}&format=json`;
   const detailsRes = await fetch(detailsUrl);
   const detailsHtml = await detailsRes.text();
   const tournamentDetails = parseTournamentDetails(detailsHtml);
-  const tournament: Tournament = { id: actualTournamentId, ...tournamentDetails };
-  console.log(`  Successfully parsed tournament: ${tournament.name}`);
+  const tournament: Tournament = { id: actualTournamentId, tournamentGroupID: tournamentGroupID ?? actualTournamentId, ...tournamentDetails };
+  console.log(`  Successfully parsed tournament: ${tournament.name} ${tournament.type} at ${tournament.place}, ${tournament.numberOfParticipants} participants`);
   return tournament;
 }
 
@@ -116,28 +123,32 @@ function parseIntermediaryTournamentsIds(html: string): number[] {
 }
 
 /**
- * Parses the tournament details HTML to find the details ID
- * @param {string} html 
- * @returns {number|null}
+ * Parses the tournament details HTML to find all sub-tournament IDs
+ * @param {number} tournamentId 
+ * @returns {Promise<number[]>}
  */
-function parseActualTournamentId(html: string): number {
-  const $details = cheerio.load(html);
-  const mehrLink = $details('a').filter((idx, el) => {
-    const elHref = $details(el).attr('href') || '';
-    return elHref.includes('task=turnierdisziplin&id=');
-  }).first();
+async function parseActualTournamentId(tournamentId: number): Promise<number[]> {
+  const intermediaryUrl = `https://nwtfv.com/turniere?task=turnierdisziplinen&turnierid=${tournamentId}&format=json`;
+  const intermediaryRes = await fetch(intermediaryUrl);
+  const intermediaryHtml = await intermediaryRes.text();
+  const $details = cheerio.load(intermediaryHtml);
 
-  if (mehrLink.length > 0) {
-    const mehrHref = mehrLink.attr('href') || '';
-    const detailsIdMatch = mehrHref.match(/turnierdisziplin&id=(\d+)/);
-    if (detailsIdMatch) {
-      return parseInt(detailsIdMatch[1], 10);
+  const ids: number[] = [];
+  $details('a').each((_, el) => {
+    const elHref = $details(el).attr('href') || '';
+    const match = elHref.match(/turnierdisziplin&id=(\d+)/);
+    if (match) {
+      ids.push(parseInt(match[1], 10));
     }
+  });
+
+  if (ids.length > 0) {
+    return Array.from(new Set(ids)); // Remove duplicates if any
   }
-  throw new Error('Could not parse actual tournament id');
+  throw new Error(`Could not parse actual tournament ids for tournamentId ${tournamentId}`);
 }
 
-function parseTournamentDetails(html: string): Omit<Tournament, 'id'> {
+function parseTournamentDetails(html: string): Omit<Tournament, 'id' | 'tournamentGroupID'> {
   const $ = cheerio.load(html);
 
   // Extract Metadata
@@ -217,7 +228,7 @@ function parseTournamentDetails(html: string): Omit<Tournament, 'id'> {
     qualifyingRound = parseRound($, vorrundeTable);
   }
 
-  const tournamentDetails: Omit<Tournament, 'id'> = {
+  const tournamentDetails: Omit<Tournament, 'id' | 'tournamentGroupID'> = {
     name,
     date,
     place,
@@ -364,6 +375,7 @@ function parseDivisionTable($: cheerio.CheerioAPI, gameTable: cheerio.Cheerio<an
       const loserTd = $(tds[hasScores ? 2 : 1]).find('table tr td').first();
 
       if (!winnerTd.length || !loserTd.length) continue;
+      if (!winnerTd.text().trim() || !loserTd.text().trim()) continue;
 
       const competitor1 = parseCompetitor($, winnerTd, finalPlacements);
       const competitor2 = parseCompetitor($, loserTd, finalPlacements);
@@ -426,7 +438,10 @@ function parseCompetitor($: cheerio.CheerioAPI, playersListTd: cheerio.Cheerio<a
       name = part$.text().trim();
     }
 
-    if (!name) throw new Error('Could not parse player name');
+    if (!name) {
+      console.error('Failed to parse name from part:', part);
+      throw new Error('Could not parse player name');
+    }
 
     // If no nwtfvId from link, try to find it from finalPlacements by name
     if (nwtfvId === undefined && finalPlacements) {
@@ -452,10 +467,12 @@ function parseCompetitor($: cheerio.CheerioAPI, playersListTd: cheerio.Cheerio<a
   };
 
   const parsedPlayers = htmlParts
+    .filter(part => part.trim().length > 0)
     .map(part => parsePlayerFromHtmlPart(part))
     .filter(p => p.name.length > 0);
 
   if (parsedPlayers.length === 0) {
+    console.error('Original htmlContent was:', htmlContent);
     throw new Error('Could not parse competitor');
   }
 

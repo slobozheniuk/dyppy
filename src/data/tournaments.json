@@ -1,0 +1,6963 @@
+[
+  {
+    "id": 6276,
+    "tournamentGroupID": 5241,
+    "name": "Mini - Challenger",
+    "date": "25.03.2026",
+    "place": "Bonn",
+    "type": "Monster DYP",
+    "numberOfParticipants": 30,
+    "mainRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Sting, Tobias",
+              "nwtfvId": 504
+            },
+            "player2": {
+              "name": "Sebold, Klaus",
+              "nwtfvId": 9172
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Reif, Volker",
+              "nwtfvId": 330
+            },
+            "player2": {
+              "name": "Kürten, Alladin",
+              "nwtfvId": 230
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Brenn, Karl",
+              "nwtfvId": 9653
+            },
+            "player2": {
+              "name": "Wirtz, Christian",
+              "nwtfvId": 10158
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Rode, Kersten",
+              "nwtfvId": 341
+            },
+            "player2": {
+              "name": "Karadag, Safabey",
+              "nwtfvId": 207
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Schmidt, Heinrich"
+            },
+            "player2": {
+              "name": "Mann, Michael-Moritz",
+              "nwtfvId": 9652
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Lipfert, Jan",
+              "nwtfvId": 8911
+            },
+            "player2": {
+              "name": "Hoss, Michael",
+              "nwtfvId": 10043
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Borgolte, Chris",
+              "nwtfvId": 41
+            },
+            "player2": {
+              "name": "Wirths, Jan Arne",
+              "nwtfvId": 9948
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Rissmann, Mario",
+              "nwtfvId": 7815
+            },
+            "player2": {
+              "name": "Friedrichs, Lars",
+              "nwtfvId": 8645
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Krämer, Stephanie",
+              "nwtfvId": 7324
+            },
+            "player2": {
+              "name": "Daniel, Tanja"
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Anger, Tim",
+              "nwtfvId": 9655
+            },
+            "player2": {
+              "name": "Frank, Christian"
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Sting, Tobias",
+              "nwtfvId": 504
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Sebold, Klaus",
+              "nwtfvId": 9172
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Reif, Volker",
+              "nwtfvId": 330
+            }
+          }
+        },
+        {
+          "rank": 14,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Kürten, Alladin",
+              "nwtfvId": 230
+            }
+          }
+        },
+        {
+          "rank": 15,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Karadag, Safabey",
+              "nwtfvId": 207
+            }
+          }
+        },
+        {
+          "rank": 16,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Rode, Kersten",
+              "nwtfvId": 341
+            }
+          }
+        },
+        {
+          "rank": 17,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wirtz, Christian",
+              "nwtfvId": 10158
+            }
+          }
+        },
+        {
+          "rank": 18,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Brenn, Karl",
+              "nwtfvId": 9653
+            }
+          }
+        },
+        {
+          "rank": 19,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schmidt, Heinrich"
+            }
+          }
+        },
+        {
+          "rank": 20,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Mann, Michael-Moritz",
+              "nwtfvId": 9652
+            }
+          }
+        },
+        {
+          "rank": 21,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Lipfert, Jan",
+              "nwtfvId": 8911
+            }
+          }
+        },
+        {
+          "rank": 22,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hoss, Michael",
+              "nwtfvId": 10043
+            }
+          }
+        },
+        {
+          "rank": 23,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wirths, Jan Arne",
+              "nwtfvId": 9948
+            }
+          }
+        },
+        {
+          "rank": 24,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Borgolte, Chris",
+              "nwtfvId": 41
+            }
+          }
+        },
+        {
+          "rank": 25,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Krämer, Stephanie",
+              "nwtfvId": 7324
+            }
+          }
+        },
+        {
+          "rank": 26,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Daniel, Tanja"
+            }
+          }
+        },
+        {
+          "rank": 27,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Friedrichs, Lars",
+              "nwtfvId": 8645
+            }
+          }
+        },
+        {
+          "rank": 28,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Rissmann, Mario",
+              "nwtfvId": 7815
+            }
+          }
+        },
+        {
+          "rank": 29,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Anger, Tim",
+              "nwtfvId": 9655
+            }
+          }
+        },
+        {
+          "rank": 30,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Frank, Christian"
+            }
+          }
+        }
+      ],
+      "divisions": [
+        {
+          "skillLevel": "Pro",
+          "gameStages": [
+            {
+              "name": "Viertelfinale",
+              "games": []
+            },
+            {
+              "name": "Halbfinale",
+              "games": []
+            },
+            {
+              "name": "Platz 3",
+              "games": []
+            },
+            {
+              "name": "Finale",
+              "games": []
+            }
+          ]
+        },
+        {
+          "skillLevel": "Amateur",
+          "gameStages": [
+            {
+              "name": "Viertelfinale",
+              "games": []
+            },
+            {
+              "name": "Halbfinale",
+              "games": []
+            },
+            {
+              "name": "Platz 3",
+              "games": []
+            },
+            {
+              "name": "Finale",
+              "games": []
+            }
+          ]
+        }
+      ]
+    },
+    "qualifyingRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Sting, Tobias",
+              "nwtfvId": 504
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Sebold, Klaus",
+              "nwtfvId": 9172
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Reif, Volker",
+              "nwtfvId": 330
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Kürten, Alladin",
+              "nwtfvId": 230
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Karadag, Safabey",
+              "nwtfvId": 207
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Rode, Kersten",
+              "nwtfvId": 341
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wirtz, Christian",
+              "nwtfvId": 10158
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Brenn, Karl",
+              "nwtfvId": 9653
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schmidt, Heinrich"
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Mann, Michael-Moritz",
+              "nwtfvId": 9652
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Lipfert, Jan",
+              "nwtfvId": 8911
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hoss, Michael",
+              "nwtfvId": 10043
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wirths, Jan Arne",
+              "nwtfvId": 9948
+            }
+          }
+        },
+        {
+          "rank": 14,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Borgolte, Chris",
+              "nwtfvId": 41
+            }
+          }
+        },
+        {
+          "rank": 15,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Krämer, Stephanie",
+              "nwtfvId": 7324
+            }
+          }
+        },
+        {
+          "rank": 16,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Daniel, Tanja"
+            }
+          }
+        },
+        {
+          "rank": 17,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Friedrichs, Lars",
+              "nwtfvId": 8645
+            }
+          }
+        },
+        {
+          "rank": 18,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Rissmann, Mario",
+              "nwtfvId": 7815
+            }
+          }
+        },
+        {
+          "rank": 19,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Anger, Tim",
+              "nwtfvId": 9655
+            }
+          }
+        },
+        {
+          "rank": 20,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Frank, Christian"
+            }
+          }
+        }
+      ],
+      "divisions": [
+        {
+          "skillLevel": "Open",
+          "gameStages": [
+            {
+              "name": "1. Runde",
+              "games": []
+            },
+            {
+              "name": "2. Runde",
+              "games": []
+            },
+            {
+              "name": "3. Runde",
+              "games": []
+            },
+            {
+              "name": "4. Runde",
+              "games": []
+            },
+            {
+              "name": "5. Runde",
+              "games": []
+            },
+            {
+              "name": "6. Runde",
+              "games": []
+            },
+            {
+              "name": "7. Runde",
+              "games": []
+            },
+            {
+              "name": "8. Runde",
+              "games": []
+            },
+            {
+              "name": "9. Runde",
+              "games": []
+            },
+            {
+              "name": "10. Runde",
+              "games": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": 6574,
+    "tournamentGroupID": 5530,
+    "name": "Mini Challenger",
+    "date": "25.03.2026",
+    "place": "Minden",
+    "type": "Offenes Einzel",
+    "numberOfParticipants": 16,
+    "mainRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Tegtmeier, Timo",
+              "nwtfvId": 9586
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Meyer, Dominik",
+              "nwtfvId": 8722
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Seele, Niklas",
+              "nwtfvId": 9640
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Luttmann, Robert",
+              "nwtfvId": 8000
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Regener, Michael"
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Roth, Alexander",
+              "nwtfvId": 8755
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Pützschler, Werner",
+              "nwtfvId": 8830
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Telaar, Franz-Josef",
+              "nwtfvId": 9109
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Scheidel, Norbert",
+              "nwtfvId": 8955
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Köstring Macena da Silva, Tobias",
+              "nwtfvId": 10140
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Lück, Helmut",
+              "nwtfvId": 8832
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Weber, Dean",
+              "nwtfvId": 9755
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Niemeyer, Martin",
+              "nwtfvId": 9638
+            }
+          }
+        },
+        {
+          "rank": 14,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Scheidel, Peter"
+            }
+          }
+        },
+        {
+          "rank": 15,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wolf, Klaus"
+            }
+          }
+        },
+        {
+          "rank": 16,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Carstensen, Uwe",
+              "nwtfvId": 8995
+            }
+          }
+        }
+      ],
+      "divisions": [
+        {
+          "skillLevel": "Pro",
+          "gameStages": [
+            {
+              "name": "Viertelfinale",
+              "games": []
+            },
+            {
+              "name": "Halbfinale",
+              "games": []
+            },
+            {
+              "name": "Platz 3",
+              "games": []
+            },
+            {
+              "name": "Finale",
+              "games": []
+            }
+          ]
+        },
+        {
+          "skillLevel": "Amateur",
+          "gameStages": [
+            {
+              "name": "Viertelfinale",
+              "games": []
+            },
+            {
+              "name": "Halbfinale",
+              "games": []
+            },
+            {
+              "name": "Platz 3",
+              "games": []
+            },
+            {
+              "name": "Finale",
+              "games": []
+            }
+          ]
+        }
+      ]
+    },
+    "qualifyingRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Tegtmeier, Timo",
+              "nwtfvId": 9586
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Luttmann, Robert",
+              "nwtfvId": 8000
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Meyer, Dominik",
+              "nwtfvId": 8722
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Seele, Niklas",
+              "nwtfvId": 9640
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Regener, Michael"
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Roth, Alexander",
+              "nwtfvId": 8755
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Pützschler, Werner",
+              "nwtfvId": 8830
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Telaar, Franz-Josef",
+              "nwtfvId": 9109
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Niemeyer, Martin",
+              "nwtfvId": 9638
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Scheidel, Norbert",
+              "nwtfvId": 8955
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Weber, Dean",
+              "nwtfvId": 9755
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Köstring Macena da Silva, Tobias",
+              "nwtfvId": 10140
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Scheidel, Peter"
+            }
+          }
+        },
+        {
+          "rank": 14,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wolf, Klaus"
+            }
+          }
+        },
+        {
+          "rank": 15,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Carstensen, Uwe",
+              "nwtfvId": 8995
+            }
+          }
+        },
+        {
+          "rank": 16,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Lück, Helmut",
+              "nwtfvId": 8832
+            }
+          }
+        }
+      ],
+      "divisions": [
+        {
+          "skillLevel": "Open",
+          "gameStages": [
+            {
+              "name": "1. Runde",
+              "games": []
+            },
+            {
+              "name": "2. Runde",
+              "games": []
+            },
+            {
+              "name": "3. Runde",
+              "games": []
+            },
+            {
+              "name": "4. Runde",
+              "games": []
+            },
+            {
+              "name": "5. Runde",
+              "games": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": 6329,
+    "tournamentGroupID": 5295,
+    "name": "Mini - Challenger",
+    "date": "24.03.2026",
+    "place": "Aachen",
+    "type": "Monster DYP",
+    "numberOfParticipants": 27,
+    "mainRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Kiss-Toth, Laszlo",
+              "nwtfvId": 8323
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Rode, Kersten",
+              "nwtfvId": 341
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Franssen, Jo",
+              "nwtfvId": 8792
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Sting, Tobias",
+              "nwtfvId": 504
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Czakó, Gábor",
+              "nwtfvId": 9056
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Vetter, Jancee",
+              "nwtfvId": 9889
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Nolte, Lars",
+              "nwtfvId": 290
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Bennemann, Axel",
+              "nwtfvId": 9097
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Nollgen, Martin"
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Bardoul, Davy",
+              "nwtfvId": 9085
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Sentek, Heike",
+              "nwtfvId": 9199
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Könings, Richard"
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Slegers, Luvic",
+              "nwtfvId": 8796
+            }
+          }
+        },
+        {
+          "rank": 14,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Perlaky, Stefan"
+            }
+          }
+        },
+        {
+          "rank": 15,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Kreuer, Uwe",
+              "nwtfvId": 10160
+            }
+          }
+        },
+        {
+          "rank": 16,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Holle, Daniel",
+              "nwtfvId": 10019
+            }
+          }
+        },
+        {
+          "rank": 17,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schade, Imma",
+              "nwtfvId": 10106
+            }
+          }
+        },
+        {
+          "rank": 18,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Kocpinar, Erol",
+              "nwtfvId": 8302
+            }
+          }
+        },
+        {
+          "rank": 19,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Kerenkewitz, Martin",
+              "nwtfvId": 10054
+            }
+          }
+        },
+        {
+          "rank": 20,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Kirsch, Silke",
+              "nwtfvId": 8745
+            }
+          }
+        },
+        {
+          "rank": 21,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "van Sint Feijth, Charon"
+            }
+          }
+        },
+        {
+          "rank": 22,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Pyls, Lilli"
+            }
+          }
+        },
+        {
+          "rank": 23,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Sintzen, Kai"
+            }
+          }
+        },
+        {
+          "rank": 24,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Paladin, Rico",
+              "nwtfvId": 9718
+            }
+          }
+        },
+        {
+          "rank": 25,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Meschke, Ralf",
+              "nwtfvId": 794
+            }
+          }
+        },
+        {
+          "rank": 26,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Winkhold, Ingo",
+              "nwtfvId": 10056
+            }
+          }
+        },
+        {
+          "rank": 27,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Welter, Johannes",
+              "nwtfvId": 8815
+            }
+          }
+        }
+      ],
+      "divisions": [
+        {
+          "skillLevel": "Pro",
+          "gameStages": [
+            {
+              "name": "1. Runde",
+              "games": []
+            },
+            {
+              "name": "2. Runde",
+              "games": []
+            },
+            {
+              "name": "3. Runde",
+              "games": []
+            },
+            {
+              "name": "4. Runde",
+              "games": []
+            },
+            {
+              "name": "5. Runde",
+              "games": []
+            },
+            {
+              "name": "6. Runde",
+              "games": []
+            },
+            {
+              "name": "7. Runde",
+              "games": []
+            },
+            {
+              "name": "8. Runde",
+              "games": []
+            },
+            {
+              "name": "9. Runde",
+              "games": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": 6498,
+    "tournamentGroupID": 5456,
+    "name": "Mini - Challenger",
+    "date": "24.03.2026",
+    "place": "Dortmund",
+    "type": "Offenes Einzel",
+    "numberOfParticipants": 17,
+    "mainRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Fotteler, Andreas"
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Klemm, Markus",
+              "nwtfvId": 9741
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "König, Kyrill",
+              "nwtfvId": 8125
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Dombrowe, Jens",
+              "nwtfvId": 8210
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Buitelaar, Tim",
+              "nwtfvId": 7510
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Oudaah, Ahmed",
+              "nwtfvId": 9832
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Beringhoff, Arno",
+              "nwtfvId": 27
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Müller, Christian",
+              "nwtfvId": 10077
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Roekens, Sebastian",
+              "nwtfvId": 8757
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Bubolz, Andreas",
+              "nwtfvId": 9728
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Roßmann, Walter",
+              "nwtfvId": 7918
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hildebrandt, Andre",
+              "nwtfvId": 9842
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Czerny, Florian",
+              "nwtfvId": 9855
+            }
+          }
+        },
+        {
+          "rank": 14,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schulz, Thomas",
+              "nwtfvId": 9955
+            }
+          }
+        },
+        {
+          "rank": 15,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Duèmmer, Marco",
+              "nwtfvId": 9055
+            }
+          }
+        },
+        {
+          "rank": 16,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Czerny, Luis",
+              "nwtfvId": 9980
+            }
+          }
+        },
+        {
+          "rank": 17,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Maruszczyk, Karin",
+              "nwtfvId": 10145
+            }
+          }
+        }
+      ],
+      "divisions": [
+        {
+          "skillLevel": "Pro",
+          "gameStages": [
+            {
+              "name": "Viertelfinale",
+              "games": []
+            },
+            {
+              "name": "Halbfinale",
+              "games": []
+            },
+            {
+              "name": "Platz 3",
+              "games": []
+            },
+            {
+              "name": "Finale",
+              "games": []
+            }
+          ]
+        },
+        {
+          "skillLevel": "Amateur",
+          "gameStages": [
+            {
+              "name": "Viertelfinale",
+              "games": []
+            },
+            {
+              "name": "Halbfinale",
+              "games": []
+            },
+            {
+              "name": "Finale",
+              "games": []
+            }
+          ]
+        }
+      ]
+    },
+    "qualifyingRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Klemm, Markus",
+              "nwtfvId": 9741
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Fotteler, Andreas"
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Dombrowe, Jens",
+              "nwtfvId": 8210
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "König, Kyrill",
+              "nwtfvId": 8125
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Buitelaar, Tim",
+              "nwtfvId": 7510
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Oudaah, Ahmed",
+              "nwtfvId": 9832
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Roekens, Sebastian",
+              "nwtfvId": 8757
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Bubolz, Andreas",
+              "nwtfvId": 9728
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Müller, Christian",
+              "nwtfvId": 10077
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Roßmann, Walter",
+              "nwtfvId": 7918
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Beringhoff, Arno",
+              "nwtfvId": 27
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hildebrandt, Andre",
+              "nwtfvId": 9842
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Duèmmer, Marco",
+              "nwtfvId": 9055
+            }
+          }
+        },
+        {
+          "rank": 14,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Czerny, Florian",
+              "nwtfvId": 9855
+            }
+          }
+        },
+        {
+          "rank": 15,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Czerny, Luis",
+              "nwtfvId": 9980
+            }
+          }
+        },
+        {
+          "rank": 16,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schulz, Thomas",
+              "nwtfvId": 9955
+            }
+          }
+        },
+        {
+          "rank": 17,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Maruszczyk, Karin",
+              "nwtfvId": 10145
+            }
+          }
+        }
+      ],
+      "divisions": [
+        {
+          "skillLevel": "Open",
+          "gameStages": [
+            {
+              "name": "1. Runde",
+              "games": []
+            },
+            {
+              "name": "2. Runde",
+              "games": []
+            },
+            {
+              "name": "3. Runde",
+              "games": []
+            },
+            {
+              "name": "4. Runde",
+              "games": []
+            },
+            {
+              "name": "5. Runde",
+              "games": []
+            },
+            {
+              "name": "6. Runde",
+              "games": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": 6598,
+    "tournamentGroupID": 5553,
+    "name": "Mini - Challenger",
+    "date": "24.03.2026",
+    "place": "Coesfeld",
+    "type": "Monster DYP",
+    "numberOfParticipants": 13,
+    "mainRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Baier, Manfred",
+              "nwtfvId": 8272
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Seibt, Till"
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Rolf, Manni"
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Nienhaus, Sebastian"
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Borowski, Maricel",
+              "nwtfvId": 10087
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schau, Jochen"
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wolf, Johannes"
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Volmer, Jonas"
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Grösgen, Lisa"
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wipperfürth, Iris",
+              "nwtfvId": 10095
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Plesker, Christian"
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Dietrich, Thomas"
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Alfes, Britta"
+            }
+          }
+        }
+      ],
+      "divisions": []
+    }
+  },
+  {
+    "id": 6606,
+    "tournamentGroupID": 5561,
+    "name": "Mini - Challenger",
+    "date": "24.03.2026",
+    "place": "Oberhausen",
+    "type": "Monster - DYP",
+    "numberOfParticipants": 23,
+    "mainRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Pniewski, Ralf",
+              "nwtfvId": 8942
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Gruber, Romano",
+              "nwtfvId": 7343
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Stamm, Andreas",
+              "nwtfvId": 405
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Denter, Dietmar",
+              "nwtfvId": 8160
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Mita, Maximiliano",
+              "nwtfvId": 784
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wehrenfennig, Stefanie",
+              "nwtfvId": 815
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Tiemeshen, Tim",
+              "nwtfvId": 9771
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Röh, Steffen",
+              "nwtfvId": 570
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Bremer, Martin",
+              "nwtfvId": 48
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Eßer, Robin",
+              "nwtfvId": 8689
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Seggio, Enrico",
+              "nwtfvId": 8054
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Opp, Bernd"
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Busch, André",
+              "nwtfvId": 8063
+            }
+          }
+        },
+        {
+          "rank": 14,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Mock, Michael",
+              "nwtfvId": 268
+            }
+          }
+        },
+        {
+          "rank": 15,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hüwe, Pia",
+              "nwtfvId": 7659
+            }
+          }
+        },
+        {
+          "rank": 16,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hoppe, Michael",
+              "nwtfvId": 8014
+            }
+          }
+        },
+        {
+          "rank": 17,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Busch, Chris"
+            }
+          }
+        },
+        {
+          "rank": 18,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Blaskowitz, Manfred",
+              "nwtfvId": 34
+            }
+          }
+        },
+        {
+          "rank": 19,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Kramer, Jenny",
+              "nwtfvId": 7367
+            }
+          }
+        },
+        {
+          "rank": 20,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Angelopoulos, Nikolaos"
+            }
+          }
+        },
+        {
+          "rank": 21,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Rissmann, Mario",
+              "nwtfvId": 7815
+            }
+          }
+        },
+        {
+          "rank": 22,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Tomann, Udo",
+              "nwtfvId": 9942
+            }
+          }
+        },
+        {
+          "rank": 23,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Venn, Wolfgang",
+              "nwtfvId": 9062
+            }
+          }
+        }
+      ],
+      "divisions": []
+    },
+    "qualifyingRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Pniewski, Ralf",
+              "nwtfvId": 8942
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Gruber, Romano",
+              "nwtfvId": 7343
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Stamm, Andreas",
+              "nwtfvId": 405
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Denter, Dietmar",
+              "nwtfvId": 8160
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Mita, Maximiliano",
+              "nwtfvId": 784
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wehrenfennig, Stefanie",
+              "nwtfvId": 815
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Tiemeshen, Tim",
+              "nwtfvId": 9771
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Röh, Steffen",
+              "nwtfvId": 570
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Bremer, Martin",
+              "nwtfvId": 48
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Eßer, Robin",
+              "nwtfvId": 8689
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Seggio, Enrico",
+              "nwtfvId": 8054
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Opp, Bernd"
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Busch, André",
+              "nwtfvId": 8063
+            }
+          }
+        },
+        {
+          "rank": 14,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Mock, Michael",
+              "nwtfvId": 268
+            }
+          }
+        },
+        {
+          "rank": 15,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hüwe, Pia",
+              "nwtfvId": 7659
+            }
+          }
+        },
+        {
+          "rank": 16,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hoppe, Michael",
+              "nwtfvId": 8014
+            }
+          }
+        },
+        {
+          "rank": 17,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Busch, Chris"
+            }
+          }
+        },
+        {
+          "rank": 18,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Blaskowitz, Manfred",
+              "nwtfvId": 34
+            }
+          }
+        },
+        {
+          "rank": 19,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Kramer, Jenny",
+              "nwtfvId": 7367
+            }
+          }
+        },
+        {
+          "rank": 20,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Angelopoulos, Nikolaos"
+            }
+          }
+        },
+        {
+          "rank": 21,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Rissmann, Mario",
+              "nwtfvId": 7815
+            }
+          }
+        },
+        {
+          "rank": 22,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Tomann, Udo",
+              "nwtfvId": 9942
+            }
+          }
+        },
+        {
+          "rank": 23,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Venn, Wolfgang",
+              "nwtfvId": 9062
+            }
+          }
+        }
+      ],
+      "divisions": []
+    }
+  },
+  {
+    "id": 6434,
+    "tournamentGroupID": 5392,
+    "name": "Mini - Challenger",
+    "date": "23.03.2026",
+    "place": "Vreden",
+    "type": "Monster DYP",
+    "numberOfParticipants": 20,
+    "mainRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Beuker, Lars",
+              "nwtfvId": 8919
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hoffmann, Jesco",
+              "nwtfvId": 9686
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Heinze, Frank",
+              "nwtfvId": 9614
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Damm, Engelbert",
+              "nwtfvId": 8920
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Becking, Wilhelm",
+              "nwtfvId": 8959
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Maier, Viktor",
+              "nwtfvId": 9615
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Severt, Tobias",
+              "nwtfvId": 9619
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Köhler, Hans-Anton",
+              "nwtfvId": 9999
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Herbers, Reinhard",
+              "nwtfvId": 9841
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Vieira Martins, Cristiano",
+              "nwtfvId": 10120
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Tenhumberg, Markus",
+              "nwtfvId": 9628
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Klein Reesink, Marie",
+              "nwtfvId": 10121
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Leopold, Tobias",
+              "nwtfvId": 9612
+            }
+          }
+        },
+        {
+          "rank": 14,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Afentoulidis, Niko",
+              "nwtfvId": 7425
+            }
+          }
+        },
+        {
+          "rank": 15,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Gehling, Bernd",
+              "nwtfvId": 9611
+            }
+          }
+        },
+        {
+          "rank": 16,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Holtmann, Daniel",
+              "nwtfvId": 9689
+            }
+          }
+        },
+        {
+          "rank": 17,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Bölling, Udo",
+              "nwtfvId": 9618
+            }
+          }
+        },
+        {
+          "rank": 18,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Meyer, Pascal"
+            }
+          }
+        },
+        {
+          "rank": 19,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Bockhorn, Lukas",
+              "nwtfvId": 10108
+            }
+          }
+        },
+        {
+          "rank": 20,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schwack, Peter",
+              "nwtfvId": 9617
+            }
+          }
+        }
+      ],
+      "divisions": []
+    }
+  },
+  {
+    "id": 6472,
+    "tournamentGroupID": 5430,
+    "name": "Mini - Challenger",
+    "date": "23.03.2026",
+    "place": "Telgte",
+    "type": "Monster DYP",
+    "numberOfParticipants": 9,
+    "mainRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Gallardo, Manuel",
+              "nwtfvId": 604
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Erlemann, Lenni",
+              "nwtfvId": 10028
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Heckenkamp, Oskar",
+              "nwtfvId": 10163
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Terlinde, Lutz",
+              "nwtfvId": 9965
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Erlemann, Benno",
+              "nwtfvId": 10029
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Heckenkamp, Lotta",
+              "nwtfvId": 10165
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Heckenkamp, Nina"
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Heckenkamp, Paul",
+              "nwtfvId": 10157
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Lemli, Norbert"
+            }
+          }
+        }
+      ],
+      "divisions": []
+    },
+    "qualifyingRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Gallardo, Manuel",
+              "nwtfvId": 604
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Erlemann, Lenni",
+              "nwtfvId": 10028
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Heckenkamp, Oskar",
+              "nwtfvId": 10163
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Terlinde, Lutz",
+              "nwtfvId": 9965
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Heckenkamp, Nina"
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Heckenkamp, Paul",
+              "nwtfvId": 10157
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Erlemann, Benno",
+              "nwtfvId": 10029
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Heckenkamp, Lotta",
+              "nwtfvId": 10165
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Lemli, Norbert"
+            }
+          }
+        }
+      ],
+      "divisions": []
+    }
+  },
+  {
+    "id": 6480,
+    "tournamentGroupID": 5438,
+    "name": "Mini - Challenger",
+    "date": "23.03.2026",
+    "place": "Porta Westfalia",
+    "type": "Monster DYP",
+    "numberOfParticipants": 17,
+    "mainRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Kersting, Jan",
+              "nwtfvId": 8752
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Müller, Christian",
+              "nwtfvId": 8753
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Lepp, Marco",
+              "nwtfvId": 9592
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Gritzan, Matthias",
+              "nwtfvId": 9129
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hohmeier, Uwe",
+              "nwtfvId": 9060
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Teuber, Kevin",
+              "nwtfvId": 8725
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Nagel, Andreas",
+              "nwtfvId": 9839
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Martz, Andreas",
+              "nwtfvId": 9837
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hohlfeld, Jan-Christoph",
+              "nwtfvId": 8788
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schellhoss, Thomas",
+              "nwtfvId": 9061
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Klein, Martin",
+              "nwtfvId": 9023
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Da Costa Neto, Daniel",
+              "nwtfvId": 9591
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wöhler, Sebastian",
+              "nwtfvId": 9135
+            }
+          }
+        },
+        {
+          "rank": 14,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Augustin, Florian",
+              "nwtfvId": 9593
+            }
+          }
+        },
+        {
+          "rank": 15,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Beiersdorfer, Ralf",
+              "nwtfvId": 8787
+            }
+          }
+        },
+        {
+          "rank": 16,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Knust, Thomas",
+              "nwtfvId": 9594
+            }
+          }
+        },
+        {
+          "rank": 17,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schröder, Jörg"
+            }
+          }
+        }
+      ],
+      "divisions": [
+        {
+          "skillLevel": "Pro",
+          "gameStages": [
+            {
+              "name": "1. Runde",
+              "games": []
+            },
+            {
+              "name": "2. Runde",
+              "games": []
+            },
+            {
+              "name": "3. Runde",
+              "games": []
+            },
+            {
+              "name": "4. Runde",
+              "games": []
+            },
+            {
+              "name": "5. Runde",
+              "games": []
+            },
+            {
+              "name": "6. Runde",
+              "games": []
+            },
+            {
+              "name": "7. Runde",
+              "games": []
+            },
+            {
+              "name": "8. Runde",
+              "games": []
+            },
+            {
+              "name": "9. Runde",
+              "games": []
+            },
+            {
+              "name": "10. Runde",
+              "games": []
+            },
+            {
+              "name": "11. Runde",
+              "games": []
+            },
+            {
+              "name": "12. Runde",
+              "games": []
+            },
+            {
+              "name": "13. Runde",
+              "games": []
+            },
+            {
+              "name": "14. Runde",
+              "games": []
+            },
+            {
+              "name": "15. Runde",
+              "games": []
+            },
+            {
+              "name": "16. Runde",
+              "games": []
+            },
+            {
+              "name": "17. Runde",
+              "games": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": 6491,
+    "tournamentGroupID": 5449,
+    "name": "Mini - Challenger",
+    "date": "23.03.2026",
+    "place": "Soest",
+    "type": "Monster DYP",
+    "numberOfParticipants": 10,
+    "mainRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schlüter, Jens",
+              "nwtfvId": 9858
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wehler, Daniel",
+              "nwtfvId": 7845
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Lasoen, Frank",
+              "nwtfvId": 10099
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Olmes, Maurice",
+              "nwtfvId": 10144
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Czerny, Florian",
+              "nwtfvId": 9855
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Czerny, Luis",
+              "nwtfvId": 9980
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schnettler, Marc",
+              "nwtfvId": 9144
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Glaremin, Sven",
+              "nwtfvId": 9143
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hense, Annika",
+              "nwtfvId": 9864
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hustadt, Christian",
+              "nwtfvId": 9857
+            }
+          }
+        }
+      ],
+      "divisions": [
+        {
+          "skillLevel": "Pro",
+          "gameStages": [
+            {
+              "name": "1. Runde",
+              "games": []
+            },
+            {
+              "name": "2. Runde",
+              "games": []
+            },
+            {
+              "name": "3. Runde",
+              "games": []
+            },
+            {
+              "name": "4. Runde",
+              "games": []
+            },
+            {
+              "name": "5. Runde",
+              "games": []
+            },
+            {
+              "name": "6. Runde",
+              "games": []
+            },
+            {
+              "name": "7. Runde",
+              "games": []
+            },
+            {
+              "name": "8. Runde",
+              "games": []
+            },
+            {
+              "name": "9. Runde",
+              "games": []
+            },
+            {
+              "name": "10. Runde",
+              "games": []
+            },
+            {
+              "name": "11. Runde",
+              "games": []
+            },
+            {
+              "name": "12. Runde",
+              "games": []
+            },
+            {
+              "name": "13. Runde",
+              "games": []
+            },
+            {
+              "name": "14. Runde",
+              "games": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": 6382,
+    "tournamentGroupID": 5345,
+    "name": "Mini - Challenger",
+    "date": "20.03.2026",
+    "place": "Oberhausen",
+    "type": "Offenes Doppel",
+    "numberOfParticipants": 25,
+    "mainRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Röttger, Nico",
+              "nwtfvId": 7896
+            },
+            "player2": {
+              "name": "Schmidt, Andreas",
+              "nwtfvId": 9051
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Kretschmer, Andreas",
+              "nwtfvId": 7941
+            },
+            "player2": {
+              "name": "Hazwani, Rami",
+              "nwtfvId": 158
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Koopmann, Viktor",
+              "nwtfvId": 10093
+            },
+            "player2": {
+              "name": "Boomgaarden, Frieso",
+              "nwtfvId": 9865
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Plaspohl, Uwe",
+              "nwtfvId": 7590
+            },
+            "player2": {
+              "name": "Yücel, Refik",
+              "nwtfvId": 7683
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Hoffmann, Jesco",
+              "nwtfvId": 9686
+            },
+            "player2": {
+              "name": "Röttger, Marcel",
+              "nwtfvId": 7955
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Kastrati, Nenad",
+              "nwtfvId": 8681
+            },
+            "player2": {
+              "name": "Ickelsheimer, Colin",
+              "nwtfvId": 7866
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Brodbeck, Jürgen",
+              "nwtfvId": 52
+            },
+            "player2": {
+              "name": "Elmas, Fikret",
+              "nwtfvId": 9117
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Niehuis, Felix",
+              "nwtfvId": 8033
+            },
+            "player2": {
+              "name": "Afentoulidis, Fabian",
+              "nwtfvId": 7427
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Marzejek, Werner",
+              "nwtfvId": 9046
+            },
+            "player2": {
+              "name": "Schürmann, Dieter",
+              "nwtfvId": 385
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Diercks, Roberto",
+              "nwtfvId": 79
+            },
+            "player2": {
+              "name": "Celik, Turgay",
+              "nwtfvId": 59
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Rademacher, Thomas",
+              "nwtfvId": 9039
+            },
+            "player2": {
+              "name": "Remberg, Florian",
+              "nwtfvId": 8274
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Flunkert, Frank",
+              "nwtfvId": 517
+            },
+            "player2": {
+              "name": "Karl, Volker",
+              "nwtfvId": 9954
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Agelopoulos, Anestis",
+              "nwtfvId": 670
+            },
+            "player2": {
+              "name": "Dally, Heinz",
+              "nwtfvId": 7462
+            }
+          }
+        },
+        {
+          "rank": 14,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Müller, Dirk",
+              "nwtfvId": 273
+            },
+            "player2": {
+              "name": "Bohl, Alex",
+              "nwtfvId": 485
+            }
+          }
+        },
+        {
+          "rank": 15,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Pniewski, Ralf",
+              "nwtfvId": 8942
+            },
+            "player2": {
+              "name": "Konrad, Siegfried",
+              "nwtfvId": 7357
+            }
+          }
+        },
+        {
+          "rank": 16,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Berberich, Mika",
+              "nwtfvId": 9027
+            },
+            "player2": {
+              "name": "Wahl, Johann",
+              "nwtfvId": 452
+            }
+          }
+        },
+        {
+          "rank": 17,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Grittner, Martin",
+              "nwtfvId": 132
+            },
+            "player2": {
+              "name": "Gruber, Romano",
+              "nwtfvId": 7343
+            }
+          }
+        },
+        {
+          "rank": 18,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Hober, Guido",
+              "nwtfvId": 9120
+            },
+            "player2": {
+              "name": "Minga, Michael",
+              "nwtfvId": 8104
+            }
+          }
+        },
+        {
+          "rank": 19,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Li Pira, Claudio",
+              "nwtfvId": 242
+            },
+            "player2": {
+              "name": "Bremer, Martin",
+              "nwtfvId": 48
+            }
+          }
+        },
+        {
+          "rank": 20,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Busch, André",
+              "nwtfvId": 8063
+            },
+            "player2": {
+              "name": "König, Kyrill",
+              "nwtfvId": 8125
+            }
+          }
+        },
+        {
+          "rank": 21,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Buß, Marc",
+              "nwtfvId": 9166
+            },
+            "player2": {
+              "name": "Tiemeshen, Tim",
+              "nwtfvId": 9771
+            }
+          }
+        },
+        {
+          "rank": 22,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Nurkowski, Rene",
+              "nwtfvId": 8273
+            },
+            "player2": {
+              "name": "Vervenne, Klaus",
+              "nwtfvId": 786
+            }
+          }
+        },
+        {
+          "rank": 23,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Konieczny, Branco",
+              "nwtfvId": 221
+            },
+            "player2": {
+              "name": "Schaub, Mario",
+              "nwtfvId": 358
+            }
+          }
+        },
+        {
+          "rank": 24,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Klemm, Markus",
+              "nwtfvId": 9741
+            },
+            "player2": {
+              "name": "Schmidt, Robert",
+              "nwtfvId": 7846
+            }
+          }
+        },
+        {
+          "rank": 25,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Kappelhoff, Flavio",
+              "nwtfvId": 8785
+            },
+            "player2": {
+              "name": "Gerling, Mark",
+              "nwtfvId": 9647
+            }
+          }
+        }
+      ],
+      "divisions": [
+        {
+          "skillLevel": "Pro",
+          "gameStages": [
+            {
+              "name": "Achtelfinale",
+              "games": []
+            },
+            {
+              "name": "Viertelfinale",
+              "games": []
+            },
+            {
+              "name": "Halbfinale",
+              "games": []
+            },
+            {
+              "name": "Platz 3",
+              "games": []
+            },
+            {
+              "name": "Finale",
+              "games": []
+            }
+          ]
+        },
+        {
+          "skillLevel": "Amateur",
+          "gameStages": [
+            {
+              "name": "Achtelfinale",
+              "games": []
+            },
+            {
+              "name": "Viertelfinale",
+              "games": []
+            },
+            {
+              "name": "Halbfinale",
+              "games": []
+            },
+            {
+              "name": "Platz 3",
+              "games": []
+            },
+            {
+              "name": "Finale",
+              "games": []
+            }
+          ]
+        }
+      ]
+    },
+    "qualifyingRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Röttger, Nico",
+              "nwtfvId": 7896
+            },
+            "player2": {
+              "name": "Schmidt, Andreas",
+              "nwtfvId": 9051
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Hoffmann, Jesco",
+              "nwtfvId": 9686
+            },
+            "player2": {
+              "name": "Röttger, Marcel",
+              "nwtfvId": 7955
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Kretschmer, Andreas",
+              "nwtfvId": 7941
+            },
+            "player2": {
+              "name": "Hazwani, Rami",
+              "nwtfvId": 158
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Koopmann, Viktor",
+              "nwtfvId": 10093
+            },
+            "player2": {
+              "name": "Boomgaarden, Frieso",
+              "nwtfvId": 9865
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Kastrati, Nenad",
+              "nwtfvId": 8681
+            },
+            "player2": {
+              "name": "Ickelsheimer, Colin",
+              "nwtfvId": 7866
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Brodbeck, Jürgen",
+              "nwtfvId": 52
+            },
+            "player2": {
+              "name": "Elmas, Fikret",
+              "nwtfvId": 9117
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Marzejek, Werner",
+              "nwtfvId": 9046
+            },
+            "player2": {
+              "name": "Schürmann, Dieter",
+              "nwtfvId": 385
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Diercks, Roberto",
+              "nwtfvId": 79
+            },
+            "player2": {
+              "name": "Celik, Turgay",
+              "nwtfvId": 59
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Niehuis, Felix",
+              "nwtfvId": 8033
+            },
+            "player2": {
+              "name": "Afentoulidis, Fabian",
+              "nwtfvId": 7427
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Plaspohl, Uwe",
+              "nwtfvId": 7590
+            },
+            "player2": {
+              "name": "Yücel, Refik",
+              "nwtfvId": 7683
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Rademacher, Thomas",
+              "nwtfvId": 9039
+            },
+            "player2": {
+              "name": "Remberg, Florian",
+              "nwtfvId": 8274
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Flunkert, Frank",
+              "nwtfvId": 517
+            },
+            "player2": {
+              "name": "Karl, Volker",
+              "nwtfvId": 9954
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Grittner, Martin",
+              "nwtfvId": 132
+            },
+            "player2": {
+              "name": "Gruber, Romano",
+              "nwtfvId": 7343
+            }
+          }
+        },
+        {
+          "rank": 14,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Agelopoulos, Anestis",
+              "nwtfvId": 670
+            },
+            "player2": {
+              "name": "Dally, Heinz",
+              "nwtfvId": 7462
+            }
+          }
+        },
+        {
+          "rank": 15,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Pniewski, Ralf",
+              "nwtfvId": 8942
+            },
+            "player2": {
+              "name": "Konrad, Siegfried",
+              "nwtfvId": 7357
+            }
+          }
+        },
+        {
+          "rank": 16,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Berberich, Mika",
+              "nwtfvId": 9027
+            },
+            "player2": {
+              "name": "Wahl, Johann",
+              "nwtfvId": 452
+            }
+          }
+        },
+        {
+          "rank": 17,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Buß, Marc",
+              "nwtfvId": 9166
+            },
+            "player2": {
+              "name": "Tiemeshen, Tim",
+              "nwtfvId": 9771
+            }
+          }
+        },
+        {
+          "rank": 18,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Nurkowski, Rene",
+              "nwtfvId": 8273
+            },
+            "player2": {
+              "name": "Vervenne, Klaus",
+              "nwtfvId": 786
+            }
+          }
+        },
+        {
+          "rank": 19,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Konieczny, Branco",
+              "nwtfvId": 221
+            },
+            "player2": {
+              "name": "Schaub, Mario",
+              "nwtfvId": 358
+            }
+          }
+        },
+        {
+          "rank": 20,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Müller, Dirk",
+              "nwtfvId": 273
+            },
+            "player2": {
+              "name": "Bohl, Alex",
+              "nwtfvId": 485
+            }
+          }
+        },
+        {
+          "rank": 21,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Klemm, Markus",
+              "nwtfvId": 9741
+            },
+            "player2": {
+              "name": "Schmidt, Robert",
+              "nwtfvId": 7846
+            }
+          }
+        },
+        {
+          "rank": 22,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Hober, Guido",
+              "nwtfvId": 9120
+            },
+            "player2": {
+              "name": "Minga, Michael",
+              "nwtfvId": 8104
+            }
+          }
+        },
+        {
+          "rank": 23,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Li Pira, Claudio",
+              "nwtfvId": 242
+            },
+            "player2": {
+              "name": "Bremer, Martin",
+              "nwtfvId": 48
+            }
+          }
+        },
+        {
+          "rank": 24,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Busch, André",
+              "nwtfvId": 8063
+            },
+            "player2": {
+              "name": "König, Kyrill",
+              "nwtfvId": 8125
+            }
+          }
+        },
+        {
+          "rank": 25,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Kappelhoff, Flavio",
+              "nwtfvId": 8785
+            },
+            "player2": {
+              "name": "Gerling, Mark",
+              "nwtfvId": 9647
+            }
+          }
+        }
+      ],
+      "divisions": [
+        {
+          "skillLevel": "Open",
+          "gameStages": [
+            {
+              "name": "1. Runde",
+              "games": []
+            },
+            {
+              "name": "2. Runde",
+              "games": []
+            },
+            {
+              "name": "3. Runde",
+              "games": []
+            },
+            {
+              "name": "4. Runde",
+              "games": []
+            },
+            {
+              "name": "5. Runde",
+              "games": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": 6497,
+    "tournamentGroupID": 5455,
+    "name": "Mini - Challenger",
+    "date": "20.03.2026",
+    "place": "Dortmund",
+    "type": "Monster DYP",
+    "numberOfParticipants": 20,
+    "mainRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hildebrandt, Andre",
+              "nwtfvId": 9842
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schäfer, Michael",
+              "nwtfvId": 8150
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Müller, Christian",
+              "nwtfvId": 10077
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Grimm, Mathias",
+              "nwtfvId": 9952
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wenmakers, Marc"
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Dombrowe, Jens",
+              "nwtfvId": 8210
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Witt, Sophie"
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schlüter, Andi"
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Fröhlich, Lennart",
+              "nwtfvId": 9951
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Oudaah, Ahmed",
+              "nwtfvId": 9832
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Czerny, Florian",
+              "nwtfvId": 9855
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Buitelaar, Tim",
+              "nwtfvId": 7510
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Brockhoff, Jörg",
+              "nwtfvId": 10102
+            }
+          }
+        },
+        {
+          "rank": 14,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Pfragner, Benno",
+              "nwtfvId": 10024
+            }
+          }
+        },
+        {
+          "rank": 15,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hoppe, Michael",
+              "nwtfvId": 8014
+            }
+          }
+        },
+        {
+          "rank": 16,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Sentek, Heike",
+              "nwtfvId": 9199
+            }
+          }
+        },
+        {
+          "rank": 17,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Norden, Thilo",
+              "nwtfvId": 8969
+            }
+          }
+        },
+        {
+          "rank": 18,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Roßmann, Walter",
+              "nwtfvId": 7918
+            }
+          }
+        },
+        {
+          "rank": 19,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Durulan, Mark",
+              "nwtfvId": 9950
+            }
+          }
+        },
+        {
+          "rank": 20,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Pfragner, Thomas",
+              "nwtfvId": 10025
+            }
+          }
+        }
+      ],
+      "divisions": []
+    }
+  },
+  {
+    "id": 6450,
+    "tournamentGroupID": 5408,
+    "name": "Mini - Challenger",
+    "date": "19.03.2026",
+    "place": "Gronau",
+    "type": "Monster DYP",
+    "numberOfParticipants": 13,
+    "mainRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Heijmen, Mike",
+              "nwtfvId": 10036
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hoffmann, Jesco",
+              "nwtfvId": 9686
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Vieira Martins, Cristiano",
+              "nwtfvId": 10120
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Demir, Faulus"
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Slobozheniuk, Evgenii",
+              "nwtfvId": 10034
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Feider, Niklas",
+              "nwtfvId": 10132
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Kasprowiak, Ole",
+              "nwtfvId": 10133
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Kasprowiak, Martin",
+              "nwtfvId": 10031
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Klein Reesink, Marie",
+              "nwtfvId": 10121
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schön, Mario",
+              "nwtfvId": 9743
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Danowski, Andre",
+              "nwtfvId": 8595
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Humkamp, Rene"
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Leusing, Tobias"
+            }
+          }
+        }
+      ],
+      "divisions": []
+    }
+  },
+  {
+    "id": 6490,
+    "tournamentGroupID": 5448,
+    "name": "Mini - Challenger",
+    "date": "19.03.2026",
+    "place": "Soest",
+    "type": "Monster DYP",
+    "numberOfParticipants": 10,
+    "mainRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Czerny, Florian",
+              "nwtfvId": 9855
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Berhorst, Christian",
+              "nwtfvId": 7270
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schlüter, Jens",
+              "nwtfvId": 9858
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wehler, Daniel",
+              "nwtfvId": 7845
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Lasoen, Frank",
+              "nwtfvId": 10099
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Olmes, Maurice",
+              "nwtfvId": 10144
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Blaskowitz, Manfred",
+              "nwtfvId": 34
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Kaiser, Andreas",
+              "nwtfvId": 10149
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Maruszczyk, Karin",
+              "nwtfvId": 10145
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Oberwald, Martin",
+              "nwtfvId": 10117
+            }
+          }
+        }
+      ],
+      "divisions": [
+        {
+          "skillLevel": "Pro",
+          "gameStages": [
+            {
+              "name": "1. Runde",
+              "games": []
+            },
+            {
+              "name": "2. Runde",
+              "games": []
+            },
+            {
+              "name": "3. Runde",
+              "games": []
+            },
+            {
+              "name": "4. Runde",
+              "games": []
+            },
+            {
+              "name": "5. Runde",
+              "games": []
+            },
+            {
+              "name": "6. Runde",
+              "games": []
+            },
+            {
+              "name": "7. Runde",
+              "games": []
+            },
+            {
+              "name": "8. Runde",
+              "games": []
+            },
+            {
+              "name": "9. Runde",
+              "games": []
+            },
+            {
+              "name": "10. Runde",
+              "games": []
+            },
+            {
+              "name": "11. Runde",
+              "games": []
+            },
+            {
+              "name": "12. Runde",
+              "games": []
+            },
+            {
+              "name": "13. Runde",
+              "games": []
+            },
+            {
+              "name": "14. Runde",
+              "games": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": 6572,
+    "tournamentGroupID": 5528,
+    "name": "Mini - Challenger",
+    "date": "19.03.2026",
+    "place": "Münster",
+    "type": "Monster DYP",
+    "numberOfParticipants": 25,
+    "mainRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Gausling, Stefan",
+              "nwtfvId": 7266
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schulz, David",
+              "nwtfvId": 9707
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Nußbaum, Kevin",
+              "nwtfvId": 8207
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Bartel, Alexander",
+              "nwtfvId": 8971
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wyborny, Rainer",
+              "nwtfvId": 9111
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Oberrecht, Bennet Henry",
+              "nwtfvId": 10037
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Rasch, Menix",
+              "nwtfvId": 502
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schöpper, Leo",
+              "nwtfvId": 8972
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Baar, Gianni",
+              "nwtfvId": 9589
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Beckmann, Christian"
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Serpé, Christian",
+              "nwtfvId": 395
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Deiters, Mirco",
+              "nwtfvId": 8208
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Youn, De-Won",
+              "nwtfvId": 7415
+            }
+          }
+        },
+        {
+          "rank": 14,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schnütgen, Vincent",
+              "nwtfvId": 8974
+            }
+          }
+        },
+        {
+          "rank": 15,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Harder, Holger",
+              "nwtfvId": 663
+            }
+          }
+        },
+        {
+          "rank": 16,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schilling, Nick",
+              "nwtfvId": 8264
+            }
+          }
+        },
+        {
+          "rank": 17,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "David, Lennart Joshua"
+            }
+          }
+        },
+        {
+          "rank": 18,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Gausling, Christian"
+            }
+          }
+        },
+        {
+          "rank": 19,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wissing, Markus",
+              "nwtfvId": 8023
+            }
+          }
+        },
+        {
+          "rank": 20,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Baumeister, Vera",
+              "nwtfvId": 8134
+            }
+          }
+        },
+        {
+          "rank": 21,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Walter, Hendrik",
+              "nwtfvId": 454
+            }
+          }
+        },
+        {
+          "rank": 22,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Frese, Uwe",
+              "nwtfvId": 9904
+            }
+          }
+        },
+        {
+          "rank": 23,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Treppmacher, Andreas",
+              "nwtfvId": 9025
+            }
+          }
+        },
+        {
+          "rank": 24,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Köhler, Hans-Anton",
+              "nwtfvId": 9999
+            }
+          }
+        },
+        {
+          "rank": 25,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Heinemann, Moritz",
+              "nwtfvId": 9670
+            }
+          }
+        }
+      ],
+      "divisions": []
+    },
+    "qualifyingRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schöpper, Leo",
+              "nwtfvId": 8972
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Rasch, Menix",
+              "nwtfvId": 502
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Harder, Holger",
+              "nwtfvId": 663
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schilling, Nick",
+              "nwtfvId": 8264
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Nußbaum, Kevin",
+              "nwtfvId": 8207
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Bartel, Alexander",
+              "nwtfvId": 8971
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Deiters, Mirco",
+              "nwtfvId": 8208
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Serpé, Christian",
+              "nwtfvId": 395
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Gausling, Stefan",
+              "nwtfvId": 7266
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schulz, David",
+              "nwtfvId": 9707
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Youn, De-Won",
+              "nwtfvId": 7415
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schnütgen, Vincent",
+              "nwtfvId": 8974
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Oberrecht, Bennet Henry",
+              "nwtfvId": 10037
+            }
+          }
+        },
+        {
+          "rank": 14,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wyborny, Rainer",
+              "nwtfvId": 9111
+            }
+          }
+        },
+        {
+          "rank": 15,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Baar, Gianni",
+              "nwtfvId": 9589
+            }
+          }
+        },
+        {
+          "rank": 16,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Beckmann, Christian"
+            }
+          }
+        },
+        {
+          "rank": 17,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "David, Lennart Joshua"
+            }
+          }
+        },
+        {
+          "rank": 18,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Gausling, Christian"
+            }
+          }
+        },
+        {
+          "rank": 19,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Treppmacher, Andreas",
+              "nwtfvId": 9025
+            }
+          }
+        },
+        {
+          "rank": 20,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Köhler, Hans-Anton",
+              "nwtfvId": 9999
+            }
+          }
+        },
+        {
+          "rank": 21,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Frese, Uwe",
+              "nwtfvId": 9904
+            }
+          }
+        },
+        {
+          "rank": 22,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Walter, Hendrik",
+              "nwtfvId": 454
+            }
+          }
+        },
+        {
+          "rank": 23,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wissing, Markus",
+              "nwtfvId": 8023
+            }
+          }
+        },
+        {
+          "rank": 24,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Baumeister, Vera",
+              "nwtfvId": 8134
+            }
+          }
+        },
+        {
+          "rank": 25,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Heinemann, Moritz",
+              "nwtfvId": 9670
+            }
+          }
+        }
+      ],
+      "divisions": [
+        {
+          "skillLevel": "Open",
+          "gameStages": [
+            {
+              "name": "1. Runde",
+              "games": []
+            },
+            {
+              "name": "2. Runde",
+              "games": []
+            },
+            {
+              "name": "3. Runde",
+              "games": []
+            },
+            {
+              "name": "4. Runde",
+              "games": []
+            },
+            {
+              "name": "5. Runde",
+              "games": []
+            },
+            {
+              "name": "6. Runde",
+              "games": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": 6580,
+    "tournamentGroupID": 5536,
+    "name": "Mini - Challenger",
+    "date": "19.03.2026",
+    "place": "Köln",
+    "type": "Offenes Doppel",
+    "numberOfParticipants": 11,
+    "mainRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Greve, Jona",
+              "nwtfvId": 7853
+            },
+            "player2": {
+              "name": "Hahne, Nils",
+              "nwtfvId": 7381
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Grote, Niclas",
+              "nwtfvId": 137
+            },
+            "player2": {
+              "name": "Evers, Gilles",
+              "nwtfvId": 94
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Scheder, Steve Raphael",
+              "nwtfvId": 8988
+            },
+            "player2": {
+              "name": "Teschauer, Denise",
+              "nwtfvId": 8850
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Stoffel, Marc"
+            },
+            "player2": {
+              "name": "Ackerschott, Lina",
+              "nwtfvId": 8249
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Rey, Maximilian",
+              "nwtfvId": 8680
+            },
+            "player2": {
+              "name": "Nierstenhöfer, Emanuel",
+              "nwtfvId": 9775
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Mertens, Marius",
+              "nwtfvId": 9010
+            },
+            "player2": {
+              "name": "Sting, Tobias",
+              "nwtfvId": 504
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Pant, Romanus",
+              "nwtfvId": 8214
+            },
+            "player2": {
+              "name": "Friedrich, Michael",
+              "nwtfvId": 107
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Barth, Laurin",
+              "nwtfvId": 9747
+            },
+            "player2": {
+              "name": "Manolio, Mira Vanessa",
+              "nwtfvId": 9803
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Kuritz, Jochen",
+              "nwtfvId": 737
+            },
+            "player2": {
+              "name": "Kalkstein, Oliver",
+              "nwtfvId": 9911
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Scharfenberg, Jeremias",
+              "nwtfvId": 8209
+            },
+            "player2": {
+              "name": "Klintworth, Sandra",
+              "nwtfvId": 8050
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Kilian, Jakob"
+            },
+            "player2": {
+              "name": "Evertz, Johanna",
+              "nwtfvId": 9599
+            }
+          }
+        }
+      ],
+      "divisions": [
+        {
+          "skillLevel": "Pro",
+          "gameStages": [
+            {
+              "name": "Viertelfinale",
+              "games": []
+            },
+            {
+              "name": "Halbfinale",
+              "games": []
+            },
+            {
+              "name": "Platz 3",
+              "games": []
+            },
+            {
+              "name": "Finale",
+              "games": []
+            }
+          ]
+        },
+        {
+          "skillLevel": "Amateur",
+          "gameStages": [
+            {
+              "name": "Halbfinale",
+              "games": []
+            },
+            {
+              "name": "Finale",
+              "games": []
+            }
+          ]
+        }
+      ]
+    },
+    "qualifyingRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Grote, Niclas",
+              "nwtfvId": 137
+            },
+            "player2": {
+              "name": "Evers, Gilles",
+              "nwtfvId": 94
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Greve, Jona",
+              "nwtfvId": 7853
+            },
+            "player2": {
+              "name": "Hahne, Nils",
+              "nwtfvId": 7381
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Rey, Maximilian",
+              "nwtfvId": 8680
+            },
+            "player2": {
+              "name": "Nierstenhöfer, Emanuel",
+              "nwtfvId": 9775
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Mertens, Marius",
+              "nwtfvId": 9010
+            },
+            "player2": {
+              "name": "Sting, Tobias",
+              "nwtfvId": 504
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Scheder, Steve Raphael",
+              "nwtfvId": 8988
+            },
+            "player2": {
+              "name": "Teschauer, Denise",
+              "nwtfvId": 8850
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Stoffel, Marc"
+            },
+            "player2": {
+              "name": "Ackerschott, Lina",
+              "nwtfvId": 8249
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Pant, Romanus",
+              "nwtfvId": 8214
+            },
+            "player2": {
+              "name": "Friedrich, Michael",
+              "nwtfvId": 107
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Barth, Laurin",
+              "nwtfvId": 9747
+            },
+            "player2": {
+              "name": "Manolio, Mira Vanessa",
+              "nwtfvId": 9803
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Scharfenberg, Jeremias",
+              "nwtfvId": 8209
+            },
+            "player2": {
+              "name": "Klintworth, Sandra",
+              "nwtfvId": 8050
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Kuritz, Jochen",
+              "nwtfvId": 737
+            },
+            "player2": {
+              "name": "Kalkstein, Oliver",
+              "nwtfvId": 9911
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Kilian, Jakob"
+            },
+            "player2": {
+              "name": "Evertz, Johanna",
+              "nwtfvId": 9599
+            }
+          }
+        }
+      ],
+      "divisions": [
+        {
+          "skillLevel": "Open",
+          "gameStages": [
+            {
+              "name": "1. Runde",
+              "games": []
+            },
+            {
+              "name": "2. Runde",
+              "games": []
+            },
+            {
+              "name": "3. Runde",
+              "games": []
+            },
+            {
+              "name": "4. Runde",
+              "games": []
+            },
+            {
+              "name": "5. Runde",
+              "games": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": 6275,
+    "tournamentGroupID": 5240,
+    "name": "Mini - Challenger",
+    "date": "18.03.2026",
+    "place": "Bonn",
+    "type": "Monster DYP",
+    "numberOfParticipants": 23,
+    "mainRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Rode, Kersten",
+              "nwtfvId": 341
+            },
+            "player2": {
+              "name": "Brath, Martin",
+              "nwtfvId": 7775
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Sting, Tobias",
+              "nwtfvId": 504
+            },
+            "player2": {
+              "name": "Scheel, Markus",
+              "nwtfvId": 8212
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Junker, Yves",
+              "nwtfvId": 7732
+            },
+            "player2": {
+              "name": "Wirtz, Christian",
+              "nwtfvId": 10158
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Reif, Volker",
+              "nwtfvId": 330
+            },
+            "player2": {
+              "name": "Lipfert, Jan",
+              "nwtfvId": 8911
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Hoss, Michael",
+              "nwtfvId": 10043
+            },
+            "player2": {
+              "name": "Mann, Michael-Moritz",
+              "nwtfvId": 9652
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "team",
+            "player1": {
+              "name": "Rissmann, Mario",
+              "nwtfvId": 7815
+            },
+            "player2": {
+              "name": "Anger, Tim",
+              "nwtfvId": 9655
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Scheel, Markus",
+              "nwtfvId": 8212
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Sting, Tobias",
+              "nwtfvId": 504
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Rode, Kersten",
+              "nwtfvId": 341
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Brath, Martin",
+              "nwtfvId": 7775
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Lipfert, Jan",
+              "nwtfvId": 8911
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Reif, Volker",
+              "nwtfvId": 330
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Mann, Michael-Moritz",
+              "nwtfvId": 9652
+            }
+          }
+        },
+        {
+          "rank": 14,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hoss, Michael",
+              "nwtfvId": 10043
+            }
+          }
+        },
+        {
+          "rank": 15,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Junker, Yves",
+              "nwtfvId": 7732
+            }
+          }
+        },
+        {
+          "rank": 16,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wirtz, Christian",
+              "nwtfvId": 10158
+            }
+          }
+        },
+        {
+          "rank": 17,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Rissmann, Mario",
+              "nwtfvId": 7815
+            }
+          }
+        },
+        {
+          "rank": 18,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Anger, Tim",
+              "nwtfvId": 9655
+            }
+          }
+        },
+        {
+          "rank": 19,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wirths, Jan Arne",
+              "nwtfvId": 9948
+            }
+          }
+        },
+        {
+          "rank": 20,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schockert, Johannes",
+              "nwtfvId": 7968
+            }
+          }
+        },
+        {
+          "rank": 21,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Fischer, Lara",
+              "nwtfvId": 7967
+            }
+          }
+        },
+        {
+          "rank": 22,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Krämer, Stephanie",
+              "nwtfvId": 7324
+            }
+          }
+        },
+        {
+          "rank": 23,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Größchen, Aracely",
+              "nwtfvId": 8913
+            }
+          }
+        }
+      ],
+      "divisions": [
+        {
+          "skillLevel": "Pro",
+          "gameStages": [
+            {
+              "name": "Viertelfinale",
+              "games": []
+            },
+            {
+              "name": "Halbfinale",
+              "games": []
+            },
+            {
+              "name": "Platz 3",
+              "games": []
+            },
+            {
+              "name": "Finale",
+              "games": []
+            }
+          ]
+        }
+      ]
+    },
+    "qualifyingRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Scheel, Markus",
+              "nwtfvId": 8212
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Sting, Tobias",
+              "nwtfvId": 504
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Rode, Kersten",
+              "nwtfvId": 341
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Brath, Martin",
+              "nwtfvId": 7775
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Lipfert, Jan",
+              "nwtfvId": 8911
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Reif, Volker",
+              "nwtfvId": 330
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Mann, Michael-Moritz",
+              "nwtfvId": 9652
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hoss, Michael",
+              "nwtfvId": 10043
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Junker, Yves",
+              "nwtfvId": 7732
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wirtz, Christian",
+              "nwtfvId": 10158
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Rissmann, Mario",
+              "nwtfvId": 7815
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Anger, Tim",
+              "nwtfvId": 9655
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wirths, Jan Arne",
+              "nwtfvId": 9948
+            }
+          }
+        },
+        {
+          "rank": 14,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schockert, Johannes",
+              "nwtfvId": 7968
+            }
+          }
+        },
+        {
+          "rank": 15,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Fischer, Lara",
+              "nwtfvId": 7967
+            }
+          }
+        },
+        {
+          "rank": 16,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Krämer, Stephanie",
+              "nwtfvId": 7324
+            }
+          }
+        },
+        {
+          "rank": 17,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Größchen, Aracely",
+              "nwtfvId": 8913
+            }
+          }
+        }
+      ],
+      "divisions": [
+        {
+          "skillLevel": "Open",
+          "gameStages": [
+            {
+              "name": "1. Runde",
+              "games": []
+            },
+            {
+              "name": "2. Runde",
+              "games": []
+            },
+            {
+              "name": "3. Runde",
+              "games": []
+            },
+            {
+              "name": "4. Runde",
+              "games": []
+            },
+            {
+              "name": "5. Runde",
+              "games": []
+            },
+            {
+              "name": "6. Runde",
+              "games": []
+            },
+            {
+              "name": "7. Runde",
+              "games": []
+            },
+            {
+              "name": "8. Runde",
+              "games": []
+            },
+            {
+              "name": "9. Runde",
+              "games": []
+            },
+            {
+              "name": "10. Runde",
+              "games": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": 6328,
+    "tournamentGroupID": 5294,
+    "name": "Mini - Challenger",
+    "date": "17.03.2026",
+    "place": "Aachen",
+    "type": "Monster DYP",
+    "numberOfParticipants": 34,
+    "mainRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Czakó, Gábor",
+              "nwtfvId": 9056
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Bentivoglio, Giuliano"
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Rode, Kersten",
+              "nwtfvId": 341
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Konings, Richard"
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Eerens, Mitch",
+              "nwtfvId": 9031
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Franssen, Jo",
+              "nwtfvId": 8792
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Seetsen, Menno"
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Großnick, Andreas",
+              "nwtfvId": 10143
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Dautzenberg, Leon",
+              "nwtfvId": 9998
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Holle, Daniel",
+              "nwtfvId": 10019
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Blaskowitz, Manfred",
+              "nwtfvId": 34
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Vetter, Jancee",
+              "nwtfvId": 9889
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Bardoul, Davy",
+              "nwtfvId": 9085
+            }
+          }
+        },
+        {
+          "rank": 14,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Koch, Robert",
+              "nwtfvId": 9752
+            }
+          }
+        },
+        {
+          "rank": 15,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Perlaky, Stefan"
+            }
+          }
+        },
+        {
+          "rank": 16,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Nolte, Lars",
+              "nwtfvId": 290
+            }
+          }
+        },
+        {
+          "rank": 17,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Slegers, Luvic",
+              "nwtfvId": 8796
+            }
+          }
+        },
+        {
+          "rank": 18,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Stevens, Ralph"
+            }
+          }
+        },
+        {
+          "rank": 19,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Kiss-Toth, Laszlo",
+              "nwtfvId": 8323
+            }
+          }
+        },
+        {
+          "rank": 20,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Callmer, Peter"
+            }
+          }
+        },
+        {
+          "rank": 21,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Junggeburth, Werner",
+              "nwtfvId": 203
+            }
+          }
+        },
+        {
+          "rank": 22,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Nollgen, Martin"
+            }
+          }
+        },
+        {
+          "rank": 23,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Sintzen, Kai"
+            }
+          }
+        },
+        {
+          "rank": 24,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Pyls, Lilli"
+            }
+          }
+        },
+        {
+          "rank": 25,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Paffen, Jo"
+            }
+          }
+        },
+        {
+          "rank": 26,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Kirsch, Silke",
+              "nwtfvId": 8745
+            }
+          }
+        },
+        {
+          "rank": 27,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Paladin, Rico",
+              "nwtfvId": 9718
+            }
+          }
+        },
+        {
+          "rank": 28,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Steffens, Hubert",
+              "nwtfvId": 10055
+            }
+          }
+        },
+        {
+          "rank": 29,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Janßen, Luis",
+              "nwtfvId": 8003
+            }
+          }
+        },
+        {
+          "rank": 30,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Zerizgi, Sara",
+              "nwtfvId": 9044
+            }
+          }
+        },
+        {
+          "rank": 31,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Rissmann, Mario",
+              "nwtfvId": 7815
+            }
+          }
+        },
+        {
+          "rank": 32,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Kerenkewitz, Martin",
+              "nwtfvId": 10054
+            }
+          }
+        },
+        {
+          "rank": 33,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Welter, Johannes",
+              "nwtfvId": 8815
+            }
+          }
+        },
+        {
+          "rank": 34,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Winkhold, Ingo",
+              "nwtfvId": 10056
+            }
+          }
+        }
+      ],
+      "divisions": [
+        {
+          "skillLevel": "Pro",
+          "gameStages": [
+            {
+              "name": "1. Runde",
+              "games": []
+            },
+            {
+              "name": "2. Runde",
+              "games": []
+            },
+            {
+              "name": "3. Runde",
+              "games": []
+            },
+            {
+              "name": "4. Runde",
+              "games": []
+            },
+            {
+              "name": "5. Runde",
+              "games": []
+            },
+            {
+              "name": "6. Runde",
+              "games": []
+            },
+            {
+              "name": "7. Runde",
+              "games": []
+            },
+            {
+              "name": "8. Runde",
+              "games": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": 6447,
+    "tournamentGroupID": 5405,
+    "name": "Mini - Challenger",
+    "date": "17.03.2026",
+    "place": "Dortmund",
+    "type": "Monster DYP",
+    "numberOfParticipants": 28,
+    "mainRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Müller, Christian",
+              "nwtfvId": 10077
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "König, Kyrill",
+              "nwtfvId": 8125
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Buitelaar, Tim",
+              "nwtfvId": 7510
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Beringhoff, Arno",
+              "nwtfvId": 27
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Fotteler, Andreas"
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Czerny, Luis",
+              "nwtfvId": 9980
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Norden, Thilo",
+              "nwtfvId": 8969
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Kadib, Bassam"
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Flunkert, Frank",
+              "nwtfvId": 517
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Lüdtke-Brendel, Jasmin",
+              "nwtfvId": 9093
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Karl, Volker",
+              "nwtfvId": 9954
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Witt, Sophie"
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schlüter, Andi"
+            }
+          }
+        },
+        {
+          "rank": 14,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hoppe, Michael",
+              "nwtfvId": 8014
+            }
+          }
+        },
+        {
+          "rank": 15,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Klemm, Markus",
+              "nwtfvId": 9741
+            }
+          }
+        },
+        {
+          "rank": 16,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hildebrandt, Andre",
+              "nwtfvId": 9842
+            }
+          }
+        },
+        {
+          "rank": 17,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Czerny, Florian",
+              "nwtfvId": 9855
+            }
+          }
+        },
+        {
+          "rank": 18,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Grimm, Mathias",
+              "nwtfvId": 9952
+            }
+          }
+        },
+        {
+          "rank": 19,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schulz, Thomas",
+              "nwtfvId": 9955
+            }
+          }
+        },
+        {
+          "rank": 20,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Roßmann, Walter",
+              "nwtfvId": 7918
+            }
+          }
+        },
+        {
+          "rank": 21,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Klemm, Maya"
+            }
+          }
+        },
+        {
+          "rank": 22,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Roekens, Sebastian",
+              "nwtfvId": 8757
+            }
+          }
+        },
+        {
+          "rank": 23,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Tobüren, Marc-Philipp",
+              "nwtfvId": 9957
+            }
+          }
+        },
+        {
+          "rank": 24,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Pfragner, Benno",
+              "nwtfvId": 10024
+            }
+          }
+        },
+        {
+          "rank": 25,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Maruszczyk, Karin",
+              "nwtfvId": 10145
+            }
+          }
+        },
+        {
+          "rank": 26,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Bubolz, Andreas",
+              "nwtfvId": 9728
+            }
+          }
+        },
+        {
+          "rank": 27,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Pfragner, Thomas",
+              "nwtfvId": 10025
+            }
+          }
+        },
+        {
+          "rank": 28,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Siewert, Jörg",
+              "nwtfvId": 9729
+            }
+          }
+        }
+      ],
+      "divisions": []
+    }
+  },
+  {
+    "id": 6464,
+    "tournamentGroupID": 5422,
+    "name": "Mini - Challenger",
+    "date": "17.03.2026",
+    "place": "Bielefeld",
+    "type": "Monster DYP",
+    "numberOfParticipants": 24,
+    "mainRound": {
+      "finalPlacements": [
+        {
+          "rank": 1,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hemprich, Wanja",
+              "nwtfvId": 9035
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Braje, Markus",
+              "nwtfvId": 7856
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Kaus, Christopher",
+              "nwtfvId": 9128
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Kispal, Robert",
+              "nwtfvId": 8215
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Luttmann, Robert",
+              "nwtfvId": 8000
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Linke, Fabian",
+              "nwtfvId": 8006
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Wyborny, Rainer",
+              "nwtfvId": 9111
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hartley, Sven",
+              "nwtfvId": 7276
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schott, Michael",
+              "nwtfvId": 8610
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hofmann, Aaron",
+              "nwtfvId": 8983
+            }
+          }
+        },
+        {
+          "rank": 11,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Stiensmeier, Xaver",
+              "nwtfvId": 10010
+            }
+          }
+        },
+        {
+          "rank": 12,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Schmidt, Alexander",
+              "nwtfvId": 7857
+            }
+          }
+        },
+        {
+          "rank": 13,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Lange, Stefan"
+            }
+          }
+        },
+        {
+          "rank": 14,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Dück, Alvina",
+              "nwtfvId": 9885
+            }
+          }
+        },
+        {
+          "rank": 15,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Badeda, Malin"
+            }
+          }
+        },
+        {
+          "rank": 16,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Bartsch, Andreas"
+            }
+          }
+        },
+        {
+          "rank": 17,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Bleck, Dustin",
+              "nwtfvId": 7859
+            }
+          }
+        },
+        {
+          "rank": 18,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Burow, Alexandra",
+              "nwtfvId": 9912
+            }
+          }
+        },
+        {
+          "rank": 19,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Robin, Robin"
+            }
+          }
+        },
+        {
+          "rank": 20,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Armitage, Kevin"
+            }
+          }
+        },
+        {
+          "rank": 21,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "David, David"
+            }
+          }
+        },
+        {
+          "rank": 22,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "Hahlbrock, Alexander",
+              "nwtfvId": 10097
+            }
+          }
+        },
+        {
+          "rank": 23,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "schmi, alexander"
+            }
+          }
+        },
+        {
+          "rank": 24,
+          "competitor": {
+            "type": "player",
+            "player": {
+              "name": "El Shamsy, Nura",
+              "nwtfvId": 9914
+            }
+          }
+        }
+      ],
+      "divisions": [
+        {
+          "skillLevel": "Pro",
+          "gameStages": [
+            {
+              "name": "1. Runde",
+              "games": []
+            },
+            {
+              "name": "2. Runde",
+              "games": []
+            },
+            {
+              "name": "3. Runde",
+              "games": []
+            },
+            {
+              "name": "4. Runde",
+              "games": []
+            },
+            {
+              "name": "5. Runde",
+              "games": []
+            },
+            {
+              "name": "6. Runde",
+              "games": []
+            },
+            {
+              "name": "7. Runde",
+              "games": []
+            },
+            {
+              "name": "8. Runde",
+              "games": []
+            },
+            {
+              "name": "9. Runde",
+              "games": []
+            },
+            {
+              "name": "10. Runde",
+              "games": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+]
