@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PlayerPage from './PlayerPage.jsx';
 import MainPage from './MainPage.jsx';
 import TournamentsPage from './TournamentsPage.jsx';
+import TournamentDetailsPage from './TournamentDetailsPage.jsx';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -13,6 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/" element={<MainPage />} />
         <Route path="/player/:id" element={<PlayerPage />} />
         <Route path="/tournaments" element={<TournamentsPage />} />
+        <Route path="/tournament/:id" element={<TournamentDetailsPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
