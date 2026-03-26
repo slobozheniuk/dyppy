@@ -17,31 +17,34 @@ const PlayerSearch = () => {
   }, [query]);
 
   useEffect(() => {
-    if (debouncedQuery.trim().length === 0) {
-      setResults([]);
-      setIsOpen(false);
-      return;
-    }
+    const fetchResults = () => {
+      if (debouncedQuery.trim().length === 0) {
+        setResults([]);
+        setIsOpen(false);
+        return;
+      }
 
-    const lowerQuery = debouncedQuery.toLowerCase();
-    const matches = profilesData
-      .filter(p => p.id !== 0) // Skip players with id = 0
-      .filter(p => 
-        p.name.toLowerCase().includes(lowerQuery) || 
-        p.surname.toLowerCase().includes(lowerQuery)
-      )
-      .slice(0, 5)
-      .map(p => ({
-        id: p.id,
-        name: `${p.name} ${p.surname}`,
-        avatar: p.avatarUrl || '',
-        arena: p.clubs && p.clubs.length > 0 ? p.clubs[0] : 'Independent'
-      }));
+      const lowerQuery = debouncedQuery.toLowerCase();
+      const matches = profilesData
+        .filter(p => p.id !== 0) // Skip players with id = 0
+        .filter(p =>
+          p.name.toLowerCase().includes(lowerQuery) ||
+          p.surname.toLowerCase().includes(lowerQuery)
+        )
+        .slice(0, 5)
+        .map(p => ({
+          id: p.id,
+          name: `${p.name} ${p.surname}`,
+          avatar: p.avatarUrl || '',
+          arena: p.clubs && p.clubs.length > 0 ? p.clubs[0] : 'Independent'
+        }));
 
 
-    setResults(matches);
-    setIsOpen(true);
-    setFocusedIndex(-1);
+      setResults(matches);
+      setIsOpen(true);
+      setFocusedIndex(-1);
+    };
+    fetchResults();
   }, [debouncedQuery]);
 
   useEffect(() => {
