@@ -152,6 +152,8 @@ async function processGameElo(tx: TxClient, input: EloGameInput): Promise<MatchR
 
   const allUpdates = [...result.team1Updates, ...result.team2Updates];
 
+  const historyRecords = [];
+
   for (const update of allUpdates) {
     // Update Player's live ELO fields
     await tx.player.update({
@@ -162,17 +164,21 @@ async function processGameElo(tx: TxClient, input: EloGameInput): Promise<MatchR
       },
     });
 
-    // Create a single EloHistory record for this game
-    await tx.eloHistory.create({
-      data: {
-        playerId: update.playerId,
-        gameId: input.gameId,
-        date: input.gameDate,
-        type: eloType,
-        eloValue: update.newSpecificElo,
-        eloValueTotal: update.newTotalElo,
-        change: update.totalEloDelta,
-      },
+    // Accumulate EloHistory records for this game
+    historyRecords.push({
+      playerId: update.playerId,
+      gameId: input.gameId,
+      date: input.gameDate,
+      type: eloType,
+      eloValue: update.newSpecificElo,
+      eloValueTotal: update.newTotalElo,
+      change: update.totalEloDelta,
+    });
+  }
+
+  if (historyRecords.length > 0) {
+    await tx.eloHistory.createMany({
+      data: historyRecords,
     });
   }
 
