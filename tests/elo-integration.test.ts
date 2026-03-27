@@ -13,6 +13,7 @@ describe('ELO Integration (New History Format)', () => {
       },
       eloHistory: {
         create: vi.fn(),
+        createMany: vi.fn(),
       },
       $transaction: vi.fn(async (cb) => cb(mockPrisma)),
     };
@@ -40,20 +41,23 @@ describe('ELO Integration (New History Format)', () => {
     expect(mockPrisma.player.update).toHaveBeenCalledTimes(2);
 
     // Should create exactly 2 EloHistory records (one per player)
-    expect(mockPrisma.eloHistory.create).toHaveBeenCalledTimes(2);
+    expect(mockPrisma.eloHistory.createMany).toHaveBeenCalledTimes(1);
 
     // Check content of the first record (p1)
-    const call1 = mockPrisma.eloHistory.create.mock.calls[0][0];
-    expect(call1.data).toHaveProperty('playerId', 'p1');
-    expect(call1.data).toHaveProperty('gameId', 'g1');
-    expect(call1.data).toHaveProperty('type', 'single');
-    expect(call1.data).toHaveProperty('eloValue');
-    expect(call1.data).toHaveProperty('eloValueTotal');
-    expect(call1.data).toHaveProperty('change');
+    const call1 = mockPrisma.eloHistory.createMany.mock.calls[0][0];
+    expect(call1.data).toHaveLength(2);
+    const record1 = call1.data[0];
+    const record2 = call1.data[1];
+    expect(record1).toHaveProperty('playerId', 'p1');
+    expect(record1).toHaveProperty('gameId', 'g1');
+    expect(record1).toHaveProperty('type', 'single');
+    expect(record1).toHaveProperty('eloValue');
+    expect(record1).toHaveProperty('eloValueTotal');
+    expect(record1).toHaveProperty('change');
     
     // With equal ratings and winning 5:0 (win), change should be exactly 16
-    expect(call1.data.change).toBe(16);
-    expect(call1.data.eloValue).toBe(1516);
-    expect(call1.data.eloValueTotal).toBe(1516);
+    expect(record1.change).toBe(16);
+    expect(record1.eloValue).toBe(1516);
+    expect(record1.eloValueTotal).toBe(1516);
   });
 });
