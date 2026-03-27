@@ -12,7 +12,7 @@
  */
 
 import { prisma } from './prisma.js';
-import type { EloType } from '../generated/prisma/client.js';
+import { PrismaClient, Prisma, type EloType } from '../generated/prisma/client.js';
 import {
   recordMatch,
   tournamentTypeToGameType,
@@ -57,8 +57,8 @@ export interface EloGameInput {
 /**
  * Atomically creates a Game and updates ELO for all involved players.
  */
-export async function createGameWithEloUpdate(input: GameInput, client: any = prisma) {
-  return client.$transaction(async (tx: any) => {
+export async function createGameWithEloUpdate(input: GameInput, client: PrismaClient = prisma) {
+  return client.$transaction(async (tx: Prisma.TransactionClient) => {
     // Step 1: Create the Game
     const game = await tx.game.create({
       data: {
@@ -97,17 +97,15 @@ export async function createGameWithEloUpdate(input: GameInput, client: any = pr
  * Updates ELO for an already-existing Game record.
  * Used during batch recalculation (e.g. db:seed).
  */
-export async function updateEloForExistingGame(input: EloGameInput, client: any = prisma) {
-  return client.$transaction(async (tx: any) => {
+export async function updateEloForExistingGame(input: EloGameInput, client: PrismaClient = prisma) {
+  return client.$transaction(async (tx: Prisma.TransactionClient) => {
     return processGameElo(tx, input);
   });
 }
 
 // ─── Core ELO Processing (runs inside a transaction) ──────────────────────────
 
-type TxClient = Parameters<Parameters<typeof prisma.$transaction>[0]>[0];
-
-async function processGameElo(tx: TxClient, input: EloGameInput): Promise<MatchResult> {
+async function processGameElo(tx: Prisma.TransactionClient, input: EloGameInput): Promise<MatchResult> {
   const gameType = tournamentTypeToGameType(input.tournamentType);
   const eloType: EloType = gameTypeToEloType(gameType);
 
