@@ -12,7 +12,7 @@
  */
 
 import { prisma } from './prisma.js';
-import type { EloType } from '../generated/prisma/client.js';
+import { PrismaClient, Prisma, type EloType } from '../generated/prisma/client.js';
 import {
   recordMatch,
   tournamentTypeToGameType,
@@ -57,8 +57,8 @@ export interface EloGameInput {
 /**
  * Atomically creates a Game and updates ELO for all involved players.
  */
-export async function createGameWithEloUpdate(input: GameInput, client: any = prisma) {
-  return client.$transaction(async (tx: any) => {
+export async function createGameWithEloUpdate(input: GameInput, client: PrismaClient = prisma) {
+  return client.$transaction(async (tx: Prisma.TransactionClient) => {
     // Step 1: Create the Game
     const game = await tx.game.create({
       data: {
@@ -97,17 +97,15 @@ export async function createGameWithEloUpdate(input: GameInput, client: any = pr
  * Updates ELO for an already-existing Game record.
  * Used during batch recalculation (e.g. db:seed).
  */
-export async function updateEloForExistingGame(input: EloGameInput, client: any = prisma) {
-  return client.$transaction(async (tx: any) => {
+export async function updateEloForExistingGame(input: EloGameInput, client: PrismaClient = prisma) {
+  return client.$transaction(async (tx: Prisma.TransactionClient) => {
     return processGameElo(tx, input);
   });
 }
 
 // ─── Core ELO Processing (runs inside a transaction) ──────────────────────────
 
-type TxClient = Parameters<Parameters<typeof prisma.$transaction>[0]>[0];
-
-async function processGameElo(tx: TxClient, input: EloGameInput): Promise<MatchResult> {
+async function processGameElo(tx: Prisma.TransactionClient, input: EloGameInput): Promise<MatchResult> {
   const gameType = tournamentTypeToGameType(input.tournamentType);
   const eloType: EloType = gameTypeToEloType(gameType);
 
@@ -120,22 +118,35 @@ async function processGameElo(tx: TxClient, input: EloGameInput): Promise<MatchR
   const team1Ids = [input.t1Player1Id, input.t1Player2Id].filter(Boolean) as string[];
   const team2Ids = [input.t2Player1Id, input.t2Player2Id].filter(Boolean) as string[];
 
-  // Fetch current ELO ratings from Player records
-  const fetchPlayer = async (id: string): Promise<PlayerWithRatings> => {
-    const p = await tx.player.findUniqueOrThrow({ where: { id } });
-    return {
-      id: p.id,
-      ratings: {
-        singleElo: p.singleElo,
-        doubleElo: p.doubleElo,
-        dypElo: p.dypElo,
-        totalElo: p.totalElo,
-      },
-    };
-  };
+  // Fetch current ELO ratings for all players in a single query
+  const allPlayerIds = [...team1Ids, ...team2Ids];
+  const uniquePlayerIds = Array.from(new Set(allPlayerIds));
 
-  const team1 = await Promise.all(team1Ids.map(fetchPlayer));
-  const team2 = await Promise.all(team2Ids.map(fetchPlayer));
+  const players = await tx.player.findMany({
+    where: { id: { in: uniquePlayerIds } },
+  });
+
+  if (players.length !== uniquePlayerIds.length) {
+    throw new Error(`Expected to find ${uniquePlayerIds.length} players, but found ${players.length}. Some player IDs do not exist.`);
+  }
+
+  const playerMap = new Map<string, PlayerWithRatings>(
+    players.map(p => [
+      p.id,
+      {
+        id: p.id,
+        ratings: {
+          singleElo: p.singleElo,
+          doubleElo: p.doubleElo,
+          dypElo: p.dypElo,
+          totalElo: p.totalElo,
+        },
+      },
+    ])
+  );
+
+  const team1 = team1Ids.map(id => playerMap.get(id)!);
+  const team2 = team2Ids.map(id => playerMap.get(id)!);
 
   // Calculate ELO changes
   const result = recordMatch({
@@ -152,6 +163,8 @@ async function processGameElo(tx: TxClient, input: EloGameInput): Promise<MatchR
 
   const allUpdates = [...result.team1Updates, ...result.team2Updates];
 
+  const historyRecords = [];
+
   for (const update of allUpdates) {
     // Update Player's live ELO fields
     await tx.player.update({
@@ -162,17 +175,21 @@ async function processGameElo(tx: TxClient, input: EloGameInput): Promise<MatchR
       },
     });
 
-    // Create a single EloHistory record for this game
-    await tx.eloHistory.create({
-      data: {
-        playerId: update.playerId,
-        gameId: input.gameId,
-        date: input.gameDate,
-        type: eloType,
-        eloValue: update.newSpecificElo,
-        eloValueTotal: update.newTotalElo,
-        change: update.totalEloDelta,
-      },
+    // Accumulate EloHistory records for this game
+    historyRecords.push({
+      playerId: update.playerId,
+      gameId: input.gameId,
+      date: input.gameDate,
+      type: eloType,
+      eloValue: update.newSpecificElo,
+      eloValueTotal: update.newTotalElo,
+      change: update.totalEloDelta,
+    });
+  }
+
+  if (historyRecords.length > 0) {
+    await tx.eloHistory.createMany({
+      data: historyRecords,
     });
   }
 

@@ -33,6 +33,7 @@ async function fetchAndFormatPlayerProfile(where: any) {
           t1Player2: true,
           t2Player1: true,
           t2Player2: true,
+          eloHistory: true,
         },
       },
       gamesAsT1P2: {
@@ -44,6 +45,7 @@ async function fetchAndFormatPlayerProfile(where: any) {
           t1Player2: true,
           t2Player1: true,
           t2Player2: true,
+          eloHistory: true,
         },
       },
       gamesAsT2P1: {
@@ -55,6 +57,7 @@ async function fetchAndFormatPlayerProfile(where: any) {
           t1Player2: true,
           t2Player1: true,
           t2Player2: true,
+          eloHistory: true,
         },
       },
       gamesAsT2P2: {
@@ -66,6 +69,7 @@ async function fetchAndFormatPlayerProfile(where: any) {
           t1Player2: true,
           t2Player1: true,
           t2Player2: true,
+          eloHistory: true,
         },
       },
     } as any,

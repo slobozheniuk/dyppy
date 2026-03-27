@@ -104,16 +104,16 @@ const TrendAside = ({ eloHistory }) => (
             {eloHistory.length > 0 ? (
               <div className="flex items-end gap-[2px] h-full">
                 {eloHistory.slice(-20).map((entry, i) => {
-                  const min = Math.min(...eloHistory.slice(-20).map(e => e.eloValue));
-                  const max = Math.max(...eloHistory.slice(-20).map(e => e.eloValue));
-                  const range = max - min || 1;
-                  const barHeight = ((entry.eloValue - min) / range) * 80 + 20;
+                  const min = Math.min(...eloHistory.slice(-20).map(e => e.eloValueTotal));
+                const max = Math.max(...eloHistory.slice(-20).map(e => e.eloValueTotal));
+                const range = max - min || 1;
+                const barHeight = ((entry.eloValueTotal - min) / range) * 80 + 20;
                   return (
                     <div
                       key={i}
                       className="flex-1 bg-primary/40 hover:bg-primary/70 rounded-t transition-colors"
                       style={{ height: `${barHeight}%` }}
-                      title={`${Math.round(entry.eloValue)} (${new Date(entry.date).toLocaleDateString()})`}
+                      title={`${Math.round(entry.eloValueTotal)} (${new Date(entry.date).toLocaleDateString()})`}
                     />
                   );
                 })}
@@ -128,11 +128,11 @@ const TrendAside = ({ eloHistory }) => (
           <div className="space-y-4 pt-4 border-t border-surface-container">
             <div className="flex justify-between items-center">
               <span className="text-sm text-tertiary">Peak</span>
-              <span className="font-bold text-on-surface">{Math.round(Math.max(...eloHistory.map(e => e.eloValue)))}</span>
+              <span className="font-bold text-on-surface">{Math.round(Math.max(...eloHistory.map(e => e.eloValueTotal)))}</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-tertiary">Current</span>
-              <span className="font-bold text-secondary">{Math.round(eloHistory[eloHistory.length - 1]?.eloValue || 0)}</span>
+              <span className="font-bold text-secondary">{Math.round(eloHistory[eloHistory.length - 1]?.eloValueTotal || 0)}</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-tertiary">Games</span>
@@ -179,7 +179,7 @@ export default function PlayerPage() {
         const rawPlayer = await playerRes.json();
 
         // Fetch ELO history
-        const eloRes = await fetch(`${API_BASE}/api/player/${rawPlayer.id}/elo?type=main`);
+        const eloRes = await fetch(`${API_BASE}/api/player/${rawPlayer.id}/elo`);
         const eloData = eloRes.ok ? await eloRes.json() : [];
         setEloHistory(eloData);
 
@@ -195,7 +195,7 @@ export default function PlayerPage() {
           }
         }
 
-        const mainElo = eloByType.main || eloData[eloData.length - 1]?.eloValue;
+        const mainElo = rawPlayer.totalElo || eloData[eloData.length - 1]?.eloValueTotal;
 
         const playerDetails = {
           ...rawPlayer,
@@ -221,7 +221,7 @@ export default function PlayerPage() {
             const firstScore = scores[0] || { score1: 0, score2: 0 };
             const myScore = isT1 ? firstScore.score1 : firstScore.score2;
             const oppScore = isT1 ? firstScore.score2 : firstScore.score1;
-            const win = myScore > oppScore;
+
 
             // Determine game type (Single, Double, DYP)
             const typeLower = tournamentTypeToGameType(g.tournament?.type || '');
@@ -237,14 +237,19 @@ export default function PlayerPage() {
               img: p.avatarUrl || ''
             }));
 
+            const myEloEntry = g.eloHistory?.find(e => e.playerId === rawPlayer.id);
+            const eloChange = myEloEntry?.change || 0;
+            const diffPrefix = eloChange > 0 ? '+' : '';
+            const diffType = eloChange >= 0 ? 'positive' : 'negative';
+
             return {
               id: g.id,
               date: g.tournament?.date || 'N/A',
               tournamentType: g.tournament?.type || 'N/A',
               tournamentPlace: g.tournament?.place || 'N/A',
               type: displayType,
-              diff: win ? '+1' : '-1',
-              diffType: win ? 'positive' : 'negative',
+              diff: `${diffPrefix}${eloChange}`,
+              diffType,
               score: `${myScore} - ${oppScore}`,
               team1: isT1 ? team1 : team2,
               team2: isT1 ? team2 : team1
