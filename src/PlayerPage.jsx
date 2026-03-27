@@ -215,7 +215,7 @@ export default function PlayerPage() {
 
         // Build matches from recentGames (if present)
         if (rawPlayer.recentGames) {
-          playerDetails.matches = rawPlayer.recentGames.map((g, idx) => {
+          playerDetails.matches = rawPlayer.recentGames.map((g) => {
             const isT1 = g.t1Player1Id === rawPlayer.id || g.t1Player2Id === rawPlayer.id;
             const scores = g.scores || [];
             const firstScore = scores[0] || { score1: 0, score2: 0 };
