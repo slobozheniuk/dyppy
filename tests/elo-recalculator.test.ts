@@ -1,6 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { sortGamesChronologically, parseDate, recalculateAllElos } from '../src/data-parser/elo-recalculator.js';
-import * as eloTransaction from '../src/server/elo-transaction.js';
 
 describe('elo-recalculator', () => {
   describe('parseDate', () => {
@@ -49,15 +48,21 @@ describe('elo-recalculator', () => {
       mockPrisma = {
         player: {
           updateMany: vi.fn().mockResolvedValue({ count: 1 }),
+          update: vi.fn().mockResolvedValue({}),
+          findMany: vi.fn().mockResolvedValue([
+            { id: 'p1', singleElo: 1500, doubleElo: 1500, dypElo: 1500, totalElo: 1500 },
+            { id: 'p2', singleElo: 1500, doubleElo: 1500, dypElo: 1500, totalElo: 1500 }
+          ]),
         },
         eloHistory: {
           deleteMany: vi.fn().mockResolvedValue({ count: 1 }),
+          createMany: vi.fn().mockResolvedValue({ count: 2 })
         },
         game: {
           findMany: vi.fn().mockResolvedValue([
             {
               id: 'g2',
-              tournament: { type: 'Single', date: '02.01.2024' },
+              tournament: { type: 'Einzel', date: '02.01.2024' },
               createdAt: new Date(100),
               t1Player1Id: 'p1',
               t2Player1Id: 'p2',
@@ -65,7 +70,7 @@ describe('elo-recalculator', () => {
             },
             {
               id: 'g1',
-              tournament: { type: 'Single', date: '01.01.2024' },
+              tournament: { type: 'Einzel', date: '01.01.2024' },
               createdAt: new Date(100),
               t1Player1Id: 'p1',
               t2Player1Id: 'p2',
@@ -73,20 +78,30 @@ describe('elo-recalculator', () => {
             },
           ]),
         },
-        $transaction: vi.fn((cb) => cb(mockPrisma)),
+        $transaction: vi.fn((batch) => Promise.all(batch)),
       };
     });
 
-    it('should process games in chronological order', async () => {
-      const spy = vi.spyOn(eloTransaction, 'updateEloForExistingGame').mockResolvedValue({} as any);
-
+    it('should process games in chronological order by creating history appropriately', async () => {
       await recalculateAllElos({ prisma: mockPrisma, log: false });
 
-      expect(spy).toHaveBeenCalledTimes(2);
-      // Check first call is g1 (2024-01-01)
-      expect(spy.mock.calls[0][0].gameId).toBe('g1');
-      // Check second call is g2 (2024-01-02)
-      expect(spy.mock.calls[1][0].gameId).toBe('g2');
+      // Check createMany was called with history elements in correct order
+      const createManyMock = mockPrisma.eloHistory.createMany;
+      expect(createManyMock).toHaveBeenCalled();
+
+      const insertData = createManyMock.mock.calls[0][0].data;
+      expect(insertData).toBeDefined();
+
+      // Since it creates 2 records per game (team1 + team2), history has length 4
+      expect(insertData.length).toBe(4);
+
+      // Check first two records are for g1 (2024-01-01)
+      expect(insertData[0].gameId).toBe('g1');
+      expect(insertData[1].gameId).toBe('g1');
+
+      // Check next two records are for g2 (2024-01-02)
+      expect(insertData[2].gameId).toBe('g2');
+      expect(insertData[3].gameId).toBe('g2');
     });
   });
 });

@@ -1,5 +1,12 @@
 import { PrismaClient } from '../generated/prisma/client.js';
 import { updateEloForExistingGame } from '../server/elo-transaction.js';
+import {
+  recordMatch,
+  tournamentTypeToGameType,
+  gameTypeToEloType,
+  type PlayerRatings,
+  type PlayerWithRatings
+} from '../server/elo-calculator.js';
 
 export interface RecalculateOptions {
   prisma: any;
@@ -37,6 +44,7 @@ export async function resetAllRatings(prisma: any): Promise<void> {
 
 /**
  * Recalculates all ELO ratings from scratch.
+ * Optimized to perform calculations in-memory and batch updates to the database.
  */
 export async function recalculateAllElos(options: RecalculateOptions): Promise<{ processed: number; errors: number }> {
   const { prisma, log = true } = options;
@@ -45,38 +53,103 @@ export async function recalculateAllElos(options: RecalculateOptions): Promise<{
 
   await resetAllRatings(prisma);
 
+  // 1. Fetch all games and players into memory
   const allGames = await prisma.game.findMany({
     include: {
       tournament: { select: { type: true, date: true } },
     },
   });
 
+  const allPlayers = await prisma.player.findMany();
+
+  // Create an in-memory map of player ratings
+  const playerRatingsMap = new Map<string, PlayerRatings>();
+  for (const p of allPlayers) {
+    playerRatingsMap.set(p.id, {
+      singleElo: 1500, // We just reset them to 1500
+      doubleElo: 1500,
+      dypElo: 1500,
+      totalElo: 1500,
+    });
+  }
+
   const sortedGames = sortGamesChronologically(allGames);
 
   let processed = 0;
   let errors = 0;
+
+  // We will collect all history records to insert them in batches
+  const historyRecordsToInsert: any[] = [];
 
   for (let i = 0; i < sortedGames.length; i++) {
     const game = sortedGames[i];
     try {
       const [day, month, yearStr] = game.tournament.date.split('.');
       const gameDate = new Date(`${yearStr}-${month}-${day}`);
-
-      await updateEloForExistingGame({
-        gameId: game.id,
-        t1Player1Id: game.t1Player1Id,
-        t1Player2Id: game.t1Player2Id ?? undefined,
-        t2Player1Id: game.t2Player1Id,
-        t2Player2Id: game.t2Player2Id ?? undefined,
-        scores: game.scores as { score1: number; score2: number }[],
-        tournamentType: game.tournament.type,
-        gameDate,
-      }, prisma); // We pass prisma here to allow for mock/tx
+      const tournamentType = game.tournament.type;
       
+      const gameType = tournamentTypeToGameType(tournamentType);
+      const eloType = gameTypeToEloType(gameType);
+
+      // Determine winner
+      const scores = game.scores as { score1: number; score2: number }[];
+      const t1Wins = scores.filter(s => s.score1 > s.score2).length;
+      const t2Wins = scores.filter(s => s.score2 > s.score1).length;
+      const team1Won = t1Wins > t2Wins;
+
+      const team1Ids = [game.t1Player1Id, game.t1Player2Id].filter(Boolean) as string[];
+      const team2Ids = [game.t2Player1Id, game.t2Player2Id].filter(Boolean) as string[];
+
+      // Create PlayerWithRatings objects from our memory map
+      const fetchPlayerFromMemory = (id: string): PlayerWithRatings => {
+        let ratings = playerRatingsMap.get(id);
+        if (!ratings) {
+          // If a player somehow doesn't exist in our map, initialize them with 1500
+          ratings = { singleElo: 1500, doubleElo: 1500, dypElo: 1500, totalElo: 1500 };
+          playerRatingsMap.set(id, ratings);
+        }
+        return { id, ratings: { ...ratings } };
+      };
+
+      const team1 = team1Ids.map(fetchPlayerFromMemory);
+      const team2 = team2Ids.map(fetchPlayerFromMemory);
+
+      // Calculate new ELOs
+      const result = recordMatch({
+        gameType,
+        team1,
+        team2,
+        team1Won,
+      });
+
+      const eloKey = gameType === 'single' ? 'singleElo' :
+                     gameType === 'double' ? 'doubleElo' : 'dypElo';
+
+      const allUpdates = [...result.team1Updates, ...result.team2Updates];
+
+      // Update our in-memory map and queue history records
+      for (const update of allUpdates) {
+        // Update memory map
+        const currentRatings = playerRatingsMap.get(update.playerId)!;
+        currentRatings[eloKey] = update.newSpecificElo;
+        currentRatings.totalElo = update.newTotalElo;
+
+        // Queue history record
+        historyRecordsToInsert.push({
+          playerId: update.playerId,
+          gameId: game.id,
+          date: gameDate,
+          type: eloType,
+          eloValue: update.newSpecificElo,
+          eloValueTotal: update.newTotalElo,
+          change: update.totalEloDelta,
+        });
+      }
+
       processed++;
 
-      if (log && ((i + 1) % 50 === 0 || i === sortedGames.length - 1)) {
-        console.log(`   ELO progress: ${i + 1}/${sortedGames.length} games processed`);
+      if (log && ((i + 1) % 500 === 0 || i === sortedGames.length - 1)) {
+        console.log(`   ELO progress: ${i + 1}/${sortedGames.length} games processed in memory`);
       }
     } catch (err) {
       errors++;
@@ -84,6 +157,37 @@ export async function recalculateAllElos(options: RecalculateOptions): Promise<{
         console.error(`   ⚠ ELO error for game ${game.id}:`, err instanceof Error ? err.message : err);
       }
     }
+  }
+
+  if (log) console.log(`   Syncing ${historyRecordsToInsert.length} history records and ${playerRatingsMap.size} player updates to DB...`);
+
+  // 2. Batch Update the Database
+  // Create history records in batches to avoid query size limits
+  const BATCH_SIZE = 5000;
+  for (let i = 0; i < historyRecordsToInsert.length; i += BATCH_SIZE) {
+    const batch = historyRecordsToInsert.slice(i, i + BATCH_SIZE);
+    await prisma.eloHistory.createMany({
+      data: batch
+    });
+  }
+
+  // Update players using a transaction
+  const playerUpdatePromises: any[] = [];
+  for (const [id, ratings] of playerRatingsMap.entries()) {
+    playerUpdatePromises.push(
+      prisma.player.update({
+        where: { id },
+        data: ratings,
+      })
+    );
+  }
+
+  // Since Prisma SQLite doesn't exist here, Postgres $transaction is fine.
+  // Execute updates in batches so we don't blow up connection pool or statement limits
+  const PLAYER_BATCH_SIZE = 1000;
+  for (let i = 0; i < playerUpdatePromises.length; i += PLAYER_BATCH_SIZE) {
+    const batch = playerUpdatePromises.slice(i, i + PLAYER_BATCH_SIZE);
+    await prisma.$transaction(batch);
   }
 
   if (log) console.log(`\n   ELO processed: ${processed} games (${errors} errors)\n`);
