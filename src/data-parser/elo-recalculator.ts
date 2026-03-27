@@ -1,8 +1,22 @@
 import { PrismaClient } from '../generated/prisma/client.js';
 import { updateEloForExistingGame } from '../server/elo-transaction.js';
 
+export interface GameWithTournament {
+  id: string;
+  createdAt: Date;
+  t1Player1Id: string;
+  t1Player2Id: string | null;
+  t2Player1Id: string;
+  t2Player2Id: string | null;
+  scores: any;
+  tournament: {
+    date: string;
+    type: string;
+  };
+}
+
 export interface RecalculateOptions {
-  prisma: any;
+  prisma: PrismaClient;
   log?: boolean;
 }
 
@@ -17,7 +31,7 @@ export function parseDate(d: string): number {
 /**
  * Sorts games chronologically by tournament date, then by createdAt.
  */
-export function sortGamesChronologically(games: any[]): any[] {
+export function sortGamesChronologically(games: GameWithTournament[]): GameWithTournament[] {
   return [...games].sort((a, b) => {
     const dateDiff = parseDate(a.tournament.date) - parseDate(b.tournament.date);
     if (dateDiff !== 0) return dateDiff;
@@ -28,7 +42,7 @@ export function sortGamesChronologically(games: any[]): any[] {
 /**
  * Resets all player ratings to 1500 and clears ELO history.
  */
-export async function resetAllRatings(prisma: any): Promise<void> {
+export async function resetAllRatings(prisma: PrismaClient): Promise<void> {
   await prisma.player.updateMany({
     data: { singleElo: 1500, doubleElo: 1500, dypElo: 1500, totalElo: 1500 },
   });
