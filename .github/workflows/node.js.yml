@@ -18,6 +18,9 @@ jobs:
       matrix:
         node-version: [25.x]
 
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
+
     steps:
       - uses: actions/checkout@v4
 
