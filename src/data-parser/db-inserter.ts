@@ -194,16 +194,18 @@ export async function seedRound(ctx: SeedContext, tournamentId: string, round: R
   });
 
   // Seed placements
+  const placementsData = [];
   for (const placement of round.finalPlacements) {
     const { p1Id, p2Id } = await resolveCompetitor(ctx, placement.competitor);
-    await ctx.prisma.placement.create({
-      data: {
-        roundId: dbRound.id,
-        rank: placement.rank,
-        player1Id: p1Id,
-        player2Id: p2Id,
-      },
+    placementsData.push({
+      roundId: dbRound.id,
+      rank: placement.rank,
+      player1Id: p1Id,
+      player2Id: p2Id,
     });
+  }
+  if (placementsData.length > 0) {
+    await ctx.prisma.placement.createMany({ data: placementsData });
   }
 
   // Seed divisions → gameStages → games
@@ -223,23 +225,26 @@ export async function seedRound(ctx: SeedContext, tournamentId: string, round: R
         },
       });
 
+      const gamesData = [];
       for (const game of stage.games) {
         const t1 = await resolveCompetitor(ctx, game.competitor1);
         const t2 = await resolveCompetitor(ctx, game.competitor2);
 
-        await ctx.prisma.game.create({
-          data: {
-            tournamentId,
-            roundId: dbRound.id,
-            divisionId: dbDivision.id,
-            gameStageId: dbStage.id,
-            t1Player1Id: t1.p1Id,
-            t1Player2Id: t1.p2Id,
-            t2Player1Id: t2.p1Id,
-            t2Player2Id: t2.p2Id,
-            scores: game.scores,
-          },
+        gamesData.push({
+          tournamentId,
+          roundId: dbRound.id,
+          divisionId: dbDivision.id,
+          gameStageId: dbStage.id,
+          t1Player1Id: t1.p1Id,
+          t1Player2Id: t1.p2Id,
+          t2Player1Id: t2.p1Id,
+          t2Player2Id: t2.p2Id,
+          scores: game.scores,
         });
+      }
+
+      if (gamesData.length > 0) {
+        await ctx.prisma.game.createMany({ data: gamesData });
       }
     }
   }
