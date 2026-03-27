@@ -1,5 +1,5 @@
 # Dyppy CI - Node.js
-# This workflow performs a clean installation of dependencies,
+# This workflow performs a clean installation of dependencies, 
 # generates the Prisma client, runs linting, executes tests, and validates the build.
 
 name: Node.js CI
