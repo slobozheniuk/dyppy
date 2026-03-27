@@ -27,7 +27,6 @@ enum EloType {
   single
   double
   dyp
-  main
 }
 
 // ─── Player ───────────────────────────────────────────────────────────────────
@@ -37,10 +36,10 @@ model Player {
   nwtfvId             Int      @unique
   name                String
   surname             String
-  singleElo           Float    @default(1500)
-  doubleElo           Float    @default(1500)
-  dypElo              Float    @default(1500)
-  totalElo            Float    @default(1500)
+  singleElo           Int    @default(1500)
+  doubleElo           Int    @default(1500)
+  dypElo              Int    @default(1500)
+  totalElo            Int    @default(1500)
   avatarUrl           String?
   category            String
   clubs               String[]
@@ -198,12 +197,14 @@ model Placement {
 // ─── ELO History ──────────────────────────────────────────────────────────────
 
 model EloHistory {
-  id       String   @id @default(cuid())
-  playerId String
-  gameId   String?
-  date     DateTime
-  type     EloType
-  eloValue Float
+  id            String   @id @default(cuid())
+  playerId      String
+  gameId        String?
+  date          DateTime
+  type          EloType
+  eloValue      Int    // Game-specific ELO
+  eloValueTotal Int    // Cumulative Total ELO
+  change        Int    // ELO change from this game
 
   player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
   game   Game?  @relation(fields: [gameId], references: [id], onDelete: SetNull)

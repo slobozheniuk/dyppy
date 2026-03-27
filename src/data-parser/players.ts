@@ -61,13 +61,3 @@ export const CATEGORY_MAPPING: Record<string, string> = {
 export function getCategoryName(categoryCode: string): string {
     return CATEGORY_MAPPING[categoryCode] || categoryCode || 'Player';
 }
-
-export function getPseudoElo(name: string, type: string = 'Main'): number {
-    let hash = 0;
-    const str = name + type;
-    for (let i = 0; i < str.length; i++) {
-        hash = ((hash << 5) - hash) + str.charCodeAt(i);
-        hash |= 0;
-    }
-    return 1900 + (Math.abs(hash) % (6001 - 1900));
-}

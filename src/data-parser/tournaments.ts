@@ -48,71 +48,84 @@ export type Round = {
   divisions: Division[];
 }
 
-export async function getTournaments({ limit, tournamentIds, year }: { limit?: number, tournamentIds?: number[], year?: number } = {}): Promise<Tournament[]> {
+export async function getTournaments({ limit, tournamentIds, year, withoutDetails }: { limit?: number, tournamentIds?: number[], year?: (number | string)[], withoutDetails?: boolean } = {}): Promise<Tournament[]> {
   const tournaments: Tournament[] = [];
-  let tournamentList: number[];
+  const url = `https://nwtfv.com/turniere?format=json`;
 
-  if (tournamentIds && tournamentIds.length > 0) {
-    tournamentList = tournamentIds;
-  } else {
-    const url = `https://nwtfv.com/turniere?format=json`;
-    let res: Response;
+  let tournamentIdsList: number[] = [];
+  const yearsToProcess = year && year.length > 0 ? year : [undefined];
 
-    if (year) {
-      // 1. Get the list of years to find the saison_id
-      const initialRes = await fetch(url);
-      const initialHtml = await initialRes.text();
-      const $ = cheerio.load(initialHtml);
-      const saisonOption = $('select[name="filter_saison_id"] option').filter((i, el) => $(el).text().trim() === year.toString()).first();
+  for (const y of yearsToProcess) {
+    let tournamentsRes = await fetch(url);
+    let tournamentsHTML = await tournamentsRes.text();
+
+    if (y !== undefined) {
+      const yearStr = y.toString();
+      const $ = cheerio.load(tournamentsHTML);
+      const saisonOption = $('select[name="filter_saison_id"] option')
+        .filter((i, el) => $(el).text().trim().includes(yearStr))
+        .first();
 
       if (saisonOption.length > 0) {
         const saisonId = saisonOption.val();
-        console.log(`Filtering for year ${year} (saison_id: ${saisonId})...`);
-        
-        // 2. POST to get that year's tournaments
+        console.log(`Filtering for year ${yearStr} (saison_id: ${saisonId})...`);
+
         const formData = new URLSearchParams();
         formData.append('filter_saison_id', saisonId as string);
         formData.append('task', 'turniere');
 
-        res = await fetch(url, {
+        tournamentsRes = await fetch(url, {
           method: 'POST',
           body: formData,
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         });
+        tournamentsHTML = await tournamentsRes.text();
       } else {
-        console.warn(`Year ${year} not found in saison list, falling back to current.`);
-        res = await fetch(url);
+        console.warn(`Year ${yearStr} not found in saison list, falling back to current.`);
       }
-    } else {
-      res = await fetch(url);
     }
 
-    const tournamentsHTML = await res.text();
-    tournamentList = parseIntermediaryTournamentsIds(tournamentsHTML);
+    const yearIds = parseIntermediaryTournamentsIds(tournamentsHTML);
+    tournamentIdsList = [...tournamentIdsList, ...yearIds];
   }
 
-  console.log(`Found ${tournamentList.length} tournament IDs to process.`);
+  // Remove potential duplicates and preserve order
+  tournamentIdsList = Array.from(new Set(tournamentIdsList));
 
-  for (let i = 0; i < tournamentList.length; i++) {
-    const tournamentId = tournamentList[i];
-    console.log(`[${i + 1}/${tournamentList.length}] Processing tournament ID: ${tournamentId}...`);
+  if (tournamentIds && tournamentIds.length > 0) {
+    tournamentIdsList = tournamentIdsList.filter((id) => tournamentIds.includes(id));
+  }
+
+  if (limit) {
+    tournamentIdsList = tournamentIdsList.slice(0, limit);
+  }
+
+  for (let i = 0; i < tournamentIdsList.length; i++) {
+    const tournamentId = tournamentIdsList[i];
+    if (withoutDetails) {
+      tournaments.push({ id: tournamentId, tournamentGroupID: tournamentId, name: '', type: '', date: '', place: '', mainRound: { finalPlacements: [], divisions: [] } });
+      continue;
+    }
+    console.log(`[${i + 1}/${tournamentIdsList.length}] Processing tournament series ID: ${tournamentId}...`);
     try {
       const actualTournamentIds = await parseActualTournamentId(tournamentId);
-
       for (const actualTournamentId of actualTournamentIds) {
-        const tournament: Tournament = await getTournamentDetails(actualTournamentId, tournamentId);
-        tournaments.push(tournament);
-        if (limit && tournaments.length >= limit) {
-          return tournaments;
+        try {
+          const tournament: Tournament = await getTournamentDetails(actualTournamentId, tournamentId);
+          tournaments.push(tournament);
+        } catch (error) {
+          console.error(`  Error processing tournament ID ${actualTournamentId}:`, error instanceof Error ? error.message : error);
+          throw new Error(`  Error processing tournament ID ${actualTournamentId}: ${error instanceof Error ? error.message : error}`);
         }
       }
     } catch (error) {
-      console.error(`  Error processing tournament ID ${tournamentId}:`, error instanceof Error ? error.message : error);
-      throw new Error(`  Error processing tournament ID ${tournamentId}: ${error instanceof Error ? error.message : error}`);
+      console.error(`  Error processing tournament series ID ${tournamentId}:`, error instanceof Error ? error.message : error);
+      throw new Error(`  Error processing tournament series ID ${tournamentId}: ${error instanceof Error ? error.message : error}`);
     }
   }
+
   return tournaments;
 }
 
@@ -132,7 +145,7 @@ export async function getTournamentDetails(actualTournamentId: number, tournamen
  * @param {string} html
  * @returns {number[]} List of intermediary tournament ids
  */
-function parseIntermediaryTournamentsIds(html: string): number[] {
+function parseIntermediaryTournamentsIds(html: string, limit?: number): number[] {
   const $ = cheerio.load(html);
   const results: number[] = [];
   const rows = $('tr.sectiontableentry1, tr.sectiontableentry2').toArray();
@@ -150,6 +163,9 @@ function parseIntermediaryTournamentsIds(html: string): number[] {
     const id = parseInt(idMatch[1], 10);
 
     results.push(id);
+    if (limit && results.length >= limit) {
+      break;
+    }
   }
   return results;
 }

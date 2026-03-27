@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-import { getTournamentDetails } from '../tournaments.ts';
+import { getTournamentDetails } from '../../src/data-parser/tournaments.ts';
 
 test('correctly parses Monster DYP tournament 6329', async () => {
     const data = await getTournamentDetails(6329);
@@ -46,7 +46,7 @@ test('correctly parses Monster DYP tournament 6329', async () => {
     expect(mainPro.gameStages).toHaveLength(9);
     expect(mainPro.gameStages[0].name).toBe('1. Runde');
     expect(mainPro.gameStages[8].name).toBe('9. Runde');
-    
+
     // In this specific tournament, games list inside stages are empty
     expect(mainPro.gameStages[0].games).toHaveLength(0);
 });

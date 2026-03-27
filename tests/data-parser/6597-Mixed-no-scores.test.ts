@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-import { getTournamentDetails, Division } from '../tournaments.ts';
+import { getTournamentDetails, Division } from '../../src/data-parser/tournaments.ts';
 
 test('correctly parses Mixed tournament 6597 without scores', async () => {
   const tournamentId = 6597;
@@ -60,8 +60,8 @@ test('correctly parses Mixed tournament 6597 without scores', async () => {
     expect(proGame.competitor1.player1.nwtfvId).toBe(9056);
     expect(proGame.competitor2.type).toBe('team');
     if (proGame.competitor2.type === 'team') {
-        expect(proGame.competitor2.player1.name).toBe('Harig, Säpenta');
-        expect(proGame.competitor2.player1.nwtfvId).toBeUndefined();
+      expect(proGame.competitor2.player1.name).toBe('Harig, Säpenta');
+      expect(proGame.competitor2.player1.nwtfvId).toBeUndefined();
     }
   }
 
@@ -76,8 +76,8 @@ test('correctly parses Mixed tournament 6597 without scores', async () => {
     expect(amateurGame.competitor1.player1.name).toBe('Kratz, Gerd');
     expect(amateurGame.competitor1.player1.nwtfvId).toBe(7463);
     if (amateurGame.competitor2.type === 'team') {
-        expect(amateurGame.competitor2.player1.name).toBe('Welter, Johannes');
-        expect(amateurGame.competitor2.player1.nwtfvId).toBe(8815);
+      expect(amateurGame.competitor2.player1.name).toBe('Welter, Johannes');
+      expect(amateurGame.competitor2.player1.nwtfvId).toBe(8815);
     }
   }
 });

@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-import { getTournaments, getTournamentDetails, Division } from '../tournaments.ts';
+import { getTournaments, getTournamentDetails, Division } from '../../src/data-parser/tournaments.ts';
 
 test('successfully parses multiple sub-tournaments for ID 5366', async () => {
     // Tournament 5366 contains 3 sub-disciplines: Damen Doppel (6407), Offenes Doppel (6406), Senioren Doppel (6408)
@@ -64,7 +64,7 @@ test('correctly parses Offenes Doppel sub-tournament 6406', async () => {
     expect(pro?.gameStages).toHaveLength(6);
     expect(pro?.gameStages[0].name).toBe('Sechzehntelfinale');
     expect(pro?.gameStages[0].games).toHaveLength(1);
-    
+
     const proGame = pro?.gameStages[0].games[0];
     expect(proGame?.competitor1.type).toBe('team');
     if (proGame?.competitor1.type === 'team') {

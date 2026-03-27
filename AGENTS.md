@@ -21,7 +21,12 @@ The project is a monorepo-style structure with a shared Prisma schema.
 - **`tournaments.ts`**: Core logic for scraping/parsing HTML from nwtfv.com.
 - **`players.ts`**: Fetches player details from the NWTFV JSON API.
 - **`seed-database.ts`**: Main CLI script to populate the database and run the ELO recalculation pass.
-- **`tests/`**: Vitest integration tests with saved HTML snapshots.
+- **`seed-utils.ts`**: Shared utility functions for seeding (e.g. hashed player IDs).
+- **`db-inserter.ts`**: Core database insertion logic for players, tournaments, and rounds.
+- **`elo-recalculator.ts`**: Handles batch recalculation of ELO ratings from scratch.
+
+### 📁 `tests` (Vitest Suite)
+- **`tests/*.test.ts`**: Integration tests for parsing, API, and ELO math.
 
 ### 📁 `src/server` (Backend)
 - **`index.ts`**: Express server entry point.
@@ -46,6 +51,7 @@ The project is a monorepo-style structure with a shared Prisma schema.
 | `npm run db:push` | `prisma db push` | Syncs schema to the database (Supabase). |
 | `npm run test` | `vitest` | Runs the full test suite. |
 | `npm run db:studio` | `prisma studio` | Opens a GUI to explore database records. |
+| `npx prisma db push --force-reset` | `npx prisma db push --force-reset` | Resets the database and syncs the schema to the database (Supabase). |
 
 ---
 
@@ -78,5 +84,5 @@ Players track **4 distinct ratings**:
 To maintain codebase health, all contributors (including AI agents) must follow these rules:
 
 1.  **Always Run Tests**: Before submitting any change, run the full test suite (`npm run test`).
-2.  **Update Tests**: If you add new functionality or change existing logic, you **must** update existing tests or add new ones (e.g., in `src/server/elo-calculator.test.ts` or `src/data-parser/tests/`).
+2.  **Update Tests**: If you add new functionality or change existing logic, you **must** update existing tests or add new ones (e.g., in `tests/elo-calculator.test.ts` or `tests/`).
 3.  **Update Documentation**: If you add, change, or remove any feature, script, or architectural component, you **must** update this `AGENTS.md` file and any relevant inline documentation.

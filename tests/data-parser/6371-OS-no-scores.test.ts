@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-import { getTournamentDetails } from '../tournaments.ts';
+import { getTournamentDetails } from '../../src/data-parser/tournaments.ts';
 
 test('correctly parses OS tournament 6371 without scores', async () => {
     const data = await getTournamentDetails(6371);
@@ -37,7 +37,7 @@ test('correctly parses OS tournament 6371 without scores', async () => {
     expect(qualifyingOpen!.skillLevel).toBe('Open');
     const qualifyingStages = qualifyingOpen!.gameStages;
     // For 13 participants, it likely has 6 rounds of qualifying
-    expect(qualifyingStages.length).toBeGreaterThanOrEqual(5); 
+    expect(qualifyingStages.length).toBeGreaterThanOrEqual(5);
     expect(qualifyingStages[0].name).toBe('1. Runde');
     expect(qualifyingStages[0].games).toHaveLength(6);
     expect(qualifyingStages[0].games[0].competitor1.type).toBe('player');

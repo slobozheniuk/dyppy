@@ -20,7 +20,7 @@ async function fetchAndFormatPlayerProfile(where: any) {
       },
       eloHistory: {
         orderBy: { date: 'desc' },
-        take: 4, // Latest ELO per type (at most 4 types)
+        take: 3, // Latest ELO per type (single, double, dyp)
         distinct: ['type'],
       },
       // Recent games where this player was involved (any position)
@@ -158,34 +158,25 @@ export async function searchPlayers(query: string, limit = 5) {
  * Used by TopPlayers.jsx.
  */
 export async function getTopPlayers(limit = 5) {
-  // Get players with their latest 'main' ELO
-  const latestElos = await prisma.eloHistory.findMany({
-    where: { type: 'main' },
-    orderBy: { date: 'desc' },
-    distinct: ['playerId'],
-    take: 100, // Get a pool to sort from
-    include: {
-      player: {
-        select: {
-          id: true,
-          nwtfvId: true,
-          name: true,
-          surname: true,
-          avatarUrl: true,
-          category: true,
-          clubs: true,
-        },
-      },
+  const players = await prisma.player.findMany({
+    orderBy: { totalElo: 'desc' },
+    take: limit,
+    select: {
+      id: true,
+      nwtfvId: true,
+      name: true,
+      surname: true,
+      avatarUrl: true,
+      category: true,
+      clubs: true,
+      totalElo: true,
     },
   });
 
-  return latestElos
-    .sort((a, b) => b.eloValue - a.eloValue)
-    .slice(0, limit)
-    .map((elo) => ({
-      ...elo.player,
-      mainElo: elo.eloValue,
-    }));
+  return players.map((p) => ({
+    ...p,
+    mainElo: p.totalElo,
+  }));
 }
 
 /**

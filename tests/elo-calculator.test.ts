@@ -8,7 +8,7 @@ import {
   DEFAULT_K_FACTOR,
   type PlayerWithRatings,
   type PlayerRatings,
-} from './elo-calculator.ts';
+} from '../src/server/elo-calculator.ts';
 
 // ─── Helper ───────────────────────────────────────────────────────────────────
 

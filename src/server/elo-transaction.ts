@@ -57,8 +57,8 @@ export interface EloGameInput {
 /**
  * Atomically creates a Game and updates ELO for all involved players.
  */
-export async function createGameWithEloUpdate(input: GameInput) {
-  return prisma.$transaction(async (tx) => {
+export async function createGameWithEloUpdate(input: GameInput, client: any = prisma) {
+  return client.$transaction(async (tx: any) => {
     // Step 1: Create the Game
     const game = await tx.game.create({
       data: {
@@ -97,8 +97,8 @@ export async function createGameWithEloUpdate(input: GameInput) {
  * Updates ELO for an already-existing Game record.
  * Used during batch recalculation (e.g. db:seed).
  */
-export async function updateEloForExistingGame(input: EloGameInput) {
-  return prisma.$transaction(async (tx) => {
+export async function updateEloForExistingGame(input: EloGameInput, client: any = prisma) {
+  return client.$transaction(async (tx: any) => {
     return processGameElo(tx, input);
   });
 }
@@ -162,7 +162,7 @@ async function processGameElo(tx: TxClient, input: EloGameInput): Promise<MatchR
       },
     });
 
-    // Create EloHistory record for game-specific ELO
+    // Create a single EloHistory record for this game
     await tx.eloHistory.create({
       data: {
         playerId: update.playerId,
@@ -170,17 +170,8 @@ async function processGameElo(tx: TxClient, input: EloGameInput): Promise<MatchR
         date: input.gameDate,
         type: eloType,
         eloValue: update.newSpecificElo,
-      },
-    });
-
-    // Create EloHistory record for total ELO
-    await tx.eloHistory.create({
-      data: {
-        playerId: update.playerId,
-        gameId: input.gameId,
-        date: input.gameDate,
-        type: 'main' as EloType,  // 'main' = total ELO in the schema
-        eloValue: update.newTotalElo,
+        eloValueTotal: update.newTotalElo,
+        change: update.totalEloDelta,
       },
     });
   }

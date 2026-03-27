@@ -141,8 +141,8 @@ export function recordMatch(input: MatchInput): MatchResult {
 
   // For singles, each player uses their own rating against the opponent's.
   // For doubles, we use team average vs team average.
-  const specificDeltaTeam1 = calculateEloDelta(team1AvgSpecific, team2AvgSpecific, team1Won, kFactor);
-  const specificDeltaTeam2 = calculateEloDelta(team2AvgSpecific, team1AvgSpecific, !team1Won, kFactor);
+  const specificDeltaTeam1 = Math.round(calculateEloDelta(team1AvgSpecific, team2AvgSpecific, team1Won, kFactor));
+  const specificDeltaTeam2 = Math.round(calculateEloDelta(team2AvgSpecific, team1AvgSpecific, !team1Won, kFactor));
 
   // ── Total ELO calculation (always uses totalElo as input) ──────────────
 
@@ -152,8 +152,8 @@ export function recordMatch(input: MatchInput): MatchResult {
   const team1AvgTotal = average(team1TotalRatings);
   const team2AvgTotal = average(team2TotalRatings);
 
-  const totalDeltaTeam1 = calculateEloDelta(team1AvgTotal, team2AvgTotal, team1Won, kFactor);
-  const totalDeltaTeam2 = calculateEloDelta(team2AvgTotal, team1AvgTotal, !team1Won, kFactor);
+  const totalDeltaTeam1 = Math.round(calculateEloDelta(team1AvgTotal, team2AvgTotal, team1Won, kFactor));
+  const totalDeltaTeam2 = Math.round(calculateEloDelta(team2AvgTotal, team1AvgTotal, !team1Won, kFactor));
 
   // ── Build per-player updates ──────────────────────────────────────────
 
@@ -167,8 +167,8 @@ export function recordMatch(input: MatchInput): MatchResult {
     oldTotalElo: player.ratings.totalElo,
     specificEloDelta: specificDelta,
     totalEloDelta: totalDelta,
-    newSpecificElo: player.ratings[eloKey] + specificDelta,
-    newTotalElo: player.ratings.totalElo + totalDelta,
+    newSpecificElo: Math.round(player.ratings[eloKey] + specificDelta),
+    newTotalElo: Math.round(player.ratings.totalElo + totalDelta),
   });
 
   const team1Updates = team1.map(p => buildUpdate(p, specificDeltaTeam1, totalDeltaTeam1));
