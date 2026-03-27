@@ -1,3 +1,4 @@
+import pLimit from 'p-limit';
 import * as cheerio from 'cheerio';
 
 export type SkillLevel = 'Pro' | 'Amateur' | 'Open';
@@ -102,29 +103,55 @@ export async function getTournaments({ limit, tournamentIds, year, withoutDetail
     tournamentIdsList = tournamentIdsList.slice(0, limit);
   }
 
-  for (let i = 0; i < tournamentIdsList.length; i++) {
-    const tournamentId = tournamentIdsList[i];
-    if (withoutDetails) {
-      tournaments.push({ id: tournamentId, tournamentGroupID: tournamentId, name: '', type: '', date: '', place: '', mainRound: { finalPlacements: [], divisions: [] } });
-      continue;
-    }
-    console.log(`[${i + 1}/${tournamentIdsList.length}] Processing tournament series ID: ${tournamentId}...`);
-    try {
-      const actualTournamentIds = await parseActualTournamentId(tournamentId);
-      for (const actualTournamentId of actualTournamentIds) {
-        try {
-          const tournament: Tournament = await getTournamentDetails(actualTournamentId, tournamentId);
-          tournaments.push(tournament);
-        } catch (error) {
-          console.error(`  Error processing tournament ID ${actualTournamentId}:`, error instanceof Error ? error.message : error);
-          throw new Error(`  Error processing tournament ID ${actualTournamentId}: ${error instanceof Error ? error.message : error}`);
-        }
+  const limitConcurrencyOuter = pLimit(4); const limitConcurrencyInner = pLimit(4);
+  const tasks = tournamentIdsList.map((tournamentId, i) => {
+    return limitConcurrencyOuter(async () => {
+      if (withoutDetails) {
+        return [{ id: tournamentId, tournamentGroupID: tournamentId, name: '', type: '', date: '', place: '', mainRound: { finalPlacements: [], divisions: [] } }];
       }
-    } catch (error) {
-      console.error(`  Error processing tournament series ID ${tournamentId}:`, error instanceof Error ? error.message : error);
-      throw new Error(`  Error processing tournament series ID ${tournamentId}: ${error instanceof Error ? error.message : error}`);
+      console.log(`[${i + 1}/${tournamentIdsList.length}] Processing tournament series ID: ${tournamentId}...`);
+      try {
+        const actualTournamentIds = await parseActualTournamentId(tournamentId);
+        const subTasks = actualTournamentIds.map(actualTournamentId => {
+          return limitConcurrencyInner(async () => {
+             try {
+               return await getTournamentDetails(actualTournamentId, tournamentId);
+             } catch (error) {
+               console.error(`  Error processing tournament ID ${actualTournamentId}:`, error instanceof Error ? error.message : error);
+               throw new Error(`  Error processing tournament ID ${actualTournamentId}: ${error instanceof Error ? error.message : error}`);
+             }
+          });
+        });
+        const subResults = await Promise.all(subTasks);
+        return subResults;
+      } catch (error) {
+        console.error(`  Error processing tournament series ID ${tournamentId}:`, error instanceof Error ? error.message : error);
+        throw new Error(`  Error processing tournament series ID ${tournamentId}: ${error instanceof Error ? error.message : error}`);
+      }
+    });
+  });
+
+  const results = await Promise.all(tasks);
+
+  // Flatten results and add to tournaments
+  for (const group of results) {
+    if (group) {
+      tournaments.push(...group);
     }
   }
+
+  // Sort by date descending (DD.MM.YYYY)
+  tournaments.sort((a, b) => {
+    if (!a.date || !b.date) return 0;
+    const parseDate = (dString: string) => {
+      const parts = dString.split('.');
+      if (parts.length === 3) {
+        return new Date(parseInt(parts[2]), parseInt(parts[1]) - 1, parseInt(parts[0])).getTime();
+      }
+      return 0;
+    };
+    return parseDate(b.date) - parseDate(a.date);
+  });
 
   return tournaments;
 }
