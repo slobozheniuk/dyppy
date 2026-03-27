@@ -198,7 +198,7 @@ export async function recalculateAllElos(options: RecalculateOptions): Promise<{
 
   // Since Prisma SQLite doesn't exist here, Postgres $transaction is fine.
   // Execute updates in batches so we don't blow up connection pool or statement limits
-  const PLAYER_BATCH_SIZE = 1000;
+  const PLAYER_BATCH_SIZE = 50;
   for (let i = 0; i < playerUpdatePromises.length; i += PLAYER_BATCH_SIZE) {
     const batch = playerUpdatePromises.slice(i, i + PLAYER_BATCH_SIZE);
     await prisma.$transaction(batch);

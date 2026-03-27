@@ -1,0 +1,69 @@
+Command: npx prisma db push --force-reset && time npm run db:seed -- --year=2009,2010
+
+BEFORE JULES 26.03.2026
+[17/17] Landesmeisterschaft 2009 Herren Doppel — Dortmund (21.11.2009)
+    ○ Skeleton player (hashed): Czerner, Florian (69830846)
+    ⚠ Could not fetch profile for nwtfvId=179 (Hoppe, Dirk), creating skeleton.
+    ✓ Player: Wieschmann, Alexander (471)
+    ✓ Player: Conrad, Daniel (66)
+    ✓ Player: Bonnek, Reinhard (39)
+    ✓ Player: Reimers, Sebastian (331)
+  ✅ Done
+
+📊 Recalculating ELO ratings for all games...
+
+   ELO progress: 50/689 games processed
+   ELO progress: 100/689 games processed
+   ELO progress: 150/689 games processed
+   ELO progress: 200/689 games processed
+   ELO progress: 250/689 games processed
+   ELO progress: 300/689 games processed
+   ELO progress: 350/689 games processed
+   ELO progress: 400/689 games processed
+   ELO progress: 450/689 games processed
+   ELO progress: 500/689 games processed
+   ELO progress: 550/689 games processed
+   ELO progress: 600/689 games processed
+   ELO progress: 650/689 games processed
+   ELO progress: 689/689 games processed
+
+   ELO processed: 689 games (0 errors)
+
+
+─── Summary ───
+  Total parsed:    17
+  Seeded:          17
+  Skipped (dupes): 0
+  Players cached:  183
+  ELO calculated:  yes
+  Done! 🎉
+
+npm run db:seed -- --year=2009,2010  16.13s user 2.44s system 3% cpu 7:46.74 total
+
+AFTER JULES 27.03.2026
+[17/17] Landesmeisterschaft 2010 Herren Doppel — Dortmund (13.11.2010)
+    ✓ Player: Pelzer, Dirk (305)
+    ✓ Player: Kuhn, Michael (72)
+    ⚠ Could not fetch profile for nwtfvId=174 (Hodde, Kevin), creating skeleton.
+    ⚠ Could not fetch profile for nwtfvId=173 (Hirth, Rudolf), creating skeleton.
+    ✓ Player: Uppenbrink, Frank (436)
+  ✅ Done
+
+📊 Recalculating ELO ratings for all games...
+
+   ELO progress: 500/689 games processed in memory
+   ELO progress: 689/689 games processed in memory
+   Syncing 2606 history records and 183 player updates to DB...
+
+   ELO processed: 689 games (0 errors)
+
+
+─── Summary ───
+  Total parsed:    17
+  Seeded:          17
+  Skipped (dupes): 0
+  Players cached:  183
+  ELO calculated:  yes
+  Done! 🎉
+
+npm run db:seed -- --year=2009,2010  3.69s user 0.41s system 2% cpu 2:30.98 total
