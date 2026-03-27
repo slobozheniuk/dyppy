@@ -48,7 +48,7 @@ export type Round = {
   divisions: Division[];
 }
 
-export async function getTournaments({ limit, tournamentIds }: { limit?: number, tournamentIds?: number[] } = {}): Promise<Tournament[]> {
+export async function getTournaments({ limit, tournamentIds, year }: { limit?: number, tournamentIds?: number[], year?: number } = {}): Promise<Tournament[]> {
   const tournaments: Tournament[] = [];
   let tournamentList: number[];
 
@@ -56,7 +56,39 @@ export async function getTournaments({ limit, tournamentIds }: { limit?: number,
     tournamentList = tournamentIds;
   } else {
     const url = `https://nwtfv.com/turniere?format=json`;
-    const res = await fetch(url);
+    let res: Response;
+
+    if (year) {
+      // 1. Get the list of years to find the saison_id
+      const initialRes = await fetch(url);
+      const initialHtml = await initialRes.text();
+      const $ = cheerio.load(initialHtml);
+      const saisonOption = $('select[name="filter_saison_id"] option').filter((i, el) => $(el).text().trim() === year.toString()).first();
+
+      if (saisonOption.length > 0) {
+        const saisonId = saisonOption.val();
+        console.log(`Filtering for year ${year} (saison_id: ${saisonId})...`);
+        
+        // 2. POST to get that year's tournaments
+        const formData = new URLSearchParams();
+        formData.append('filter_saison_id', saisonId as string);
+        formData.append('task', 'turniere');
+
+        res = await fetch(url, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        });
+      } else {
+        console.warn(`Year ${year} not found in saison list, falling back to current.`);
+        res = await fetch(url);
+      }
+    } else {
+      res = await fetch(url);
+    }
+
     const tournamentsHTML = await res.text();
     tournamentList = parseIntermediaryTournamentsIds(tournamentsHTML);
   }

@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/" element={<MainPage />} />
         <Route path="/player/:id" element={<PlayerPage />} />
         <Route path="/tournaments" element={<TournamentsPage />} />
-        <Route path="/tournament/:id" element={<TournamentDetailsPage />} />
+        <Route path="/tournament/nwtfv/:nwtfvId" element={<TournamentDetailsPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

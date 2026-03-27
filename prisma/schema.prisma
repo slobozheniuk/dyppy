@@ -1,0 +1,214 @@
+// Dyppy - Table Football League
+// Prisma Schema for Supabase PostgreSQL
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── Enums ────────────────────────────────────────────────────────────────────
+
+enum SkillLevel {
+  Pro
+  Amateur
+  Open
+}
+
+enum RoundType {
+  Main
+  Qualifying
+}
+
+enum EloType {
+  single
+  double
+  dyp
+  main
+}
+
+// ─── Player ───────────────────────────────────────────────────────────────────
+
+model Player {
+  id                  String   @id @default(cuid())
+  nwtfvId             Int      @unique
+  name                String
+  surname             String
+  singleElo           Float    @default(1500)
+  doubleElo           Float    @default(1500)
+  dypElo              Float    @default(1500)
+  totalElo            Float    @default(1500)
+  avatarUrl           String?
+  category            String
+  clubs               String[]
+  organisations       String[]
+  nationalNumber      String
+  internationalNumber String?
+
+  // Relations
+  rankings   PlayerRanking[]
+  eloHistory EloHistory[]
+
+  // Game relations (flat competitor FKs)
+  gamesAsT1P1 Game[] @relation("T1Player1")
+  gamesAsT1P2 Game[] @relation("T1Player2")
+  gamesAsT2P1 Game[] @relation("T2Player1")
+  gamesAsT2P2 Game[] @relation("T2Player2")
+
+  // Placement relations
+  placementsAsP1 Placement[] @relation("PlacementPlayer1")
+  placementsAsP2 Placement[] @relation("PlacementPlayer2")
+
+  @@index([surname, name])
+}
+
+// ─── Player Ranking ───────────────────────────────────────────────────────────
+
+model PlayerRanking {
+  id                String @id @default(cuid())
+  playerId          String
+  name              String // e.g. "Herren", "Bonn", "Köln"
+  year              Int
+  rank              Int
+  totalRankedPlayers Int
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  @@index([playerId])
+  @@index([year])
+}
+
+// ─── Tournament ───────────────────────────────────────────────────────────────
+
+model Tournament {
+  id                   String @id @default(cuid())
+  nwtfvId              Int    @unique
+  tournamentGroupID    Int
+  date                 String // "DD.MM.YYYY" format from source
+  name                 String
+  type                 String
+  place                String
+  numberOfParticipants Int?
+
+  rounds Round[]
+  games  Game[]
+
+  @@index([date])
+  @@index([place])
+}
+
+// ─── Round ────────────────────────────────────────────────────────────────────
+
+model Round {
+  id           String    @id @default(cuid())
+  tournamentId String
+  type         RoundType
+
+  tournament Tournament  @relation(fields: [tournamentId], references: [id], onDelete: Cascade)
+  divisions  Division[]
+  placements Placement[]
+
+  @@index([tournamentId])
+}
+
+// ─── Division ─────────────────────────────────────────────────────────────────
+
+model Division {
+  id         String     @id @default(cuid())
+  roundId    String
+  skillLevel SkillLevel
+
+  round      Round       @relation(fields: [roundId], references: [id], onDelete: Cascade)
+  gameStages GameStage[]
+
+  @@index([roundId])
+}
+
+// ─── Game Stage ───────────────────────────────────────────────────────────────
+
+model GameStage {
+  id         String @id @default(cuid())
+  divisionId String
+  name       String // e.g. "Viertelfinale", "Halbfinale", "Finale"
+
+  division Division @relation(fields: [divisionId], references: [id], onDelete: Cascade)
+  games    Game[]
+
+  @@index([divisionId])
+}
+
+// ─── Game ─────────────────────────────────────────────────────────────────────
+
+model Game {
+  id           String   @id @default(cuid())
+  tournamentId String
+  roundId      String
+  divisionId   String
+  gameStageId  String
+  createdAt    DateTime @default(now())
+
+  // Flat nullable FKs for competitors (avoids polymorphic relations)
+  // Team 1
+  t1Player1Id String
+  t1Player2Id String? // nullable for singles
+
+  // Team 2
+  t2Player1Id String
+  t2Player2Id String? // nullable for singles
+
+  // Scores stored as JSON array: [{"score1": 5, "score2": 3}, ...]
+  scores Json
+
+  // Relations
+  tournament Tournament @relation(fields: [tournamentId], references: [id], onDelete: Cascade)
+  gameStage  GameStage  @relation(fields: [gameStageId], references: [id], onDelete: Cascade)
+
+  t1Player1 Player @relation("T1Player1", fields: [t1Player1Id], references: [id])
+  t1Player2 Player? @relation("T1Player2", fields: [t1Player2Id], references: [id])
+  t2Player1 Player @relation("T2Player1", fields: [t2Player1Id], references: [id])
+  t2Player2 Player? @relation("T2Player2", fields: [t2Player2Id], references: [id])
+
+  eloHistory EloHistory[]
+
+  @@index([tournamentId])
+  @@index([gameStageId])
+  @@index([t1Player1Id])
+  @@index([t2Player1Id])
+}
+
+// ─── Placement ────────────────────────────────────────────────────────────────
+
+model Placement {
+  id        String @id @default(cuid())
+  roundId   String
+  rank      Int
+  player1Id String
+  player2Id String? // nullable for singles
+
+  round   Round  @relation(fields: [roundId], references: [id], onDelete: Cascade)
+  player1 Player @relation("PlacementPlayer1", fields: [player1Id], references: [id])
+  player2 Player? @relation("PlacementPlayer2", fields: [player2Id], references: [id])
+
+  @@index([roundId])
+}
+
+// ─── ELO History ──────────────────────────────────────────────────────────────
+
+model EloHistory {
+  id       String   @id @default(cuid())
+  playerId String
+  gameId   String?
+  date     DateTime
+  type     EloType
+  eloValue Float
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  game   Game?  @relation(fields: [gameId], references: [id], onDelete: SetNull)
+
+  @@index([playerId, type])
+  @@index([playerId, date])
+  @@index([gameId])
+}

@@ -1,33 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import tournamentsData from './data/tournaments.json';
-import playersData from './data/players.json';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 
+const API_BASE = 'http://localhost:3001';
 
 const TournamentRow = ({ tournament }) => {
   const navigate = useNavigate();
+
   const getWinner = () => {
-    const firstPlace = tournament.mainRound?.finalPlacements?.find(p => p.rank === 1);
+    // Find the Main round's rank-1 placement
+    const mainRound = tournament.rounds?.find(r => r.type === 'Main');
+    const firstPlace = mainRound?.placements?.find(p => p.rank === 1);
     if (!firstPlace) return null;
-    
-    const comp = firstPlace.competitor;
-    if (comp.type === 'player') {
-      const player = playersData.find(p => p.id === comp.player.nwtfvId);
+
+    const p1 = firstPlace.player1;
+    const p2 = firstPlace.player2;
+
+    if (p2) {
+      // Team
       return {
-        name: comp.player.name.split(', ').reverse().join(' '),
-        avatar: player?.avatarUrl || ''
+        name: `${p1.name} / ${p2.name}`,
+        avatars: [p1.avatarUrl, p2.avatarUrl].filter(Boolean)
       };
-    } else if (comp.type === 'team') {
-      const p1 = playersData.find(p => p.id === comp.player1.nwtfvId);
-      const p2 = playersData.find(p => p.id === comp.player2.nwtfvId);
+    } else {
+      // Singles
       return {
-        name: `${comp.player1.name.split(',').pop().trim()} / ${comp.player2.name.split(',').pop().trim()}`,
-        avatars: [p1?.avatarUrl, p2?.avatarUrl].filter(Boolean)
+        name: `${p1.name} ${p1.surname}`,
+        avatar: p1.avatarUrl || ''
       };
     }
-    return null;
   };
 
   const winner = getWinner();
@@ -35,7 +37,7 @@ const TournamentRow = ({ tournament }) => {
 
   return (
     <tr
-      onClick={() => navigate(`/tournament/${tournament.id}`)}
+      onClick={() => navigate(`/tournament/nwtfv/${tournament.nwtfvId}`)}
       className={`group hover:bg-white transition-all cursor-pointer ${isLive ? 'border-l-4 border-primary' : ''}`}
     >
       <td className="px-8 py-6">
@@ -89,16 +91,41 @@ const TournamentRow = ({ tournament }) => {
 
 const TournamentsPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  
-  const filteredTournaments = tournamentsData
-    .filter(t => t.name.toLowerCase().includes(searchTerm.toLowerCase()) || t.place.toLowerCase().includes(searchTerm.toLowerCase()))
-    .slice(0, 20);
+  const [tournaments, setTournaments] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchTournaments = async () => {
+      setLoading(true);
+      try {
+        const params = new URLSearchParams({ take: '20' });
+        if (searchTerm.trim()) params.set('search', searchTerm);
+
+        const res = await fetch(`${API_BASE}/api/tournaments?${params}`);
+        const data = await res.json();
+        setTournaments(data);
+      } catch (err) {
+        console.error('Failed to fetch tournaments:', err);
+      }
+      setLoading(false);
+    };
+
+    const timer = setTimeout(fetchTournaments, 300);
+    return () => clearTimeout(timer);
+  }, [searchTerm]);
+
+  // Get unique cities from loaded tournaments for the filter dropdown
+  const cities = [...new Set(tournaments.map(t => t.place))].sort();
 
   return (
-    <div className="min-h-screen bg-surface font-body text-on-surface antialiased">
+    <div className="min-h-screen bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container pb-0 overflow-x-hidden relative font-body antialiased">
+      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary blur-[120px] rounded-full"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary blur-[120px] rounded-full"></div>
+      </div>
       <Header />
       
-      <main className="pt-32 pb-20 max-w-7xl mx-auto px-6">
+      <main className="relative z-10 pt-32 pb-20 max-w-7xl mx-auto px-6">
         <header className="mb-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
@@ -110,12 +137,12 @@ const TournamentsPage = () => {
 
         <section className="mb-12 bg-surface-container-low p-6 rounded-2xl flex flex-wrap gap-6 items-end">
           <div className="flex-1 min-w-[240px]">
-            <label className="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">Date Range</label>
+            <label className="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">Search</label>
             <div className="relative">
-              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 pointer-events-none">calendar_month</span>
+              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 pointer-events-none">search</span>
               <input 
                 className="w-full bg-surface-container-lowest border-none rounded-xl py-3 pl-10 pr-4 text-sm font-semibold focus:ring-2 focus:ring-primary/20"
-                placeholder="Jan 2024 - Dec 2024"
+                placeholder="Search by name or city..."
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -128,7 +155,7 @@ const TournamentsPage = () => {
               <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 pointer-events-none">location_on</span>
               <select className="w-full bg-surface-container-lowest border-none rounded-xl py-3 pl-10 pr-4 text-sm font-semibold focus:ring-2 focus:ring-primary/20 appearance-none">
                 <option>All Cities</option>
-                {[...new Set(tournamentsData.map(t => t.place))].sort().map(city => (
+                {cities.map(city => (
                   <option key={city} value={city}>{city}</option>
                 ))}
               </select>
@@ -156,9 +183,19 @@ const TournamentsPage = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/10">
-                {filteredTournaments.map(tournament => (
-                  <TournamentRow key={tournament.id} tournament={tournament} />
-                ))}
+                {loading ? (
+                  <tr>
+                    <td colSpan={4} className="px-8 py-12 text-center text-zinc-400 animate-pulse">Loading tournaments...</td>
+                  </tr>
+                ) : tournaments.length > 0 ? (
+                  tournaments.map(tournament => (
+                    <TournamentRow key={tournament.id} tournament={tournament} />
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan={4} className="px-8 py-12 text-center text-zinc-400">No tournaments found.</td>
+                  </tr>
+                )}
               </tbody>
             </table>
           </div>

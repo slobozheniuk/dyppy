@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import profilesData from '../data/players.json';
+
+const API_BASE = 'http://localhost:3001';
 
 const PlayerSearch = () => {
   const [query, setQuery] = useState('');
@@ -17,32 +18,31 @@ const PlayerSearch = () => {
   }, [query]);
 
   useEffect(() => {
-    const fetchResults = () => {
+    const fetchResults = async () => {
       if (debouncedQuery.trim().length === 0) {
         setResults([]);
         setIsOpen(false);
         return;
       }
 
-      const lowerQuery = debouncedQuery.toLowerCase();
-      const matches = profilesData
-        .filter(p => p.id !== 0) // Skip players with id = 0
-        .filter(p =>
-          p.name.toLowerCase().includes(lowerQuery) ||
-          p.surname.toLowerCase().includes(lowerQuery)
-        )
-        .slice(0, 5)
-        .map(p => ({
-          id: p.id,
+      try {
+        const res = await fetch(`${API_BASE}/api/players/search?q=${encodeURIComponent(debouncedQuery)}&limit=5`);
+        const matches = await res.json();
+
+        const mapped = matches.map(p => ({
+          id: p.nwtfvId,
           name: `${p.name} ${p.surname}`,
           avatar: p.avatarUrl || '',
           arena: p.clubs && p.clubs.length > 0 ? p.clubs[0] : 'Independent'
         }));
 
-
-      setResults(matches);
-      setIsOpen(true);
-      setFocusedIndex(-1);
+        setResults(mapped);
+        setIsOpen(true);
+        setFocusedIndex(-1);
+      } catch (error) {
+        console.error('Player search failed:', error);
+        setResults([]);
+      }
     };
     fetchResults();
   }, [debouncedQuery]);

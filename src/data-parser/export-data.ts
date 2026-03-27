@@ -9,7 +9,14 @@ const GAMES_FILE = path.join(DATA_DIR, 'games.json');
 const PLAYERS_FILE = path.join(DATA_DIR, 'players.json');
 
 async function exportData() {
-  console.log('--- Starting Data Export (Limit: 20) ---');
+  const args = process.argv.slice(2);
+  const yearArg = args.find(a => a.startsWith('--year='))?.split('=')[1];
+  const limitArg = args.find(a => a.startsWith('--limit='))?.split('=')[1];
+  
+  const year = yearArg ? parseInt(yearArg, 10) : undefined;
+  const limit = limitArg ? parseInt(limitArg, 10) : 20;
+
+  console.log(`--- Starting Data Export (Year: ${year || 'Current'}, Limit: ${limit}) ---`);
   
   if (!fs.existsSync(DATA_DIR)) {
     fs.mkdirSync(DATA_DIR, { recursive: true });
@@ -17,10 +24,7 @@ async function exportData() {
 
   let tournaments: Tournament[] = [];
   try {
-    // We fetch them one by one in getTournaments, let's just use it.
-    // However, if one fails, getTournaments throws. 
-    // To be robust, let's manually fetch the list and then get details with individual try/catch.
-    tournaments = await getTournaments({ limit: 20 });
+    tournaments = await getTournaments({ limit, year });
   } catch (error) {
     console.warn('Some tournaments might have failed to parse, continuing with what we have if possible.');
   }

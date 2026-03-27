@@ -1,20 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-
-import profilesData from './data/players.json';
-import gamesData from './data/games.json';
 
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
+import { getCategoryName } from './data-parser/players.js';
+import MatchRow from './components/MatchRow.jsx';
+import { tournamentTypeToGameType } from './server/elo-calculator.ts';
 
-import { getPseudoElo, getCategoryName } from './data-parser/players.js';
+const API_BASE = 'http://localhost:3001';
 
 const HeroSection = ({ data }) => {
-  const mainElo = getPseudoElo(data.name, 'Main');
-  const dypElo = getPseudoElo(data.name, 'DYP');
-  const singleElo = getPseudoElo(data.name, 'Single');
-  const pairElo = getPseudoElo(data.name, 'Pair');
-
   return (
     <section className="bg-surface-container-lowest p-8 rounded-xl shadow-sm">
       <div className="flex flex-col lg:flex-row gap-8 items-center lg:items-center">
@@ -38,11 +33,11 @@ const HeroSection = ({ data }) => {
         <div className="flex-1 flex flex-col md:flex-row items-center gap-8 md:gap-12 pl-0 lg:pl-8">
           <div className="text-center">
             <p className="text-tertiary font-bold text-[10px] uppercase tracking-[0.2em] mb-1">Main Elo Score</p>
-            <h2 className="text-6xl font-black font-headline tracking-tighter text-primary">{mainElo}</h2>
+            <h2 className="text-6xl font-black font-headline tracking-tighter text-primary">{data.elo?.main || '—'}</h2>
             <div className="flex items-center justify-center gap-3 mt-2 text-[10px] font-bold uppercase text-tertiary">
               <span>Rank: {data.elo?.rank || 'N/A'}</span>
               <span className="w-[1px] h-2 bg-surface-container"></span>
-              <span>Win Rate: 50%</span>
+              <span>Win Rate: {data.elo?.winRate || '—'}</span>
             </div>
           </div>
 
@@ -55,27 +50,24 @@ const HeroSection = ({ data }) => {
               <span className="text-tertiary font-medium w-24 shrink-0">Organisation</span>
               <span className="font-bold text-on-surface leading-tight">{data.organisations?.[0] || '—'}</span>
             </div>
-            <div className="flex items-baseline gap-4 text-sm pt-2 border-t border-surface-container border-opacity-30">
-              <span className="text-tertiary font-medium w-24 shrink-0">DYP Elo</span>
-              <div className="flex items-center gap-2">
-                <span className="font-bold text-on-surface">{dypElo}</span>
-                <span className="text-secondary text-[10px] font-bold">+12</span>
+            {data.eloByType?.dyp != null && (
+              <div className="flex items-baseline gap-4 text-sm pt-2 border-t border-surface-container border-opacity-30">
+                <span className="text-tertiary font-medium w-24 shrink-0">DYP Elo</span>
+                <span className="font-bold text-on-surface">{Math.round(data.eloByType.dyp)}</span>
               </div>
-            </div>
-            <div className="flex items-baseline gap-4 text-sm">
-              <span className="text-tertiary font-medium w-24 shrink-0">Single Elo</span>
-              <div className="flex items-center gap-2">
-                <span className="font-bold text-on-surface">{singleElo}</span>
-                <span className="text-primary text-[10px] font-bold">-12</span>
+            )}
+            {data.eloByType?.single != null && (
+              <div className="flex items-baseline gap-4 text-sm">
+                <span className="text-tertiary font-medium w-24 shrink-0">Single Elo</span>
+                <span className="font-bold text-on-surface">{Math.round(data.eloByType.single)}</span>
               </div>
-            </div>
-            <div className="flex items-baseline gap-4 text-sm">
-              <span className="text-tertiary font-medium w-24 shrink-0">Pair Elo</span>
-              <div className="flex items-center gap-2">
-                <span className="font-bold text-on-surface">{pairElo}</span>
-                <span className="text-secondary text-[10px] font-bold">+12</span>
+            )}
+            {data.eloByType?.double != null && (
+              <div className="flex items-baseline gap-4 text-sm">
+                <span className="text-tertiary font-medium w-24 shrink-0">Double Elo</span>
+                <span className="font-bold text-on-surface">{Math.round(data.eloByType.double)}</span>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
@@ -83,85 +75,6 @@ const HeroSection = ({ data }) => {
   );
 };
 
-
-const MatchRow = ({ match }) => {
-  const isPositive = match.diffType === 'positive';
-  const typeColorClass = match.type === 'Single' ? 'text-secondary bg-secondary/10' :
-                         match.type === 'DYP' ? 'text-secondary bg-secondary/10' :
-                         'text-primary bg-primary/10';
-  const diffColorClass = isPositive ? 'text-secondary' : 'text-primary';
-  const borderHoverClass = isPositive ? 'hover:border-secondary' : 'hover:border-primary';
-
-  return (
-    <div className={`flex flex-col md:flex-row md:items-center bg-white border border-surface-container rounded-xl p-4 transition-colors gap-4 md:gap-0 ${borderHoverClass}`}>
-      <div className="flex justify-between items-center md:block md:w-24 shrink-0 text-left border-b border-surface-container pb-3 md:border-b-0 md:pb-0">
-        <div>
-          <p className="text-[10px] font-bold text-tertiary uppercase tracking-tighter">{match.date}</p>
-          <span className={`text-[10px] font-black px-2 py-0.5 rounded uppercase ${typeColorClass}`}>{match.type}</span>
-        </div>
-        <div className="md:hidden">
-          <span className={`${diffColorClass} font-black text-sm`}>{match.diff}</span>
-        </div>
-      </div>
-
-      <div className="flex-1 grid grid-cols-3 items-center gap-4">
-        {match.team1.length === 1 ? (
-          <div className="flex items-center justify-end gap-3">
-            <span className="font-bold text-[13px] md:text-sm text-right">{match.team1[0].name}</span>
-            {match.team1[0].img && <img alt={match.team1[0].name} className="w-8 h-8 rounded-full border border-surface-container shrink-0" src={match.team1[0].img} />}
-          </div>
-        ) : (
-          <div className="flex flex-col items-end gap-1">
-            <div className="flex items-center gap-2">
-              <span className="font-bold text-[10px] md:text-xs">{match.team1[0].name}</span>
-              <div className="w-6 h-6 rounded-full bg-slate-200 overflow-hidden shrink-0">
-                {match.team1[0].img && <img alt={match.team1[0].name} className="w-full h-full object-cover" src={match.team1[0].img} />}
-              </div>
-            </div>
-            <div className="flex items-center gap-2 opacity-70">
-              <span className="font-bold text-[10px] md:text-xs">{match.team1[1].name}</span>
-              <div className="w-6 h-6 rounded-full bg-slate-200 overflow-hidden shrink-0">
-                {match.team1[1].img && <img alt={match.team1[1].name} className="w-full h-full object-cover" src={match.team1[1].img} />}
-              </div>
-            </div>
-          </div>
-        )}
-
-        <div className="text-center">
-          <span className={`inline-block bg-surface-container-low px-3 md:px-4 py-1.5 rounded-full font-headline font-black text-base md:text-lg ${!isPositive ? 'text-primary' : ''}`}>
-            {match.score}
-          </span>
-        </div>
-
-        {match.team2.length === 1 ? (
-          <div className="flex items-center justify-start gap-3 text-tertiary">
-            {match.team2[0].img && <img alt={match.team2[0].name} className="w-8 h-8 rounded-full border border-surface-container shrink-0" src={match.team2[0].img} />}
-            <span className="font-bold text-[13px] md:text-sm text-on-surface">{match.team2[0].name}</span>
-          </div>
-        ) : (
-          <div className="flex flex-col items-start gap-1">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-full bg-slate-200 overflow-hidden shrink-0">
-                {match.team2[0].img && <img alt={match.team2[0].name} className="w-full h-full object-cover" src={match.team2[0].img} />}
-              </div>
-              <span className="font-bold text-[10px] md:text-xs">{match.team2[0].name}</span>
-            </div>
-            <div className="flex items-center gap-2 opacity-70">
-              <div className="w-6 h-6 rounded-full bg-slate-200 overflow-hidden shrink-0">
-                {match.team2[1].img && <img alt={match.team2[1].name} className="w-full h-full object-cover" src={match.team2[1].img} />}
-              </div>
-              <span className="font-bold text-[10px] md:text-xs">{match.team2[1].name}</span>
-            </div>
-          </div>
-        )}
-      </div>
-
-      <div className="hidden md:block md:w-16 shrink-0 text-right">
-        <span className={`${diffColorClass} font-black text-sm`}>{match.diff}</span>
-      </div>
-    </div>
-  );
-};
 
 const MatchesSection = ({ matches }) => (
   <div className="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
@@ -178,7 +91,7 @@ const MatchesSection = ({ matches }) => (
   </div>
 );
 
-const TrendAside = ({ trend, events }) => (
+const TrendAside = ({ eloHistory }) => (
   <aside className="space-y-6">
     <div className="bg-surface-container-lowest p-6 rounded-xl shadow-sm">
       <h3 className="font-headline font-bold text-lg mb-6 flex items-center gap-2">
@@ -188,40 +101,43 @@ const TrendAside = ({ trend, events }) => (
       <div className="space-y-6">
         <div className="w-full">
           <div className="relative h-28 w-full bg-surface-container-low rounded-lg p-2 flex flex-col justify-end overflow-hidden">
-            <div className="absolute inset-0 p-2 opacity-20">
-              <svg className="w-full h-full preserve-aspect-ratio-none overflow-visible" viewBox="0 0 100 100">
-                <path d="M0 80 Q 20 75, 40 60 T 60 40 T 80 45 T 100 20" fill="none" stroke="#af101a" strokeWidth="3"></path>
-              </svg>
-            </div>
-            <p className="text-center text-[10px] font-bold text-tertiary uppercase mb-4 relative z-10">Trend data N/A</p>
-          </div>
-        </div>
-
-        <div className="space-y-4 pt-4 border-t border-surface-container">
-          <div className="flex justify-between items-center">
-            <span className="text-sm text-tertiary">Season Peak</span>
-            <span className="font-bold text-on-surface">{trend.peak || '—'}</span>
-          </div>
-          <div className="flex justify-between items-center">
-            <span className="text-sm text-tertiary">Average Growth</span>
-            <span className="font-bold text-secondary">{trend.growth || '—'}</span>
-          </div>
-        </div>
-
-        {events.length > 0 && (
-          <div className="pt-4 border-t border-surface-container">
-            <p className="text-[10px] font-bold text-tertiary uppercase tracking-widest mb-2">Upcoming Events</p>
-            {events.map((event, i) => (
-              <div key={i} className="flex items-center gap-3">
-                <div className="bg-primary/10 p-2 rounded text-primary">
-                  <span className="material-symbols-outlined text-base">event</span>
-                </div>
-                <div>
-                  <p className="text-xs font-bold">{event.title}</p>
-                  <p className="text-[10px] text-zinc-500">{event.time}</p>
-                </div>
+            {eloHistory.length > 0 ? (
+              <div className="flex items-end gap-[2px] h-full">
+                {eloHistory.slice(-20).map((entry, i) => {
+                  const min = Math.min(...eloHistory.slice(-20).map(e => e.eloValue));
+                  const max = Math.max(...eloHistory.slice(-20).map(e => e.eloValue));
+                  const range = max - min || 1;
+                  const barHeight = ((entry.eloValue - min) / range) * 80 + 20;
+                  return (
+                    <div
+                      key={i}
+                      className="flex-1 bg-primary/40 hover:bg-primary/70 rounded-t transition-colors"
+                      style={{ height: `${barHeight}%` }}
+                      title={`${Math.round(entry.eloValue)} (${new Date(entry.date).toLocaleDateString()})`}
+                    />
+                  );
+                })}
               </div>
-            ))}
+            ) : (
+              <p className="text-center text-[10px] font-bold text-tertiary uppercase mb-4 relative z-10">No ELO history yet</p>
+            )}
+          </div>
+        </div>
+
+        {eloHistory.length > 0 && (
+          <div className="space-y-4 pt-4 border-t border-surface-container">
+            <div className="flex justify-between items-center">
+              <span className="text-sm text-tertiary">Peak</span>
+              <span className="font-bold text-on-surface">{Math.round(Math.max(...eloHistory.map(e => e.eloValue)))}</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-sm text-tertiary">Current</span>
+              <span className="font-bold text-secondary">{Math.round(eloHistory[eloHistory.length - 1]?.eloValue || 0)}</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-sm text-tertiary">Games</span>
+              <span className="font-bold text-on-surface">{eloHistory.length}</span>
+            </div>
           </div>
         )}
       </div>
@@ -233,11 +149,133 @@ const TrendAside = ({ trend, events }) => (
 
 export default function PlayerPage() {
   const { id } = useParams();
-  const numericId = parseInt(id, 10);
-  
-  const rawPlayer = profilesData.find(p => p.id === numericId);
+  const [playerData, setPlayerData] = useState(null);
+  const [eloHistory, setEloHistory] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  if (!rawPlayer || rawPlayer.id === 0) {
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        // Try fetching by NWTFV ID first (for backward compat with /player/:nwtfvId routes)
+        const numericId = parseInt(id, 10);
+        let playerRes;
+        if (!isNaN(numericId)) {
+          playerRes = await fetch(`${API_BASE}/api/player/nwtfv/${numericId}`);
+        }
+
+        // If not found by nwtfvId, try as internal ID
+        if (!playerRes || !playerRes.ok) {
+          playerRes = await fetch(`${API_BASE}/api/player/${id}`);
+        }
+
+        if (!playerRes.ok) {
+          setError('Player not found');
+          setLoading(false);
+          return;
+        }
+
+        const rawPlayer = await playerRes.json();
+
+        // Fetch ELO history
+        const eloRes = await fetch(`${API_BASE}/api/player/${rawPlayer.id}/elo?type=main`);
+        const eloData = eloRes.ok ? await eloRes.json() : [];
+        setEloHistory(eloData);
+
+        // Build display data
+        const latestRanking = rawPlayer.rankings?.find(r => r.year === 2026 && r.name === 'Herren') ||
+                              rawPlayer.rankings?.[0];
+
+        // Build ELO by type from eloHistory (latest per type)
+        const eloByType = {};
+        if (rawPlayer.eloHistory) {
+          for (const entry of rawPlayer.eloHistory) {
+            eloByType[entry.type] = entry.eloValue;
+          }
+        }
+
+        const mainElo = eloByType.main || eloData[eloData.length - 1]?.eloValue;
+
+        const playerDetails = {
+          ...rawPlayer,
+          name: `${rawPlayer.name} ${rawPlayer.surname}`,
+          avatar: rawPlayer.avatarUrl || '',
+          tier: getCategoryName(rawPlayer.category),
+          rankingTitle: latestRanking ? `Rank #${latestRanking.rank} in ${latestRanking.name} (${latestRanking.year})` : 'Unranked',
+          arena: rawPlayer.clubs?.[0] || 'Independent',
+          elo: {
+            main: mainElo ? Math.round(mainElo) : '—',
+            rank: latestRanking?.rank || 'N/A',
+            winRate: '—'
+          },
+          eloByType,
+          matches: []
+        };
+
+        // Build matches from recentGames (if present)
+        if (rawPlayer.recentGames) {
+          playerDetails.matches = rawPlayer.recentGames.map((g, idx) => {
+            const isT1 = g.t1Player1Id === rawPlayer.id || g.t1Player2Id === rawPlayer.id;
+            const scores = g.scores || [];
+            const firstScore = scores[0] || { score1: 0, score2: 0 };
+            const myScore = isT1 ? firstScore.score1 : firstScore.score2;
+            const oppScore = isT1 ? firstScore.score2 : firstScore.score1;
+            const win = myScore > oppScore;
+
+            // Determine game type (Single, Double, DYP)
+            const typeLower = tournamentTypeToGameType(g.tournament?.type || '');
+            const displayType = typeLower.charAt(0).toUpperCase() + typeLower.slice(1);
+
+            const team1 = [g.t1Player1, g.t1Player2].filter(Boolean).map(p => ({
+              name: `${p.name} ${p.surname}`,
+              img: p.avatarUrl || ''
+            }));
+
+            const team2 = [g.t2Player1, g.t2Player2].filter(Boolean).map(p => ({
+              name: `${p.name} ${p.surname}`,
+              img: p.avatarUrl || ''
+            }));
+
+            return {
+              id: g.id,
+              date: g.tournament?.date || 'N/A',
+              tournamentType: g.tournament?.type || 'N/A',
+              tournamentPlace: g.tournament?.place || 'N/A',
+              type: displayType,
+              diff: win ? '+1' : '-1',
+              diffType: win ? 'positive' : 'negative',
+              score: `${myScore} - ${oppScore}`,
+              team1: isT1 ? team1 : team2,
+              team2: isT1 ? team2 : team1
+            };
+          }).slice(0, 10);
+        }
+
+        setPlayerData(playerDetails);
+      } catch (err) {
+        console.error('Failed to fetch player:', err);
+        setError('Failed to load player');
+      }
+      setLoading(false);
+    };
+
+    fetchData();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-surface font-body text-on-surface antialiased pb-0 flex flex-col">
+        <Header />
+        <main className="flex-1 flex items-center justify-center pt-24">
+          <div className="text-xl text-zinc-400 animate-pulse">Loading player...</div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (error || !playerData) {
     return (
       <div className="min-h-screen bg-surface font-body text-on-surface antialiased pb-0 flex flex-col">
         <Header />
@@ -249,85 +287,24 @@ export default function PlayerPage() {
     );
   }
 
-  const latestRanking = rawPlayer.rankings?.find(r => r.year === 2026 && r.name === 'Herren') || 
-                        rawPlayer.rankings?.[0];
-
-  const playerDetails = {
-    ...rawPlayer,
-    name: `${rawPlayer.name} ${rawPlayer.surname}`,
-    avatar: rawPlayer.avatarUrl || '',
-    tier: getCategoryName(rawPlayer.category),
-    rankingTitle: latestRanking ? `Rank #${latestRanking.rank} in ${latestRanking.name} (${latestRanking.year})` : 'Unranked',
-    arena: rawPlayer.clubs?.[0] || 'Independent',
-    elo: {
-      main: latestRanking ? `#${latestRanking.rank}` : '—',
-      rank: latestRanking?.rank || 'N/A',
-      winRate: '—'
-    },
-    trend: { peak: '—', growth: '—' },
-    events: [],
-    matches: []
-  };
-
-  const getPlayerInfo = (compPlayer) => {
-    const p = profilesData.find(x => x.id === compPlayer.nwtfvId);
-    if (p) return { name: `${p.name} ${p.surname}`, img: p.avatarUrl || '' };
-    // Fallback if not in profilesData
-    const [surname, name] = compPlayer.name?.split(',').map(s => s.trim()) || [];
-    return { name: name ? `${name} ${surname}` : compPlayer.name, img: '' };
-  };
-
-  const isPlayerIdMatch = (comp) => {
-    if (!comp) return false;
-    if (comp.type === 'player') return comp.player.nwtfvId === numericId;
-    if (comp.type === 'team') return comp.player1.nwtfvId === numericId || comp.player2.nwtfvId === numericId;
-    return false;
-  };
-
-  const filteredGames = gamesData.filter(g => isPlayerIdMatch(g.competitor1) || isPlayerIdMatch(g.competitor2));
-
-  playerDetails.matches = filteredGames.map((g, idx) => {
-    const isComp1 = isPlayerIdMatch(g.competitor1);
-    const myComp = isComp1 ? g.competitor1 : g.competitor2;
-    const oppComp = isComp1 ? g.competitor2 : g.competitor1;
-
-    const score1 = g.scores?.[0]?.score1 || 0;
-    const score2 = g.scores?.[0]?.score2 || 0;
-    const myScore = isComp1 ? score1 : score2;
-    const oppScore = isComp1 ? score2 : score1;
-    
-    const win = myScore > oppScore;
-
-    const team1Ids = myComp.type === 'team' ? [myComp.player1, myComp.player2] : [myComp.player];
-    const team2Ids = oppComp.type === 'team' ? [oppComp.player1, oppComp.player2] : [oppComp.player];
-
-    return {
-      id: `match-${idx}`,
-      date: 'N/A', // Games don't have dates in current games.json, mapping is hard
-      type: g.skillLevel || 'DYP',
-      diff: win ? '+1' : '-1', // Mocking diff as it's not in games.json
-      diffType: win ? 'positive' : 'negative',
-      score: `${myScore} - ${oppScore}`,
-      team1: team1Ids.map(getPlayerInfo),
-      team2: team2Ids.map(getPlayerInfo)
-    };
-  }).slice(0, 10); // Show recent 10
-
   return (
-    <div className="min-h-screen bg-surface font-body text-on-surface antialiased pb-0">
+    <div className="min-h-screen bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container pb-0 overflow-x-hidden relative">
+      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary blur-[120px] rounded-full"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary blur-[120px] rounded-full"></div>
+      </div>
       <Header />
-      <main className="pt-24 pb-12 px-6 max-w-screen-2xl mx-auto space-y-8">
-        <HeroSection data={playerDetails} />
+      <main className="relative z-10 pt-24 pb-12 px-6 max-w-screen-2xl mx-auto space-y-8">
+        <HeroSection data={playerData} />
 
         <div className="asymmetric-grid">
           <div className="space-y-8">
-            <MatchesSection matches={playerDetails.matches} />
+            <MatchesSection matches={playerData.matches} />
           </div>
-          <TrendAside trend={playerDetails.trend} events={playerDetails.events} />
+          <TrendAside eloHistory={eloHistory} />
         </div>
       </main>
       <Footer />
     </div>
   );
 }
-
