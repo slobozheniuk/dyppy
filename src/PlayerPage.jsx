@@ -221,7 +221,7 @@ export default function PlayerPage() {
             const firstScore = scores[0] || { score1: 0, score2: 0 };
             const myScore = isT1 ? firstScore.score1 : firstScore.score2;
             const oppScore = isT1 ? firstScore.score2 : firstScore.score1;
-            const win = myScore > oppScore;
+
 
             // Determine game type (Single, Double, DYP)
             const typeLower = tournamentTypeToGameType(g.tournament?.type || '');
