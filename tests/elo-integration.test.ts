@@ -8,6 +8,7 @@ describe('ELO Integration (New History Format)', () => {
     mockPrisma = {
       player: {
         findUniqueOrThrow: vi.fn(),
+        findMany: vi.fn(),
         update: vi.fn(),
       },
       eloHistory: {
@@ -20,20 +21,10 @@ describe('ELO Integration (New History Format)', () => {
 
   it('should create only one EloHistory record per player per match with new fields', async () => {
     // Mock player ratings
-    mockPrisma.player.findUniqueOrThrow.mockResolvedValueOnce({
-      id: 'p1',
-      singleElo: 1500,
-      doubleElo: 1500,
-      dypElo: 1500,
-      totalElo: 1500,
-    });
-    mockPrisma.player.findUniqueOrThrow.mockResolvedValueOnce({
-      id: 'p2',
-      singleElo: 1500,
-      doubleElo: 1500,
-      dypElo: 1500,
-      totalElo: 1500,
-    });
+    mockPrisma.player.findMany.mockResolvedValueOnce([
+      { id: 'p1', singleElo: 1500, doubleElo: 1500, dypElo: 1500, totalElo: 1500 },
+      { id: 'p2', singleElo: 1500, doubleElo: 1500, dypElo: 1500, totalElo: 1500 },
+    ]);
 
     const input = {
       gameId: 'g1',

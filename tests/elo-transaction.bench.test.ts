@@ -23,6 +23,9 @@ describe('elo-transaction benchmark', () => {
         findUniqueOrThrow: vi.fn().mockImplementation(async ({ where }) => {
           return playerDb[where.id];
         }),
+        findMany: vi.fn().mockImplementation(async ({ where }) => {
+          return where.id.in.map(id => playerDb[id]).filter(Boolean);
+        }),
         update: vi.fn().mockImplementation(async ({ where, data }) => {
           playerDb[where.id] = { ...playerDb[where.id], ...data };
           return playerDb[where.id];

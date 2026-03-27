@@ -118,22 +118,35 @@ async function processGameElo(tx: Prisma.TransactionClient, input: EloGameInput)
   const team1Ids = [input.t1Player1Id, input.t1Player2Id].filter(Boolean) as string[];
   const team2Ids = [input.t2Player1Id, input.t2Player2Id].filter(Boolean) as string[];
 
-  // Fetch current ELO ratings from Player records
-  const fetchPlayer = async (id: string): Promise<PlayerWithRatings> => {
-    const p = await tx.player.findUniqueOrThrow({ where: { id } });
-    return {
-      id: p.id,
-      ratings: {
-        singleElo: p.singleElo,
-        doubleElo: p.doubleElo,
-        dypElo: p.dypElo,
-        totalElo: p.totalElo,
-      },
-    };
-  };
+  // Fetch current ELO ratings for all players in a single query
+  const allPlayerIds = [...team1Ids, ...team2Ids];
+  const uniquePlayerIds = Array.from(new Set(allPlayerIds));
 
-  const team1 = await Promise.all(team1Ids.map(fetchPlayer));
-  const team2 = await Promise.all(team2Ids.map(fetchPlayer));
+  const players = await tx.player.findMany({
+    where: { id: { in: uniquePlayerIds } },
+  });
+
+  if (players.length !== uniquePlayerIds.length) {
+    throw new Error(`Expected to find ${uniquePlayerIds.length} players, but found ${players.length}. Some player IDs do not exist.`);
+  }
+
+  const playerMap = new Map<string, PlayerWithRatings>(
+    players.map(p => [
+      p.id,
+      {
+        id: p.id,
+        ratings: {
+          singleElo: p.singleElo,
+          doubleElo: p.doubleElo,
+          dypElo: p.dypElo,
+          totalElo: p.totalElo,
+        },
+      },
+    ])
+  );
+
+  const team1 = team1Ids.map(id => playerMap.get(id)!);
+  const team2 = team2Ids.map(id => playerMap.get(id)!);
 
   // Calculate ELO changes
   const result = recordMatch({
