@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-const API_BASE = 'http://localhost:3001';
+import { supabase } from '../supabaseClient.js';
 
 const PlayerSearch = () => {
   const [query, setQuery] = useState('');
@@ -26,8 +25,13 @@ const PlayerSearch = () => {
       }
 
       try {
-        const res = await fetch(`${API_BASE}/api/players/search?q=${encodeURIComponent(debouncedQuery)}&limit=5`);
-        const matches = await res.json();
+        const { data: matches, error } = await supabase
+          .from('Player')
+          .select('id, nwtfvId, name, surname, avatarUrl, clubs')
+          .or(`name.ilike.%${debouncedQuery}%,surname.ilike.%${debouncedQuery}%`)
+          .limit(5);
+
+        if (error) throw error;
 
         const mapped = matches.map(p => ({
           id: p.nwtfvId,

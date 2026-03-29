@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getCategoryName } from '../data-parser/players.js';
-
-const API_BASE = 'http://localhost:3001';
+import { getCategoryName } from '../utils/categoryName.js';
+import { supabase } from '../supabaseClient.js';
 
 const PlayerRow = ({ player, rank }) => {
   const isTop = rank === 1;
@@ -57,14 +56,17 @@ const TopPlayers = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${API_BASE}/api/players/top?limit=5`)
-      .then(res => res.json())
-      .then(data => {
-        setPlayers(data);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error('Failed to fetch top players:', err);
+    supabase
+      .from('Player')
+      .select('id, nwtfvId, name, surname, avatarUrl, category, clubs, totalElo')
+      .order('totalElo', { ascending: false })
+      .limit(5)
+      .then(({ data, error }) => {
+        if (error) {
+          console.error('Failed to fetch top players:', error);
+        } else {
+          setPlayers(data.map(p => ({ ...p, mainElo: p.totalElo })));
+        }
         setLoading(false);
       });
   }, []);

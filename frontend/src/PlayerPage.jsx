@@ -3,11 +3,15 @@ import { useParams } from 'react-router-dom';
 
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
-import { getCategoryName } from './data-parser/players.js';
+import { getCategoryName } from './utils/categoryName.js';
 import MatchRow from './components/MatchRow.jsx';
-import { tournamentTypeToGameType } from './server/elo-calculator.ts';
-
-const API_BASE = 'http://localhost:3001';
+import { supabase } from './supabaseClient.js';
+function tournamentTypeToGameType(tournamentType) {
+  const t = tournamentType.toLowerCase();
+  if (t.includes('einzel')) return 'single';
+  if (t.includes('dyp')) return 'dyp';
+  return 'double';
+}
 
 const HeroSection = ({ data }) => {
   return (
@@ -158,30 +162,96 @@ export default function PlayerPage() {
     const fetchData = async () => {
       setLoading(true);
       try {
-        // Try fetching by NWTFV ID first (for backward compat with /player/:nwtfvId routes)
+        // Try fetching by NWTFV ID first, fallback to internal ID
         const numericId = parseInt(id, 10);
-        let playerRes;
+        const playerSelect = `
+          id, nwtfvId, name, surname, totalElo, avatarUrl, category, clubs,
+          organisations, nationalNumber,
+          rankings:PlayerRanking(id, name, year, rank, totalRankedPlayers),
+          eloHistory:EloHistory(type, eloValue, eloValueTotal, date),
+          gamesAsT1P1:Game!Game_t1Player1Id_fkey(
+            id, scores, createdAt, t1Player1Id, t1Player2Id, t2Player1Id, t2Player2Id,
+            tournament:Tournament(type, date, place),
+            t1Player1:Player!Game_t1Player1Id_fkey(id, name, surname, avatarUrl),
+            t1Player2:Player!Game_t1Player2Id_fkey(id, name, surname, avatarUrl),
+            t2Player1:Player!Game_t2Player1Id_fkey(id, name, surname, avatarUrl),
+            t2Player2:Player!Game_t2Player2Id_fkey(id, name, surname, avatarUrl),
+            eloHistory:EloHistory(playerId, change)
+          ),
+          gamesAsT1P2:Game!Game_t1Player2Id_fkey(
+            id, scores, createdAt, t1Player1Id, t1Player2Id, t2Player1Id, t2Player2Id,
+            tournament:Tournament(type, date, place),
+            t1Player1:Player!Game_t1Player1Id_fkey(id, name, surname, avatarUrl),
+            t1Player2:Player!Game_t1Player2Id_fkey(id, name, surname, avatarUrl),
+            t2Player1:Player!Game_t2Player1Id_fkey(id, name, surname, avatarUrl),
+            t2Player2:Player!Game_t2Player2Id_fkey(id, name, surname, avatarUrl),
+            eloHistory:EloHistory(playerId, change)
+          ),
+          gamesAsT2P1:Game!Game_t2Player1Id_fkey(
+            id, scores, createdAt, t1Player1Id, t1Player2Id, t2Player1Id, t2Player2Id,
+            tournament:Tournament(type, date, place),
+            t1Player1:Player!Game_t1Player1Id_fkey(id, name, surname, avatarUrl),
+            t1Player2:Player!Game_t1Player2Id_fkey(id, name, surname, avatarUrl),
+            t2Player1:Player!Game_t2Player1Id_fkey(id, name, surname, avatarUrl),
+            t2Player2:Player!Game_t2Player2Id_fkey(id, name, surname, avatarUrl),
+            eloHistory:EloHistory(playerId, change)
+          ),
+          gamesAsT2P2:Game!Game_t2Player2Id_fkey(
+            id, scores, createdAt, t1Player1Id, t1Player2Id, t2Player1Id, t2Player2Id,
+            tournament:Tournament(type, date, place),
+            t1Player1:Player!Game_t1Player1Id_fkey(id, name, surname, avatarUrl),
+            t1Player2:Player!Game_t1Player2Id_fkey(id, name, surname, avatarUrl),
+            t2Player1:Player!Game_t2Player1Id_fkey(id, name, surname, avatarUrl),
+            t2Player2:Player!Game_t2Player2Id_fkey(id, name, surname, avatarUrl),
+            eloHistory:EloHistory(playerId, change)
+          )
+        `;
+
+        let rawPlayer = null;
+
         if (!isNaN(numericId)) {
-          playerRes = await fetch(`${API_BASE}/api/player/nwtfv/${numericId}`);
+          const { data } = await supabase
+            .from('Player')
+            .select(playerSelect)
+            .eq('nwtfvId', numericId)
+            .single();
+          rawPlayer = data;
         }
 
-        // If not found by nwtfvId, try as internal ID
-        if (!playerRes || !playerRes.ok) {
-          playerRes = await fetch(`${API_BASE}/api/player/${id}`);
+        if (!rawPlayer) {
+          const { data } = await supabase
+            .from('Player')
+            .select(playerSelect)
+            .eq('id', id)
+            .single();
+          rawPlayer = data;
         }
 
-        if (!playerRes.ok) {
+        if (!rawPlayer) {
           setError('Player not found');
           setLoading(false);
           return;
         }
 
-        const rawPlayer = await playerRes.json();
+        // Fetch ELO history (ordered ascending for chart)
+        const { data: eloData } = await supabase
+          .from('EloHistory')
+          .select('eloValue, eloValueTotal, date, type, playerId, gameId')
+          .eq('playerId', rawPlayer.id)
+          .order('date', { ascending: true });
+        setEloHistory(eloData ?? []);
 
-        // Fetch ELO history
-        const eloRes = await fetch(`${API_BASE}/api/player/${rawPlayer.id}/elo`);
-        const eloData = eloRes.ok ? await eloRes.json() : [];
-        setEloHistory(eloData);
+        // Merge game relations into a single sorted list (same as server-side api.ts)
+        const allGames = [
+          ...(rawPlayer.gamesAsT1P1 ?? []),
+          ...(rawPlayer.gamesAsT1P2 ?? []),
+          ...(rawPlayer.gamesAsT2P1 ?? []),
+          ...(rawPlayer.gamesAsT2P2 ?? []),
+        ]
+          .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+          .slice(0, 10);
+
+        rawPlayer = { ...rawPlayer, recentGames: allGames };
 
         // Build display data
         const latestRanking = rawPlayer.rankings?.find(r => r.year === 2026 && r.name === 'Herren') ||
@@ -195,7 +265,7 @@ export default function PlayerPage() {
           }
         }
 
-        const mainElo = rawPlayer.totalElo || eloData[eloData.length - 1]?.eloValueTotal;
+        const mainElo = rawPlayer.totalElo || (eloData ?? [])[eloData?.length - 1]?.eloValueTotal;
 
         const playerDetails = {
           ...rawPlayer,

@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
-
-const API_BASE = 'http://localhost:3001';
+import { supabase } from './supabaseClient.js';
 
 const getPlayerDisplayName = (player) => {
   if (!player) return '—';
@@ -42,22 +41,45 @@ export default function TournamentDetailsPage() {
   useEffect(() => {
     const fetchTournament = async () => {
       setLoading(true);
-      console.log('Fetching tournament with NWTFV ID:', nwtfvId);
       try {
-        const url = `${API_BASE}/api/tournament/nwtfv/${nwtfvId}`;
-        console.log('Fetch URL:', url);
-        const res = await fetch(url);
-        if (!res.ok) {
-          console.error('Fetch failed with status:', res.status);
-          setError(`Tournament not found (Status ${res.status})`);
+        const { data, error } = await supabase
+          .from('Tournament')
+          .select(`
+            id, nwtfvId, date, name, type, place, numberOfParticipants,
+            rounds:Round(
+              id, type,
+              placements:Placement(
+                rank,
+                player1:Player!Placement_player1Id_fkey(id, nwtfvId, name, surname, avatarUrl, clubs),
+                player2:Player!Placement_player2Id_fkey(id, nwtfvId, name, surname, avatarUrl, clubs)
+              ),
+              divisions:Division(
+                id, skillLevel,
+                gameStages:GameStage(
+                  id, name,
+                  games:Game(
+                    id, scores, createdAt,
+                    t1Player1:Player!Game_t1Player1Id_fkey(id, nwtfvId, name, surname, avatarUrl),
+                    t1Player2:Player!Game_t1Player2Id_fkey(id, nwtfvId, name, surname, avatarUrl),
+                    t2Player1:Player!Game_t2Player1Id_fkey(id, nwtfvId, name, surname, avatarUrl),
+                    t2Player2:Player!Game_t2Player2Id_fkey(id, nwtfvId, name, surname, avatarUrl)
+                  )
+                )
+              )
+            )
+          `)
+          .eq('nwtfvId', parseInt(nwtfvId, 10))
+          .single();
+
+        if (error) {
+          setError(`Tournament not found`);
           setLoading(false);
           return;
         }
-        const data = await res.json();
         setTournament(data);
       } catch (err) {
         console.error('Failed to fetch tournament:', err);
-        setError('Network error: Failed to connect to server');
+        setError('Network error: Failed to connect to Supabase');
       }
       setLoading(false);
     };
