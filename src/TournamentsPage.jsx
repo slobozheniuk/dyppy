@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
-
-const API_BASE = 'http://localhost:3001';
+import { supabase } from './supabaseClient.js';
 
 const TournamentRow = ({ tournament }) => {
   const navigate = useNavigate();
@@ -98,11 +97,28 @@ const TournamentsPage = () => {
     const fetchTournaments = async () => {
       setLoading(true);
       try {
-        const params = new URLSearchParams({ take: '20' });
-        if (searchTerm.trim()) params.set('search', searchTerm);
+        let query = supabase
+          .from('Tournament')
+          .select(`
+            id, nwtfvId, date, name, type, place, numberOfParticipants,
+            rounds:Round(
+              type,
+              placements:Placement(
+                rank,
+                player1:Player!Placement_player1Id_fkey(name, surname, avatarUrl),
+                player2:Player!Placement_player2Id_fkey(name, surname, avatarUrl)
+              )
+            )
+          `)
+          .order('date', { ascending: false })
+          .limit(20);
 
-        const res = await fetch(`${API_BASE}/api/tournaments?${params}`);
-        const data = await res.json();
+        if (searchTerm.trim()) {
+          query = query.or(`name.ilike.%${searchTerm}%,place.ilike.%${searchTerm}%`);
+        }
+
+        const { data, error } = await query;
+        if (error) throw error;
         setTournaments(data);
       } catch (err) {
         console.error('Failed to fetch tournaments:', err);
