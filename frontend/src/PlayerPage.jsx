@@ -15,7 +15,7 @@ function tournamentTypeToGameType(tournamentType) {
 
 const HeroSection = ({ data }) => {
   return (
-    <section className="bg-surface-container-lowest p-8 rounded-xl shadow-sm">
+    <section className="white-card p-8">
       <div className="flex flex-col lg:flex-row gap-8 items-center lg:items-center">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-6 flex-[1.2] border-b lg:border-b-0 lg:border-r border-surface-container pb-8 lg:pb-0 lg:pr-8">
           <div className="relative shrink-0">
@@ -81,7 +81,7 @@ const HeroSection = ({ data }) => {
 
 
 const MatchesSection = ({ matches }) => (
-  <div className="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+  <div className="white-card">
     <div className="p-6 flex justify-between items-center border-b border-surface-container">
       <h3 className="font-headline font-bold text-xl">Recent Matches</h3>
     </div>
@@ -97,7 +97,7 @@ const MatchesSection = ({ matches }) => (
 
 const TrendAside = ({ eloHistory }) => (
   <aside className="space-y-6">
-    <div className="bg-surface-container-lowest p-6 rounded-xl shadow-sm">
+    <div className="white-card p-6">
       <h3 className="font-headline font-bold text-lg mb-6 flex items-center gap-2">
         <span className="material-symbols-outlined text-primary">trending_up</span>
         Performance Trend
