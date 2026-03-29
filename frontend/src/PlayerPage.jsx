@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
-import { getCategoryName } from './data-parser/players.js';
+import { getCategoryName } from './utils/categoryName.js';
 import MatchRow from './components/MatchRow.jsx';
 import { supabase } from './supabaseClient.js';
 function tournamentTypeToGameType(tournamentType) {

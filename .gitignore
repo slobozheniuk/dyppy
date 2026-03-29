@@ -25,7 +25,10 @@ dist-ssr
 *.sw?
 
 /src/generated/prisma
+nwtfv-sync/src/generated/prisma
 .env
+frontend/.env
+nwtfv-sync/.env
 
 # Playwright
 playwright-report/

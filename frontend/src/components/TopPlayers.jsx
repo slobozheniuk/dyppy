@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getCategoryName } from '../data-parser/players.js';
+import { getCategoryName } from '../utils/categoryName.js';
 import { supabase } from '../supabaseClient.js';
 
 const PlayerRow = ({ player, rank }) => {

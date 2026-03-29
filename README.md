@@ -1,23 +1,48 @@
-# React + Vite
+# Dyppy — Foosball League App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A foosball tournament tracker for the NWTFV league. Displays player rankings, ELO ratings, and tournament results.
 
-Currently, two official plugins are available:
+## Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```
+dyppy/
+├── frontend/       React + Vite app (queries Supabase directly)
+└── nwtfv-sync/     NWTFV scraper + Supabase data pipeline
+```
 
-## React Compiler
+The two modules are fully independent and share no code.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Frontend
 
-## Expanding the ESLint configuration
+```bash
+cd frontend
+npm install
+npm run dev     # http://localhost:5173
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Requires `frontend/.env`:
+```
+VITE_SUPABASE_URL=https://<ref>.supabase.co
+VITE_SUPABASE_ANON_KEY=<anon-key>
+```
 
-To go live:
+## Data Pipeline
 
-Copy .env.example → .env and add your Supabase credentials
-Run npm run db:push to create tables
-Run npm run server alongside npm run dev
-Replace JSON imports in your React components with fetch('/api/...') calls
+```bash
+cd nwtfv-sync
+npm install
+npm run db:push        # sync schema to Supabase
+npm run db:generate    # regenerate Prisma client
+npm run db:seed        # scrape NWTFV and populate DB
+npm run test           # run 54 Vitest tests
+```
+
+Requires `nwtfv-sync/.env`:
+```
+DATABASE_URL=postgresql://...
+DIRECT_URL=postgresql://...
+SUPABASE_URL=https://<ref>.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=<service-role-key>
+```
+
+See [AGENTS.md](./AGENTS.md) for full architecture details, RLS setup, and ELO system documentation.
