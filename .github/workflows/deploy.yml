@@ -1,0 +1,75 @@
+# Dyppy — Build & Deploy to GitHub Pages
+#
+# Triggered on every push to main, or manually via Actions tab.
+#
+# Required setup (one-time):
+#   1. GitHub → Settings → Pages → Source: "GitHub Actions"
+#   2. GitHub → Settings → Secrets → add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY
+#
+# Note: if you configure a custom domain, change --base=/ below and remove the repo-name base.
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deployment runs at a time; cancel any in-progress run on new push.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    name: Build & deploy frontend
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Build
+        working-directory: frontend
+        # --base sets the asset root to /repo-name/ for GitHub Pages.
+        # Change to --base=/ if you have a custom domain.
+        run: npm run build -- --base=/${{ github.event.repository.name }}/
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+
+      # React Router needs this: direct URL loads (e.g. /player/123) 404 on
+      # GitHub Pages unless the server falls back to index.html. The 404.html
+      # trick makes GitHub Pages serve index.html for unknown paths, letting
+      # the client-side router take over.
+      - name: Enable SPA fallback routing
+        run: cp frontend/dist/index.html frontend/dist/404.html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: frontend/dist
+
+      - name: Deploy
+        id: deploy
+        uses: actions/deploy-pages@v4

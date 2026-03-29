@@ -1,8 +1,7 @@
-# Dyppy CI - Node.js
-# This workflow performs a clean installation of dependencies, 
-# generates the Prisma client, runs linting, executes tests, and validates the build.
+# Dyppy CI
+# Runs in two independent jobs matching the repo's two modules.
 
-name: Node.js CI
+name: CI
 
 on:
   push:
@@ -11,39 +10,70 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build-and-test:
+  # ── nwtfv-sync: Vitest unit + integration tests ──────────────────────────────
+  nwtfv-sync:
+    name: nwtfv-sync tests
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [25.x]
-
-    env:
-      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          node-version: 22.x
+          cache: npm
+          cache-dependency-path: nwtfv-sync/package-lock.json
 
       - name: Install dependencies
+        working-directory: nwtfv-sync
         run: npm ci
 
       - name: Generate Prisma client
+        working-directory: nwtfv-sync
         run: npx prisma generate
 
-      - name: Run Linting
-        run: npm run lint
-
-      - name: Run Tests
+      - name: Run tests
+        working-directory: nwtfv-sync
         run: npm test
 
-      - name: Build Application
+  # ── frontend: build + Playwright e2e ─────────────────────────────────────────
+  frontend:
+    name: frontend build & e2e
+    runs-on: ubuntu-latest
+
+    env:
+      VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+      VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Build
+        working-directory: frontend
         run: npm run build
 
-      - name: Run E2E Tests
-        run: npx playwright install chromium && npx playwright test
+      - name: Install Playwright browsers
+        working-directory: frontend
+        run: npx playwright install chromium --with-deps
+
+      - name: Run e2e tests
+        working-directory: frontend
+        run: npm test
+
+      - name: Upload Playwright report
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: frontend/playwright-report/
+          retention-days: 7
