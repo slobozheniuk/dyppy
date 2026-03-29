@@ -164,211 +164,233 @@ export default function TournamentDetailsPage() {
 
         {/* Main Round Section */}
         {mainPlacements.length > 0 && (
-        <section className="mb-20">
-          <h2 className="text-3xl font-black font-headline tracking-tighter mb-8 border-l-4 border-primary pl-4">Main Round</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Left Column: Final Standings */}
-            <div className="lg:col-span-3 space-y-6">
-              <div className="flex items-center justify-between">
-                <h3 className="text-lg font-extrabold font-headline tracking-tight">Final Standings</h3>
-                <span className="text-[10px] font-bold text-primary uppercase">Top 4</span>
-              </div>
-              <div className="space-y-3">
-                {top4Main.map((placement, index) => {
-                  const team = getTeamInfo(placement);
-                  const isWinner = index === 0;
-                  const rankStyles = [
-                    'bg-secondary text-on-secondary shadow-lg shadow-secondary/10',
-                    'bg-surface-container-lowest border border-outline-variant/10',
-                    'bg-surface-container-lowest border border-outline-variant/10',
-                    'bg-surface-container-lowest border border-outline-variant/10'
-                  ];
-                  const rankStyle = rankStyles[index] || rankStyles[3];
+          <section className="mb-20">
+            <h2 className="text-3xl font-black font-headline tracking-tighter mb-8 border-l-4 border-primary pl-4">Main Round</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              {/* Left Column: Final Standings */}
+              <div className="lg:col-span-3 space-y-6">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-extrabold font-headline tracking-tight">Final Standings</h3>
+                  <span className="text-[10px] font-bold text-primary uppercase">Top 4</span>
+                </div>
+                <div className="space-y-3">
+                  {top4Main.map((placement, index) => {
+                    const team = getTeamInfo(placement);
+                    const isWinner = index === 0;
+                    const rankStyles = [
+                      'bg-secondary text-on-secondary shadow-lg shadow-secondary/10',
+                      'bg-surface-container-lowest border border-outline-variant/10',
+                      'bg-surface-container-lowest border border-outline-variant/10',
+                      'bg-surface-container-lowest border border-outline-variant/10'
+                    ];
+                    const rankStyle = rankStyles[index] || rankStyles[3];
 
-                  const numberStyles = [
-                    'opacity-40 text-on-secondary',
-                    'text-tertiary',
-                    'text-tertiary',
-                    'text-tertiary'
-                  ];
-                  const numberStyle = numberStyles[index] || numberStyles[3];
+                    const numberStyles = [
+                      'opacity-40 text-on-secondary',
+                      'text-tertiary',
+                      'text-tertiary',
+                      'text-tertiary'
+                    ];
+                    const numberStyle = numberStyles[index] || numberStyles[3];
 
-                  const labels = ['Winner', 'Finalist', 'Semi-Final', 'Semi-Final'];
-                  const label = labels[index] || '';
+                    const labels = ['Winner', 'Finalist', 'Semi-Final', 'Semi-Final'];
+                    const label = labels[index] || '';
 
-                  return (
-                    <div key={index} className={`${rankStyle} p-4 rounded-2xl flex items-center justify-between`}>
-                      <div className="flex items-center gap-3">
-                        <span className={`text-xl font-black italic ${numberStyle}`}>
-                          0{index + 1}
-                        </span>
-                        <div>
-                          <p className="font-bold text-sm truncate max-w-[120px]">{formatTeamName(team)}</p>
-                          <p className="text-[9px] opacity-70 uppercase tracking-wider truncate max-w-[120px]">{formatTeamClub(team)}</p>
+                    return (
+                      <div key={index} className={`${rankStyle} p-4 rounded-2xl flex items-center justify-between`}>
+                        <div className="flex items-center gap-3">
+                          <span className={`text-xl font-black italic ${numberStyle}`}>
+                            0{index + 1}
+                          </span>
+                          <div>
+                            <p className="font-bold text-sm truncate max-w-[120px]">{formatTeamName(team)}</p>
+                            <p className="text-[9px] opacity-70 uppercase tracking-wider truncate max-w-[120px]">{formatTeamClub(team)}</p>
+                          </div>
                         </div>
+                        {isWinner ? (
+                          <span className="material-symbols-outlined scale-90" style={{ fontVariationSettings: "'FILL' 1" }}>military_tech</span>
+                        ) : (
+                          <span className="text-[10px] font-bold text-tertiary">{label}</span>
+                        )}
                       </div>
-                      {isWinner ? (
-                        <span className="material-symbols-outlined scale-90" style={{ fontVariationSettings: "'FILL' 1" }}>military_tech</span>
-                      ) : (
-                        <span className="text-[10px] font-bold text-tertiary">{label}</span>
-                      )}
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
-            </div>
 
-            {/* Right Column: Game stages from divisions */}
-            <div className="lg:col-span-9">
-              <div className="flex items-center justify-between mb-8">
-                <h3 className="text-lg font-extrabold font-headline tracking-tight">Main Round Games</h3>
-              </div>
-              {mainRound?.divisions?.map((division, divIdx) => (
-                <div key={divIdx} className="mb-8">
-                  <h4 className="text-sm font-bold text-tertiary uppercase tracking-wider mb-4">{division.skillLevel} Division</h4>
-                  <div className="white-card">
-                    <table className="w-full border-collapse text-left text-[11px]">
-                      <thead>
-                        <tr className="bg-surface-container-low/30 border-b border-surface-container text-tertiary">
-                          <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest">Stage</th>
-                          <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest">Team 1</th>
-                          <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-center">Score</th>
-                          <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest">Team 2</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {division.gameStages?.flatMap((stage) =>
-                          stage.games?.map((game, gIdx) => {
-                            const scores = game.scores || [];
-                            const scoreDisplay = scores.map(s => `${s.score1}:${s.score2}`).join(' | ') || '—';
-                            const t1Name = game.t1Player2
-                              ? `${game.t1Player1.surname} / ${game.t1Player2.surname}`
-                              : `${game.t1Player1.name} ${game.t1Player1.surname}`;
-                            const t2Name = game.t2Player2
-                              ? `${game.t2Player1.surname} / ${game.t2Player2.surname}`
-                              : `${game.t2Player1.name} ${game.t2Player1.surname}`;
+              {/* Right Column: Game stages from divisions */}
+              <div className="lg:col-span-9">
+                <div className="flex items-center justify-between mb-8">
+                  <h3 className="text-lg font-extrabold font-headline tracking-tight">Main Round Games</h3>
+                </div>
+                {mainRound?.divisions?.map((division, divIdx) => (
+                  <div key={divIdx} className="mb-8">
+                    <h4 className="text-sm font-bold text-tertiary uppercase tracking-wider mb-4">{division.skillLevel} Division</h4>
+                    <div className="white-card">
+                      <table className="w-full border-collapse text-left text-[11px]">
+                        <thead>
+                          <tr className="bg-surface-container-low/30 border-b border-surface-container text-tertiary">
+                            <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest w-1/2">Team 1</th>
+                            <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-center">Score</th>
+                            <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-right w-1/2">Team 2</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {division.gameStages?.flatMap((stage) => {
+                            const games = stage.games || [];
+                            if (games.length === 0) return [];
 
-                            return (
-                              <tr key={`${stage.name}-${gIdx}`} className="hover:bg-surface-variant/30 transition-colors border-b border-surface-container/50 last:border-b-0">
-                                <td className="px-6 md:px-8 py-5 font-bold text-tertiary">{stage.name}</td>
-                                <td className="px-6 md:px-8 py-5 font-bold">{t1Name}</td>
-                                <td className="px-6 md:px-8 py-5 text-center font-black">{scoreDisplay}</td>
-                                <td className="px-6 md:px-8 py-5 font-semibold">{t2Name}</td>
+                            const stageRow = (
+                              <tr key={`stage-${stage.name}`} className="bg-surface-container-lowest border-b border-surface-container/50">
+                                <td colSpan={3} className="px-6 md:px-8 py-3 text-[10px] font-black uppercase tracking-widest text-primary border-l-4 border-primary bg-primary/5">
+                                  {stage.name}
+                                </td>
                               </tr>
                             );
-                          }) || []
-                        )}
-                        {division.gameStages?.every(s => !s.games?.length) && (
-                          <tr>
-                            <td colSpan={4} className="px-6 py-4 text-center text-zinc-400">No games recorded</td>
-                          </tr>
-                        )}
-                      </tbody>
-                    </table>
+
+                            const matchRows = games.map((game, gIdx) => {
+                              const scores = game.scores || [];
+                              const scoreDisplay = scores.map(s => `${s.score1}:${s.score2}`).join(' | ') || '—';
+                              const t1Name = game.t1Player2
+                                ? `${game.t1Player1.surname} / ${game.t1Player2.surname}`
+                                : `${game.t1Player1.name} ${game.t1Player1.surname}`;
+                              const t2Name = game.t2Player2
+                                ? `${game.t2Player1.surname} / ${game.t2Player2.surname}`
+                                : `${game.t2Player1.name} ${game.t2Player1.surname}`;
+
+                              return (
+                                <tr key={`${stage.name}-${gIdx}`} className="hover:bg-surface-variant/30 transition-colors border-b border-surface-container/50 last:border-b-0">
+                                  <td className="px-6 md:px-8 py-5 font-bold">{t1Name}</td>
+                                  <td className="px-6 md:px-8 py-5 text-center font-black">{scoreDisplay}</td>
+                                  <td className="px-6 md:px-8 py-5 font-semibold text-right">{t2Name}</td>
+                                </tr>
+                              );
+                            });
+
+                            return [stageRow, ...matchRows];
+                          })}
+                          {division.gameStages?.every(s => !s.games?.length) && (
+                            <tr>
+                              <td colSpan={3} className="px-6 py-8 text-center text-zinc-400">No games recorded</td>
+                            </tr>
+                          )}
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
         )}
 
         {/* Qualifying Round Section */}
         {qualPlacements.length > 0 && (
-        <section>
-          <h2 className="text-3xl font-black font-headline tracking-tighter mb-8 border-l-4 border-primary pl-4">Qualifying Round</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Left Column: Qualifying Rank */}
-            <div className="lg:col-span-3 space-y-6">
-              <div className="flex items-center justify-between">
-                <h3 className="text-lg font-extrabold font-headline tracking-tight">Qualifying Rank</h3>
-                <button className="text-[10px] font-bold text-tertiary hover:text-primary transition-colors">VIEW ALL</button>
+          <section>
+            <h2 className="text-3xl font-black font-headline tracking-tighter mb-8 border-l-4 border-primary pl-4">Qualifying Round</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              {/* Left Column: Qualifying Rank */}
+              <div className="lg:col-span-3 space-y-6">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-extrabold font-headline tracking-tight">Qualifying Rank</h3>
+                  <button className="text-[10px] font-bold text-tertiary hover:text-primary transition-colors">VIEW ALL</button>
+                </div>
+                <div className="white-card">
+                  <table className="w-full border-collapse text-left text-[11px]">
+                    <thead>
+                      <tr className="bg-surface-container-low/30 border-b border-surface-container text-tertiary">
+                        <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest">Pos</th>
+                        <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest">Player</th>
+                        <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-right">Rank</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {topQual.map((placement, index) => {
+                        const team = getTeamInfo(placement);
+                        const isTop = index === 0;
+                        return (
+                          <tr key={index} className="hover:bg-surface-variant/30 transition-colors border-b border-surface-container/50 last:border-b-0">
+                            <td className={`px-6 md:px-8 py-5 font-bold ${isTop ? 'text-primary' : (index === 3 ? 'text-tertiary' : '')}`}>
+                              Q{index + 1}
+                            </td>
+                            <td className="px-6 md:px-8 py-5 font-semibold truncate max-w-[120px]">
+                              {formatTeamName(team)}
+                            </td>
+                            <td className="px-6 md:px-8 py-5 text-right font-black">
+                              #{placement.rank}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
               </div>
-              <div className="white-card">
-                <table className="w-full border-collapse text-left text-[11px]">
-                  <thead>
-                    <tr className="bg-surface-container-low/30 border-b border-surface-container text-tertiary">
-                      <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest">Pos</th>
-                      <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest">Player</th>
-                      <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-right">Rank</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {topQual.map((placement, index) => {
-                      const team = getTeamInfo(placement);
-                      const isTop = index === 0;
-                      return (
-                        <tr key={index} className="hover:bg-surface-variant/30 transition-colors border-b border-surface-container/50 last:border-b-0">
-                          <td className={`px-6 md:px-8 py-5 font-bold ${isTop ? 'text-primary' : (index === 3 ? 'text-tertiary' : '')}`}>
-                            Q{index + 1}
-                          </td>
-                          <td className="px-6 md:px-8 py-5 font-semibold truncate max-w-[120px]">
-                            {formatTeamName(team)}
-                          </td>
-                          <td className="px-6 md:px-8 py-5 text-right font-black">
-                            #{placement.rank}
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </div>
 
-            {/* Right Column: Qualifying Games */}
-            <div className="lg:col-span-9">
-              <div className="flex items-center justify-between mb-8">
-                <h3 className="text-lg font-extrabold font-headline tracking-tight">Qualifying Games</h3>
-              </div>
-              {qualRound?.divisions?.map((division, divIdx) => (
-                <div key={divIdx} className="mb-8">
-                  <h4 className="text-sm font-bold text-tertiary uppercase tracking-wider mb-4">{division.skillLevel} Division</h4>
-                  <div className="white-card">
-                    <table className="w-full border-collapse text-left text-[11px]">
-                      <thead>
-                        <tr className="bg-surface-container-low/30 border-b border-surface-container text-tertiary">
-                          <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest">Stage</th>
-                          <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest">Team 1</th>
-                          <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-center">Score</th>
-                          <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest">Team 2</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {division.gameStages?.flatMap((stage) =>
-                          stage.games?.map((game, gIdx) => {
-                            const scores = game.scores || [];
-                            const scoreDisplay = scores.map(s => `${s.score1}:${s.score2}`).join(' | ') || '—';
-                            const t1Name = game.t1Player2
-                              ? `${game.t1Player1.surname} / ${game.t1Player2.surname}`
-                              : `${game.t1Player1.name} ${game.t1Player1.surname}`;
-                            const t2Name = game.t2Player2
-                              ? `${game.t2Player1.surname} / ${game.t2Player2.surname}`
-                              : `${game.t2Player1.name} ${game.t2Player1.surname}`;
+              {/* Right Column: Qualifying Games */}
+              <div className="lg:col-span-9">
+                <div className="flex items-center justify-between mb-8">
+                  <h3 className="text-lg font-extrabold font-headline tracking-tight">Qualifying Games</h3>
+                </div>
+                {qualRound?.divisions?.map((division, divIdx) => (
+                  <div key={divIdx} className="mb-8">
+                    <h4 className="text-sm font-bold text-tertiary uppercase tracking-wider mb-4">{division.skillLevel} Division</h4>
+                    <div className="white-card">
+                      <table className="w-full border-collapse text-left text-[11px]">
+                        <thead>
+                          <tr className="bg-surface-container-low/30 border-b border-surface-container text-tertiary">
+                            <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest w-1/2">Team 1</th>
+                            <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-center">Score</th>
+                            <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-right w-1/2">Team 2</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {division.gameStages?.flatMap((stage) => {
+                            const games = stage.games || [];
+                            if (games.length === 0) return [];
 
-                            return (
-                              <tr key={`${stage.name}-${gIdx}`} className="hover:bg-surface-variant/30 transition-colors border-b border-surface-container/50 last:border-b-0">
-                                <td className="px-6 md:px-8 py-5 font-bold text-tertiary">{stage.name}</td>
-                                <td className="px-6 md:px-8 py-5 font-bold">{t1Name}</td>
-                                <td className="px-6 md:px-8 py-5 text-center font-black">{scoreDisplay}</td>
-                                <td className="px-6 md:px-8 py-5 font-semibold">{t2Name}</td>
+                            const stageRow = (
+                              <tr key={`stage-${stage.name}`} className="bg-surface-container-lowest border-b border-surface-container/50">
+                                <td colSpan={3} className="px-6 md:px-8 py-3 text-[10px] font-black uppercase tracking-widest text-primary border-l-4 border-primary bg-primary/5">
+                                  {stage.name}
+                                </td>
                               </tr>
                             );
-                          }) || []
-                        )}
-                        {division.gameStages?.every(s => !s.games?.length) && (
-                          <tr>
-                            <td colSpan={4} className="px-6 py-4 text-center text-zinc-400">No games recorded</td>
-                          </tr>
-                        )}
-                      </tbody>
-                    </table>
+
+                            const matchRows = games.map((game, gIdx) => {
+                              const scores = game.scores || [];
+                              const scoreDisplay = scores.map(s => `${s.score1}:${s.score2}`).join(' | ') || '—';
+                              const t1Name = game.t1Player2
+                                ? `${game.t1Player1.surname} / ${game.t1Player2.surname}`
+                                : `${game.t1Player1.name} ${game.t1Player1.surname}`;
+                              const t2Name = game.t2Player2
+                                ? `${game.t2Player1.surname} / ${game.t2Player2.surname}`
+                                : `${game.t2Player1.name} ${game.t2Player1.surname}`;
+
+                              return (
+                                <tr key={`${stage.name}-${gIdx}`} className="hover:bg-surface-variant/30 transition-colors border-b border-surface-container/50 last:border-b-0">
+                                  <td className="px-6 md:px-8 py-5 font-bold">{t1Name}</td>
+                                  <td className="px-6 md:px-8 py-5 text-center font-black">{scoreDisplay}</td>
+                                  <td className="px-6 md:px-8 py-5 font-semibold text-right">{t2Name}</td>
+                                </tr>
+                              );
+                            });
+
+                            return [stageRow, ...matchRows];
+                          })}
+                          {division.gameStages?.every(s => !s.games?.length) && (
+                            <tr>
+                              <td colSpan={3} className="px-6 py-8 text-center text-zinc-400">No games recorded</td>
+                            </tr>
+                          )}
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
         )}
       </main>
     </div>

@@ -171,7 +171,7 @@ export default function PlayerPage() {
           eloHistory:EloHistory(type, eloValue, eloValueTotal, date),
           gamesAsT1P1:Game!Game_t1Player1Id_fkey(
             id, scores, createdAt, t1Player1Id, t1Player2Id, t2Player1Id, t2Player2Id,
-            tournament:Tournament(type, date, place),
+            tournament:Tournament(nwtfvId, type, date, place),
             t1Player1:Player!Game_t1Player1Id_fkey(id, name, surname, avatarUrl),
             t1Player2:Player!Game_t1Player2Id_fkey(id, name, surname, avatarUrl),
             t2Player1:Player!Game_t2Player1Id_fkey(id, name, surname, avatarUrl),
@@ -180,7 +180,7 @@ export default function PlayerPage() {
           ),
           gamesAsT1P2:Game!Game_t1Player2Id_fkey(
             id, scores, createdAt, t1Player1Id, t1Player2Id, t2Player1Id, t2Player2Id,
-            tournament:Tournament(type, date, place),
+            tournament:Tournament(nwtfvId, type, date, place),
             t1Player1:Player!Game_t1Player1Id_fkey(id, name, surname, avatarUrl),
             t1Player2:Player!Game_t1Player2Id_fkey(id, name, surname, avatarUrl),
             t2Player1:Player!Game_t2Player1Id_fkey(id, name, surname, avatarUrl),
@@ -189,7 +189,7 @@ export default function PlayerPage() {
           ),
           gamesAsT2P1:Game!Game_t2Player1Id_fkey(
             id, scores, createdAt, t1Player1Id, t1Player2Id, t2Player1Id, t2Player2Id,
-            tournament:Tournament(type, date, place),
+            tournament:Tournament(nwtfvId, type, date, place),
             t1Player1:Player!Game_t1Player1Id_fkey(id, name, surname, avatarUrl),
             t1Player2:Player!Game_t1Player2Id_fkey(id, name, surname, avatarUrl),
             t2Player1:Player!Game_t2Player1Id_fkey(id, name, surname, avatarUrl),
@@ -198,7 +198,7 @@ export default function PlayerPage() {
           ),
           gamesAsT2P2:Game!Game_t2Player2Id_fkey(
             id, scores, createdAt, t1Player1Id, t1Player2Id, t2Player1Id, t2Player2Id,
-            tournament:Tournament(type, date, place),
+            tournament:Tournament(nwtfvId, type, date, place),
             t1Player1:Player!Game_t1Player1Id_fkey(id, name, surname, avatarUrl),
             t1Player2:Player!Game_t1Player2Id_fkey(id, name, surname, avatarUrl),
             t2Player1:Player!Game_t2Player1Id_fkey(id, name, surname, avatarUrl),
@@ -314,6 +314,7 @@ export default function PlayerPage() {
 
             return {
               id: g.id,
+              tournamentNwtfvId: g.tournament?.nwtfvId,
               date: g.tournament?.date || 'N/A',
               tournamentType: g.tournament?.type || 'N/A',
               tournamentPlace: g.tournament?.place || 'N/A',

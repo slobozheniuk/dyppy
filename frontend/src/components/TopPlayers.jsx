@@ -25,7 +25,7 @@ const PlayerRow = ({ player, rank }) => {
   const formattedElo = elo.toLocaleString('en-US');
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-12 items-center gap-4 px-6 md:px-8 py-5 border-b border-surface-container last:border-b-0 hover:bg-surface-variant/30 transition-colors">
+    <Link to={`/player/${player.nwtfvId}`} className="grid grid-cols-1 md:grid-cols-12 items-center gap-4 px-6 md:px-8 py-5 border-b border-surface-container last:border-b-0 hover:bg-surface-variant/30 transition-colors group cursor-pointer block">
       <div className="col-span-1 flex items-center">
         <span className={`w-8 h-8 rounded-full flex items-center justify-center font-black leading-none ${rankStyle}`}>
           {rank}
@@ -43,9 +43,9 @@ const PlayerRow = ({ player, rank }) => {
           )}
         </div>
         <div className="flex flex-col items-start gap-1">
-          <Link to={`/player/${player.nwtfvId}`} className="font-bold text-base text-on-surface hover:text-primary transition-colors hover:underline">
+          <div className="font-bold text-base text-on-surface group-hover:text-primary transition-colors underline-offset-4 group-hover:underline">
             {displayName}
-          </Link>
+          </div>
           <div className="flex items-center gap-2">
             <span className={`text-[9px] px-2 py-0.5 rounded font-bold tracking-wider ${isTop || rank === 2 ? 'bg-[#e5f5ec] text-[#0a7a43]' : 'bg-surface-variant text-zinc-500'}`}>
               {tier}
@@ -61,7 +61,7 @@ const PlayerRow = ({ player, rank }) => {
       <div className="col-span-2 text-right">
         <span className="text-xl font-bold text-primary">{formattedElo}</span>
       </div>
-    </div>
+    </Link>
   );
 };
 
