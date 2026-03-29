@@ -132,31 +132,41 @@ export default function TournamentDetailsPage() {
       <Header />
       <main className="relative z-10 pt-24 pb-32 page-container">
         {/* Tournament Hero Header */}
-        <section className="mb-12 relative overflow-hidden rounded-[2rem] bg-surface-container-low p-8 md:p-12">
-          <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
-            <img className="w-full h-full object-cover" alt="tournament banner" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZnWkUeLBdfXTkiExoXTsXAXTjJkqadcsnLkuEJfnHEurEAhcKCFAvxoSaRO-KkxgGBOnSua-JRSradDVs7KT29RCXQVo50aVXCQ7Fn7ShISY8oShdZhmule4h7IzY612ciWqqvuvfL6ejGOSfYEuDHER7OjfkkWngZbDkY5B-yM2Au4fsGicTmhk_fnzFIRdIyLJhwtqkGQgEPvyKjb5fH6NPg5eZ5DKaggvVzrXn3u9vvKZTxKG1UsH24AwM-Z-6E6WiARPOQw" />
+        <section className="mb-12 relative overflow-hidden white-card p-8">
+          <div 
+            className="absolute top-0 left-0 w-full h-full opacity-15 pointer-events-none transition-all duration-700"
+            style={{ 
+              background: getGradientFromPlace(tournament.place || 'Foosball'),
+              maskImage: 'linear-gradient(to right, rgba(0,0,0,1) 30%, rgba(0,0,0,0.2))',
+              WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,1) 30%, rgba(0,0,0,0.2))'
+            }}
+          >
+            <div className="absolute -top-12 -right-12 w-64 h-64 bg-primary blur-[80px] rounded-full opacity-40"></div>
+            <div className="absolute -bottom-12 left-1/3 w-80 h-80 bg-secondary blur-[100px] rounded-full opacity-30"></div>
           </div>
-          <div className="relative z-10">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="bg-primary text-on-primary text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full">
-                {tournament.type || 'Open Double'}
-              </span>
-            </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold font-headline tracking-tighter text-on-surface mb-6">
-              {tournament.name}
-            </h1>
-            <div className="flex flex-wrap items-center gap-6 text-tertiary">
-              <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary">location_on</span>
-                <span className="font-semibold">{tournament.place}</span>
+          <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center md:items-end justify-between">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full">
+                  {tournament.type || 'Open Double'}
+                </span>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary">calendar_today</span>
-                <span className="font-semibold">{tournament.date}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary">group</span>
-                <span className="font-semibold">{tournament.numberOfParticipants || 0} Teams</span>
+              <h1 className="text-3xl md:text-5xl font-black font-headline tracking-tighter text-on-surface mb-6">
+                {tournament.name}
+              </h1>
+              <div className="flex flex-wrap items-center gap-6 text-tertiary">
+                <div className="flex items-center gap-2">
+                  <span className="material-symbols-outlined text-primary text-base">location_on</span>
+                  <span className="font-semibold text-sm">{tournament.place}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="material-symbols-outlined text-primary text-base">calendar_today</span>
+                  <span className="font-semibold text-sm">{tournament.date}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="material-symbols-outlined text-primary text-base">group</span>
+                  <span className="font-semibold text-sm">{tournament.numberOfParticipants || 0} Teams</span>
+                </div>
               </div>
             </div>
           </div>
@@ -396,3 +406,13 @@ export default function TournamentDetailsPage() {
     </div>
   );
 }
+
+const getGradientFromPlace = (place) => {
+  let hash = 0;
+  for (let i = 0; i < place.length; i++) {
+    hash = place.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const hue1 = Math.abs(hash % 360);
+  const hue2 = (hue1 + 60) % 360;
+  return `linear-gradient(135deg, hsl(${hue1}, 80%, 45%), hsl(${hue2}, 80%, 40%))`;
+};

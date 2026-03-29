@@ -130,7 +130,6 @@ const TournamentsPage = () => {
     return () => clearTimeout(timer);
   }, [searchTerm]);
 
-  const cities = [...new Set(tournaments.map(t => t.place))].sort();
 
   return (
     <div className="min-h-screen bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container pb-0 overflow-x-hidden relative font-body antialiased">
@@ -140,45 +139,23 @@ const TournamentsPage = () => {
       </div>
       <Header />
       
-      <main className="relative z-10 pt-32 pb-24 page-container">
-        <header className="mb-12 text-center md:text-left">
-          <h1 className="text-5xl md:text-6xl font-black tracking-tighter text-on-surface mb-4 font-headline">Tournament Arena</h1>
-          <p className="text-on-surface-variant max-w-xl text-lg font-medium">Browse the official competitive circuit. From local DYPs to Master series championships.</p>
+      <main className="relative z-10 pt-32 pb-24 page-container space-y-8">
+        <header className="text-center md:text-left">
+          <h1 className="text-5xl md:text-6xl font-black tracking-tighter text-on-surface font-headline">Tournament Arena</h1>
         </header>
 
-        <section className="mb-12 bg-surface-container-low p-6 md:p-8 rounded-2xl flex flex-col md:flex-row gap-6 items-end border border-surface-container/50 shadow-sm">
-          <div className="flex-1 w-full md:w-auto">
-            <label className="block text-[10px] font-bold text-tertiary uppercase tracking-widest mb-3">Search</label>
+        <section className="white-card p-6 md:p-8">
+          <div className="w-full">
+            <label className="block text-[10px] font-bold text-tertiary uppercase tracking-widest mb-3">Find a Tournament</label>
             <div className="relative">
               <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 pointer-events-none">search</span>
               <input 
-                className="w-full bg-surface-container-lowest border border-surface-container rounded-xl py-3.5 pl-11 pr-4 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-on-surface placeholder:text-zinc-500"
-                placeholder="Search by name or city..."
+                className="w-full bg-surface-container-lowest border border-surface-container rounded-xl py-3.5 pl-11 pr-4 text-base font-semibold focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-on-surface placeholder:text-zinc-500"
+                placeholder="Search by tournament name, city, or club..."
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
-            </div>
-          </div>
-          <div className="flex-1 w-full md:w-auto">
-            <label className="block text-[10px] font-bold text-tertiary uppercase tracking-widest mb-3">City / Location</label>
-            <div className="relative">
-              <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 pointer-events-none">location_on</span>
-              <select className="w-full bg-surface-container-lowest border border-surface-container rounded-xl py-3.5 pl-11 pr-10 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/20 appearance-none text-on-surface">
-                <option>All Cities</option>
-                {cities.map(city => (
-                  <option key={city} value={city}>{city}</option>
-                ))}
-              </select>
-              <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400 pointer-events-none">expand_more</span>
-            </div>
-          </div>
-          <div className="w-full md:w-auto">
-            <label className="block text-[10px] font-bold text-tertiary uppercase tracking-widest mb-3 md:text-right">Tournament Type</label>
-            <div className="flex gap-2 md:justify-end">
-              <button className="px-5 py-2.5 bg-primary text-white rounded-xl text-xs font-bold shadow-sm">OS</button>
-              <button className="px-5 py-2.5 bg-surface-container-lowest border border-surface-container text-on-surface-variant rounded-xl text-xs font-bold hover:bg-surface-variant transition-colors">OD</button>
-              <button className="px-5 py-2.5 bg-surface-container-lowest border border-surface-container text-on-surface-variant rounded-xl text-xs font-bold hover:bg-surface-variant transition-colors">DYP</button>
             </div>
           </div>
         </section>
