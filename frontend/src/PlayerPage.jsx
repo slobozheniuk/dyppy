@@ -27,10 +27,23 @@ const HeroSection = ({ data }) => {
               <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">{data.rankingTitle}</span>
             </div>
             <h1 className="text-3xl md:text-4xl font-black font-headline text-on-surface tracking-tight mb-2">{data.name}</h1>
-            <a className="flex items-center justify-center md:justify-start gap-2 text-secondary hover:underline font-medium text-sm transition-all" href="#">
-              <span className="material-symbols-outlined text-base">stadium</span>
-              {data.arena}
-            </a>
+            <div className="flex flex-col md:flex-row gap-3">
+              <a className="group flex items-center justify-center md:justify-start gap-2 text-secondary font-medium text-sm transition-all" href="#">
+                <span className="material-symbols-outlined text-base">stadium</span>
+                <span className="group-hover:underline underline-offset-4">{data.arena}</span>
+              </a>
+              {data.nwtfvId && data.nationalNumber && (
+                <a 
+                  href={`https://nwtfv.com/spieler?task=spieler_details&id=${data.nwtfvId}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/link flex items-center justify-center md:justify-start gap-2 text-primary font-bold text-xs uppercase tracking-wider transition-all"
+                >
+                  <span className="material-symbols-outlined text-sm">open_in_new</span>
+                  <span className="group-hover/link:underline underline-offset-4">Open on NWTFV</span>
+                </a>
+              )}
+            </div>
           </div>
         </div>
 

@@ -167,6 +167,15 @@ export default function TournamentDetailsPage() {
                   <span className="material-symbols-outlined text-primary text-base">group</span>
                   <span className="font-semibold text-sm">{tournament.numberOfParticipants || 0} Teams</span>
                 </div>
+                <a 
+                  href={`https://nwtfv.com/turniere?task=turnierdisziplin&id=${tournament.nwtfvId}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/link flex items-center gap-2 text-primary transition-all"
+                >
+                  <span className="material-symbols-outlined text-base">open_in_new</span>
+                  <span className="font-bold text-xs uppercase tracking-wider group-hover/link:underline underline-offset-4">Open on NWTFV</span>
+                </a>
               </div>
             </div>
           </div>
