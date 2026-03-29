@@ -24,6 +24,9 @@
 }
 
 @layer components {
+  .page-container {
+    @apply w-full max-w-screen-2xl mx-auto px-6 lg:px-8;
+  }
   .white-card {
     @apply bg-surface-container-lowest rounded-2xl shadow-sm overflow-hidden;
   }

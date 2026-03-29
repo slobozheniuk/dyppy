@@ -130,7 +130,7 @@ export default function TournamentDetailsPage() {
         <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary blur-[120px] rounded-full"></div>
       </div>
       <Header />
-      <main className="relative z-10 pt-24 pb-32 px-4 md:px-8 max-w-7xl mx-auto">
+      <main className="relative z-10 pt-24 pb-32 page-container">
         {/* Tournament Hero Header */}
         <section className="mb-12 relative overflow-hidden rounded-[2rem] bg-surface-container-low p-8 md:p-12">
           <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
@@ -226,17 +226,17 @@ export default function TournamentDetailsPage() {
               {mainRound?.divisions?.map((division, divIdx) => (
                 <div key={divIdx} className="mb-8">
                   <h4 className="text-sm font-bold text-tertiary uppercase tracking-wider mb-4">{division.skillLevel} Division</h4>
-                  <div className="bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/10">
-                    <table className="w-full text-left text-[11px]">
+                  <div className="white-card">
+                    <table className="w-full border-collapse text-left text-[11px]">
                       <thead>
-                        <tr className="bg-surface-container-high/50 font-black uppercase tracking-widest text-tertiary">
-                          <th className="px-6 py-4">Stage</th>
-                          <th className="px-6 py-4">Team 1</th>
-                          <th className="px-6 py-4 text-center">Score</th>
-                          <th className="px-6 py-4">Team 2</th>
+                        <tr className="bg-surface-container-low/30 border-b border-surface-container text-tertiary">
+                          <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest">Stage</th>
+                          <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest">Team 1</th>
+                          <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-center">Score</th>
+                          <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest">Team 2</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-outline-variant/10 bg-surface-container-lowest">
+                      <tbody>
                         {division.gameStages?.flatMap((stage) =>
                           stage.games?.map((game, gIdx) => {
                             const scores = game.scores || [];
@@ -249,11 +249,11 @@ export default function TournamentDetailsPage() {
                               : `${game.t2Player1.name} ${game.t2Player1.surname}`;
 
                             return (
-                              <tr key={`${stage.name}-${gIdx}`} className="hover:bg-surface-container-low/50 transition-colors">
-                                <td className="px-6 py-4 font-bold text-tertiary">{stage.name}</td>
-                                <td className="px-6 py-4 font-bold">{t1Name}</td>
-                                <td className="px-6 py-4 text-center font-black">{scoreDisplay}</td>
-                                <td className="px-6 py-4 font-semibold">{t2Name}</td>
+                              <tr key={`${stage.name}-${gIdx}`} className="hover:bg-surface-variant/30 transition-colors border-b border-surface-container/50 last:border-b-0">
+                                <td className="px-6 md:px-8 py-5 font-bold text-tertiary">{stage.name}</td>
+                                <td className="px-6 md:px-8 py-5 font-bold">{t1Name}</td>
+                                <td className="px-6 md:px-8 py-5 text-center font-black">{scoreDisplay}</td>
+                                <td className="px-6 md:px-8 py-5 font-semibold">{t2Name}</td>
                               </tr>
                             );
                           }) || []
@@ -284,28 +284,28 @@ export default function TournamentDetailsPage() {
                 <h3 className="text-lg font-extrabold font-headline tracking-tight">Qualifying Rank</h3>
                 <button className="text-[10px] font-bold text-tertiary hover:text-primary transition-colors">VIEW ALL</button>
               </div>
-              <div className="bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/5">
-                <table className="w-full text-left text-[11px]">
+              <div className="white-card">
+                <table className="w-full border-collapse text-left text-[11px]">
                   <thead>
-                    <tr className="bg-surface-container-high/50 font-black uppercase tracking-widest text-tertiary">
-                      <th className="px-4 py-3">Pos</th>
-                      <th className="px-2 py-3">Player</th>
-                      <th className="px-4 py-3 text-right">Rank</th>
+                    <tr className="bg-surface-container-low/30 border-b border-surface-container text-tertiary">
+                      <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest">Pos</th>
+                      <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest">Player</th>
+                      <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-right">Rank</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-outline-variant/10">
+                  <tbody>
                     {topQual.map((placement, index) => {
                       const team = getTeamInfo(placement);
                       const isTop = index === 0;
                       return (
-                        <tr key={index}>
-                          <td className={`px-4 py-3 font-bold ${isTop ? 'text-primary' : (index === 3 ? 'text-tertiary' : '')}`}>
+                        <tr key={index} className="hover:bg-surface-variant/30 transition-colors border-b border-surface-container/50 last:border-b-0">
+                          <td className={`px-6 md:px-8 py-5 font-bold ${isTop ? 'text-primary' : (index === 3 ? 'text-tertiary' : '')}`}>
                             Q{index + 1}
                           </td>
-                          <td className="px-2 py-3 font-semibold truncate max-w-[120px]">
+                          <td className="px-6 md:px-8 py-5 font-semibold truncate max-w-[120px]">
                             {formatTeamName(team)}
                           </td>
-                          <td className="px-4 py-3 text-right font-black">
+                          <td className="px-6 md:px-8 py-5 text-right font-black">
                             #{placement.rank}
                           </td>
                         </tr>
@@ -324,17 +324,17 @@ export default function TournamentDetailsPage() {
               {qualRound?.divisions?.map((division, divIdx) => (
                 <div key={divIdx} className="mb-8">
                   <h4 className="text-sm font-bold text-tertiary uppercase tracking-wider mb-4">{division.skillLevel} Division</h4>
-                  <div className="bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/10">
-                    <table className="w-full text-left text-[11px]">
+                  <div className="white-card">
+                    <table className="w-full border-collapse text-left text-[11px]">
                       <thead>
-                        <tr className="bg-surface-container-high/50 font-black uppercase tracking-widest text-tertiary">
-                          <th className="px-6 py-4">Stage</th>
-                          <th className="px-6 py-4">Team 1</th>
-                          <th className="px-6 py-4 text-center">Score</th>
-                          <th className="px-6 py-4">Team 2</th>
+                        <tr className="bg-surface-container-low/30 border-b border-surface-container text-tertiary">
+                          <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest">Stage</th>
+                          <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest">Team 1</th>
+                          <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-center">Score</th>
+                          <th className="px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest">Team 2</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-outline-variant/10 bg-surface-container-lowest">
+                      <tbody>
                         {division.gameStages?.flatMap((stage) =>
                           stage.games?.map((game, gIdx) => {
                             const scores = game.scores || [];
@@ -347,11 +347,11 @@ export default function TournamentDetailsPage() {
                               : `${game.t2Player1.name} ${game.t2Player1.surname}`;
 
                             return (
-                              <tr key={`${stage.name}-${gIdx}`} className="hover:bg-surface-container-low/50 transition-colors">
-                                <td className="px-6 py-4 font-bold text-tertiary">{stage.name}</td>
-                                <td className="px-6 py-4 font-bold">{t1Name}</td>
-                                <td className="px-6 py-4 text-center font-black">{scoreDisplay}</td>
-                                <td className="px-6 py-4 font-semibold">{t2Name}</td>
+                              <tr key={`${stage.name}-${gIdx}`} className="hover:bg-surface-variant/30 transition-colors border-b border-surface-container/50 last:border-b-0">
+                                <td className="px-6 md:px-8 py-5 font-bold text-tertiary">{stage.name}</td>
+                                <td className="px-6 md:px-8 py-5 font-bold">{t1Name}</td>
+                                <td className="px-6 md:px-8 py-5 text-center font-black">{scoreDisplay}</td>
+                                <td className="px-6 md:px-8 py-5 font-semibold">{t2Name}</td>
                               </tr>
                             );
                           }) || []

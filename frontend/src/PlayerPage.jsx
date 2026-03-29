@@ -369,7 +369,7 @@ export default function PlayerPage() {
         <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary blur-[120px] rounded-full"></div>
       </div>
       <Header />
-      <main className="relative z-10 pt-24 pb-12 px-6 max-w-screen-2xl mx-auto space-y-8">
+      <main className="relative z-10 pt-24 pb-12 space-y-8 page-container">
         <HeroSection data={playerData} />
 
         <div className="asymmetric-grid">

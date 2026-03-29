@@ -86,7 +86,7 @@ const TopPlayers = () => {
   }, []);
 
   return (
-    <section className="px-6 max-w-screen-xl mx-auto mt-12 mb-24 relative z-10">
+    <section className="relative z-10 mt-12 mb-24 page-container">
       <div className="white-card">
         {/* Header */}
         <div className="p-6 md:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-surface-container">
