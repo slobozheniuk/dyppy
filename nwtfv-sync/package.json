@@ -10,7 +10,8 @@
     "db:push:reset": "prisma db push --force-reset && npx -y tsx scripts/apply-rls.ts",
     "db:rls": "npx -y tsx scripts/apply-rls.ts",
     "db:studio": "prisma studio",
-    "db:seed": "npx -y tsx src/data-parser/seed-database.ts"
+    "db:seed": "npx -y tsx src/data-parser/seed-database.ts",
+    "data:download": "npx -y tsx src/data-parser/download-local.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.5.0",

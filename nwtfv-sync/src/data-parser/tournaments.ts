@@ -223,7 +223,7 @@ async function parseActualTournamentId(tournamentId: number): Promise<number[]> 
   throw new Error(`Could not parse actual tournament ids for tournamentId ${tournamentId}`);
 }
 
-function parseTournamentDetails(html: string): Omit<Tournament, 'id' | 'tournamentGroupID'> {
+export function parseTournamentDetails(html: string): Omit<Tournament, 'id' | 'tournamentGroupID'> {
   const $ = cheerio.load(html);
 
   // Extract Metadata

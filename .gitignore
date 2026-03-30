@@ -29,6 +29,7 @@ nwtfv-sync/src/generated/prisma
 .env
 frontend/.env
 nwtfv-sync/.env
+nwtfv-sync/data
 
 # Playwright
 playwright-report/

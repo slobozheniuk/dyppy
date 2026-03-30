@@ -1,20 +1,23 @@
 /**
  * seed-database.ts
- * 
- * Parses tournament + player data from nwtfv.com and inserts it
- * into the Supabase PostgreSQL database via Prisma.
+ *
+ * Reads local tournament and player data from data/ and seeds Supabase.
+ * Run `npm run data:download` first to populate the local data folder.
  *
  * Usage:
- *   npx tsx src/data-parser/seed-database.ts                    # current season, 20 tournaments
- *   npx tsx src/data-parser/seed-database.ts --year=2024        # specific season
- *   npx tsx src/data-parser/seed-database.ts --limit=5          # limit number of tournaments
+ *   npx tsx src/data-parser/seed-database.ts                    # all local data
+ *   npx tsx src/data-parser/seed-database.ts --year=2024        # specific year(s)
+ *   npx tsx src/data-parser/seed-database.ts --limit=5          # limit tournaments
  *   npx tsx src/data-parser/seed-database.ts --id=123,456       # specific tournaments
- *   npx tsx src/data-parser/seed-database.ts --year=2024 --limit=50
+ *   npx tsx src/data-parser/seed-database.ts --force            # re-seed existing
+ *   npx tsx src/data-parser/seed-database.ts --skip-elo         # skip ELO recalc
  */
 
+import fs from 'fs';
+import path from 'path';
 import { prisma } from '../server/prisma.js';
-import { getTournaments, Tournament } from './tournaments.js';
-import { updateEloForExistingGame } from '../server/elo-transaction.js';
+import { Tournament } from './tournaments.js';
+import { Player } from './players.js';
 import { createSeedContext, seedTournament, SeedContext } from './db-inserter.js';
 import { recalculateAllElos } from './elo-recalculator.js';
 
@@ -27,44 +30,126 @@ const idArg = args.find(a => a.startsWith('--id='))?.split('=')[1];
 const force = args.includes('--force');
 const skipElo = args.includes('--skip-elo');
 
-const year = yearArg ? yearArg.split(',') : undefined;
+const yearFilter = yearArg ? yearArg.split(',').map(y => y.trim()) : undefined;
 const limit = limitArg ? parseInt(limitArg, 10) : undefined;
 const tournamentIds = idArg ? idArg.split(',').map(id => parseInt(id.trim(), 10)) : undefined;
 
-// Initialize seeding context
-const ctx: SeedContext = createSeedContext({ prisma });
+// ─── Paths ────────────────────────────────────────────────────────────────────
+
+const DATA_DIR = path.resolve('data');
+const TOURNAMENTS_DIR = path.join(DATA_DIR, 'tournaments');
+const PLAYERS_DIR = path.join(DATA_DIR, 'players');
+
+// ─── Local data readers ───────────────────────────────────────────────────────
+
+function readLocalTournaments(): Tournament[] {
+  if (!fs.existsSync(TOURNAMENTS_DIR)) {
+    throw new Error(`Tournaments directory not found: ${TOURNAMENTS_DIR}\nRun npm run data:download first.`);
+  }
+
+  const allYearFiles = fs.readdirSync(TOURNAMENTS_DIR)
+    .filter(f => /^\d{4}\.json$/.test(f))
+    .sort(); // lexicographic = chronological for 4-digit years
+
+  const yearFiles = yearFilter
+    ? allYearFiles.filter(f => yearFilter.includes(f.replace('.json', '')))
+    : allYearFiles;
+
+  if (yearFiles.length === 0) {
+    throw new Error(yearFilter
+      ? `No local data found for year(s): ${yearFilter.join(', ')}`
+      : `No year files found in ${TOURNAMENTS_DIR}`
+    );
+  }
+
+  let tournaments: Tournament[] = [];
+  for (const file of yearFiles) {
+    const arr = JSON.parse(fs.readFileSync(path.join(TOURNAMENTS_DIR, file), 'utf-8')) as Tournament[];
+    console.log(`  📂 ${file}: ${arr.length} tournaments`);
+    tournaments.push(...arr);
+  }
+
+  // Sort oldest-first across all years (needed for correct ELO chronology)
+  tournaments.sort((a, b) => {
+    const parse = (d: string) => {
+      const [dd, mm, yyyy] = d.split('.');
+      return new Date(parseInt(yyyy), parseInt(mm) - 1, parseInt(dd)).getTime();
+    };
+    return parse(a.date) - parse(b.date);
+  });
+
+  if (tournamentIds && tournamentIds.length > 0) {
+    tournaments = tournaments.filter(t => tournamentIds.includes(t.id));
+  }
+
+  if (limit) {
+    tournaments = tournaments.slice(0, limit);
+  }
+
+  return tournaments;
+}
+
+function makeLocalGetPlayerDetails(): (id: number) => Promise<Player | null> {
+  return async (id: number): Promise<Player | null> => {
+    const filePath = path.join(PLAYERS_DIR, `${id}.json`);
+    if (!fs.existsSync(filePath)) {
+      throw new Error(`Local player file not found: ${id}.json`);
+    }
+    const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    // Provide defaults for skeleton players (only id/name/surname present)
+    return {
+      id: data.id,
+      name: data.name ?? '',
+      surname: data.surname ?? '',
+      avatarUrl: data.avatarUrl,
+      category: data.category ?? '',
+      clubs: data.clubs ?? [],
+      organisations: data.organisations ?? [],
+      nationalNumber: data.nationalNumber ?? '',
+      internationalNumber: data.internationalNumber,
+      rankings: data.rankings ?? [],
+    };
+  };
+}
+
+// ─── Seed context ─────────────────────────────────────────────────────────────
+
+const ctx: SeedContext = createSeedContext({
+  prisma,
+  getPlayerDetails: makeLocalGetPlayerDetails(),
+});
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 async function main() {
-  console.log(`\n🏓 Seed Database`);
-  console.log(`   Year:  ${year ?? 'Current season'}`);
+  console.log('\n🏓 Seed Database (from local data)');
+  console.log(`   Year:  ${yearFilter ? yearFilter.join(', ') : 'All'}`);
   console.log(`   Limit: ${limit ?? 'None'}`);
-  console.log(`   IDs:   ${tournamentIds ?? 'None'}\n`);
+  console.log(`   IDs:   ${tournamentIds ?? 'None'}`);
+  console.log(`   Force: ${force}\n`);
 
-  // 1. Parse tournaments from nwtfv.com
-  console.log('📡 Fetching tournaments from nwtfv.com...');
-  const tournaments = (await getTournaments({ limit, year, tournamentIds })).reverse();
-  console.log(`   Found ${tournaments.length} tournaments to seed.\n`);
+  // 1. Load local tournaments
+  console.log('📂 Reading local tournament data...');
+  const tournaments = readLocalTournaments();
+  console.log(`   Loaded ${tournaments.length} tournaments.\n`);
 
-  // 2. Initial cleanup if force is enabled
+  // 2. Force cleanup
   if (force) {
-    console.log('🗑  Force mode enabled: Pre-cleaning specific tournaments...');
+    console.log('🗑  Force mode: pre-cleaning tournaments...');
     for (const t of tournaments) {
       const existing = await prisma.tournament.findUnique({ where: { nwtfvId: t.id } });
       if (existing) {
-        console.log(`   Deleting existing tournament ${t.id} (${t.name})...`);
+        console.log(`   Deleting ${t.id} (${t.name})...`);
         await prisma.tournament.delete({ where: { id: existing.id } });
       }
     }
-    
-    console.log('\n🗑  Pruning orphaned legacy skeleton players (negative nwtfvIds)...');
+
+    console.log('\n🗑  Pruning orphaned skeleton players...');
     try {
-      // We try to delete all negative IDs. Some might fail if referenced by tournaments NOT in the current limit.
       const { count } = await prisma.player.deleteMany({ where: { nwtfvId: { lt: 0 } } });
       console.log(`   Removed ${count} legacy skeleton players.\n`);
-    } catch (err) {
-      console.warn('   ⚠ Could not prune all legacy players (still referenced by other tournaments). They will be ignored.\n');
+    } catch {
+      console.warn('   ⚠ Could not prune all legacy players (still referenced by other tournaments).\n');
     }
   }
 
@@ -75,7 +160,6 @@ async function main() {
     const t = tournaments[i];
     console.log(`[${i + 1}/${tournaments.length}] ${t.name} ${t.type} — ${t.place} (${t.date})`);
     try {
-      // Tournament was already deleted in pre-cleanup if force was enabled
       if (!force) {
         const alreadyExists = await prisma.tournament.findUnique({ where: { nwtfvId: t.id } });
         if (alreadyExists) {
@@ -88,7 +172,7 @@ async function main() {
       seeded++;
       console.log(`  ✅ Done\n`);
     } catch (err) {
-      console.error(`  ❌ Error seeding tournament ${t.id}:`, err instanceof Error ? err.message : err);
+      console.error(`  ❌ Error seeding ${t.id}:`, err instanceof Error ? err.message : err);
       console.log('');
     }
   }
@@ -97,12 +181,12 @@ async function main() {
   if (!skipElo) {
     await recalculateAllElos({ prisma });
   } else {
-    console.log('⏩ Skipping ELO recalculation (--skip-elo flag)\n');
+    console.log('⏩ Skipping ELO recalculation\n');
   }
 
   // 5. Summary
   console.log(`\n─── Summary ───`);
-  console.log(`  Total parsed:    ${tournaments.length}`);
+  console.log(`  Total loaded:    ${tournaments.length}`);
   console.log(`  Seeded:          ${seeded}`);
   console.log(`  Skipped (dupes): ${skipped}`);
   console.log(`  Players cached:  ${ctx.playerIdCache.size + ctx.playerNameCache.size}`);
