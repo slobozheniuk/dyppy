@@ -58,7 +58,7 @@ test('correctly parses Offenes Doppel sub-tournament 6406', async () => {
         expect(firstPlace.competitor.player2.name).toBe('Dost, Mark');
     }
 
-    expect(data.mainRound.divisions).toHaveLength(2);
+    expect(data.mainRound.divisions).toHaveLength(3);
     const pro = data.mainRound.divisions.find((d: Division) => d.skillLevel === 'Pro');
     expect(pro).toBeDefined();
     expect(pro?.gameStages).toHaveLength(6);
@@ -85,6 +85,18 @@ test('correctly parses Offenes Doppel sub-tournament 6406', async () => {
     if (amateurGame?.competitor1.type === 'team') {
         expect(amateurGame.competitor1.player1.name).toBe('Weiß, Fabian');
         expect(amateurGame.competitor2.type).toBe('team');
+    }
+
+    const open = data.mainRound.divisions.find((d: Division) => d.skillLevel === 'Open');
+    expect(open).toBeDefined();
+    expect(open?.gameStages).toHaveLength(6);
+    expect(open?.gameStages[0].name).toBe('Sechzehntelfinale');
+    expect(open?.gameStages[0].games).toHaveLength(1);
+
+    const openGame = open?.gameStages[0].games[0];
+    if (openGame?.competitor1.type === 'team') {
+        expect(openGame.competitor1.player1.name).toBe('Schulz, Uwe');
+        expect(openGame.competitor2.type).toBe('team');
     }
 });
 

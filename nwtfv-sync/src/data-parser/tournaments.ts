@@ -366,8 +366,8 @@ function findDivisions($: cheerio.CheerioAPI, targetTable: cheerio.Cheerio<any> 
     if (headingTd.length > 0) {
       // Found a contentheading — check if it maps to a division skill level
       const headingText = headingTd.text().trim();
-      const skillLevel = DIVISION_SKILL_MAP[headingText];
-      if (!skillLevel) break; // Unknown heading, outside this round's scope
+      const skillLevel = DIVISION_SKILL_MAP[headingText] ?? 'Open';
+
 
       // Look for a game table (Gewinner/Verlierer) after this heading
       let foundGameTable = false;
@@ -393,10 +393,8 @@ function findDivisions($: cheerio.CheerioAPI, targetTable: cheerio.Cheerio<any> 
         const ht = prev.find('td.contentheading');
         if (ht.length > 0) {
           const divName = ht.text().trim();
-          const skillLevel = DIVISION_SKILL_MAP[divName];
-          if (skillLevel) {
-            divisions.push({ skillLevel, gameStages: parseDivisionTable($, sibling, finalPlacements) });
-          }
+          const skillLevel = DIVISION_SKILL_MAP[divName] ?? 'Open';
+          divisions.push({ skillLevel, gameStages: parseDivisionTable($, sibling, finalPlacements) });
           break;
         }
         prev = prev.prev();
