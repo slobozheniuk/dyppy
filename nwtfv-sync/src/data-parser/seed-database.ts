@@ -16,10 +16,10 @@
 import fs from 'fs';
 import path from 'path';
 import { prisma } from '../server/prisma.js';
-import { Tournament } from './tournaments.js';
+import { Tournament, Round } from './tournaments.js';
 import { Player } from './players.js';
 import { createSeedContext, seedTournament, SeedContext } from './db-inserter.js';
-import { recalculateAllElos } from './elo-recalculator.js';
+import { recalculateAllElos, parseDate } from './elo-recalculator.js';
 
 // ─── CLI args ─────────────────────────────────────────────────────────────────
 
@@ -39,6 +39,14 @@ const tournamentIds = idArg ? idArg.split(',').map(id => parseInt(id.trim(), 10)
 const DATA_DIR = path.resolve('data');
 const TOURNAMENTS_DIR = path.join(DATA_DIR, 'tournaments');
 const PLAYERS_DIR = path.join(DATA_DIR, 'players');
+
+// ─── Helpers ─────────────────────────────────────────────────────────────────
+
+function countGamesInTournament(t: Tournament): number {
+  const countRound = (r: Round) =>
+    r.divisions.flatMap(d => d.gameStages).reduce((s, gs) => s + gs.games.length, 0);
+  return countRound(t.mainRound) + (t.qualifyingRound ? countRound(t.qualifyingRound) : 0);
+}
 
 // ─── Local data readers ───────────────────────────────────────────────────────
 
@@ -156,6 +164,9 @@ async function main() {
   // 3. Seed each tournament
   let seeded = 0;
   let skipped = 0;
+  let reseeded = 0;
+  const changedDates: string[] = [];
+
   for (let i = 0; i < tournaments.length; i++) {
     const t = tournaments[i];
     console.log(`[${i + 1}/${tournaments.length}] ${t.name} ${t.type} — ${t.place} (${t.date})`);
@@ -163,8 +174,20 @@ async function main() {
       if (!force) {
         const alreadyExists = await prisma.tournament.findUnique({ where: { nwtfvId: t.id } });
         if (alreadyExists) {
-          console.log(`  ⏩ Already seeded, skipping.\n`);
-          skipped++;
+          // Check if local data has more/fewer games than what's in DB
+          const localGameCount = countGamesInTournament(t);
+          const dbGameCount = await prisma.game.count({ where: { tournamentId: alreadyExists.id } });
+          if (localGameCount !== dbGameCount) {
+            console.log(`  🔄 Game count changed (local: ${localGameCount}, db: ${dbGameCount}) — re-seeding...\n`);
+            await prisma.tournament.delete({ where: { id: alreadyExists.id } });
+            await seedTournament(ctx, t, {});
+            changedDates.push(t.date);
+            reseeded++;
+            console.log(`  ✅ Done\n`);
+          } else {
+            console.log(`  ⏩ Already seeded, skipping.\n`);
+            skipped++;
+          }
           continue;
         }
       }
@@ -179,7 +202,12 @@ async function main() {
 
   // 4. ELO recalculation
   if (!skipElo) {
-    await recalculateAllElos({ prisma });
+    let fromDate: string | undefined;
+    if (!force && changedDates.length > 0) {
+      fromDate = changedDates.sort((a, b) => parseDate(a) - parseDate(b))[0];
+      console.log(`🔄 Partial ELO recalculation from ${fromDate} (earliest changed tournament)\n`);
+    }
+    await recalculateAllElos({ prisma, fromDate });
   } else {
     console.log('⏩ Skipping ELO recalculation\n');
   }
@@ -188,6 +216,7 @@ async function main() {
   console.log(`\n─── Summary ───`);
   console.log(`  Total loaded:    ${tournaments.length}`);
   console.log(`  Seeded:          ${seeded}`);
+  console.log(`  Re-seeded:       ${reseeded}`);
   console.log(`  Skipped (dupes): ${skipped}`);
   console.log(`  Players cached:  ${ctx.playerIdCache.size + ctx.playerNameCache.size}`);
   console.log(`  ELO calculated:  ${skipElo ? 'skipped' : 'yes'}`);

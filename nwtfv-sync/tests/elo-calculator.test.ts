@@ -69,6 +69,21 @@ describe('calculateEloDelta', () => {
     expect(delta).toBeCloseTo(-DEFAULT_K_FACTOR / 2);
   });
 
+  test('more powerful player wins, gets a little', () => {
+    const delta = calculateEloDelta(2000, 1500, true);
+    expect(delta).toBeCloseTo(1.704, 3);
+  });
+
+  test('weaker player wins, gets a lot', () => {
+    const delta = calculateEloDelta(1500, 2000, true);
+    expect(delta).toBeCloseTo(30.296, 3);
+  });
+
+  test('unequal ratings, loss gives < -K/2', () => {
+    const delta = calculateEloDelta(1600, 1400, false);
+    expect(delta).toBeLessThan(-DEFAULT_K_FACTOR / 2);
+  });
+
   test('win + loss deltas are symmetric for equal ratings', () => {
     const winDelta = calculateEloDelta(1500, 1500, true);
     const lossDelta = calculateEloDelta(1500, 1500, false);

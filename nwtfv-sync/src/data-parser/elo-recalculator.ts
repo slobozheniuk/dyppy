@@ -1,5 +1,4 @@
 import { PrismaClient } from '../generated/prisma/client.js';
-import { updateEloForExistingGame } from '../server/elo-transaction.js';
 import {
   recordMatch,
   tournamentTypeToGameType,
@@ -25,6 +24,8 @@ export interface GameWithTournament {
 export interface RecalculateOptions {
   prisma: PrismaClient;
   log?: boolean;
+  /** DD.MM.YYYY — when set, only recalculate ELO for games from this date onward */
+  fromDate?: string;
 }
 
 /**
@@ -61,7 +62,67 @@ export async function resetAllRatings(prisma: PrismaClient): Promise<void> {
  * Optimized to perform calculations in-memory and batch updates to the database.
  */
 export async function recalculateAllElos(options: RecalculateOptions): Promise<{ processed: number; errors: number }> {
-  const { prisma, log = true } = options;
+  const { prisma, log = true, fromDate } = options;
+
+  if (fromDate) {
+    if (log) console.log(`📊 Partial ELO recalculation from ${fromDate}...\n`);
+
+    const cutoff = new Date(fromDate.split('.').reverse().join('-')); // DD.MM.YYYY → Date
+
+    // Delete EloHistory records on/after the cutoff date
+    await prisma.eloHistory.deleteMany({ where: { date: { gte: cutoff } } });
+
+    // Fetch all games on/after the cutoff (filter by tournament date in-memory)
+    const allGamesRaw = await prisma.game.findMany({
+      include: { tournament: { select: { type: true, date: true } } },
+    });
+    const fromDateTs = parseDate(fromDate);
+    const allGamesFromDate = allGamesRaw.filter(g => parseDate(g.tournament.date) >= fromDateTs);
+
+    // For each affected player, restore their rating from the last remaining EloHistory
+    // record before the cutoff (or 1500 if none)
+    const affectedPlayerIds = new Set<string>();
+    for (const g of allGamesFromDate) {
+      [g.t1Player1Id, g.t1Player2Id, g.t2Player1Id, g.t2Player2Id].forEach(id => {
+        if (id) affectedPlayerIds.add(id);
+      });
+    }
+
+    const playerRatingsMap = new Map<string, PlayerRatings>();
+
+    for (const playerId of affectedPlayerIds) {
+      // Get last EloHistory per type before cutoff
+      const lastHistories = await prisma.eloHistory.findMany({
+        where: { playerId, date: { lt: cutoff } },
+        orderBy: { date: 'desc' },
+        take: 3, // at most one per type (single/double/dyp)
+      });
+
+      const ratings: PlayerRatings = { singleElo: 1500, doubleElo: 1500, dypElo: 1500, totalElo: 1500 };
+      for (const h of lastHistories) {
+        const key = h.type === 'single' ? 'singleElo' : h.type === 'double' ? 'doubleElo' : 'dypElo';
+        if (ratings[key] === 1500) {
+          ratings[key] = h.eloValue;
+          ratings.totalElo = h.eloValueTotal; // overwritten each time, last wins (fine)
+        }
+      }
+      playerRatingsMap.set(playerId, ratings);
+    }
+
+    // Also seed non-affected players (they won't be written back unless they appear in games)
+    const allPlayers = await prisma.player.findMany({ where: { id: { notIn: Array.from(affectedPlayerIds) } } });
+    for (const p of allPlayers) {
+      playerRatingsMap.set(p.id, {
+        singleElo: p.singleElo,
+        doubleElo: p.doubleElo,
+        dypElo: p.dypElo,
+        totalElo: p.totalElo,
+      });
+    }
+
+    const sortedGames = sortGamesChronologically(allGamesFromDate);
+    return processGames({ prisma, log, playerRatingsMap, sortedGames, affectedPlayerIds });
+  }
 
   if (log) console.log('📊 Recalculating ELO ratings for all games...\n');
 
@@ -80,7 +141,7 @@ export async function recalculateAllElos(options: RecalculateOptions): Promise<{
   const playerRatingsMap = new Map<string, PlayerRatings>();
   for (const p of allPlayers) {
     playerRatingsMap.set(p.id, {
-      singleElo: 1500, // We just reset them to 1500
+      singleElo: 1500,
       doubleElo: 1500,
       dypElo: 1500,
       totalElo: 1500,
@@ -88,7 +149,22 @@ export async function recalculateAllElos(options: RecalculateOptions): Promise<{
   }
 
   const sortedGames = sortGamesChronologically(allGames);
+  return processGames({ prisma, log, playerRatingsMap, sortedGames });
+}
 
+async function processGames({
+  prisma,
+  log,
+  playerRatingsMap,
+  sortedGames,
+  affectedPlayerIds,
+}: {
+  prisma: PrismaClient;
+  log: boolean;
+  playerRatingsMap: Map<string, PlayerRatings>;
+  sortedGames: GameWithTournament[];
+  affectedPlayerIds?: Set<string>;
+}): Promise<{ processed: number; errors: number }> {
   let processed = 0;
   let errors = 0;
 
@@ -101,7 +177,7 @@ export async function recalculateAllElos(options: RecalculateOptions): Promise<{
       const [day, month, yearStr] = game.tournament.date.split('.');
       const gameDate = new Date(`${yearStr}-${month}-${day}`);
       const tournamentType = game.tournament.type;
-      
+
       const gameType = tournamentTypeToGameType(tournamentType);
       const eloType = gameTypeToEloType(gameType);
 
@@ -118,7 +194,6 @@ export async function recalculateAllElos(options: RecalculateOptions): Promise<{
       const fetchPlayerFromMemory = (id: string): PlayerWithRatings => {
         let ratings = playerRatingsMap.get(id);
         if (!ratings) {
-          // If a player somehow doesn't exist in our map, initialize them with 1500
           ratings = { singleElo: 1500, doubleElo: 1500, dypElo: 1500, totalElo: 1500 };
           playerRatingsMap.set(id, ratings);
         }
@@ -129,12 +204,7 @@ export async function recalculateAllElos(options: RecalculateOptions): Promise<{
       const team2 = team2Ids.map(fetchPlayerFromMemory);
 
       // Calculate new ELOs
-      const result = recordMatch({
-        gameType,
-        team1,
-        team2,
-        team1Won,
-      });
+      const result = recordMatch({ gameType, team1, team2, team1Won });
 
       const eloKey = gameType === 'single' ? 'singleElo' :
                      gameType === 'double' ? 'doubleElo' : 'dypElo';
@@ -143,12 +213,10 @@ export async function recalculateAllElos(options: RecalculateOptions): Promise<{
 
       // Update our in-memory map and queue history records
       for (const update of allUpdates) {
-        // Update memory map
         const currentRatings = playerRatingsMap.get(update.playerId)!;
         currentRatings[eloKey] = update.newSpecificElo;
         currentRatings.totalElo = update.newTotalElo;
 
-        // Queue history record
         historyRecordsToInsert.push({
           playerId: update.playerId,
           gameId: game.id,
@@ -163,7 +231,7 @@ export async function recalculateAllElos(options: RecalculateOptions): Promise<{
       processed++;
 
       if (log && ((i + 1) % 500 === 0 || i === sortedGames.length - 1)) {
-        console.log(`   ELO progress: ${i + 1}/${sortedGames.length} games processed in memory`);
+        console.log(`   ELO progress: ${i + 1}/${sortedGames.length} — ${game.tournament.date}`);
       }
     } catch (err) {
       errors++;
@@ -173,31 +241,27 @@ export async function recalculateAllElos(options: RecalculateOptions): Promise<{
     }
   }
 
-  if (log) console.log(`   Syncing ${historyRecordsToInsert.length} history records and ${playerRatingsMap.size} player updates to DB...`);
+  if (log) console.log(`   Syncing ${historyRecordsToInsert.length} history records to DB...`);
 
-  // 2. Batch Update the Database
-  // Create history records in batches to avoid query size limits
+  // Batch insert history records
   const BATCH_SIZE = 5000;
   for (let i = 0; i < historyRecordsToInsert.length; i += BATCH_SIZE) {
     const batch = historyRecordsToInsert.slice(i, i + BATCH_SIZE);
-    await prisma.eloHistory.createMany({
-      data: batch
-    });
+    await prisma.eloHistory.createMany({ data: batch });
   }
 
-  // Update players using a transaction
+  // Update only the players whose ratings changed (affected in partial mode, all in full mode)
+  const playerIdsToUpdate = affectedPlayerIds ?? new Set(playerRatingsMap.keys());
   const playerUpdatePromises: any[] = [];
-  for (const [id, ratings] of playerRatingsMap.entries()) {
-    playerUpdatePromises.push(
-      prisma.player.update({
-        where: { id },
-        data: ratings,
-      })
-    );
+  for (const id of playerIdsToUpdate) {
+    const ratings = playerRatingsMap.get(id);
+    if (ratings) {
+      playerUpdatePromises.push(
+        prisma.player.update({ where: { id }, data: ratings })
+      );
+    }
   }
 
-  // Since Prisma SQLite doesn't exist here, Postgres $transaction is fine.
-  // Execute updates in batches so we don't blow up connection pool or statement limits
   const PLAYER_BATCH_SIZE = 50;
   for (let i = 0; i < playerUpdatePromises.length; i += PLAYER_BATCH_SIZE) {
     const batch = playerUpdatePromises.slice(i, i + PLAYER_BATCH_SIZE);
