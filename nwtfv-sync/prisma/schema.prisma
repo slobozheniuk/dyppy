@@ -86,7 +86,7 @@ model Tournament {
   id                   String @id @default(cuid())
   nwtfvId              Int    @unique
   tournamentGroupID    Int
-  date                 String // "DD.MM.YYYY" format from source
+  date                 DateTime
   name                 String
   type                 String
   place                String

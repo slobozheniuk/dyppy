@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const MatchRow = ({ match }) => {
+  const navigate = useNavigate();
   const isPositive = match.diffType === 'positive';
   const typeColorClass = match.type === 'Single' ? 'text-secondary bg-secondary/10' :
     match.type === 'DYP' ? 'text-secondary bg-secondary/10' :
@@ -9,7 +11,10 @@ const MatchRow = ({ match }) => {
   const borderHoverClass = isPositive ? 'hover:border-secondary' : 'hover:border-primary';
 
   return (
-    <div className={`flex flex-col md:flex-row md:items-center bg-white border border-surface-container rounded-xl p-4 transition-colors gap-4 md:gap-0 ${borderHoverClass}`}>
+    <div 
+      onClick={() => match.tournamentNwtfvId && navigate(`/tournament/nwtfv/${match.tournamentNwtfvId}`)}
+      className={`flex flex-col md:flex-row md:items-center bg-white border border-surface-container rounded-xl p-4 transition-colors gap-4 md:gap-0 ${match.tournamentNwtfvId ? 'cursor-pointer' : ''} ${borderHoverClass}`}
+    >
       <div className="flex justify-between items-center md:block md:w-36 shrink-0 text-left border-b border-surface-container pb-3 md:border-b-0 md:pb-0">
         <div>
           <p className="text-[10px] font-bold text-tertiary tracking-tighter whitespace-nowrap">{match.tournamentType} in {match.tournamentPlace}</p>

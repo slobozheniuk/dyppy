@@ -6,7 +6,7 @@ test('correctly parses OS tournament 6371 without scores', async () => {
 
     expect(data).toBeDefined();
     expect(data.id).toBe(6371);
-    expect(data.date).toBe('25.02.2026');
+    expect(data.date).toEqual(new Date(2026, 1, 25));
     expect(data.name).toBe('Mini Challenger');
     expect(data.type).toBe('Offenes Einzel');
     expect(data.place).toBe('Minden');

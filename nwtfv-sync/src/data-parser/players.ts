@@ -18,20 +18,11 @@ export type Ranking = {
     totalRankedPlayers: number;
 }
 
-export async function getPlayerDetails(playerId: number): Promise<Player> {
-    const url = `https://nwtfv.com/spieler?task=spieler_details&id=${playerId}&format=json`;
-    const res = await fetch(url);
-    if (!res.ok) {
-        throw new Error(`Failed to fetch player details: ${res.statusText}`);
-    }
-    const json = await res.json() as any;
-    
+export function parsePlayerJson(json: any): Player {
     if (!json.data || !json.data.spieler) {
-        throw new Error(`Invalid JSON structure for player ${playerId}`);
+        throw new Error('Invalid JSON structure: missing data.spieler');
     }
-
     const s = json.data.spieler;
-    
     return {
         id: parseInt(s.spieler_id, 10),
         name: s.vorname,
@@ -49,6 +40,16 @@ export async function getPlayerDetails(playerId: number): Promise<Player> {
             totalRankedPlayers: parseInt(r.teilnehmer, 10)
         }))
     };
+}
+
+export async function getPlayerDetails(playerId: number): Promise<Player> {
+    const url = `https://nwtfv.com/spieler?task=spieler_details&id=${playerId}&format=json`;
+    const res = await fetch(url);
+    if (!res.ok) {
+        throw new Error(`Failed to fetch player details: ${res.statusText}`);
+    }
+    const json = await res.json() as any;
+    return parsePlayerJson(json);
 }
 
 export const CATEGORY_MAPPING: Record<string, string> = {

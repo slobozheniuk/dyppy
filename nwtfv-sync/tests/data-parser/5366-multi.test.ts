@@ -18,7 +18,7 @@ test('correctly parses Damen Doppel sub-tournament 6407', async () => {
     expect(data.id).toBe(6407);
     expect(data.tournamentGroupID).toBe(5366);
     expect(data.name).toBe('Stadtmeisterschaft Mönchengladbach');
-    expect(data.date).toBe('01.03.2026');
+    expect(data.date).toEqual(new Date(2026, 2, 1));
     expect(data.place).toBe('Mönchengladbach');
     expect(data.type).toBe('Damen Doppel');
     expect(data.numberOfParticipants).toBe(7);
@@ -43,7 +43,7 @@ test('correctly parses Offenes Doppel sub-tournament 6406', async () => {
     expect(data.id).toBe(6406);
     expect(data.tournamentGroupID).toBe(5366);
     expect(data.name).toBe('Stadtmeisterschaft Mönchengladbach');
-    expect(data.date).toBe('01.03.2026');
+    expect(data.date).toEqual(new Date(2026, 2, 1));
     expect(data.place).toBe('Mönchengladbach');
     expect(data.type).toBe('Offenes Doppel');
     expect(data.numberOfParticipants).toBe(42);
@@ -58,7 +58,7 @@ test('correctly parses Offenes Doppel sub-tournament 6406', async () => {
         expect(firstPlace.competitor.player2.name).toBe('Dost, Mark');
     }
 
-    expect(data.mainRound.divisions).toHaveLength(2);
+    expect(data.mainRound.divisions).toHaveLength(3);
     const pro = data.mainRound.divisions.find((d: Division) => d.skillLevel === 'Pro');
     expect(pro).toBeDefined();
     expect(pro?.gameStages).toHaveLength(6);
@@ -86,6 +86,18 @@ test('correctly parses Offenes Doppel sub-tournament 6406', async () => {
         expect(amateurGame.competitor1.player1.name).toBe('Weiß, Fabian');
         expect(amateurGame.competitor2.type).toBe('team');
     }
+
+    const open = data.mainRound.divisions.find((d: Division) => d.skillLevel === 'Open');
+    expect(open).toBeDefined();
+    expect(open?.gameStages).toHaveLength(6);
+    expect(open?.gameStages[0].name).toBe('Sechzehntelfinale');
+    expect(open?.gameStages[0].games).toHaveLength(1);
+
+    const openGame = open?.gameStages[0].games[0];
+    if (openGame?.competitor1.type === 'team') {
+        expect(openGame.competitor1.player1.name).toBe('Schulz, Uwe');
+        expect(openGame.competitor2.type).toBe('team');
+    }
 });
 
 test('correctly parses Senioren Doppel sub-tournament 6408', async () => {
@@ -94,7 +106,7 @@ test('correctly parses Senioren Doppel sub-tournament 6408', async () => {
     expect(data.id).toBe(6408);
     expect(data.tournamentGroupID).toBe(5366);
     expect(data.name).toBe('Stadtmeisterschaft Mönchengladbach');
-    expect(data.date).toBe('01.03.2026');
+    expect(data.date).toEqual(new Date(2026, 2, 1));
     expect(data.place).toBe('Mönchengladbach');
     expect(data.type).toBe('Senioren Doppel');
     expect(data.numberOfParticipants).toBe(5);

@@ -87,7 +87,7 @@ describe('db-inserter', () => {
       tournamentGroupID: 1,
       name: 'Test Tournament',
       type: 'Offenes Doppel',
-      date: '01.01.2024',
+      date: new Date('2024-01-01'),
       place: 'Gronau',
       mainRound: {
         finalPlacements: [],

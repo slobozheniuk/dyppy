@@ -15,7 +15,7 @@ function tournamentTypeToGameType(tournamentType) {
 
 const HeroSection = ({ data }) => {
   return (
-    <section className="bg-surface-container-lowest p-8 rounded-xl shadow-sm">
+    <section className="white-card p-8">
       <div className="flex flex-col lg:flex-row gap-8 items-center lg:items-center">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-6 flex-[1.2] border-b lg:border-b-0 lg:border-r border-surface-container pb-8 lg:pb-0 lg:pr-8">
           <div className="relative shrink-0">
@@ -27,10 +27,23 @@ const HeroSection = ({ data }) => {
               <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">{data.rankingTitle}</span>
             </div>
             <h1 className="text-3xl md:text-4xl font-black font-headline text-on-surface tracking-tight mb-2">{data.name}</h1>
-            <a className="flex items-center justify-center md:justify-start gap-2 text-secondary hover:underline font-medium text-sm transition-all" href="#">
-              <span className="material-symbols-outlined text-base">stadium</span>
-              {data.arena}
-            </a>
+            <div className="flex flex-col md:flex-row gap-3">
+              <a className="group flex items-center justify-center md:justify-start gap-2 text-secondary font-medium text-sm transition-all" href="#">
+                <span className="material-symbols-outlined text-base">stadium</span>
+                <span className="group-hover:underline underline-offset-4">{data.arena}</span>
+              </a>
+              {data.nwtfvId && data.nationalNumber && (
+                <a 
+                  href={`https://nwtfv.com/spieler?task=spieler_details&id=${data.nwtfvId}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/link flex items-center justify-center md:justify-start gap-2 text-primary font-bold text-xs uppercase tracking-wider transition-all"
+                >
+                  <span className="material-symbols-outlined text-sm">open_in_new</span>
+                  <span className="group-hover/link:underline underline-offset-4">Open on NWTFV</span>
+                </a>
+              )}
+            </div>
           </div>
         </div>
 
@@ -81,7 +94,7 @@ const HeroSection = ({ data }) => {
 
 
 const MatchesSection = ({ matches }) => (
-  <div className="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+  <div className="white-card">
     <div className="p-6 flex justify-between items-center border-b border-surface-container">
       <h3 className="font-headline font-bold text-xl">Recent Matches</h3>
     </div>
@@ -97,7 +110,7 @@ const MatchesSection = ({ matches }) => (
 
 const TrendAside = ({ eloHistory }) => (
   <aside className="space-y-6">
-    <div className="bg-surface-container-lowest p-6 rounded-xl shadow-sm">
+    <div className="white-card p-6">
       <h3 className="font-headline font-bold text-lg mb-6 flex items-center gap-2">
         <span className="material-symbols-outlined text-primary">trending_up</span>
         Performance Trend
@@ -171,7 +184,7 @@ export default function PlayerPage() {
           eloHistory:EloHistory(type, eloValue, eloValueTotal, date),
           gamesAsT1P1:Game!Game_t1Player1Id_fkey(
             id, scores, createdAt, t1Player1Id, t1Player2Id, t2Player1Id, t2Player2Id,
-            tournament:Tournament(type, date, place),
+            tournament:Tournament(nwtfvId, type, date, place),
             t1Player1:Player!Game_t1Player1Id_fkey(id, name, surname, avatarUrl),
             t1Player2:Player!Game_t1Player2Id_fkey(id, name, surname, avatarUrl),
             t2Player1:Player!Game_t2Player1Id_fkey(id, name, surname, avatarUrl),
@@ -180,7 +193,7 @@ export default function PlayerPage() {
           ),
           gamesAsT1P2:Game!Game_t1Player2Id_fkey(
             id, scores, createdAt, t1Player1Id, t1Player2Id, t2Player1Id, t2Player2Id,
-            tournament:Tournament(type, date, place),
+            tournament:Tournament(nwtfvId, type, date, place),
             t1Player1:Player!Game_t1Player1Id_fkey(id, name, surname, avatarUrl),
             t1Player2:Player!Game_t1Player2Id_fkey(id, name, surname, avatarUrl),
             t2Player1:Player!Game_t2Player1Id_fkey(id, name, surname, avatarUrl),
@@ -189,7 +202,7 @@ export default function PlayerPage() {
           ),
           gamesAsT2P1:Game!Game_t2Player1Id_fkey(
             id, scores, createdAt, t1Player1Id, t1Player2Id, t2Player1Id, t2Player2Id,
-            tournament:Tournament(type, date, place),
+            tournament:Tournament(nwtfvId, type, date, place),
             t1Player1:Player!Game_t1Player1Id_fkey(id, name, surname, avatarUrl),
             t1Player2:Player!Game_t1Player2Id_fkey(id, name, surname, avatarUrl),
             t2Player1:Player!Game_t2Player1Id_fkey(id, name, surname, avatarUrl),
@@ -198,7 +211,7 @@ export default function PlayerPage() {
           ),
           gamesAsT2P2:Game!Game_t2Player2Id_fkey(
             id, scores, createdAt, t1Player1Id, t1Player2Id, t2Player1Id, t2Player2Id,
-            tournament:Tournament(type, date, place),
+            tournament:Tournament(nwtfvId, type, date, place),
             t1Player1:Player!Game_t1Player1Id_fkey(id, name, surname, avatarUrl),
             t1Player2:Player!Game_t1Player2Id_fkey(id, name, surname, avatarUrl),
             t2Player1:Player!Game_t2Player1Id_fkey(id, name, surname, avatarUrl),
@@ -314,6 +327,7 @@ export default function PlayerPage() {
 
             return {
               id: g.id,
+              tournamentNwtfvId: g.tournament?.nwtfvId,
               date: g.tournament?.date || 'N/A',
               tournamentType: g.tournament?.type || 'N/A',
               tournamentPlace: g.tournament?.place || 'N/A',
@@ -369,7 +383,7 @@ export default function PlayerPage() {
         <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary blur-[120px] rounded-full"></div>
       </div>
       <Header />
-      <main className="relative z-10 pt-24 pb-12 px-6 max-w-screen-2xl mx-auto space-y-8">
+      <main className="relative z-10 pt-24 pb-12 space-y-8 page-container">
         <HeroSection data={playerData} />
 
         <div className="asymmetric-grid">

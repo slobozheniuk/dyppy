@@ -6,7 +6,7 @@ test('correctly parses Monster DYP tournament 6450 without games', async () => {
 
     expect(data).toBeDefined();
     expect(data.id).toBe(6450);
-    expect(data.date).toBe('19.03.2026');
+    expect(data.date).toEqual(new Date(2026, 2, 19));
     expect(data.name).toBe('Mini - Challenger');
     expect(data.type).toBe('Monster DYP');
     expect(data.place).toBe('Gronau');
