@@ -18,5 +18,5 @@ test('getTournaments correctly combines data from several years', { timeout: 600
 test('getTournaments returns tournaments for current year by default', async () => {
     const data = await getTournaments({ limit: 1 });
     expect(data.length).toBeGreaterThan(0);
-    expect(data[0].date).toContain(new Date().getFullYear().toString());
+    expect(data[0].date.getFullYear()).toBe(new Date().getFullYear());
 });

@@ -5,7 +5,7 @@ test('correctly parses OD tournament 6554 with scores', async () => {
     const data = await getTournamentDetails(6554);
 
     expect(data.id).toBe(6554);
-    expect(data.date).toBe('15.03.2026');
+    expect(data.date).toEqual(new Date(2026, 2, 15));
     expect(data.name).toBe('Mini - Challenger');
     expect(data.type).toBe('Offenes Doppel');
     expect(data.place).toBe('Würselen');

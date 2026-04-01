@@ -398,7 +398,7 @@ async function main() {
             const tournament: Tournament = { id: actualId, tournamentGroupID: gid, ...details };
             newTournaments.push(tournament);
             fetched++;
-            console.log(`  [${fetched}/${toFetch.length}] ✅ ${tournament.name} ${tournament.type} — ${tournament.place} (${tournament.date})`);
+            console.log(`  [${fetched}/${toFetch.length}] ✅ ${tournament.name} ${tournament.type} — ${tournament.place} (${tournament.date.toISOString().slice(0, 10)})`);
           } catch (err) {
             console.error(`  [?/${toFetch.length}] ❌ Tournament ${actualId}:`, err instanceof Error ? err.message : err);
           }
@@ -409,13 +409,7 @@ async function main() {
 
       // Merge and save — sort chronologically within the year file
       const merged = [...existingTournaments, ...newTournaments];
-      merged.sort((a, b) => {
-        const parse = (d: string) => {
-          const [dd, mm, yyyy] = d.split('.');
-          return new Date(parseInt(yyyy), parseInt(mm) - 1, parseInt(dd)).getTime();
-        };
-        return parse(a.date) - parse(b.date);
-      });
+      merged.sort((a, b) => a.date.getTime() - b.date.getTime());
 
       writeJson(tournamentFile, merged);
       console.log(`  ✅ Saved ${merged.length} tournaments → ${path.relative(process.cwd(), tournamentFile)}`);

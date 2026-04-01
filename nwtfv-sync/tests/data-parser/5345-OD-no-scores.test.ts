@@ -7,7 +7,7 @@ test('correctly parses OD tournament 5345 without scores', async () => {
     expect(data).toBeDefined();
     // Check first item based on example-tournaments.html
     expect(data.id).toBe(5345);
-    expect(data.date).toBe('14.02.2025');
+    expect(data.date).toEqual(new Date(2025, 1, 14));
     expect(data.name).toBe('Mini - Challenger');
     expect(data.type).toBe('Offenes Doppel');
     expect(data.place).toBe('Haltern am See');

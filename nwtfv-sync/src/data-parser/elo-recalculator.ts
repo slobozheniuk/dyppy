@@ -16,7 +16,7 @@ export interface GameWithTournament {
   t2Player2Id: string | null;
   scores: any;
   tournament: {
-    date: string;
+    date: Date;
     type: string;
   };
 }
@@ -24,16 +24,8 @@ export interface GameWithTournament {
 export interface RecalculateOptions {
   prisma: PrismaClient;
   log?: boolean;
-  /** DD.MM.YYYY — when set, only recalculate ELO for games from this date onward */
-  fromDate?: string;
-}
-
-/**
- * Parses a date string in DD.MM.YYYY format into a timestamp.
- */
-export function parseDate(d: string): number {
-  const [day, month, yearStr] = d.split('.');
-  return new Date(`${yearStr}-${month}-${day}`).getTime();
+  /** When set, only recalculate ELO for games from this date onward */
+  fromDate?: Date;
 }
 
 /**
@@ -41,7 +33,7 @@ export function parseDate(d: string): number {
  */
 export function sortGamesChronologically(games: GameWithTournament[]): GameWithTournament[] {
   return [...games].sort((a, b) => {
-    const dateDiff = parseDate(a.tournament.date) - parseDate(b.tournament.date);
+    const dateDiff = a.tournament.date.getTime() - b.tournament.date.getTime();
     if (dateDiff !== 0) return dateDiff;
     return a.createdAt.getTime() - b.createdAt.getTime();
   });
@@ -65,19 +57,16 @@ export async function recalculateAllElos(options: RecalculateOptions): Promise<{
   const { prisma, log = true, fromDate } = options;
 
   if (fromDate) {
-    if (log) console.log(`📊 Partial ELO recalculation from ${fromDate}...\n`);
-
-    const cutoff = new Date(fromDate.split('.').reverse().join('-')); // DD.MM.YYYY → Date
+    if (log) console.log(`📊 Partial ELO recalculation from ${fromDate.toISOString().slice(0, 10)}...\n`);
 
     // Delete EloHistory records on/after the cutoff date
-    await prisma.eloHistory.deleteMany({ where: { date: { gte: cutoff } } });
+    await prisma.eloHistory.deleteMany({ where: { date: { gte: fromDate } } });
 
     // Fetch all games on/after the cutoff (filter by tournament date in-memory)
     const allGamesRaw = await prisma.game.findMany({
       include: { tournament: { select: { type: true, date: true } } },
     });
-    const fromDateTs = parseDate(fromDate);
-    const allGamesFromDate = allGamesRaw.filter(g => parseDate(g.tournament.date) >= fromDateTs);
+    const allGamesFromDate = allGamesRaw.filter(g => g.tournament.date.getTime() >= fromDate.getTime());
 
     // For each affected player, restore their rating from the last remaining EloHistory
     // record before the cutoff (or 1500 if none)
@@ -174,8 +163,7 @@ async function processGames({
   for (let i = 0; i < sortedGames.length; i++) {
     const game = sortedGames[i];
     try {
-      const [day, month, yearStr] = game.tournament.date.split('.');
-      const gameDate = new Date(`${yearStr}-${month}-${day}`);
+      const gameDate = game.tournament.date;
       const tournamentType = game.tournament.type;
 
       const gameType = tournamentTypeToGameType(tournamentType);
@@ -231,7 +219,7 @@ async function processGames({
       processed++;
 
       if (log && ((i + 1) % 500 === 0 || i === sortedGames.length - 1)) {
-        console.log(`   ELO progress: ${i + 1}/${sortedGames.length} — ${game.tournament.date}`);
+        console.log(`   ELO progress: ${i + 1}/${sortedGames.length} — ${game.tournament.date.toISOString().slice(0, 10)}`);
       }
     } catch (err) {
       errors++;

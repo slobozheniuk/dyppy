@@ -1,25 +1,13 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { sortGamesChronologically, parseDate, recalculateAllElos } from '../src/data-parser/elo-recalculator.js';
+import { sortGamesChronologically, recalculateAllElos } from '../src/data-parser/elo-recalculator.js';
 
 describe('elo-recalculator', () => {
-  describe('parseDate', () => {
-    it('should parse DD.MM.YYYY correctly', () => {
-      const ts = parseDate('01.02.2024');
-      const date = new Date(ts);
-      expect(date.getUTCFullYear()).toBe(2024);
-      // Note: new Date("2024-02-01") depends on local timezone, 
-      // but parseDate uses string template which should be stable.
-      expect(date.getMonth()).toBe(1); // February
-      expect(date.getDate()).toBe(1);
-    });
-  });
-
   describe('sortGamesChronologically', () => {
     it('should sort games by tournament date', () => {
       const games = [
-        { id: 'g1', tournament: { date: '02.01.2024' }, createdAt: new Date(100) },
-        { id: 'g2', tournament: { date: '01.01.2024' }, createdAt: new Date(200) },
-        { id: 'g3', tournament: { date: '01.01.2023' }, createdAt: new Date(300) },
+        { id: 'g1', tournament: { date: new Date('2024-01-02') }, createdAt: new Date(100) },
+        { id: 'g2', tournament: { date: new Date('2024-01-01') }, createdAt: new Date(200) },
+        { id: 'g3', tournament: { date: new Date('2023-01-01') }, createdAt: new Date(300) },
       ];
 
       const sorted = sortGamesChronologically(games);
@@ -30,8 +18,8 @@ describe('elo-recalculator', () => {
 
     it('should sort games by createdAt if dates are identical', () => {
       const games = [
-        { id: 'g1', tournament: { date: '01.01.2024' }, createdAt: new Date(200) },
-        { id: 'g2', tournament: { date: '01.01.2024' }, createdAt: new Date(100) },
+        { id: 'g1', tournament: { date: new Date('2024-01-01') }, createdAt: new Date(200) },
+        { id: 'g2', tournament: { date: new Date('2024-01-01') }, createdAt: new Date(100) },
       ];
 
       const sorted = sortGamesChronologically(games);
@@ -62,7 +50,7 @@ describe('elo-recalculator', () => {
           findMany: vi.fn().mockResolvedValue([
             {
               id: 'g2',
-              tournament: { type: 'Einzel', date: '02.01.2024' },
+              tournament: { type: 'Einzel', date: new Date('2024-01-02') },
               createdAt: new Date(100),
               t1Player1Id: 'p1',
               t2Player1Id: 'p2',
@@ -70,7 +58,7 @@ describe('elo-recalculator', () => {
             },
             {
               id: 'g1',
-              tournament: { type: 'Einzel', date: '01.01.2024' },
+              tournament: { type: 'Einzel', date: new Date('2024-01-01') },
               createdAt: new Date(100),
               t1Player1Id: 'p1',
               t2Player1Id: 'p2',

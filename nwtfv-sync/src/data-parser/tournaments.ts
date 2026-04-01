@@ -35,7 +35,7 @@ export type Division = {
 export type Tournament = {
   id: number;
   tournamentGroupID: number;
-  date: string;
+  date: Date;
   name: string;
   type: string;
   place: string;
@@ -107,7 +107,7 @@ export async function getTournaments({ limit, tournamentIds, year, withoutDetail
   const tasks = tournamentIdsList.map((tournamentId, i) => {
     return limitConcurrencyOuter(async () => {
       if (withoutDetails) {
-        return [{ id: tournamentId, tournamentGroupID: tournamentId, name: '', type: '', date: '', place: '', mainRound: { finalPlacements: [], divisions: [] } }];
+        return [{ id: tournamentId, tournamentGroupID: tournamentId, name: '', type: '', date: new Date(0), place: '', mainRound: { finalPlacements: [], divisions: [] } }];
       }
       console.log(`[${i + 1}/${tournamentIdsList.length}] Processing tournament series ID: ${tournamentId}...`);
       try {
@@ -140,17 +140,10 @@ export async function getTournaments({ limit, tournamentIds, year, withoutDetail
     }
   }
 
-  // Sort by date descending (DD.MM.YYYY)
+  // Sort by date descending
   tournaments.sort((a, b) => {
     if (!a.date || !b.date) return 0;
-    const parseDate = (dString: string) => {
-      const parts = dString.split('.');
-      if (parts.length === 3) {
-        return new Date(parseInt(parts[2]), parseInt(parts[1]) - 1, parseInt(parts[0])).getTime();
-      }
-      return 0;
-    };
-    return parseDate(b.date) - parseDate(a.date);
+    return b.date.getTime() - a.date.getTime();
   });
 
   return tournaments;
@@ -232,7 +225,7 @@ export function parseTournamentDetails(html: string): Omit<Tournament, 'id' | 't
   const name = tournamentTitleParts.length > 1 ? tournamentTitleParts.slice(0, -1).join(':').trim() : tournamentTitle;
 
   let place = '';
-  let date = '';
+  let date: Date | null = null;
   const tournamentInfo = $('td:contains("Meldungen")').first().text().trim();
   if (tournamentInfo) {
     const tournamentInfoParts = tournamentInfo.split(',');
@@ -244,7 +237,8 @@ export function parseTournamentDetails(html: string): Omit<Tournament, 'id' | 't
 
     const dateMatch = tournamentInfo.match(/\d{2}\.\d{2}\.\d{4}/);
     if (dateMatch) {
-      date = dateMatch[0];
+      const [dd, mm, yyyy] = dateMatch[0].split('.');
+      date = new Date(parseInt(yyyy), parseInt(mm) - 1, parseInt(dd));
     } else {
       throw new Error('Could not parse date');
     }
@@ -305,7 +299,7 @@ export function parseTournamentDetails(html: string): Omit<Tournament, 'id' | 't
 
   const tournamentDetails: Omit<Tournament, 'id' | 'tournamentGroupID'> = {
     name,
-    date,
+    date: date!,
     place,
     type,
     numberOfParticipants,

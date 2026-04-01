@@ -11,6 +11,7 @@
  *   npx tsx src/data-parser/seed-database.ts --id=123,456       # specific tournaments
  *   npx tsx src/data-parser/seed-database.ts --force            # re-seed existing
  *   npx tsx src/data-parser/seed-database.ts --skip-elo         # skip ELO recalc
+ *   npx tsx src/data-parser/seed-database.ts --clean-all        # delete all rows first
  */
 
 import fs from 'fs';
@@ -19,7 +20,7 @@ import { prisma } from '../server/prisma.js';
 import { Tournament, Round } from './tournaments.js';
 import { Player } from './players.js';
 import { createSeedContext, seedTournament, SeedContext } from './db-inserter.js';
-import { recalculateAllElos, parseDate } from './elo-recalculator.js';
+import { recalculateAllElos } from './elo-recalculator.js';
 
 // ─── CLI args ─────────────────────────────────────────────────────────────────
 
@@ -29,6 +30,7 @@ const limitArg = args.find(a => a.startsWith('--limit='))?.split('=')[1];
 const idArg = args.find(a => a.startsWith('--id='))?.split('=')[1];
 const force = args.includes('--force');
 const skipElo = args.includes('--skip-elo');
+const cleanAll = args.includes('--clean-all');
 
 const yearFilter = yearArg ? yearArg.split(',').map(y => y.trim()) : undefined;
 const limit = limitArg ? parseInt(limitArg, 10) : undefined;
@@ -73,18 +75,13 @@ function readLocalTournaments(): Tournament[] {
   let tournaments: Tournament[] = [];
   for (const file of yearFiles) {
     const arr = JSON.parse(fs.readFileSync(path.join(TOURNAMENTS_DIR, file), 'utf-8')) as Tournament[];
+    arr.forEach(t => { t.date = new Date(t.date); });
     console.log(`  📂 ${file}: ${arr.length} tournaments`);
     tournaments.push(...arr);
   }
 
   // Sort oldest-first across all years (needed for correct ELO chronology)
-  tournaments.sort((a, b) => {
-    const parse = (d: string) => {
-      const [dd, mm, yyyy] = d.split('.');
-      return new Date(parseInt(yyyy), parseInt(mm) - 1, parseInt(dd)).getTime();
-    };
-    return parse(a.date) - parse(b.date);
-  });
+  tournaments.sort((a, b) => a.date.getTime() - b.date.getTime());
 
   if (tournamentIds && tournamentIds.length > 0) {
     tournaments = tournaments.filter(t => tournamentIds.includes(t.id));
@@ -134,7 +131,23 @@ async function main() {
   console.log(`   Year:  ${yearFilter ? yearFilter.join(', ') : 'All'}`);
   console.log(`   Limit: ${limit ?? 'None'}`);
   console.log(`   IDs:   ${tournamentIds ?? 'None'}`);
-  console.log(`   Force: ${force}\n`);
+  console.log(`   Force: ${force}`);
+  console.log(`   Clean All: ${cleanAll}\n`);
+
+  // 0. Clean all tables if requested
+  if (cleanAll) {
+    console.log('🗑  --clean-all: deleting all rows from every table...');
+    await prisma.eloHistory.deleteMany({});
+    await prisma.playerRanking.deleteMany({});
+    await prisma.game.deleteMany({});
+    await prisma.placement.deleteMany({});
+    await prisma.gameStage.deleteMany({});
+    await prisma.division.deleteMany({});
+    await prisma.round.deleteMany({});
+    await prisma.tournament.deleteMany({});
+    await prisma.player.deleteMany({});
+    console.log('   All tables cleared.\n');
+  }
 
   // 1. Load local tournaments
   console.log('📂 Reading local tournament data...');
@@ -165,11 +178,11 @@ async function main() {
   let seeded = 0;
   let skipped = 0;
   let reseeded = 0;
-  const changedDates: string[] = [];
+  const changedDates: Date[] = [];
 
   for (let i = 0; i < tournaments.length; i++) {
     const t = tournaments[i];
-    console.log(`[${i + 1}/${tournaments.length}] ${t.name} ${t.type} — ${t.place} (${t.date})`);
+    console.log(`[${i + 1}/${tournaments.length}] ${t.name} ${t.type} — ${t.place} (${t.date.toISOString().slice(0, 10)})`);
     try {
       if (!force) {
         const alreadyExists = await prisma.tournament.findUnique({ where: { nwtfvId: t.id } });
@@ -202,10 +215,10 @@ async function main() {
 
   // 4. ELO recalculation
   if (!skipElo) {
-    let fromDate: string | undefined;
+    let fromDate: Date | undefined;
     if (!force && changedDates.length > 0) {
-      fromDate = changedDates.sort((a, b) => parseDate(a) - parseDate(b))[0];
-      console.log(`🔄 Partial ELO recalculation from ${fromDate} (earliest changed tournament)\n`);
+      fromDate = changedDates.sort((a, b) => a.getTime() - b.getTime())[0];
+      console.log(`🔄 Partial ELO recalculation from ${fromDate.toISOString().slice(0, 10)} (earliest changed tournament)\n`);
     }
     await recalculateAllElos({ prisma, fromDate });
   } else {

@@ -7,7 +7,7 @@ test('correctly parses Mixed tournament 6597 without scores', async () => {
 
   expect(data.id).toBe(tournamentId);
   expect(data.name).toBe('Köln Mixed März');
-  expect(data.date).toBe('07.03.2026');
+  expect(data.date).toEqual(new Date(2026, 2, 7));
   expect(data.place).toBe('Köln');
   expect(data.type).toBe('Mixed');
   expect(data.numberOfParticipants).toBe(15);
