@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { sortGamesChronologically, recalculateAllElos } from '../src/data-parser/elo-recalculator.js';
+import { sortGamesChronologically, recalculateAllElos } from '../src/upload/elo-recalculator.js';
 
 describe('elo-recalculator', () => {
   describe('sortGamesChronologically', () => {

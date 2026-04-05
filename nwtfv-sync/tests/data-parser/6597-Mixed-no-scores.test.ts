@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-import { getTournamentDetails, Division } from '../../src/data-parser/tournaments.ts';
+import { getTournamentDetails, Division } from '../../src/fetch/tournaments.ts';
 
 test('correctly parses Mixed tournament 6597 without scores', async () => {
   const tournamentId = 6597;

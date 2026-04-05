@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-import { getTournaments } from '../../src/data-parser/tournaments.ts';
+import { getTournaments } from '../../src/fetch/tournaments.ts';
 
 test('getTournaments return correct tournaments with tournamentIds and year filters', async () => {
     const data = await getTournaments({ tournamentIds: [4394], year: [2025] });

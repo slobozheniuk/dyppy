@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-import { getTournaments, getTournamentDetails, Division } from '../../src/data-parser/tournaments.ts';
+import { getTournaments, getTournamentDetails, Division } from '../../src/fetch/tournaments.ts';
 
 test('successfully parses multiple sub-tournaments for ID 5366', async () => {
     // Tournament 5366 contains 3 sub-disciplines: Damen Doppel (6407), Offenes Doppel (6406), Senioren Doppel (6408)

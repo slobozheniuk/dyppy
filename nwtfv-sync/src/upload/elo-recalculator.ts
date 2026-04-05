@@ -82,7 +82,7 @@ export async function recalculateAllElos(options: RecalculateOptions): Promise<{
     for (const playerId of affectedPlayerIds) {
       // Get last EloHistory per type before cutoff
       const lastHistories = await prisma.eloHistory.findMany({
-        where: { playerId, date: { lt: cutoff } },
+        where: { playerId, date: { lt: fromDate } },
         orderBy: { date: 'desc' },
         take: 3, // at most one per type (single/double/dyp)
       });

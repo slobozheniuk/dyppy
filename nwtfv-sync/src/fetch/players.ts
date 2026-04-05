@@ -1,3 +1,5 @@
+import { fetchPlayerJSON } from "../fetch";
+
 export type Player = {
     id: number;
     name: string;
@@ -43,12 +45,7 @@ export function parsePlayerJson(json: any): Player {
 }
 
 export async function getPlayerDetails(playerId: number): Promise<Player> {
-    const url = `https://nwtfv.com/spieler?task=spieler_details&id=${playerId}&format=json`;
-    const res = await fetch(url);
-    if (!res.ok) {
-        throw new Error(`Failed to fetch player details: ${res.statusText}`);
-    }
-    const json = await res.json() as any;
+    const json = await fetchPlayerJSON(playerId);
     return parsePlayerJson(json);
 }
 
