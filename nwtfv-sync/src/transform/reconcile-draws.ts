@@ -48,7 +48,7 @@ export function isDraw(scores: { score1: number; score2: number }[]): boolean {
 function isMatchingGame(
   playerGame: PlayerGame,
   tournament: any,
-  divisionHeading: string,
+  divisionHeadings: string[],
   stageName: string,
   side1Ids: number[],
   side2Ids: number[],
@@ -59,7 +59,7 @@ function isMatchingGame(
   }
 
   // 2. Stage match (runde_stufe ↔ division heading / broader stage)
-  if (playerGame.roundStageName !== divisionHeading) return false;
+  if (!divisionHeadings.includes(playerGame.roundStageName)) return false;
 
   // 3. Round name match   (runde ↔ gameStage.name)
   if (playerGame.roundName !== stageName) return false;
@@ -106,14 +106,15 @@ function isDoubles(game: any): boolean {
 export function patchDrawsInTournament(
   tournament: any,
   playerGamesMap: Map<number, PlayerGames>,
-  divisionLabels: Record<string, string> = DEFAULT_DIVISION_LABELS,
+  divisionLabels: Record<string, string | string[]> = DEFAULT_DIVISION_LABELS,
 ): number {
   let patched = 0;
 
   function patchRound(round: any, roundType: '1. Zusatzrunde' | '2. Zusatzrunde' | string = '') {
     if (!round) return;
     for (const division of round.divisions ?? []) {
-      const heading = divisionLabels[division.skillLevel] ?? division.skillLevel;
+      const headingSet = divisionLabels[division.skillLevel] ?? division.skillLevel;
+      const headings = Array.isArray(headingSet) ? headingSet : [headingSet];
 
       for (const stage of division.gameStages ?? []) {
         for (const game of stage.games ?? []) {
@@ -140,7 +141,7 @@ export function patchDrawsInTournament(
             for (const pg of gameList) {
               if (
                 pg.result === 'draw' &&
-                isMatchingGame(pg, tournament, heading, stage.name, side1Ids, side2Ids)
+                isMatchingGame(pg, tournament, headings, stage.name, side1Ids, side2Ids)
               ) {
                 foundDraw = true;
                 break;
@@ -178,10 +179,10 @@ export function patchDrawsInTournament(
  * player details API response. Can be overridden if tournaments use different
  * terminology.
  */
-export const DEFAULT_DIVISION_LABELS: Record<string, string> = {
+export const DEFAULT_DIVISION_LABELS: Record<string, string | string[]> = {
   'Pro': 'Hauptrunde',
   'Amateur': 'Zusatzrunde',
-  'Open': 'Vorrunde',
+  'Open': ['Vorrunde', '2. Zusatzrunde'],
 };
 
 /**
