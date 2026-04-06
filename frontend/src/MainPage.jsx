@@ -35,9 +35,9 @@ const FeatureCard = ({ feature }) => (
 export default function MainPage() {
   return (
     <div className="min-h-screen bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container pb-0 overflow-x-hidden relative">
-      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary blur-[120px] rounded-full"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary blur-[120px] rounded-full"></div>
+      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary blur-[120px] rounded-full will-change-[filter] transform-gpu"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary blur-[120px] rounded-full will-change-[filter] transform-gpu"></div>
       </div>
       <Header />
       <main className="relative z-10 pt-24">
