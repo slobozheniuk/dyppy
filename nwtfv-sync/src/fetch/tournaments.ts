@@ -204,6 +204,7 @@ export async function getTournaments({ limit, tournamentIds, year, withoutDetail
     }
   }
 
+  // Sort by date descending
   tournaments.sort((a, b) => {
     if (!a.date || !b.date) return 0;
     return b.date.getTime() - a.date.getTime();
