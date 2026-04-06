@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { ensurePlayer, seedTournament, createSeedContext, SeedContext } from '../src/data-parser/db-inserter.js';
-import { Tournament } from '../src/data-parser/tournaments.js';
+import { ensurePlayer, seedTournament, createSeedContext, SeedContext } from '../src/upload/db-inserter.js';
+import { Tournament } from '../src/fetch/tournaments.js';
 
 describe('db-inserter', () => {
   let mockPrisma: any;
@@ -61,7 +61,7 @@ describe('db-inserter', () => {
     it('should fetch and create player if not in cache or DB', async () => {
       mockPrisma.player.findUnique.mockResolvedValue(null);
       const id = await ensurePlayer(ctx, { name: 'John Doe', nwtfvId: 123 });
-      
+
       expect(id).toBe('new-player-id');
       expect(mockPrisma.player.create).toHaveBeenCalled();
       expect(ctx.playerIdCache.get(123)).toBe('new-player-id');
@@ -70,7 +70,7 @@ describe('db-inserter', () => {
     it('should create skeleton if no nwtfvId is provided', async () => {
       mockPrisma.player.findUnique.mockResolvedValue(null);
       const id = await ensurePlayer(ctx, { name: 'Unknown Player' });
-      
+
       expect(id).toBe('new-player-id');
       expect(mockPrisma.player.create).toHaveBeenCalledWith(expect.objectContaining({
         data: expect.objectContaining({
@@ -111,7 +111,7 @@ describe('db-inserter', () => {
     it('should create tournament and rounds', async () => {
       mockPrisma.tournament.findUnique.mockResolvedValue(null);
       await seedTournament(ctx, mockTournament);
-      
+
       expect(mockPrisma.tournament.create).toHaveBeenCalledWith(expect.objectContaining({
         data: expect.objectContaining({
           nwtfvId: 500,

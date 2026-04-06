@@ -1,5 +1,6 @@
 import pLimit from 'p-limit';
 import * as cheerio from 'cheerio';
+import { fetchTournamentHTML, fetchTournamentGroupHTML, fetchAvailableYears as fetchYearsMap } from '../fetch';
 
 export type SkillLevel = 'Pro' | 'Amateur' | 'Open';
 export type Player = {
@@ -49,6 +50,70 @@ export type Round = {
   divisions: Division[];
 }
 
+const TOURNAMENTS_URL = 'https://nwtfv.com/turniere?format=json';
+
+// ─── Public fetch functions ───────────────────────────────────────────────────
+
+export async function fetchAvailableYears(): Promise<string[]> {
+  const yearsMap = await fetchYearsMap();
+  const years = Object.keys(yearsMap);
+  years.sort((a, b) => parseInt(a) - parseInt(b));
+  return years;
+}
+
+export async function fetchIntermediaryIds(year: string): Promise<number[]> {
+  const yearsMap = await fetchYearsMap();
+  const saisonId = yearsMap[year];
+
+  if (!saisonId) {
+    console.warn(`  ⚠ Year ${year} not found in saison list.`);
+    return [];
+  }
+
+  const formData = new URLSearchParams();
+  formData.append('filter_saison_id', saisonId);
+  formData.append('task', 'turniere');
+
+  const filteredRes = await fetch(TOURNAMENTS_URL, {
+    method: 'POST',
+    body: formData,
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  });
+  const filteredHtml = await filteredRes.text();
+
+  const $f = cheerio.load(filteredHtml);
+  const ids: number[] = [];
+  $f('tr.sectiontableentry1, tr.sectiontableentry2').each((_, row) => {
+    const aTags = $f(row).find('a');
+    if (aTags.length < 2) return;
+    const href = $f(aTags[1]).attr('href') ?? '';
+    const match = href.match(/turnierid=(\d+)/);
+    if (match) ids.push(parseInt(match[1], 10));
+  });
+
+  return Array.from(new Set(ids));
+}
+
+export async function fetchActualIds(intermediaryId: number): Promise<number[]> {
+  const html = await fetchTournamentGroupHTML(intermediaryId);
+
+  const $ = cheerio.load(html);
+  const ids: number[] = [];
+  $('a').each((_, el) => {
+    const href = $(el).attr('href') ?? '';
+    const match = href.match(/turnierdisziplin&id=(\d+)/);
+    if (match) ids.push(parseInt(match[1], 10));
+  });
+
+  const unique = Array.from(new Set(ids));
+  if (unique.length === 0) {
+    throw new Error(`Could not parse actual tournament ids for intermediaryId ${intermediaryId}`);
+  }
+  return unique;
+}
+
+// ─── getTournaments (high-level) ──────────────────────────────────────────────
+
 export async function getTournaments({ limit, tournamentIds, year, withoutDetails }: { limit?: number, tournamentIds?: number[], year?: (number | string)[], withoutDetails?: boolean } = {}): Promise<Tournament[]> {
   const tournaments: Tournament[] = [];
   const url = `https://nwtfv.com/turniere?format=json`;
@@ -92,7 +157,6 @@ export async function getTournaments({ limit, tournamentIds, year, withoutDetail
     tournamentIdsList = [...tournamentIdsList, ...yearIds];
   }
 
-  // Remove potential duplicates and preserve order
   tournamentIdsList = Array.from(new Set(tournamentIdsList));
 
   if (tournamentIds && tournamentIds.length > 0) {
@@ -103,7 +167,8 @@ export async function getTournaments({ limit, tournamentIds, year, withoutDetail
     tournamentIdsList = tournamentIdsList.slice(0, limit);
   }
 
-  const limitConcurrencyOuter = pLimit(4); const limitConcurrencyInner = pLimit(4);
+  const limitConcurrencyOuter = pLimit(4);
+  const limitConcurrencyInner = pLimit(4);
   const tasks = tournamentIdsList.map((tournamentId, i) => {
     return limitConcurrencyOuter(async () => {
       if (withoutDetails) {
@@ -111,15 +176,15 @@ export async function getTournaments({ limit, tournamentIds, year, withoutDetail
       }
       console.log(`[${i + 1}/${tournamentIdsList.length}] Processing tournament series ID: ${tournamentId}...`);
       try {
-        const actualTournamentIds = await parseActualTournamentId(tournamentId);
+        const actualTournamentIds = await fetchActualIds(tournamentId);
         const subTasks = actualTournamentIds.map(actualTournamentId => {
           return limitConcurrencyInner(async () => {
-             try {
-               return await getTournamentDetails(actualTournamentId, tournamentId);
-             } catch (error) {
-               console.error(`  Error processing tournament ID ${actualTournamentId}:`, error instanceof Error ? error.message : error);
-               throw new Error(`  Error processing tournament ID ${actualTournamentId}: ${error instanceof Error ? error.message : error}`);
-             }
+            try {
+              return await getTournamentDetails(actualTournamentId, tournamentId);
+            } catch (error) {
+              console.error(`  Error processing tournament ID ${actualTournamentId}:`, error instanceof Error ? error.message : error);
+              throw new Error(`  Error processing tournament ID ${actualTournamentId}: ${error instanceof Error ? error.message : error}`);
+            }
           });
         });
         const subResults = await Promise.all(subTasks);
@@ -133,7 +198,6 @@ export async function getTournaments({ limit, tournamentIds, year, withoutDetail
 
   const results = await Promise.all(tasks);
 
-  // Flatten results and add to tournaments
   for (const group of results) {
     if (group) {
       tournaments.push(...group);
@@ -151,20 +215,15 @@ export async function getTournaments({ limit, tournamentIds, year, withoutDetail
 
 export async function getTournamentDetails(actualTournamentId: number, tournamentGroupID?: number): Promise<Tournament> {
   console.log(`  Fetching details for tournament ID: ${actualTournamentId}...`);
-  const detailsUrl = `https://nwtfv.com/turniere?task=turnierdisziplin&id=${actualTournamentId}&format=json`;
-  const detailsRes = await fetch(detailsUrl);
-  const detailsHtml = await detailsRes.text();
-  const tournamentDetails = parseTournamentDetails(detailsHtml);
+  const html = await fetchTournamentHTML(actualTournamentId);
+  const tournamentDetails = parseTournamentDetails(html);
   const tournament: Tournament = { id: actualTournamentId, tournamentGroupID: tournamentGroupID ?? actualTournamentId, ...tournamentDetails };
   console.log(`  Successfully parsed tournament: ${tournament.name} ${tournament.type} at ${tournament.place}, ${tournament.numberOfParticipants} participants`);
   return tournament;
 }
 
-/**
- * Parses the main tournaments list HTML
- * @param {string} html
- * @returns {number[]} List of intermediary tournament ids
- */
+// ─── Parsing functions ────────────────────────────────────────────────────────
+
 function parseIntermediaryTournamentsIds(html: string, limit?: number): number[] {
   const $ = cheerio.load(html);
   const results: number[] = [];
@@ -190,36 +249,9 @@ function parseIntermediaryTournamentsIds(html: string, limit?: number): number[]
   return results;
 }
 
-/**
- * Parses the tournament details HTML to find all sub-tournament IDs
- * @param {number} tournamentId 
- * @returns {Promise<number[]>}
- */
-async function parseActualTournamentId(tournamentId: number): Promise<number[]> {
-  const intermediaryUrl = `https://nwtfv.com/turniere?task=turnierdisziplinen&turnierid=${tournamentId}&format=json`;
-  const intermediaryRes = await fetch(intermediaryUrl);
-  const intermediaryHtml = await intermediaryRes.text();
-  const $details = cheerio.load(intermediaryHtml);
-
-  const ids: number[] = [];
-  $details('a').each((_, el) => {
-    const elHref = $details(el).attr('href') || '';
-    const match = elHref.match(/turnierdisziplin&id=(\d+)/);
-    if (match) {
-      ids.push(parseInt(match[1], 10));
-    }
-  });
-
-  if (ids.length > 0) {
-    return Array.from(new Set(ids)); // Remove duplicates if any
-  }
-  throw new Error(`Could not parse actual tournament ids for tournamentId ${tournamentId}`);
-}
-
 export function parseTournamentDetails(html: string): Omit<Tournament, 'id' | 'tournamentGroupID'> {
   const $ = cheerio.load(html);
 
-  // Extract Metadata
   const tournamentTitle = $('h2').first().text().trim();
   const tournamentTitleParts = tournamentTitle.split(':');
   const name = tournamentTitleParts.length > 1 ? tournamentTitleParts.slice(0, -1).join(':').trim() : tournamentTitle;
@@ -263,7 +295,6 @@ export function parseTournamentDetails(html: string): Omit<Tournament, 'id' | 't
   if (meldMatch) {
     numberOfParticipants = parseInt(meldMatch[1], 10);
   } else {
-    // Attempt fallback just on tds
     const tdsText = $('td').text();
     const tdsMatch = tdsText.match(/(\d+)\s*Meldungen/);
     if (tdsMatch) {
@@ -273,8 +304,6 @@ export function parseTournamentDetails(html: string): Omit<Tournament, 'id' | 't
     }
   }
 
-  // Specifically target the table that follows the "Endplatzierungen" header
-  // or fallback to the first table containing a "Platz" header
   const headingTable = $('td.contentheading:contains("Endplatzierungen")').closest('table');
   let targetTable = headingTable.length > 0 ? headingTable.next('table') : null;
 
@@ -288,7 +317,6 @@ export function parseTournamentDetails(html: string): Omit<Tournament, 'id' | 't
 
   const mainRound = parseRound($, targetTable);
 
-  // Parse qualifying round
   const vorrundeHeadingTable = $('td.contentheading:contains("Vorrunde")').closest('table');
   let vorrundeTable = vorrundeHeadingTable.length > 0 ? vorrundeHeadingTable.next('table') : null;
 
@@ -297,17 +325,15 @@ export function parseTournamentDetails(html: string): Omit<Tournament, 'id' | 't
     qualifyingRound = parseRound($, vorrundeTable);
   }
 
-  const tournamentDetails: Omit<Tournament, 'id' | 'tournamentGroupID'> = {
+  return {
     name,
     date: date!,
     place,
     type,
     numberOfParticipants,
     mainRound,
-    qualifyingRound
+    qualifyingRound,
   };
-
-  return tournamentDetails;
 }
 
 function parseRound($: cheerio.CheerioAPI, targetTable: cheerio.Cheerio<any> | null): Round {
@@ -329,18 +355,12 @@ function parseRound($: cheerio.CheerioAPI, targetTable: cheerio.Cheerio<any> | n
     if (!playersListTd.length) throw new Error('Could not find players list cell');
     const competitor = parseCompetitor($, playersListTd);
 
-    finalPlacements.push({
-      rank,
-      competitor
-    });
+    finalPlacements.push({ rank, competitor });
   }
 
   const divisions = findDivisions($, targetTable, finalPlacements);
 
-  return {
-    finalPlacements,
-    divisions
-  };
+  return { finalPlacements, divisions };
 }
 
 const DIVISION_SKILL_MAP: Record<string, SkillLevel> = {
@@ -358,30 +378,24 @@ function findDivisions($: cheerio.CheerioAPI, targetTable: cheerio.Cheerio<any> 
     const headingTd = sibling.find('td.contentheading');
 
     if (headingTd.length > 0) {
-      // Found a contentheading — check if it maps to a division skill level
       const headingText = headingTd.text().trim();
       const skillLevel = DIVISION_SKILL_MAP[headingText] ?? 'Open';
 
-
-      // Look for a game table (Gewinner/Verlierer) after this heading
       let foundGameTable = false;
       let next = sibling.next();
       while (next.length > 0) {
         if (next.is('table') && next.find('th:contains("Gewinner")').length > 0) {
           divisions.push({ skillLevel, gameStages: parseDivisionTable($, next, finalPlacements) });
-          sibling = next; // advance past the game table
+          sibling = next;
           foundGameTable = true;
           break;
         }
-        // Stop if we hit a placements table (new round) or another heading
         if (next.is('table') && next.find('th:contains("Platz")').length > 0) break;
         if (next.find('td.contentheading').length > 0) break;
         next = next.next();
       }
-      if (!foundGameTable) break; // Heading leads to a new round, stop
+      if (!foundGameTable) break;
     } else if (sibling.is('table') && sibling.find('th:contains("Gewinner")').length > 0) {
-      // Found a game table directly (e.g., after qualifying placements)
-      // Look backward from targetTable for the nearest contentheading to get the division name
       let prev = targetTable.prev();
       while (prev.length > 0) {
         const ht = prev.find('td.contentheading');
@@ -411,12 +425,9 @@ function parseDivisionTable($: cheerio.CheerioAPI, gameTable: cheerio.Cheerio<an
   for (const row of rows) {
     const $row = $(row);
 
-    // Check if this is a game stage header row
-    // Game stage headers are in: <tr class="sectiontableheader" align="center"><th><font size=-2><i>StageName</i></font></th></tr>
     if ($row.hasClass('sectiontableheader') && $row.attr('align') === 'center') {
       const stageText = $row.find('font i').text().trim();
       if (stageText) {
-        // Save previous stage if exists
         if (currentStageName !== null) {
           gameStages.push({ name: currentStageName, games: currentGames });
         }
@@ -426,19 +437,14 @@ function parseDivisionTable($: cheerio.CheerioAPI, gameTable: cheerio.Cheerio<an
       }
     }
 
-    // Check if this is a game row (sectiontableentry1 or sectiontableentry2)
     if ($row.hasClass('sectiontableentry1') || $row.hasClass('sectiontableentry2')) {
       if (currentStageName === null) continue;
 
       const tds = $row.children('td');
-      // Game rows should have at least 2 td cells (Gewinner and Verlierer)
       if (tds.length < 2) continue;
 
-      // With scores: 3 columns (Gewinner, Ergebnis, Verlierer)
-      // Without scores: 2 columns (Gewinner, Verlierer)
       const hasScores = tds.length >= 3;
       const winnerTd = $(tds[0]).find('table tr td').first();
-      // If there are 3 columns, the loser is in the 3rd column (index 2)
       const loserTd = $(tds[hasScores ? 2 : 1]).find('table tr td').first();
 
       if (!winnerTd.length || !loserTd.length) continue;
@@ -458,25 +464,14 @@ function parseDivisionTable($: cheerio.CheerioAPI, gameTable: cheerio.Cheerio<an
         scores = [{ score1: 1, score2: 0 }];
       }
 
-      const game: Game = {
-        competitor1,
-        competitor2,
-        scores
-      };
-
-      currentGames.push(game);
+      currentGames.push({ competitor1, competitor2, scores });
     }
   }
 
-  // Don't forget last stage
   if (currentStageName !== null) {
     gameStages.push({ name: currentStageName, games: currentGames });
   }
 
-  // The stages are parsed in reverse order (Finale first in HTML, but test expects 
-  // chronological order: Achtelfinale, Viertelfinale, etc.)
-  // Actually looking at the test: stages[0] = 'Achtelfinale', stages[4] = 'Finale'
-  // But in HTML: Finale comes first. So we need to reverse.
   gameStages.reverse();
 
   return gameStages;
@@ -510,7 +505,6 @@ function parseCompetitor($: cheerio.CheerioAPI, playersListTd: cheerio.Cheerio<a
       throw new Error('Could not parse player name');
     }
 
-    // If no nwtfvId from link, try to find it from finalPlacements by name
     if (nwtfvId === undefined && finalPlacements) {
       for (const placement of finalPlacements) {
         if (placement.competitor.type === 'player' && placement.competitor.player.name === name) {
@@ -544,15 +538,8 @@ function parseCompetitor($: cheerio.CheerioAPI, playersListTd: cheerio.Cheerio<a
   }
 
   if (parsedPlayers.length >= 2) {
-    return {
-      type: 'team',
-      player1: parsedPlayers[0],
-      player2: parsedPlayers[1]
-    };
+    return { type: 'team', player1: parsedPlayers[0], player2: parsedPlayers[1] };
   }
 
-  return {
-    type: 'player',
-    player: parsedPlayers[0]
-  };
+  return { type: 'player', player: parsedPlayers[0] };
 }

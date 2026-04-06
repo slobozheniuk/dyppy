@@ -14,7 +14,9 @@ This document provides a comprehensive overview of the **Dyppy** foosball tourna
 2. `cd nwtfv-sync && npm install`
 3. `npm run db:push` — sync the Prisma schema to Supabase.
 4. `npm run db:generate` — regenerate the Prisma client.
-5. `npm run db:seed -- --force --limit=10` — ingest tournament data and calculate ELO ratings.
+5. `npm run data:update` — fetches fresh data from NWTFV, cross-matches draws, and updates DB.
+   - Use `--force` to re-download all existing data.
+   - Use `--skip-elo` to skip ELO recalculation.
 
 ---
 
@@ -60,18 +62,12 @@ VITE_SUPABASE_ANON_KEY=<anon-key>
 
 Standalone Node.js module that scrapes nwtfv.com, parses tournaments, and uploads data to Supabase via Prisma.
 
-- **`src/data-parser/tournaments.ts`**: Scrapes and parses HTML from nwtfv.com.
-- **`src/data-parser/players.ts`**: Fetches player details from the NWTFV JSON API.
-- **`src/data-parser/seed-database.ts`**: Main CLI entry point — populates the database and runs the ELO recalculation pass.
-- **`src/data-parser/db-inserter.ts`**: Core database insertion logic for players, tournaments, and rounds.
-- **`src/data-parser/elo-recalculator.ts`**: Batch-recalculates all ELO ratings from scratch.
-- **`src/data-parser/seed-utils.ts`**: Shared utilities (e.g. hashed player IDs).
-- **`src/server/elo-calculator.ts`**: Pure math module for ELO ratings (1v1, 2v2, DYP).
-- **`src/server/elo-transaction.ts`**: Atomic database operations for game creation and rating updates.
-- **`src/server/prisma.ts`**: Prisma client initialisation (PostgreSQL via PgBouncer).
-- **`src/server/benchmark-elo.ts`**: Performance benchmarking utilities.
-- **`scripts/admin-writer.js`**: Standalone Node script for admin writes using the service role key (bypasses RLS).
-- **`tests/`**: Full Vitest suite — 54 tests covering ELO math, parsing, and DB insertion.
+- **`src/fetch/`**: Logic for fetching HTML/JSON from nwtfv.com.
+- **`src/transform/`**: Parsing/cleaning logic, name reconciliation, and draw detection.
+- **`src/upload/`**: Database insertion and ELO recalculation logic.
+- **`src/workflow/`**: Orchestration of the full data sync pipeline (Step-by-step: Download -> Patch -> Reconcile -> Upload).
+- **`src/server/`**: Pure math/logic for ELO and Prisma client setup.
+- **`tests/`**: Full Vitest suite covering parsing, ELO math, and DB logic.
 - **`prisma/schema.prisma`**: Shared database schema.
 
 #### Environment (`nwtfv-sync/.env`)
@@ -85,8 +81,8 @@ SUPABASE_SERVICE_ROLE_KEY=<service-role-key>
 #### Scripts (`nwtfv-sync/`)
 | Script | Command | Description |
 |--------|---------|-------------|
-| `npm run test` | `vitest` | Runs the full Vitest suite (54 tests). |
-| `npm run db:seed` | `tsx src/data-parser/seed-database.ts` | Seeds DB from NWTFV. Supports `--force`, `--limit=N`, `--skip-elo`. |
+| `npm run test` | `vitest` | Runs the full Vitest suite (93 tests). |
+| `npm run data:update` | `tsx src/workflow/cli-update.ts` | Main sync: Fetch -> DrawPatch -> Reconcile -> DB Upload. |
 | `npm run db:push` | `prisma db push` | Syncs the Prisma schema to Supabase. |
 | `npm run db:generate` | `prisma generate` | Regenerates the Prisma client. |
 | `npm run db:studio` | `prisma studio` | Opens Prisma Studio GUI. |

@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-import { getPlayerDetails } from '../../src/data-parser/players.ts';
+import { getPlayerDetails } from '../../src/fetch/players.ts';
 
 test('correctly parses player 385 (Dieter Schürmann)', async () => {
     const player = await getPlayerDetails(385);

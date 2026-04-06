@@ -1,13 +1,13 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { sortGamesChronologically, recalculateAllElos } from '../src/data-parser/elo-recalculator.js';
+import { sortGamesChronologically, recalculateAllElos } from '../src/upload/elo-recalculator.js';
 
 describe('elo-recalculator', () => {
   describe('sortGamesChronologically', () => {
     it('should sort games by tournament date', () => {
-      const games = [
-        { id: 'g1', tournament: { date: new Date('2024-01-02') }, createdAt: new Date(100) },
-        { id: 'g2', tournament: { date: new Date('2024-01-01') }, createdAt: new Date(200) },
-        { id: 'g3', tournament: { date: new Date('2023-01-01') }, createdAt: new Date(300) },
+      const games: any[] = [
+        { id: 'g1', tournament: { date: new Date('2024-01-02'), type: 'Einzel' }, createdAt: new Date(100), t1Player1Id: 'p1', t1Player2Id: null, t2Player1Id: 'p2', t2Player2Id: null, scores: [] },
+        { id: 'g2', tournament: { date: new Date('2024-01-01'), type: 'Einzel' }, createdAt: new Date(200), t1Player1Id: 'p1', t1Player2Id: null, t2Player1Id: 'p2', t2Player2Id: null, scores: [] },
+        { id: 'g3', tournament: { date: new Date('2023-01-01'), type: 'Einzel' }, createdAt: new Date(300), t1Player1Id: 'p1', t1Player2Id: null, t2Player1Id: 'p2', t2Player2Id: null, scores: [] },
       ];
 
       const sorted = sortGamesChronologically(games);
@@ -17,9 +17,9 @@ describe('elo-recalculator', () => {
     });
 
     it('should sort games by createdAt if dates are identical', () => {
-      const games = [
-        { id: 'g1', tournament: { date: new Date('2024-01-01') }, createdAt: new Date(200) },
-        { id: 'g2', tournament: { date: new Date('2024-01-01') }, createdAt: new Date(100) },
+      const games: any[] = [
+        { id: 'g1', tournament: { date: new Date('2024-01-01'), type: 'Einzel' }, createdAt: new Date(200), t1Player1Id: 'p1', t1Player2Id: null, t2Player1Id: 'p2', t2Player2Id: null, scores: [] },
+        { id: 'g2', tournament: { date: new Date('2024-01-01'), type: 'Einzel' }, createdAt: new Date(100), t1Player1Id: 'p1', t1Player2Id: null, t2Player1Id: 'p2', t2Player2Id: null, scores: [] },
       ];
 
       const sorted = sortGamesChronologically(games);

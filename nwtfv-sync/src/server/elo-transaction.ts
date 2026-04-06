@@ -22,6 +22,7 @@ import {
   type MatchResult,
   DEFAULT_ELO,
 } from './elo-calculator.js';
+import { isDraw } from '../transform/reconcile-draws.js';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -105,9 +106,14 @@ export async function updateEloForExistingGame(input: EloGameInput, client: Pris
 
 // ─── Core ELO Processing (runs inside a transaction) ──────────────────────────
 
-async function processGameElo(tx: Prisma.TransactionClient, input: EloGameInput): Promise<MatchResult> {
+async function processGameElo(tx: Prisma.TransactionClient, input: EloGameInput): Promise<MatchResult | null> {
   const gameType = tournamentTypeToGameType(input.tournamentType);
   const eloType: EloType = gameTypeToEloType(gameType);
+
+  // Draw sentinel: no ELO changes for either team.
+  if (isDraw(input.scores)) {
+    return null;
+  }
 
   // Determine winner
   const t1Wins = input.scores.filter(s => s.score1 > s.score2).length;
