@@ -8,6 +8,12 @@ const args = process.argv.slice(2);
 const force = args.includes('--force');
 const skipElo = args.includes('--skip-elo');
 
+let year: string | undefined = undefined;
+const yearIdx = args.indexOf('--year');
+if (yearIdx !== -1 && args[yearIdx + 1]) {
+  year = args[yearIdx + 1];
+}
+
 async function main() {
   console.log('\n🚀 Starting Full Data Update');
   
@@ -17,6 +23,7 @@ async function main() {
   const result = await runDataUpdate({
     prisma,
     dataPaths,
+    year,
     force,
     skipElo,
     log: true

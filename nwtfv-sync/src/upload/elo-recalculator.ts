@@ -6,6 +6,7 @@ import {
   type PlayerRatings,
   type PlayerWithRatings
 } from '../server/elo-calculator.js';
+import { isDraw } from '../transform/reconcile-draws.js';
 
 export interface GameWithTournament {
   id: string;
@@ -171,6 +172,10 @@ async function processGames({
 
       // Determine winner
       const scores = game.scores as { score1: number; score2: number }[];
+
+      // Skip draw-sentinel games — no ELO change for either player.
+      if (isDraw(scores)) { processed++; continue; }
+
       const t1Wins = scores.filter(s => s.score1 > s.score2).length;
       const t2Wins = scores.filter(s => s.score2 > s.score1).length;
       const team1Won = t1Wins > t2Wins;

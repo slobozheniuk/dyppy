@@ -1,8 +1,9 @@
 import { PrismaClient } from '../generated/prisma/client.js';
 import { DataPaths, getLastLocalUpdateDate, listTournamentYearFiles, readTournamentYear, writeTournamentYear, readJsonFile, writeJsonFile, readRawFile, writeRawFile, rawTournamentDetailPath, rawPlayerPath, readUnregisteredPlayers, writeUnregisteredPlayers } from '../transform/local-store.js';
 import { fetchAvailableYears, fetchIntermediaryIds, fetchActualIds, parseTournamentDetails, Tournament } from '../fetch/tournaments.js';
-import { parsePlayerJson, Player } from '../fetch/players.js';
+import { parsePlayerJson, parsePlayerGames, Player } from '../fetch/players.js';
 import { buildRegisteredNameLookup, patchTournamentCompetitors, collectPlayerData, UnregisteredPlayer, splitName } from '../transform/reconcile.js';
+import { patchDrawsInTournament, buildPlayerGamesMap } from '../transform/reconcile-draws.js';
 import { createSeedContext, seedTournament } from '../upload/db-inserter.js';
 import { recalculateAllElos } from '../upload/elo-recalculator.js';
 import pLimit from 'p-limit';
@@ -13,6 +14,7 @@ import { fetchPlayerJSON, fetchTournamentHTML } from '../fetch.js';
 export interface UpdateOptions {
   prisma: PrismaClient;
   dataPaths: DataPaths;
+  year?: string;
   force?: boolean;
   skipElo?: boolean;
   log?: boolean;
@@ -24,6 +26,7 @@ export interface UpdateResult {
   tournamentsUpserted: number;
   playersDownloaded: number;
   referencesPatched: number;
+  gamesPatched: number;
   eloFromDate: Date | undefined;
 }
 
@@ -49,12 +52,20 @@ export async function getLastUpdateDate(opts: { dataPaths: DataPaths; prisma: Pr
   return localDate < dbDate ? localDate : dbDate;
 }
 
-// Step 1.2 — download tournaments from cutoffDate onward
-export async function downloadTournamentsFromDate(opts: { dataPaths: DataPaths; cutoffDate: Date | null; force?: boolean; log?: boolean }): Promise<{ yearsProcessed: string[]; tournamentsDownloaded: number }> {
+// Step 1.2 — download tournaments from cutoffDate onward (or for a specific targetYear)
+export async function downloadTournamentsFromDate(opts: { dataPaths: DataPaths; cutoffDate: Date | null; targetYear?: string; force?: boolean; log?: boolean }): Promise<{ yearsProcessed: string[]; tournamentsDownloaded: number; newTournamentIds: number[] }> {
   let fetched = 0;
+  const newTournamentIds: number[] = [];
   const years = await fetchAvailableYears();
-  const cutoffYear = opts.cutoffDate ? opts.cutoffDate.getFullYear().toString() : '2000';
-  const yearsToProcess = years.filter(y => parseInt(y) >= parseInt(cutoffYear));
+
+  let yearsToProcess: string[];
+  if (opts.targetYear) {
+    yearsToProcess = years.filter(y => y === opts.targetYear);
+    if (yearsToProcess.length === 0 && opts.log) console.warn(`[Tournaments] targetYear ${opts.targetYear} not found in available years.`);
+  } else {
+    const cutoffYear = opts.cutoffDate ? opts.cutoffDate.getFullYear().toString() : '2000';
+    yearsToProcess = years.filter(y => parseInt(y) >= parseInt(cutoffYear));
+  }
 
   for (const year of yearsToProcess) {
     if (opts.log) console.log(`[Tournaments] Processing year ${year}...`);
@@ -89,6 +100,7 @@ export async function downloadTournamentsFromDate(opts: { dataPaths: DataPaths; 
           const details = parseTournamentDetails(html);
           if (opts.cutoffDate && new Date(details.date) < opts.cutoffDate && !opts.force) return;
           newTournaments.push({ id: actualId, tournamentGroupID: gid, ...details });
+          newTournamentIds.push(actualId);
           fetched++;
           if (opts.log) console.log(`Downloaded tournament: ${details.name}`);
         } catch (err) {
@@ -103,11 +115,59 @@ export async function downloadTournamentsFromDate(opts: { dataPaths: DataPaths; 
     }
   }
 
-  return { yearsProcessed: yearsToProcess, tournamentsDownloaded: fetched };
+  return { yearsProcessed: yearsToProcess, tournamentsDownloaded: fetched, newTournamentIds };
 }
 
-// Step 1.3 — refresh player files for players appearing in matches since fromDate
-export async function downloadPlayersForDateRange(opts: { dataPaths: DataPaths; fromDate: Date | null; force?: boolean; log?: boolean }): Promise<{ playersDownloaded: number }> {
+// Step 1.3b — cross-match player game history to correct draw results
+export async function patchNewTournamentDraws(opts: { dataPaths: DataPaths; newTournamentIds: number[]; log?: boolean }): Promise<{ gamesPatched: number }> {
+  if (opts.newTournamentIds.length === 0) return { gamesPatched: 0 };
+
+  // Collect all registered player IDs from the new tournaments across all year files
+  const allPlayerIds = new Set<number>();
+  const newIdSet = new Set(opts.newTournamentIds);
+
+  for (const year of listTournamentYearFiles(opts.dataPaths)) {
+    const tList = readTournamentYear(opts.dataPaths, year) ?? [];
+    for (const t of tList) {
+      if (!newIdSet.has(t.id)) continue;
+      const { registeredNames } = collectPlayerData(t);
+      for (const id of registeredNames.keys()) allPlayerIds.add(id);
+    }
+  }
+
+  if (allPlayerIds.size === 0) return { gamesPatched: 0 };
+  if (opts.log) console.log(`[DrawPatch] Cross-matching draws for ${allPlayerIds.size} players in ${opts.newTournamentIds.length} new tournaments...`);
+
+  // Read saved raw player JSONs (written in step 1.3) and parse game histories
+  const rawJsons: any[] = [];
+  for (const playerId of allPlayerIds) {
+    const rawFile = rawPlayerPath(opts.dataPaths, playerId);
+    const rawText = readRawFile(rawFile);
+    if (rawText) {
+      try { rawJsons.push(JSON.parse(rawText)); } catch { /* ignore */ }
+    }
+  }
+
+  const playerGamesMap = buildPlayerGamesMap(rawJsons);
+
+  // Patch each new tournament and write back if changed
+  let totalPatched = 0;
+  for (const year of listTournamentYearFiles(opts.dataPaths)) {
+    const tList = readTournamentYear(opts.dataPaths, year) ?? [];
+    let fileChanged = false;
+    for (const t of tList) {
+      if (!newIdSet.has(t.id)) continue;
+      const patched = patchDrawsInTournament(t, playerGamesMap);
+      if (patched > 0) { totalPatched += patched; fileChanged = true; }
+    }
+    if (fileChanged) writeTournamentYear(opts.dataPaths, year, tList);
+  }
+
+  if (opts.log && totalPatched > 0) console.log(`[DrawPatch] Patched ${totalPatched} draw(s) across ${opts.newTournamentIds.length} tournament(s).`);
+  return { gamesPatched: totalPatched };
+}
+
+export async function downloadPlayersForDateRange(opts: { dataPaths: DataPaths; fromDate: Date | null; targetYear?: string; force?: boolean; log?: boolean }): Promise<{ playersDownloaded: number }> {
   let playersDownloaded = 0;
   // Collect players to check
   const allRegisteredNames = new Map<number, string>();
@@ -115,9 +175,10 @@ export async function downloadPlayersForDateRange(opts: { dataPaths: DataPaths; 
   const yearsFiles = listTournamentYearFiles(opts.dataPaths);
 
   for (const year of yearsFiles) {
+    if (opts.targetYear && year.replace('.json', '') !== opts.targetYear) continue;
     const tList = readTournamentYear(opts.dataPaths, year) ?? [];
     for (const t of tList) {
-      if (!opts.force && opts.fromDate && new Date(t.date) < opts.fromDate) continue; // Skip ones strictly before if not forcing
+      if (!opts.force && !opts.targetYear && opts.fromDate && new Date(t.date) < opts.fromDate) continue; // Skip ones strictly before if not forcing and no target year
       const { registeredNames, unregistered } = collectPlayerData(t);
       for (const [id, name] of registeredNames) allRegisteredNames.set(id, name);
       for (const u of unregistered) allUnregistered.set(u.name + ' ' + u.surname, u);
@@ -189,7 +250,7 @@ function countGamesInTournament(t: any): number {
 }
 
 // Step 1.5 — upsert to DB + ELO recalculation from earliest changed date
-export async function uploadAndRecalculate(opts: { dataPaths: DataPaths; prisma: PrismaClient; fromDate?: Date | null; force?: boolean; skipElo?: boolean; log?: boolean }): Promise<{ tournamentsUpserted: number; eloFromDate: Date | undefined }> {
+export async function uploadAndRecalculate(opts: { dataPaths: DataPaths; prisma: PrismaClient; fromDate?: Date | null; targetYear?: string; force?: boolean; skipElo?: boolean; log?: boolean }): Promise<{ tournamentsUpserted: number; eloFromDate: Date | undefined }> {
   const yearFiles = listTournamentYearFiles(opts.dataPaths);
   const changedDates: Date[] = [];
   let upserted = 0;
@@ -205,10 +266,13 @@ export async function uploadAndRecalculate(opts: { dataPaths: DataPaths; prisma:
   });
 
   for (const year of yearFiles) {
+    const yearStr = year.replace('.json', '');
+    if (opts.targetYear && yearStr !== opts.targetYear) continue;
+
     const tournaments = readTournamentYear(opts.dataPaths, year) ?? [];
     for (const raw of tournaments) {
       const tDate = new Date(raw.date);
-      if (opts.fromDate && !opts.force && tDate < opts.fromDate) continue;
+      if (opts.fromDate && !opts.force && !opts.targetYear && tDate < opts.fromDate) continue;
 
       const t = { ...raw, date: tDate } as Tournament;
 
@@ -234,7 +298,7 @@ export async function uploadAndRecalculate(opts: { dataPaths: DataPaths; prisma:
 
   let eloFromDate: Date | undefined = undefined;
   if (!opts.skipElo) {
-    if (!opts.force && changedDates.length > 0) {
+    if ((!opts.force || opts.targetYear) && changedDates.length > 0) {
       eloFromDate = changedDates.sort((a, b) => a.getTime() - b.getTime())[0];
     }
     await recalculateAllElos({ prisma: opts.prisma, fromDate: eloFromDate, log: opts.log });
@@ -245,13 +309,17 @@ export async function uploadAndRecalculate(opts: { dataPaths: DataPaths; prisma:
 
 // Main: composes steps 1.1–1.5
 export async function runDataUpdate(opts: UpdateOptions): Promise<UpdateResult> {
-  const cutoffDate = opts.force ? null : await getLastUpdateDate({ dataPaths: opts.dataPaths, prisma: opts.prisma, log: opts.log });
+  const cutoffDate = (opts.force || opts.year) ? null : await getLastUpdateDate({ dataPaths: opts.dataPaths, prisma: opts.prisma, log: opts.log });
 
-  if (opts.log) console.log(`Starting Data Update. Cutoff: ${cutoffDate ? cutoffDate.toISOString().slice(0, 10) : 'Full sync'}`);
+  if (opts.log) {
+    if (opts.year) console.log(`Starting Data Update for year ${opts.year}.`);
+    else console.log(`Starting Data Update. Cutoff: ${cutoffDate ? cutoffDate.toISOString().slice(0, 10) : 'Full sync'}`);
+  }
 
-  const { yearsProcessed, tournamentsDownloaded } = await downloadTournamentsFromDate({
+  const { yearsProcessed, tournamentsDownloaded, newTournamentIds } = await downloadTournamentsFromDate({
     dataPaths: opts.dataPaths,
     cutoffDate,
+    targetYear: opts.year,
     force: opts.force,
     log: opts.log
   });
@@ -259,7 +327,15 @@ export async function runDataUpdate(opts: UpdateOptions): Promise<UpdateResult> 
   const { playersDownloaded } = await downloadPlayersForDateRange({
     dataPaths: opts.dataPaths,
     fromDate: cutoffDate,
+    targetYear: opts.year,
     force: opts.force,
+    log: opts.log
+  });
+
+  // Step 1.3b: cross-match player game history to correct draws (uses raw player files from step 1.3)
+  const { gamesPatched } = await patchNewTournamentDraws({
+    dataPaths: opts.dataPaths,
+    newTournamentIds,
     log: opts.log
   });
 
@@ -272,6 +348,7 @@ export async function runDataUpdate(opts: UpdateOptions): Promise<UpdateResult> 
     dataPaths: opts.dataPaths,
     prisma: opts.prisma,
     fromDate: cutoffDate,
+    targetYear: opts.year,
     force: opts.force,
     skipElo: opts.skipElo,
     log: opts.log
@@ -282,6 +359,7 @@ export async function runDataUpdate(opts: UpdateOptions): Promise<UpdateResult> 
     tournamentsDownloaded,
     playersDownloaded,
     referencesPatched,
+    gamesPatched,
     tournamentsUpserted,
     eloFromDate
   };
